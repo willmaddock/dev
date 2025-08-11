@@ -1,0 +1,26 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Hugo build artifacts
+/public/
+/resources/_gen/
+/hugo_stats.json
+
+# Temporary files
+*.log
+*.bak
+*.swp
+*.tmp
+
+# Node dependencies (if using npm for tailwind, etc.)
+node_modules/
+
+# Optional: local config overrides
+config.local.toml
+config.development.toml
+
+# Optional: VS Code and IDE files
+.vscode/
+.idea/
+*.code-workspace
