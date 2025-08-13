@@ -69,11 +69,6 @@ As the founder and lead developer, I designed and implemented this Rails-based a
 
 📄 **Project Documentation**:  
 <a href="../../Proposal.pdf" target="_blank" rel="noopener noreferrer">Proposal</a> •
-<a href="../../Final Project Exploration Approval.pdf" target="_blank" rel="noopener noreferrer">Approval</a> •
-<a href="../../Customer%20Requirements%20Report.pdf" target="_blank" rel="noopener noreferrer">Requirements Report</a> •
-<a href="../../Wills Final Project Sprint 01.pdf" target="_blank" rel="noopener noreferrer">Sprint01</a> •
-<a href="../../Final_Project_Sprint02_Presentation.pdf" target="_blank" rel="noopener noreferrer">Sprint02</a> •
-<a href="../../Final_Project_Presentation.pdf" target="_blank" rel="noopener noreferrer">Final Presentation</a> 
 
 ---
 
