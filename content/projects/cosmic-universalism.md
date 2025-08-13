@@ -7,7 +7,7 @@ tags: ["AI ethics", "cloud architecture", "Rust", "Kubernetes", "AWS Educate"]
 linkTitle: "Cosmic Universalism"
 menu:
   projects:
-    weight: 1
+    weight: 3
 ---
 
 <p style="text-align:center;">
