@@ -1,4 +1,4 @@
----
++++
 date = '2025-08-13T03:44:17-06:00'
 draft = false
 title = 'Secure Access Management System'
@@ -7,17 +7,19 @@ tags = ["ruby-on-rails", "web-development", "rbac", "security", "accessibility"]
 linkTitle = 'Secure Access Management'
 [menu.projects]
 weight = 1
----
++++
 
 <p style="text-align:center;">
-  <img src="../../img/secure-access.png" alt="Secure Access Management System" style="width:100%; max-width:800px;" />
+  <img src="../../img/secure-access.png" alt="Secure Access Management System" style="width:200%; max-width:800px;" />
 </p>
 
-As the founder and lead developer, I designed and implemented this Rails-based application to provide **role-based access control (RBAC)**, **security clearance management**, and an **accessibility-focused user experience**. Built with agile methods, it supports organizational roles such as Shipping Agents and Logistics Managers.
+As the founder and lead developer, I designed and implemented this Rails-based application to provide **role-based access control (RBAC)**, **security clearance management**, and an **accessibility-focused user experience**.
 
-👉 [**View Live Application**](https://final-project-jk9d.onrender.com)  
-👉 [**View GitHub Repository**](https://github.com/willmaddock/final-project)  
-▶️ [**Project Presentation Video**](https://www.youtube.com/watch?v=8h-CNthscBM)
+👉 <a href="https://final-project-jk9d.onrender.com" target="_blank" rel="noopener noreferrer"><strong>View Live Application Website</strong></a> — <a href="https://final-project-jk9d.onrender.com" target="_blank" rel="noopener noreferrer">https://final-project-jk9d.onrender.com</a>
+
+👉 <a href="https://github.com/willmaddock/final-project/tree/SprintDeployment" target="_blank" rel="noopener noreferrer"><strong>View GitHub Repository</strong></a> — <a href="https://github.com/willmaddock/final-project/tree/SprintDeployment" target="_blank" rel="noopener noreferrer">https://github.com/willmaddock/final-project/tree/SprintDeployment</a>
+
+▶️ <a href="https://www.youtube.com/watch?v=8h-CNthscBM" target="_blank" rel="noopener noreferrer"><strong>Project Presentation Video</strong></a> — <a href="https://www.youtube.com/watch?v=8h-CNthscBM" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=8h-CNthscBM</a>
 
 ---
 
@@ -65,9 +67,9 @@ As the founder and lead developer, I designed and implemented this Rails-based a
 - Comprehensive test coverage (97% model coverage)
 
 📄 **Project Documentation**:  
-[Proposal](/Proposal.pdf) •
-[Requirements Report](/Customer%20Requirements%20Report.pdf) •
-[Final Presentation](/Final_Project_Presentation.pdf)
+<a href="../../Proposal.pdf" target="_blank" rel="noopener noreferrer">Proposal</a> •
+<a href="../../Customer%20Requirements%20Report.pdf" target="_blank" rel="noopener noreferrer">Requirements Report</a> •
+<a href="../../Final_Project_Presentation.pdf" target="_blank" rel="noopener noreferrer">Final Presentation</a>
 
 ---
 
@@ -144,15 +146,17 @@ graph TD
 - Sprint 02: RBAC implementation, UI enhancements
 - Progress Report
 - Sprint 03: Accessibility features, deployment prep
-- Final Presentation
+- Sprint 04: Final Presentation, Deployed via Render
 
-# 📚 Resources
+### 📚 Resources
 
-- MDN Web Docs
-- Ruby on Rails Guides
-- GOV.UK Accessibility Blog
-- Render Deployment Docs
-- This project was developed for educational purposes.
+<a href="https://developer.mozilla.org" target="_blank" rel="noopener noreferrer">MDN Web Docs</a>  
+<a href="https://guides.rubyonrails.org" target="_blank" rel="noopener noreferrer">Ruby on Rails Guides</a>  
+<a href="https://accessibility.blog.gov.uk" target="_blank" rel="noopener noreferrer">GOV.UK Accessibility Blog</a>  
+<a href="https://render.com/docs" target="_blank" rel="noopener noreferrer">Render Deployment Docs</a>
+
+This project was developed for educational purposes.
+
 
 *© 2025 William Maddock - All Rights Reserved*
 
