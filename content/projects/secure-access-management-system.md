@@ -1,4 +1,4 @@
-+++
+---
 date = '2025-08-13T03:44:17-06:00'
 draft = false
 title = 'Secure Access Management System'
@@ -7,7 +7,7 @@ tags = ["ruby-on-rails", "web-development", "rbac", "security", "accessibility"]
 linkTitle = 'Secure Access Management'
 [menu.projects]
 weight = 1
-+++
+---
 
 <p style="text-align:center;">
   <img src="../../img/secure-access.png" alt="Secure Access Management System" style="width:100%; max-width:800px;" />
