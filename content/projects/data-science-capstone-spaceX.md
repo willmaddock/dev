@@ -7,7 +7,7 @@ tags: ["data science", "SpaceX", "Python", "machine learning", "Coursera", "IBM"
 linkTitle: "SpaceX Capstone"
 menu:
   projects:
-    weight: 1
+    weight: 3
 ---
 
 <p style="text-align:center;">

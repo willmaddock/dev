@@ -7,7 +7,7 @@ tags: ["ruby-on-rails", "web-development", "rbac", "security", "accessibility"]
 linkTitle: "Secure Access Management"
 menu:
   projects:
-    weight: 1
+    weight: 2
 ---
 
 <p style="text-align:center;">
