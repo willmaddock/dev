@@ -1,13 +1,14 @@
-+++
-date = '2025-08-13T03:44:17-06:00'
-draft = false
-title = 'Secure Access Management System'
-description = 'Rails-based web application implementing secure role-based access control, clearance management, and accessibility-first design.'
-tags = ["ruby-on-rails", "web-development", "rbac", "security", "accessibility"]
-linkTitle = 'Secure Access Management'
-[menu.projects]
-weight = 1
-+++
+---
+title: "Secure Access Management System"
+date: "2025-08-13T03:44:17-06:00"
+draft: false
+description: "Rails-based web application implementing secure role-based access control, clearance management, and accessibility-first design."
+tags: ["ruby-on-rails", "web-development", "rbac", "security", "accessibility"]
+linkTitle: "Secure Access Management"
+menu:
+  projects:
+    weight: 1
+---
 
 <p style="text-align:center;">
   <img src="../../img/secure-access.png" alt="Secure Access Management System" style="width:200%; max-width:800px;" />
