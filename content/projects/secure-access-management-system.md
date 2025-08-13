@@ -1,14 +1,8 @@
----
-title: "Secure Access Management System"
-date: 2025-08-13
-draft: false
-description: "Rails-based web application implementing secure role-based access control, clearance management, and accessibility-first design."
-tags: ["ruby-on-rails", "web-development", "rbac", "security", "accessibility"]
-linkTitle: "Secure Access Management"
-menu:
-  projects:
-    weight: 2
----
++++
+date = '2025-08-13T08:47:28-06:00'
+draft = true
+title = 'Secure Access Management System'
++++
 
 <p style="text-align:center;">
   <img src="../../img/secure.png" alt="Secure Access Management System" style="width:200%; max-width:800px;" />
@@ -73,7 +67,7 @@ As the founder and lead developer, I designed and implemented this Rails-based a
 <a href="../../Customer%20Requirements%20Report.pdf" target="_blank" rel="noopener noreferrer">Requirements Report</a> •
 <a href="../../Wills Final Project Sprint 01.pdf" target="_blank" rel="noopener noreferrer">Sprint01</a> •
 <a href="../../Final_Project_Sprint02_Presentation.pdf" target="_blank" rel="noopener noreferrer">Sprint02</a> •
-<a href="../../Final_Project_Presentation.pdf" target="_blank" rel="noopener noreferrer">Final Presentation</a> 
+<a href="../../Final_Project_Presentation.pdf" target="_blank" rel="noopener noreferrer">Final Presentation</a>
 
 ---
 
@@ -163,4 +157,3 @@ This project was developed for educational purposes.
 
 
 *© 2025 William Maddock - All Rights Reserved*
-
