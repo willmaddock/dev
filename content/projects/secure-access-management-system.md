@@ -11,7 +11,7 @@ menu:
 ---
 
 <p style="text-align:center;">
-  <img src="../../img/secure-access.png" alt="Secure Access Management System" style="width:200%; max-width:800px;" />
+  <img src="../../img/secure.png" alt="Secure Access Management System" style="width:200%; max-width:800px;" />
 </p>
 
 As the founder and lead developer, I designed and implemented this Rails-based application to provide **role-based access control (RBAC)**, **security clearance management**, and an **accessibility-focused user experience**.
