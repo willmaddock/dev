@@ -72,7 +72,7 @@ keys = ["title", "permalink", "summary", "content"]
 [[menu.main]]
 name = "Search"
 url = "/search"
-weight = 9
+weight = 7
 
 [markup]
 [markup.goldmark]
