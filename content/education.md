@@ -2,6 +2,32 @@
 title: "🎓 Education"
 draft: false
 description: "My educational background and qualifications."
+linkTitle: "Education"
+menu:
+  main:
+    weight: 6
+author: "William Maddock"
+showToc: true
+TocOpen: false
+hidemeta: false
+comments: false
+canonicalURL: "https://willmaddock.github.io/dev/experience/"
+disableHLJS: false
+disableShare: false
+hideSummary: false
+searchHidden: false
+ShowReadingTime: true
+ShowBreadCrumbs: true
+ShowPostNavLinks: true
+ShowWordCount: true
+ShowRssButtonInSectionTermList: true
+UseHugoToc: true
+cover:
+  image: "./img/grad.png"
+  alt: "Professional Experience Overview"
+  relative: true
+  hidden: false
+
 ---
 
 Here’s an overview of my academic journey, focusing on computer science and foundational STEM disciplines. These experiences shaped my backend engineering mindset and cloud-native skill set.
@@ -14,10 +40,6 @@ Here’s an overview of my academic journey, focusing on computer science and fo
 - Capstone: Ethical AI Systems with cloud-based deployment
 - Coursework: Distributed Systems, Secure Software Dev, Cloud Architecture, Algorithms, Rust & Go Systems Programming
 - 📄 <a href="https://www.parchment.com/u/award/3ad84111770fb3057d24cfa62e2e5f8e" target="_blank" rel="noopener noreferrer">View Verified Diploma via Parchment</a>
-
-<p style="text-align:center;">
-  <img src="../img/grad.png" alt="Cosmic Universalism" style="width:200%; max-width:800px;" />
-</p>
 
 ---
 

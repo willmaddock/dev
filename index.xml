@@ -2,49 +2,56 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>William Maddock</title>
-    <link>https://willmaddock.github.io/dev/</link>
+    <link>http://localhost:1313/dev/</link>
     <description>Recent content on William Maddock</description>
     <generator>Hugo -- 0.148.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 Aug 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://willmaddock.github.io/dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Aug 2025 06:26:27 -0600</lastBuildDate>
+    <atom:link href="http://localhost:1313/dev/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Secure Access Management System</title>
-      <link>https://willmaddock.github.io/dev/projects/secure-access-management-system/</link>
-      <pubDate>Wed, 13 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://willmaddock.github.io/dev/projects/secure-access-management-system/</guid>
-      <description>Rails-based web application implementing secure role-based access control, clearance management, and accessibility-first design.</description>
+      <title>Experience</title>
+      <link>http://localhost:1313/dev/experience/</link>
+      <pubDate>Thu, 14 Aug 2025 06:26:27 -0600</pubDate>
+      <guid>http://localhost:1313/dev/experience/</guid>
+      <description>A summary of my professional and academic experience in software development, data science, and leadership.</description>
     </item>
     <item>
       <title>Applied Data Science Capstone – SpaceX Launch Analysis</title>
-      <link>https://willmaddock.github.io/dev/projects/data-science-capstone-spacex/</link>
-      <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://willmaddock.github.io/dev/projects/data-science-capstone-spacex/</guid>
-      <description>Capstone project for IBM/Coursera focused on launch prediction using Python, machine learning, and interactive dashboards.</description>
+      <link>http://localhost:1313/dev/projects/spacex-capstone/</link>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 -0600</pubDate>
+      <guid>http://localhost:1313/dev/projects/spacex-capstone/</guid>
+      <description>Developed a data science pipeline for SpaceX launch prediction using Python, machine learning, and interactive dashboards.</description>
     </item>
     <item>
-      <title>🚀 Cosmic Universalism: Computational Intelligence Initiative</title>
-      <link>https://willmaddock.github.io/dev/projects/cosmic-universalism/</link>
-      <pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://willmaddock.github.io/dev/projects/cosmic-universalism/</guid>
-      <description>Founder-led initiative focused on ethical, scalable cloud-native systems powered by Rust, Kubernetes, and AWS.</description>
+      <title>Cosmic Universalism: Computational Intelligence Initiative</title>
+      <link>http://localhost:1313/dev/projects/cosmic-universalism/</link>
+      <pubDate>Fri, 16 May 2025 00:00:00 -0600</pubDate>
+      <guid>http://localhost:1313/dev/projects/cosmic-universalism/</guid>
+      <description>Founded an initiative to build ethical, scalable cloud-native systems using Rust, Kubernetes, and AWS.</description>
     </item>
     <item>
-      <title>🎓 Education</title>
-      <link>https://willmaddock.github.io/dev/education/</link>
+      <title>Secure Access Management System</title>
+      <link>http://localhost:1313/dev/projects/secure-access-management/</link>
+      <pubDate>Tue, 31 Dec 2024 00:00:00 -0600</pubDate>
+      <guid>http://localhost:1313/dev/projects/secure-access-management/</guid>
+      <description>Founded and developed a Rails-based web app with role-based access control and accessibility-first design.</description>
+    </item>
+    <item>
+      <title>Auraria Mobile Parking (AMP) - Team Project</title>
+      <link>http://localhost:1313/dev/projects/team-amp/</link>
+      <pubDate>Sun, 15 Dec 2024 22:44:55 -0600</pubDate>
+      <guid>http://localhost:1313/dev/projects/team-amp/</guid>
+      <description>Led development of a Kotlin-based mobile app for MSU Denver’s CS4360, streamlining campus parking with real-time features.</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/dev/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://willmaddock.github.io/dev/education/</guid>
-      <description>My educational background and qualifications.</description>
-    </item>
-    <item>
-      <title>About Me</title>
-      <link>https://willmaddock.github.io/dev/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://willmaddock.github.io/dev/about/</guid>
+      <guid>http://localhost:1313/dev/about/</guid>
       <description>&lt;h1 id=&#34;-william-maddock&#34;&gt;👋 William Maddock&lt;/h1&gt;
 &lt;p&gt;Hi, I’m William Maddock—a backend engineer, and founder of the &lt;strong&gt;&lt;a href=&#34;https://github.com/willmaddock/CosmicUniversalismStatement/blob/main/LICENSE/LICENSE.md&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Cosmic Universalism Computational Intelligence Initiative&lt;/a&gt;&lt;/strong&gt;, dedicated to building secure, scalable, and ethically aligned cloud systems. With a strong academic background in computer science and hands-on experience in modern DevOps and cloud-native technologies, I also contribute to full-stack development, ensuring clean, responsive frontend designs and seamless integrations.&lt;/p&gt;
 &lt;p style=&#34;text-align:center;&#34;&gt;
-  &lt;img src=&#34;../img/your-photo2.jpg&#34; alt=&#34;Profile Photo&#34; style=&#34;width:100%; max-width:400px;&#34; /&gt;
+  &lt;img src=&#34;../img/your-photo2.png&#34; alt=&#34;Profile Photo&#34; style=&#34;width:100%; max-width:400px;&#34; /&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;-skills--expertise&#34;&gt;🔧 Skills &amp;amp; Expertise&lt;/h2&gt;
 &lt;ul&gt;
@@ -80,10 +87,17 @@
 &lt;/p&gt;</description>
     </item>
     <item>
-      <title>Resume</title>
-      <link>https://willmaddock.github.io/dev/resume/</link>
+      <title>🎓 Education</title>
+      <link>http://localhost:1313/dev/education/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://willmaddock.github.io/dev/resume/</guid>
+      <guid>http://localhost:1313/dev/education/</guid>
+      <description>My educational background and qualifications.</description>
+    </item>
+    <item>
+      <title>Resume</title>
+      <link>http://localhost:1313/dev/resume/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/dev/resume/</guid>
       <description>&lt;p&gt;
   Download my resume:
   &lt;a href=&#34;../resume.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; download&gt;
