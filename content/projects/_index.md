@@ -1,7 +1,7 @@
 ---
 title: "Projects"
 draft: false
-description: "Explore my work in backend development, data science, and innovative software solutions."
+description: "Discover my work in innovative software and cloud solutions."
 ---
 
-As a backend engineer and data scientist pursuing a B.S. in Computer Science (expected 2025) at MSU Denver, I design secure, scalable, and innovative solutions. My projects span cloud-native web and mobile apps, machine learning pipelines, and ethical systems, leveraging Kotlin, Ruby on Rails, Python, and Agile methodologies. Explore my work below.
+As a backend engineer and founder, I craft secure, scalable, and innovative software solutions. My work spans cloud-native architecture, systems programming, and DevOps, with a passion for ethical and high-performance systems.
