@@ -2,9 +2,6 @@
 title: "Resume"
 draft: false
 linkTitle: "Resume"
-menu:
-  main:
-    weight: 4
 author: "William Maddock"
 showToc: true
 TocOpen: false

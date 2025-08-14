@@ -4,10 +4,6 @@ date: 2025-08-14T06:26:27-06:00
 draft: false
 description: "A summary of my professional and academic experience in software development, data science, and leadership."
 tags: ["Software Engineering", "Data Science", "Project Management", "Cloud Computing"]
-linkTitle: "Experience"
-menu:
-  main:
-    weight: 3
 author: "William Maddock"
 showToc: true
 TocOpen: false

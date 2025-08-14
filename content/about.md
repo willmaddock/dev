@@ -2,9 +2,6 @@
 title: "About"
 draft: false
 linkTitle: "About"
-menu:
-  main:
-    weight: 2
 author: "William Maddock"
 showToc: true
 TocOpen: false
