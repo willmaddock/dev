@@ -21,6 +21,9 @@ imageHeight = 150
 name = "About"
 url = "about"
 [[params.profileMode.buttons]]
+name = "Experience"
+url = "experience"
+[[params.profileMode.buttons]]
 name = "Resume"
 url = "resume"
 [[params.profileMode.buttons]]
