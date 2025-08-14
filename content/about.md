@@ -1,27 +1,6 @@
 ---
-title: "About"
+title: "About Me"
 draft: false
-linkTitle: "About"
-menu:
-  main:
-    weight: 2
-author: "William Maddock"
-showToc: true
-TocOpen: false
-hidemeta: false
-comments: false
-canonicalURL: "https://willmaddock.github.io/dev/experience/"
-disableHLJS: false
-disableShare: false
-hideSummary: false
-searchHidden: false
-ShowReadingTime: true
-ShowBreadCrumbs: true
-ShowPostNavLinks: true
-ShowWordCount: true
-ShowRssButtonInSectionTermList: true
-UseHugoToc: true
-
 ---
 
 # 👋 William Maddock
@@ -29,7 +8,7 @@ UseHugoToc: true
 Hi, I’m William Maddock—a backend engineer, and founder of the <strong><a href="https://github.com/willmaddock/CosmicUniversalismStatement/blob/main/LICENSE/LICENSE.md" target="_blank" rel="noopener noreferrer">Cosmic Universalism Computational Intelligence Initiative</a></strong>, dedicated to building secure, scalable, and ethically aligned cloud systems. With a strong academic background in computer science and hands-on experience in modern DevOps and cloud-native technologies, I also contribute to full-stack development, ensuring clean, responsive frontend designs and seamless integrations.
 
 <p style="text-align:center;">
-  <img src="../img/your-photo2.png" alt="Profile Photo" style="width:100%; max-width:400px;" />
+  <img src="../img/your-photo2.jpg" alt="Profile Photo" style="width:100%; max-width:400px;" />
 </p>
 
 ## 🔧 Skills & Expertise

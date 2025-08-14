@@ -1,27 +1,6 @@
 ---
 title: "Resume"
 draft: false
-linkTitle: "Resume"
-menu:
-  main:
-    weight: 4
-author: "William Maddock"
-showToc: true
-TocOpen: false
-hidemeta: false
-comments: false
-canonicalURL: "https://willmaddock.github.io/dev/experience/"
-disableHLJS: false
-disableShare: false
-hideSummary: false
-searchHidden: false
-ShowReadingTime: true
-ShowBreadCrumbs: true
-ShowPostNavLinks: true
-ShowWordCount: true
-ShowRssButtonInSectionTermList: true
-UseHugoToc: true
-
 ---
 
 <p>
