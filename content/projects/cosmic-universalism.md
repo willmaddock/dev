@@ -5,9 +5,6 @@ draft: false
 description: "Founded an initiative to build ethical, scalable cloud-native systems using Rust, Kubernetes, and AWS."
 tags: ["AI Ethics", "Cloud Architecture", "Rust", "Kubernetes", "AWS"]
 linkTitle: "Cosmic Universalism"
-menu:
-  projects:
-    weight: 3
 author: "William Maddock"
 showToc: true
 TocOpen: false

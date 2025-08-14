@@ -5,9 +5,6 @@ draft: false
 description: "Led development of a Kotlin-based mobile app for MSU Denver’s CS4360, streamlining campus parking with real-time features."
 tags: ["Kotlin", "Android", "Mobile Development", "Team Leadership", "Agile", "FDD"]
 linkTitle: "AMP Team Project"
-menu:
-  projects:
-    weight: 1
 author: "William Maddock"
 showToc: true
 TocOpen: false

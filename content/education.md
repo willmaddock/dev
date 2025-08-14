@@ -3,9 +3,6 @@ title: "🎓 Education"
 draft: false
 description: "My educational background and qualifications."
 linkTitle: "Education"
-menu:
-  main:
-    weight: 6
 author: "William Maddock"
 showToc: true
 TocOpen: false

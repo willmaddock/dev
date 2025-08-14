@@ -5,9 +5,6 @@ draft: false
 description: "Developed a data science pipeline for SpaceX launch prediction using Python, machine learning, and interactive dashboards."
 tags: ["Data Science", "SpaceX", "Python", "Machine Learning", "Coursera", "IBM"]
 linkTitle: "SpaceX Capstone"
-menu:
-  projects:
-    weight: 1
 author: "William Maddock"
 showToc: true
 TocOpen: false

@@ -5,10 +5,6 @@ draft: false
 description: "Founded and developed a Rails-based web app with role-based access control and accessibility-first design."
 tags: ["Ruby on Rails", "Web Development", "RBAC", "Security", "Accessibility"]
 linkTitle: "Secure Access Management"
-menu:
-  projects:
-    weight: 2
-author: "William Maddock"
 showToc: true
 TocOpen: false
 hidemeta: false
