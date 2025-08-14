@@ -2,122 +2,185 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on William Maddock</title>
-    <link>https://willmaddock.github.io/dev/tags/</link>
+    <link>http://localhost:1313/dev/tags/</link>
     <description>Recent content in Tags on William Maddock</description>
     <generator>Hugo -- 0.148.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 Aug 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://willmaddock.github.io/dev/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Aug 2025 06:26:27 -0600</lastBuildDate>
+    <atom:link href="http://localhost:1313/dev/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Accessibility</title>
-      <link>https://willmaddock.github.io/dev/tags/accessibility/</link>
-      <pubDate>Wed, 13 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/accessibility/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Rbac</title>
-      <link>https://willmaddock.github.io/dev/tags/rbac/</link>
-      <pubDate>Wed, 13 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/rbac/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ruby-on-Rails</title>
-      <link>https://willmaddock.github.io/dev/tags/ruby-on-rails/</link>
-      <pubDate>Wed, 13 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/ruby-on-rails/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Security</title>
-      <link>https://willmaddock.github.io/dev/tags/security/</link>
-      <pubDate>Wed, 13 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/security/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Web-Development</title>
-      <link>https://willmaddock.github.io/dev/tags/web-development/</link>
-      <pubDate>Wed, 13 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/web-development/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Coursera</title>
-      <link>https://willmaddock.github.io/dev/tags/coursera/</link>
-      <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/coursera/</guid>
+      <title>Cloud Computing</title>
+      <link>http://localhost:1313/dev/tags/cloud-computing/</link>
+      <pubDate>Thu, 14 Aug 2025 06:26:27 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/cloud-computing/</guid>
       <description></description>
     </item>
     <item>
       <title>Data Science</title>
-      <link>https://willmaddock.github.io/dev/tags/data-science/</link>
-      <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/data-science/</guid>
+      <link>http://localhost:1313/dev/tags/data-science/</link>
+      <pubDate>Thu, 14 Aug 2025 06:26:27 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/data-science/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Project Management</title>
+      <link>http://localhost:1313/dev/tags/project-management/</link>
+      <pubDate>Thu, 14 Aug 2025 06:26:27 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/project-management/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Software Engineering</title>
+      <link>http://localhost:1313/dev/tags/software-engineering/</link>
+      <pubDate>Thu, 14 Aug 2025 06:26:27 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/software-engineering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Coursera</title>
+      <link>http://localhost:1313/dev/tags/coursera/</link>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/coursera/</guid>
       <description></description>
     </item>
     <item>
       <title>IBM</title>
-      <link>https://willmaddock.github.io/dev/tags/ibm/</link>
-      <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/ibm/</guid>
+      <link>http://localhost:1313/dev/tags/ibm/</link>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/ibm/</guid>
       <description></description>
     </item>
     <item>
       <title>Machine Learning</title>
-      <link>https://willmaddock.github.io/dev/tags/machine-learning/</link>
-      <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/machine-learning/</guid>
+      <link>http://localhost:1313/dev/tags/machine-learning/</link>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/machine-learning/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>https://willmaddock.github.io/dev/tags/python/</link>
-      <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/python/</guid>
+      <link>http://localhost:1313/dev/tags/python/</link>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/python/</guid>
       <description></description>
     </item>
     <item>
       <title>SpaceX</title>
-      <link>https://willmaddock.github.io/dev/tags/spacex/</link>
-      <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/spacex/</guid>
+      <link>http://localhost:1313/dev/tags/spacex/</link>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/spacex/</guid>
       <description></description>
     </item>
     <item>
       <title>AI Ethics</title>
-      <link>https://willmaddock.github.io/dev/tags/ai-ethics/</link>
-      <pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/ai-ethics/</guid>
+      <link>http://localhost:1313/dev/tags/ai-ethics/</link>
+      <pubDate>Fri, 16 May 2025 00:00:00 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/ai-ethics/</guid>
       <description></description>
     </item>
     <item>
-      <title>AWS Educate</title>
-      <link>https://willmaddock.github.io/dev/tags/aws-educate/</link>
-      <pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/aws-educate/</guid>
+      <title>AWS</title>
+      <link>http://localhost:1313/dev/tags/aws/</link>
+      <pubDate>Fri, 16 May 2025 00:00:00 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/aws/</guid>
       <description></description>
     </item>
     <item>
       <title>Cloud Architecture</title>
-      <link>https://willmaddock.github.io/dev/tags/cloud-architecture/</link>
-      <pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/cloud-architecture/</guid>
+      <link>http://localhost:1313/dev/tags/cloud-architecture/</link>
+      <pubDate>Fri, 16 May 2025 00:00:00 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/cloud-architecture/</guid>
       <description></description>
     </item>
     <item>
       <title>Kubernetes</title>
-      <link>https://willmaddock.github.io/dev/tags/kubernetes/</link>
-      <pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/kubernetes/</guid>
+      <link>http://localhost:1313/dev/tags/kubernetes/</link>
+      <pubDate>Fri, 16 May 2025 00:00:00 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/kubernetes/</guid>
       <description></description>
     </item>
     <item>
       <title>Rust</title>
-      <link>https://willmaddock.github.io/dev/tags/rust/</link>
-      <pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/rust/</guid>
+      <link>http://localhost:1313/dev/tags/rust/</link>
+      <pubDate>Fri, 16 May 2025 00:00:00 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/rust/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Accessibility</title>
+      <link>http://localhost:1313/dev/tags/accessibility/</link>
+      <pubDate>Tue, 31 Dec 2024 00:00:00 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/accessibility/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RBAC</title>
+      <link>http://localhost:1313/dev/tags/rbac/</link>
+      <pubDate>Tue, 31 Dec 2024 00:00:00 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/rbac/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ruby on Rails</title>
+      <link>http://localhost:1313/dev/tags/ruby-on-rails/</link>
+      <pubDate>Tue, 31 Dec 2024 00:00:00 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/ruby-on-rails/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Security</title>
+      <link>http://localhost:1313/dev/tags/security/</link>
+      <pubDate>Tue, 31 Dec 2024 00:00:00 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Web Development</title>
+      <link>http://localhost:1313/dev/tags/web-development/</link>
+      <pubDate>Tue, 31 Dec 2024 00:00:00 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/web-development/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Agile</title>
+      <link>http://localhost:1313/dev/tags/agile/</link>
+      <pubDate>Sun, 15 Dec 2024 22:44:55 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/agile/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android</title>
+      <link>http://localhost:1313/dev/tags/android/</link>
+      <pubDate>Sun, 15 Dec 2024 22:44:55 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/android/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>FDD</title>
+      <link>http://localhost:1313/dev/tags/fdd/</link>
+      <pubDate>Sun, 15 Dec 2024 22:44:55 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/fdd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kotlin</title>
+      <link>http://localhost:1313/dev/tags/kotlin/</link>
+      <pubDate>Sun, 15 Dec 2024 22:44:55 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/kotlin/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mobile Development</title>
+      <link>http://localhost:1313/dev/tags/mobile-development/</link>
+      <pubDate>Sun, 15 Dec 2024 22:44:55 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/mobile-development/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Team Leadership</title>
+      <link>http://localhost:1313/dev/tags/team-leadership/</link>
+      <pubDate>Sun, 15 Dec 2024 22:44:55 -0600</pubDate>
+      <guid>http://localhost:1313/dev/tags/team-leadership/</guid>
       <description></description>
     </item>
   </channel>

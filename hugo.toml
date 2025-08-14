@@ -13,13 +13,16 @@ ShowBreadCrumbs = true
 enabled = true
 title = "William Maddock"
 subtitle = "Backend Engineer & Founder | Leading the Cosmic Universalism Computational Intelligence Initiative"
-imageUrl = "img/your-photo2.jpg"
+imageUrl = "img/cu2.jpg"
 imageWidth = 150
 imageHeight = 150
 
 [[params.profileMode.buttons]]
 name = "About"
 url = "about"
+[[params.profileMode.buttons]]
+name = "Experience"
+url = "experience"
 [[params.profileMode.buttons]]
 name = "Resume"
 url = "resume"
@@ -53,23 +56,8 @@ url = "/"
 weight = 1
 
 [[menu.main]]
-name = "About"
-url = "/about"
-weight = 2
-
-[[menu.main]]
-name = "Resume"
-url = "/resume"
-weight = 3
-
-[[menu.main]]
 name = "Projects"
 url = "/projects"
-weight = 4
-
-[[menu.main]]
-name = "Education"
-url = "/education"
 weight = 5
 
 [outputs]
