@@ -57,27 +57,27 @@ weight = 1
 
 [[menu.main]]
 name = "About"
-url = "/"
+url = "/about/"
 weight = 2
 
 [[menu.main]]
-name = "Expirence"
-url = "/"
+name = "Experience"
+url = "/experience/"
 weight = 3
 
 [[menu.main]]
 name = "Resume"
-url = "/"
+url = "/resume/"
 weight = 4
 
 [[menu.main]]
 name = "Projects"
-url = "/"
+url = "/projects/"
 weight = 5
 
 [[menu.main]]
 name = "Education"
-url = "/"
+url = "/education/"
 weight = 6
 
 [outputs]
@@ -94,7 +94,7 @@ keys = ["title", "permalink", "summary", "content"]
 
 [[menu.main]]
 name = "Search"
-url = "/search"
+url = "/search/"
 weight = 7
 
 [markup]
