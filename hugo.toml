@@ -56,9 +56,29 @@ url = "/"
 weight = 1
 
 [[menu.main]]
+name = "About"
+url = "/about"
+weight = 2
+
+[[menu.main]]
+name = "Experience"
+url = "/experience"
+weight = 3
+
+[[menu.main]]
+name = "Resume"
+url = "/resume"
+weight = 4
+
+[[menu.main]]
 name = "Projects"
 url = "/projects"
 weight = 5
+
+[[menu.main]]
+name = "Education"
+url = "/education"
+weight = 6
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]  # JSON is required for search
