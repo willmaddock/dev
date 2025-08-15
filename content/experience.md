@@ -43,6 +43,16 @@ As a backend engineer and data scientist pursuing a B.S. in Computer Science (ex
 
 ### 📦 Experience Summary
 
+#### Lead Developer, Personal Portfolio Site: A Meta Adventure in Self-Promotion
+*August 11, 2025 – August 14, 2025*
+- Crafted a personal portfolio using Hugo static site generator and PaperMod theme for speed and elegance, showcasing skills, projects, and certifications.
+- Integrated custom menu, search functionality, responsive design, and embedded media like PDFs and images.
+- Deployed via GitHub Pages with automated builds using GitHub Actions for seamless CI/CD.
+- Added meta elements, such as self-referential documentation, to demonstrate creative web development.
+- Leveled up skills in static site generation, CI/CD pipelines, and creative web design.
+- **Technologies**: Hugo, GitHub Pages, GitHub Actions, PaperMod theme, Markdown, TOML.
+- 👉 <a href="../projects/personal-portfolio/" target="_blank" rel="noopener noreferrer">View Project Details</a>
+
 #### Founder and Central Point of Contact (CPOC), Cosmic Universalism Computational Intelligence Initiative
 *December 2024 – Present*
 - Led the development of ethical, scalable cloud-native systems using Rust, Kubernetes, and AWS.

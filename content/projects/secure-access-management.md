@@ -22,9 +22,9 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-  image: "./img/secure2.png"
+  image: "./img/msu.png"
   alt: "Secure Access Management System"
-  caption: "Secure Access Management Interface"
+  caption: "Professor Deb with me and my Family"
   relative: true
   hidden: false
 editPost:
