@@ -43,6 +43,15 @@ From **September 2024 to December 2024**, I founded and led the **Secure Access 
 
 ---
 
+🔑 **Default Login Credentials**  
+Use this seeded account to access the app for testing purposes only:
+- **Email**: logistics_manager@example.com
+- **Password**: password
+
+**Note**: These credentials are for demonstration and evaluation purposes. Please do not use them for any real-world operations or share them beyond authorized testing. For security, I recommend creating your own account for extended use.
+
+---
+
 ### 🔍 Project Highlights
 
 - Built a **Ruby on Rails** web app with dynamic **RBAC** for Admin, Shipping Agent, and Logistics Manager roles across four development sprints.
