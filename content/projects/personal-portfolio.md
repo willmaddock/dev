@@ -37,7 +37,7 @@ cover:
 Launched on **August 14, 2025**, this isn't just any project—it's the one you're reading right now! As a backend engineer with a flair for full-stack fun, I created this Hugo-based portfolio to showcase my skills, projects, and certifications in a clean, responsive way. Using the PaperMod theme, it's deployed on GitHub Pages with GitHub Actions for seamless updates. Think of it as a meta masterpiece: a site that documents my work while demonstrating web dev prowess.
 
 👉 <a href="https://willmaddock.github.io/dev/" target="_blank" rel="noopener noreferrer"><strong>Explore the Live Site (You're Already Here!)</strong></a>  
-👉 <a href="https://github.com/willmaddock/dev" target="_blank" rel="noopener noreferrer"><strong>View the GitHub Repository</strong></a>  
+👉 <a href="https://github.com/willmaddock/dev" target="_blank" rel="noopener noreferrer"><strong>View the GitHub Repository</strong></a>
 
 ---
 

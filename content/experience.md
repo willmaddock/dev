@@ -28,7 +28,7 @@ cover:
 
 ---
 
-As a backend engineer and data scientist pursuing a B.S. in Computer Science (expected 2025) at MSU Denver, I have gained hands-on experience through academic projects, personal initiatives, and leadership roles. My work focuses on building secure, scalable systems using technologies like Kotlin, Ruby on Rails, Python, Rust, AWS, and Kubernetes. Below is a summary of my key experiences.
+As a backend engineer and data scientist with a B.S. in Computer Science from MSU Denver (2025), I have gained hands-on experience through academic projects, personal initiatives, and leadership roles. My work focuses on building secure, scalable systems using technologies like Kotlin, Ruby on Rails, Python, Rust, AWS, and Kubernetes. Below is a summary of my key experiences.
 
 ---
 
