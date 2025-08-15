@@ -2,131 +2,131 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://willmaddock.github.io/dev/tags/cloud-computing/</loc>
+    <loc>http://localhost:1313/dev/tags/cloud-computing/</loc>
     <lastmod>2025-08-14T06:26:27-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/data-science/</loc>
+    <loc>http://localhost:1313/dev/tags/data-science/</loc>
     <lastmod>2025-08-14T06:26:27-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/experience/</loc>
+    <loc>http://localhost:1313/dev/experience/</loc>
     <lastmod>2025-08-14T06:26:27-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/project-management/</loc>
+    <loc>http://localhost:1313/dev/tags/project-management/</loc>
     <lastmod>2025-08-14T06:26:27-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/software-engineering/</loc>
+    <loc>http://localhost:1313/dev/tags/software-engineering/</loc>
     <lastmod>2025-08-14T06:26:27-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/</loc>
+    <loc>http://localhost:1313/dev/tags/</loc>
     <lastmod>2025-08-14T06:26:27-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/</loc>
+    <loc>http://localhost:1313/dev/</loc>
     <lastmod>2025-08-14T06:26:27-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/cloud-native/</loc>
+    <loc>http://localhost:1313/dev/tags/cloud-native/</loc>
     <lastmod>2025-08-14T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/github-pages/</loc>
+    <loc>http://localhost:1313/dev/tags/github-pages/</loc>
     <lastmod>2025-08-14T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/hugo/</loc>
+    <loc>http://localhost:1313/dev/tags/hugo/</loc>
     <lastmod>2025-08-14T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/open-source/</loc>
+    <loc>http://localhost:1313/dev/tags/open-source/</loc>
     <lastmod>2025-08-14T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/portfolio/</loc>
+    <loc>http://localhost:1313/dev/tags/portfolio/</loc>
     <lastmod>2025-08-14T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/projects/personal-portfolio/</loc>
+    <loc>http://localhost:1313/dev/projects/personal-portfolio/</loc>
     <lastmod>2025-08-14T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/projects/</loc>
+    <loc>http://localhost:1313/dev/projects/</loc>
     <lastmod>2025-08-14T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/web-development/</loc>
+    <loc>http://localhost:1313/dev/tags/web-development/</loc>
     <lastmod>2025-08-14T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/coursera/</loc>
+    <loc>http://localhost:1313/dev/tags/coursera/</loc>
     <lastmod>2025-07-15T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/ibm/</loc>
+    <loc>http://localhost:1313/dev/tags/ibm/</loc>
     <lastmod>2025-07-15T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/machine-learning/</loc>
+    <loc>http://localhost:1313/dev/tags/machine-learning/</loc>
     <lastmod>2025-07-15T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/python/</loc>
+    <loc>http://localhost:1313/dev/tags/python/</loc>
     <lastmod>2025-07-15T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/spacex/</loc>
+    <loc>http://localhost:1313/dev/tags/spacex/</loc>
     <lastmod>2025-07-15T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/projects/spacex-capstone/</loc>
+    <loc>http://localhost:1313/dev/projects/spacex-capstone/</loc>
     <lastmod>2025-07-15T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/ai-ethics/</loc>
+    <loc>http://localhost:1313/dev/tags/ai-ethics/</loc>
     <lastmod>2025-05-16T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/aws/</loc>
+    <loc>http://localhost:1313/dev/tags/aws/</loc>
     <lastmod>2025-05-16T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/cloud-architecture/</loc>
+    <loc>http://localhost:1313/dev/tags/cloud-architecture/</loc>
     <lastmod>2025-05-16T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/projects/cosmic-universalism/</loc>
+    <loc>http://localhost:1313/dev/projects/cosmic-universalism/</loc>
     <lastmod>2025-05-16T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/kubernetes/</loc>
+    <loc>http://localhost:1313/dev/tags/kubernetes/</loc>
     <lastmod>2025-05-16T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/rust/</loc>
+    <loc>http://localhost:1313/dev/tags/rust/</loc>
     <lastmod>2025-05-16T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/accessibility/</loc>
+    <loc>http://localhost:1313/dev/tags/accessibility/</loc>
     <lastmod>2024-12-31T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/rbac/</loc>
+    <loc>http://localhost:1313/dev/tags/rbac/</loc>
     <lastmod>2024-12-31T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/ruby-on-rails/</loc>
+    <loc>http://localhost:1313/dev/tags/ruby-on-rails/</loc>
     <lastmod>2024-12-31T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/projects/secure-access-management/</loc>
+    <loc>http://localhost:1313/dev/projects/secure-access-management/</loc>
     <lastmod>2024-12-31T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/security/</loc>
+    <loc>http://localhost:1313/dev/tags/security/</loc>
     <lastmod>2024-12-31T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/agile/</loc>
+    <loc>http://localhost:1313/dev/tags/agile/</loc>
     <lastmod>2024-12-15T22:44:55-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/projects/team-amp/</loc>
+    <loc>http://localhost:1313/dev/projects/team-amp/</loc>
     <lastmod>2024-12-15T22:44:55-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/android/</loc>
+    <loc>http://localhost:1313/dev/tags/android/</loc>
     <lastmod>2024-12-15T22:44:55-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/fdd/</loc>
+    <loc>http://localhost:1313/dev/tags/fdd/</loc>
     <lastmod>2024-12-15T22:44:55-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/kotlin/</loc>
+    <loc>http://localhost:1313/dev/tags/kotlin/</loc>
     <lastmod>2024-12-15T22:44:55-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/mobile-development/</loc>
+    <loc>http://localhost:1313/dev/tags/mobile-development/</loc>
     <lastmod>2024-12-15T22:44:55-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/tags/team-leadership/</loc>
+    <loc>http://localhost:1313/dev/tags/team-leadership/</loc>
     <lastmod>2024-12-15T22:44:55-06:00</lastmod>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/about/</loc>
+    <loc>http://localhost:1313/dev/about/</loc>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/categories/</loc>
+    <loc>http://localhost:1313/dev/categories/</loc>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/education/</loc>
+    <loc>http://localhost:1313/dev/education/</loc>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/resume/</loc>
+    <loc>http://localhost:1313/dev/resume/</loc>
   </url><url>
-    <loc>https://willmaddock.github.io/dev/search/</loc>
+    <loc>http://localhost:1313/dev/search/</loc>
   </url>
 </urlset>
