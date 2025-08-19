@@ -1,0 +1,25 @@
+
+COPY CONTENTS FORM OLD REPO FIRST. COPY THESE DIRECTORIES:
+
+content, static, img, hugo.toml, My TroubleShooting Instructions.txt, LICENSE and README.md  (keep the .gitignore).
+
+
+Delete everything from the dev folder. And run the commands below:
+
+
+
+1. Run this command. 
+
+cosmos@MacBookPro dev % cd my-site                                                                              
+git add .
+git commit -m "Initialize new Hugo site"
+
+
+2. Then this command:
+
+git submodule add --force https://github.com/adityatelange/hugo-PaperMod themes/PaperMod
+
+
+
+
+Then, generate the public file and put that into the dev folder. 

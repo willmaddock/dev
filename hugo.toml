@@ -1,0 +1,103 @@
+baseURL = "https://willmaddock.github.io/dev/"
+languageCode = "en-us"
+title = "William Maddock"
+theme = "PaperMod"
+
+[params]
+author = "William Maddock"
+ShowShareButtons = true
+ShowReadingTime = true
+ShowBreadCrumbs = true
+
+[params.profileMode]
+enabled = true
+title = "William Maddock"
+subtitle = "Backend Engineer & Founder | Leading the Cosmic Universalism Computational Intelligence Initiative"
+imageUrl = "img/cu2.jpg"
+imageWidth = 150
+imageHeight = 150
+
+[[params.profileMode.buttons]]
+name = "About"
+url = "about"
+[[params.profileMode.buttons]]
+name = "Experience"
+url = "experience"
+[[params.profileMode.buttons]]
+name = "Resume"
+url = "resume"
+[[params.profileMode.buttons]]
+name = "Projects"
+url = "projects"
+[[params.profileMode.buttons]]
+name = "Education"
+url = "education"
+[[params.profileMode.buttons]]
+name = "Search"
+url = "search"
+
+
+[[params.socialIcons]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/willmaddockcs/"
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/willmaddock/"
+
+[[params.socialIcons]]
+name = "coursera"  # Custom; if no built-in icon, it may show as text. For a custom icon, download Coursera SVG from simpleicons.org/coursera, place in static/icons/coursera.svg, and reference it if needed (advanced: override layout).
+url = "https://www.coursera.org/user/7008887677c742577bce8c3e01913e83"
+
+[menu]
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "About"
+url = "/about/"
+weight = 2
+
+[[menu.main]]
+name = "Experience"
+url = "/experience/"
+weight = 3
+
+[[menu.main]]
+name = "Resume"
+url = "/resume/"
+weight = 4
+
+[[menu.main]]
+name = "Projects"
+url = "/projects/"
+weight = 5
+
+[[menu.main]]
+name = "Education"
+url = "/education/"
+weight = 6
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]  # JSON is required for search
+
+[params.fuseOpts]
+isCaseSensitive = false
+shouldSort = true
+location = 0
+distance = 1000
+threshold = 0.4
+minMatchCharLength = 0
+keys = ["title", "permalink", "summary", "content"]
+
+[[menu.main]]
+name = "Search"
+url = "/search/"
+weight = 7
+
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
