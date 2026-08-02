@@ -1,9 +1,16 @@
 ---
 title: "Experience"
-date: 2025-08-14T06:26:27-06:00
+date: 2026-08-02T16:27:00-06:00
 draft: false
-description: "A summary of my professional and academic experience in software development, data science, and leadership."
-tags: ["Software Engineering", "Data Science", "Project Management", "Cloud Computing"]
+description: "Professional experience in software engineering, AI workflows, data systems, cloud tools, technical leadership, and high-volume operations."
+tags:
+  - "Software Engineering"
+  - "AI Workflows"
+  - "Full-Stack Development"
+  - "Data Science"
+  - "Project Management"
+  - "Cloud Computing"
+  - "Technical Leadership"
 author: "William Maddock"
 showToc: true
 TocOpen: false
@@ -28,94 +35,166 @@ cover:
 
 ---
 
-As a backend engineer and data scientist with a B.S. in Computer Science from MSU Denver (2025), I have gained hands-on experience through academic projects, personal initiatives, and leadership roles. My work focuses on building secure, scalable systems using technologies like Kotlin, Ruby on Rails, Python, Rust, AWS, and Kubernetes. Below is a summary of my key experiences.
+I am a **software engineer and founder** with a B.S. in Computer Science from **Metropolitan State University of Denver**. My experience includes full-stack web development, browser-based AI tools, backend systems, data pipelines, mobile development, automated testing, technical documentation, cloud workflows, and team leadership.
+
+My current work centers on building practical, testable systems that are accessible, maintainable, and transparent about their technical and research boundaries.
 
 ---
 
-### 🔍 Professional Highlights
+## 🔍 Professional Highlights
 
-- **Technical Leadership and Development**: Led teams in developing mobile and web applications, integrating APIs, and ensuring secure, accessible designs.
-- **Data Science and Machine Learning**: Built predictive models and interactive dashboards for real-world datasets, achieving high accuracy in classifications.
-- **Cloud and Ethical Systems**: Founded initiatives for ethical AI and cloud-native solutions, leveraging AWS credentials and open-source collaboration.
-- **Agile Methodologies**: Managed projects using Agile, Feature-Driven Development (FDD), and DevOps practices for efficient delivery.
+- **Full-Stack and AI-Facing Development**: Built and released public web applications, browser-based AI workflow tools, backend systems, data dashboards, and mobile applications.
+- **Technical Ownership**: Led projects from requirements and architecture through implementation, testing, documentation, deployment, and maintenance.
+- **Automated Quality Control**: Established repeatable test, validation, and release workflows, including a verified CUCII quality gate of **251 automated tests across 30 files**.
+- **Data and Systems Analysis**: Developed structured data pipelines, validation workflows, dashboards, predictive models, and role-based access systems.
+- **Technical Leadership**: Coordinated team assignments, integrations, code reviews, documentation, and delivery using Agile and Feature-Driven Development practices.
+- **Operational Reliability**: Supported high-volume delivery and warehouse operations while managing changing priorities, customer-service expectations, and time-sensitive work.
 
 ---
 
-### 📦 Experience Summary
+## 📦 Professional Experience
 
-#### Lead Developer, Personal Portfolio Site: A Meta Adventure in Self-Promotion
-*August 11, 2025 – August 14, 2025*
-- Crafted a personal portfolio using Hugo static site generator and PaperMod theme for speed and elegance, showcasing skills, projects, and certifications.
-- Integrated custom menu, search functionality, responsive design, and embedded media like PDFs and images.
-- Deployed via GitHub Pages with automated builds using GitHub Actions for seamless CI/CD.
-- Added meta elements, such as self-referential documentation, to demonstrate creative web development.
-- Leveled up skills in static site generation, CI/CD pipelines, and creative web design.
-- **Technologies**: Hugo, GitHub Pages, GitHub Actions, PaperMod theme, Markdown, TOML.
-- 👉 <a href="../projects/personal-portfolio/" target="_blank" rel="noopener noreferrer">View Project Details</a>
-
-#### Founder and Central Point of Contact (CPOC), Cosmic Universalism Computational Intelligence Initiative
+### Founder and Lead Developer, Cosmic Universalism Computational Intelligence Initiative (CUCII)
 *December 2024 – Present*
-- Led the development of ethical, scalable cloud-native systems using Rust, Kubernetes, and AWS.
-- Built tools like the Cosmic Breath Time Converter for time conversions integrating astronomical data.
-- Coordinated AWS integrations, managed open-source contributions on GitHub, and applied AWS Educate credentials.
-- Enhanced skills in cloud architecture, systems programming, and ethical AI.
-- **Technologies**: Rust, Python, AWS (Lambda, S3, ECS), Kubernetes, GitHub Actions.
-- 👉 <a href="../projects/cosmic-universalism/" target="_blank" rel="noopener noreferrer">View Project Details</a>
 
-#### Founder and Lead Developer, Secure Access Management System
+I founded and continue to lead the **Cosmic Universalism Computational Intelligence Initiative**, an open-source philosophical and computational project exploring structured AI conversation design, consciousness, time, the Cosmic Breath, and evidence-aware publishing.
+
+- Designed and launched the public **Cosmic Universalism website** with eight production routes, including the framework, Cosmic Breath Explorer, CU-Time tools, research materials, media, and CUCII.
+- Built the **CUCII Prompt Studio**, a browser-based tool that creates portable prompts for analytical, narrative, and hybrid AI conversations.
+- Developed deterministic prompt generation using typed registries, configuration controls, validation, source selection, working-context assembly, and TXT/Markdown export.
+- Built and maintained accessible interactive systems, including a typed **51-state Cosmic Breath Explorer** with responsive controls and guarded state transitions.
+- Established a verified quality gate of **251 automated tests across 30 files** and maintained a successful production build and deployment workflow.
+- Authored implementation manuals, source maps, release histories, current-state handoffs, testing procedures, and user-facing educational content.
+- Defined research-boundary and anti-hallucination principles that distinguish empirical references, CU propositions, and authored narrative claims.
+- Managed technical architecture, Git workflows, feature branches, release tags, documentation, deployment, and cross-platform AI testing.
+
+**Technologies:** Astro, TypeScript, JavaScript, semantic HTML, modern CSS, Markdown, JSON, SVG, Vitest, Git, GitHub Actions, GitHub Pages, LaTeX.
+
+👉 <a href="https://willmaddock.github.io/CosmicUniversalismStatement/" target="_blank" rel="noopener noreferrer"><strong>Visit the Cosmic Universalism website</strong></a>  
+👉 <a href="https://willmaddock.github.io/CosmicUniversalismStatement/cu-intelligence/" target="_blank" rel="noopener noreferrer"><strong>Explore the CUCII Prompt Studio</strong></a>  
+👉 <a href="https://github.com/willmaddock/CosmicUniversalismStatement" target="_blank" rel="noopener noreferrer"><strong>View the GitHub repository</strong></a>  
+👉 <a href="../projects/cosmic-universalism/" target="_blank" rel="noopener noreferrer"><strong>View portfolio project details</strong></a>
+
+---
+
+### Flex Driver and Warehouse Associate, Amazon
+*Summer 2023 – Present*
+
+- Support high-volume delivery and warehouse operations while meeting safety, accuracy, timing, and customer-service expectations.
+- Manage changing priorities, route execution, inventory handling, and time-sensitive operational tasks.
+- Troubleshoot process issues, communicate blockers, and collaborate with associates and operations teams.
+- Apply reliability, organization, adaptability, and independent decision-making in fast-moving environments.
+
+**Skills:** Operations, customer service, troubleshooting, prioritization, communication, reliability, Linux-based workflows.
+
+---
+
+## 💻 Selected Technical Experience
+
+### Founder and Lead Developer, Secure Access Management System
 *September 2024 – December 2024*
-- Developed a Ruby on Rails web app with role-based access control (RBAC), security clearance management, and accessibility features.
-- Integrated Google Cloud Storage for persistent uploads and deployed on Render with optimized configurations.
-- Achieved 97% test coverage using RSpec and Capybara; managed development across four sprints.
-- Strengthened expertise in web development, security, and accessibility.
-- **Technologies**: Ruby on Rails, PostgreSQL, Google Cloud Storage, Bootstrap, Render.
-- 👉 <a href="../projects/secure-access-management/" target="_blank" rel="noopener noreferrer">View Project Details</a>
 
-#### Data Scientist, Applied Data Science Capstone – SpaceX Launch Analysis
+- Developed a Ruby on Rails web application with role-based access control, security-clearance workflows, protected resources, and permission-aware navigation.
+- Integrated Google Cloud Storage for persistent uploads and designed account, authorization, validation, and file-management workflows.
+- Implemented automated testing using RSpec and Capybara.
+- Strengthened experience in backend development, relational data, application security, accessibility, and cloud-backed storage.
+
+**Technologies:** Ruby on Rails, Ruby, PostgreSQL, RBAC, RSpec, Capybara, Bootstrap, Google Cloud Storage, Render.
+
+👉 <a href="../projects/secure-access-management/" target="_blank" rel="noopener noreferrer">View Project Details</a>
+
+---
+
+### Data Scientist, Applied Data Science Capstone – SpaceX Launch Analysis
 *May 2025 – July 2025*
-- Completed a 45-hour capstone for the IBM Data Science Professional Certificate, analyzing SpaceX launch data.
-- Built a Python pipeline for data collection (API and web scraping), wrangling, EDA, visualization, and predictive modeling (>90% accuracy).
-- Created interactive dashboards with Plotly Dash and Folium for launch site insights.
-- Authored technical reports and presentations; part of B.S. degree requirements.
-- **Technologies**: Python, Pandas, scikit-learn, Plotly, Folium, Jupyter Notebooks.
-- 👉 <a href="../projects/spacex-capstone/" target="_blank" rel="noopener noreferrer">View Project Details</a>
 
-#### Technical Lead, Auraria Mobile Parking (AMP) Team Project
+- Completed an end-to-end data-science capstone for the IBM Data Science Professional Certificate.
+- Built a Python pipeline covering API collection, web-derived data, cleaning, exploratory analysis, visualization, feature preparation, model training, and evaluation.
+- Developed interactive Plotly Dash and Folium visualizations for launch sites, outcomes, payloads, and geographic patterns.
+- Compared multiple classification models and documented their relative performance rather than relying on a single unsupported accuracy claim.
+- Produced technical reports, notebooks, dashboards, and presentations.
+
+**Technologies:** Python, Pandas, NumPy, scikit-learn, Plotly Dash, Folium, Jupyter Notebooks, APIs, SQL concepts.
+
+👉 <a href="../projects/spacex-capstone/" target="_blank" rel="noopener noreferrer">View Project Details</a>
+
+---
+
+### Technical Lead, Auraria Mobile Parking (AMP)
 *August 2024 – December 2024*
-- Led a team of six in developing a Kotlin-based Android app for campus parking management in MSU Denver’s CS4360 course.
-- Implemented real-time features like parking availability, AI chatbot, weather updates, and multi-language support.
-- Managed collaboration via Git and ClickUp; enforced code reviews and testing on emulators/physical devices.
-- Sharpened skills in mobile development, team leadership, and Agile/FDD methodologies.
-- **Technologies**: Kotlin, Android Studio, Firebase, Google Maps SDK, OpenWeather API.
-- 👉 <a href="../projects/team-amp/" target="_blank" rel="noopener noreferrer">View Project Details</a>
+
+- Led a six-person team developing a Kotlin Android application for campus parking.
+- Coordinated architecture, requirements, assignments, integrations, testing, code reviews, and Agile delivery.
+- Integrated real-time parking availability, weather data, and other API-driven features.
+- Managed collaboration through Git and ClickUp and supported testing on emulators and physical devices.
+- Strengthened skills in mobile development, technical leadership, teamwork, and Feature-Driven Development.
+
+**Technologies:** Kotlin, Android Studio, Firebase, Google Maps SDK, OpenWeather API, Git, ClickUp.
+
+👉 <a href="../projects/team-amp/" target="_blank" rel="noopener noreferrer">View Project Details</a>
 
 ---
 
-### 🎓 Certifications and Credentials
+### Lead Developer, Personal Portfolio
+*August 2025 – Present*
 
-- **IBM Data Science Professional Certificate** (Coursera, 2025) – <a href="https://www.coursera.org/account/accomplishments/specialization/68JLH79O3KTJ" target="_blank" rel="noopener noreferrer">View Certificate</a>
-- **AWS Educate Badges** (2024–2025):
-    - Generative AI – <a href="https://www.credly.com/badges/07a07924-d4d3-417b-9e84-c289b9eea87a/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a>
-    - Machine Learning Foundations – <a href="https://www.credly.com/badges/6b6c699d-d3b5-458a-84cd-7bf1d65be0bd/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a>
-    - Web Builder – <a href="https://www.credly.com/badges/c430067b-6fbf-4186-883b-7db12ef41220/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a>
-    - Cloud Ops – <a href="https://www.credly.com/badges/d1e047de-f420-4d45-9f88-10136bced725/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a>
-    - Compute – <a href="https://www.credly.com/badges/3b76a628-7423-457c-8198-c1b8127bf3a0/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a>
-    - Networking – <a href="https://www.credly.com/badges/807d3569-f378-4a96-9b6f-1dc6c6000abd/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a>
-    - Security – <a href="https://www.credly.com/badges/5cafef51-af7c-4c23-ab38-a4150dda8f45/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a>
-    - Serverless – <a href="https://www.credly.com/badges/db5b1006-562b-4ede-9d69-931ffed7631d/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a>
-    - Storage – <a href="https://www.credly.com/badges/c7b3345c-abde-4adc-818d-ffdb191403ab/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a>
-    - Cloud 101 – <a href="https://www.credly.com/badges/e573ab0a-7014-41ff-a9e0-69eea0c31eb3/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a>
-    - Databases – <a href="https://www.credly.com/badges/3fe9360b-b540-4cf1-a28f-fbfe30e8fb16/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a>
+- Built and continue to maintain this responsive Hugo portfolio using the PaperMod theme.
+- Added custom navigation, search, project pages, résumé downloads, images, PDFs, and embedded media.
+- Automated deployment through GitHub Actions and GitHub Pages.
+- Updated project content, metadata, SEO settings, technical documentation, and downloadable application materials.
+- Used the site as a public record of software engineering, data science, AI workflow, and leadership experience.
+
+**Technologies:** Hugo, PaperMod, Markdown, TOML, HTML, CSS, GitHub Actions, GitHub Pages.
+
+👉 <a href="../projects/personal-portfolio/" target="_blank" rel="noopener noreferrer">View Project Details</a>
 
 ---
 
-### 🛠️ Skills Developed
+## 🛠️ Technical Skills
 
-- **Programming Languages**: Kotlin, Ruby, Python, Rust, JavaScript
-- **Frameworks & Tools**: Rails, Android Studio, Pandas, scikit-learn, Kubernetes, AWS Services
-- **Methodologies**: Agile, FDD, DevOps, Test-Driven Development
-- **Other**: API Integration, Machine Learning, Cloud Architecture, Ethical AI, Accessibility Design
+- **Languages:** TypeScript, JavaScript, Python, Ruby, Kotlin, Rust, Java, SQL, Go
+- **Web and Application Development:** Astro, Ruby on Rails, Hugo, semantic HTML, modern CSS, Markdown, SVG, Android Studio, Bootstrap
+- **Testing and Validation:** Vitest, RSpec, Capybara, unit testing, regression testing, configuration validation, acceptance criteria
+- **Data and Analytics:** Pandas, NumPy, scikit-learn, Plotly Dash, Folium, Jupyter Notebooks, API data collection
+- **Cloud and Delivery:** Git, GitHub, GitHub Actions, GitHub Pages, Docker, Kubernetes, AWS services, Google Cloud Storage, Render
+- **Engineering Practices:** Full-stack development, backend systems, RBAC, API integration, accessibility, CI/CD, source provenance, technical documentation, release governance
+- **Leadership and Methods:** Agile, Feature-Driven Development, task planning, team coordination, code review, process improvement
 
-These experiences have prepared me for roles in software engineering, data science, and technical leadership. For more details, explore my <a href="../projects/" target="_blank" rel="noopener noreferrer">projects</a>.
+---
 
-*© 2025 William Maddock - All Rights Reserved*
+## 🎓 Education
+
+### Bachelor of Science in Computer Science
+**Metropolitan State University of Denver**  
+*August 2022 – May 2025*
+
+- GPA: 3.13/4.0
+- Relevant coursework: Cloud Computing, Web and Mobile Development, Algorithms, Data Science, and Machine Learning
+
+### Associate of Science
+**Front Range Community College**  
+*2017 – 2019*
+
+- Graduated **cum laude**
+- Phi Theta Kappa
+- National Society of Leadership and Success
+
+---
+
+## 🎓 Certifications and Credentials
+
+- **IBM Data Science Professional Certificate**, Coursera, 2025  
+  <a href="https://www.coursera.org/account/accomplishments/specialization/68JLH79O3KTJ" target="_blank" rel="noopener noreferrer">View Certificate</a>
+- **Rust Programming Specialization**, Coursera, 2025
+- **AWS Generative AI Badge**
+- **AWS Machine Learning Foundations**
+- **11 AWS Educate badges** covering cloud operations, compute, networking, security, serverless computing, storage, databases, and foundational cloud concepts
+
+👉 <a href="https://www.linkedin.com/in/willmaddockcs/details/certifications/" target="_blank" rel="noopener noreferrer">View all certifications and credentials</a>
+
+---
+
+These experiences have prepared me for opportunities in **software engineering, full-stack development, AI applications, automation, systems analysis, data engineering, cloud development, and technical project leadership**.
+
+👉 <a href="../projects/" target="_blank" rel="noopener noreferrer"><strong>Explore all projects</strong></a>  
+👉 <a href="../resume/" target="_blank" rel="noopener noreferrer"><strong>View résumé</strong></a>

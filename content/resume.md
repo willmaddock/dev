@@ -1,76 +1,66 @@
 ---
-title: "Resume"
+title: "Résumé"
 draft: false
-linkTitle: "Resume"
+description: "Download and preview William Maddock's one-page software engineering résumé."
+linkTitle: "Résumé"
 author: "William Maddock"
-showToc: true
+showToc: false
 TocOpen: false
 hidemeta: false
 comments: false
-canonicalURL: "https://willmaddock.github.io/dev/experience/"
+canonicalURL: "https://willmaddock.github.io/dev/resume/"
 disableHLJS: false
 disableShare: false
 hideSummary: false
 searchHidden: false
-ShowReadingTime: true
+ShowReadingTime: false
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
-ShowWordCount: true
+ShowWordCount: false
 ShowRssButtonInSectionTermList: true
-UseHugoToc: true
-
+UseHugoToc: false
 ---
 
+# William Maddock — Software Engineering Résumé
+
+This one-page résumé is my primary public résumé for **Software Engineer I, Junior Full-Stack Engineer, web application, cloud, and AI-facing application roles**.
+
 <p>
-  Download my resume:
   <a href="../resume.pdf" target="_blank" rel="noopener noreferrer" download>
-    Click here to download (PDF)
+    <strong>Download the résumé as a PDF</strong>
   </a>
 </p>
 
-📄 <strong>Resume Preview</strong>
+## Résumé Preview
 
 <iframe
-src="../resume.pdf"
-width="100%"
-height="1200px"
-style="border: 1px solid #ccc;"
-title="Resume Preview"
->
-Your browser does not support embedded PDFs. You can
-<a href="../resume.pdf" target="_blank" rel="noopener noreferrer">
-download the resume here
-</a>.
+  src="../resume.pdf"
+  width="100%"
+  height="1200px"
+  style="border:1px solid #667085; border-radius:8px;"
+  title="William Maddock résumé preview">
+  Your browser does not support embedded PDFs.
+  <a href="../resume.pdf" target="_blank" rel="noopener noreferrer">Download the résumé here.</a>
 </iframe>
 
-This resume is tailored for backend and cloud engineering roles, highlighting my work as the founder of the <strong><a href="https://github.com/willmaddock/CosmicUniversalismStatement/blob/main/LICENSE.md" target="_blank" rel="noopener noreferrer">Cosmic Universalism Computational Intelligence Initiative</a></strong>, recent projects, certifications, and technical proficiencies.
+## Professional Positioning
 
-## 🏅 Certifications
+**Software Engineer | Full-Stack, Cloud & AI Applications**
 
-- <strong><a href="https://www.coursera.org/account/accomplishments/professional-cert/8ZHYV6OE6DMF" target="_blank" rel="noopener noreferrer">AWS Solutions Architect</a></strong> (AWS) — Completed July 2025
-- <strong><a href="https://www.coursera.org/account/accomplishments/specialization/QL0S07MUQQUV" target="_blank" rel="noopener noreferrer">AWS Certified Security - Specialty (SCS-C02)</a></strong> (AWS) — Completed July 2025
-- <strong><a href="https://www.coursera.org/account/accomplishments/specialization/68JLH79O3KTJ" target="_blank" rel="noopener noreferrer">Data Science Specialization</a></strong> (Coursera) — Completed July 2025
-- <strong><a href="https://www.coursera.org/account/accomplishments/specialization/J5F3ZY5EO74U" target="_blank" rel="noopener noreferrer">Deep Learning Specialization</a></strong> (Coursera) — Completed July 2025
-- <strong><a href="https://www.coursera.org/account/accomplishments/specialization/G6P5G8SKU3CV" target="_blank" rel="noopener noreferrer">Robotic Process Automation (RPA) specialization</a></strong> (Coursera) — Completed August 2025
-- <strong><a href="https://www.coursera.org/account/accomplishments/specialization/03YGPYX00Z8F" target="_blank" rel="noopener noreferrer">SSCP</a></strong> (ISC²) — Completed July 2025
-- <strong><a href="https://www.coursera.org/account/accomplishments/specialization/ZZZSFIT449QB" target="_blank" rel="noopener noreferrer">ITIL v4 Certification Preparation Specialization</a></strong> (EDUCBA) — Completed July 2025
-- <strong><a href="https://www.coursera.org/account/accomplishments/specialization/1AZX1M5RCTP4" target="_blank" rel="noopener noreferrer">Programming with Google Go Specialization</a></strong> (Coursera) — Completed July 2025
-- <strong><a href="https://www.coursera.org/account/accomplishments/specialization/0LAHT0B0A3SO" target="_blank" rel="noopener noreferrer">Rust Programming Specialization</a></strong> (Coursera) — Completed August 2025
+The résumé highlights:
 
-📎 <a href="https://www.coursera.org/user/7008887677c742577bce8c3e01913e83" target="_blank" rel="noopener noreferrer">View full Coursera profile</a>
+- Founder and Lead Developer experience through CUCII
+- Astro and TypeScript application development
+- Browser-based AI workflow tools
+- Automated testing and GitHub-based deployment
+- Ruby on Rails, RBAC, and cloud-backed storage
+- Python data pipelines and interactive analytics
+- Kotlin Android development and team leadership
+- Computer Science education and selected credentials
 
-## 🔧 Key Skills
+## More Detail
 
-- <strong>Cloud-Native</strong>: AWS (SageMaker, ECS, RDS, IAM, Lambda, S3)
-- <strong>Containerization</strong>: Docker, Kubernetes
-- <strong>Programming</strong>: Rust, Go, Java, Python
-- <strong>DevOps</strong>: GitHub Actions, Terraform, AWS CodePipeline
-- <strong>Frontend</strong>: HTML, CSS, JavaScript, Hugo, Ruby on Rails, Django
-
-## 🔗 Connect
-
+- <a href="../experience/">View professional experience</a>
+- <a href="../projects/">Explore technical projects</a>
 - <a href="https://www.linkedin.com/in/willmaddockcs/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 - <a href="https://github.com/willmaddock/" target="_blank" rel="noopener noreferrer">GitHub</a>
-- <a href="https://www.coursera.org/user/7008887677c742577bce8c3e01913e83" target="_blank" rel="noopener noreferrer">Coursera</a>
-
-For more about my background, check out my [About page](../about).

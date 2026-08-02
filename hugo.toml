@@ -5,37 +5,53 @@ theme = "PaperMod"
 
 [params]
 author = "William Maddock"
+description = "Software engineer and founder building full-stack, cloud, data, and AI-facing applications."
+keywords = ["Software Engineer", "Full-Stack Developer", "TypeScript", "Astro", "Python", "Ruby on Rails", "AI Workflows", "Cloud", "Data Science"]
+defaultTheme = "auto"
+disableThemeToggle = false
 ShowShareButtons = true
 ShowReadingTime = true
 ShowBreadCrumbs = true
+ShowCodeCopyButtons = true
+ShowPostNavLinks = true
+ShowToc = true
 
 [params.profileMode]
 enabled = true
 title = "William Maddock"
-subtitle = "Backend Engineer & Founder | Leading the Cosmic Universalism Computational Intelligence Initiative"
+subtitle = "Software Engineer | Full-Stack, Cloud & AI Applications"
 imageUrl = "img/cu2.jpg"
 imageWidth = 150
 imageHeight = 150
+imageTitle = "William Maddock"
+
+[[params.profileMode.buttons]]
+name = "Projects"
+url = "projects"
+
+[[params.profileMode.buttons]]
+name = "Experience"
+url = "experience"
+
+[[params.profileMode.buttons]]
+name = "Résumé"
+url = "resume"
+
+[[params.profileMode.buttons]]
+name = "Explore CUCII"
+url = "https://willmaddock.github.io/CosmicUniversalismStatement/cu-intelligence/"
 
 [[params.profileMode.buttons]]
 name = "About"
 url = "about"
-[[params.profileMode.buttons]]
-name = "Experience"
-url = "experience"
-[[params.profileMode.buttons]]
-name = "Resume"
-url = "resume"
-[[params.profileMode.buttons]]
-name = "Projects"
-url = "projects"
+
 [[params.profileMode.buttons]]
 name = "Education"
 url = "education"
+
 [[params.profileMode.buttons]]
 name = "Search"
 url = "search"
-
 
 [[params.socialIcons]]
 name = "linkedin"
@@ -46,10 +62,11 @@ name = "github"
 url = "https://github.com/willmaddock/"
 
 [[params.socialIcons]]
-name = "coursera"  # Custom; if no built-in icon, it may show as text. For a custom icon, download Coursera SVG from simpleicons.org/coursera, place in static/icons/coursera.svg, and reference it if needed (advanced: override layout).
-url = "https://www.coursera.org/user/7008887677c742577bce8c3e01913e83"
+name = "email"
+url = "mailto:willzaeagle@gmail.com"
 
 [menu]
+
 [[menu.main]]
 name = "Home"
 url = "/"
@@ -66,7 +83,7 @@ url = "/experience/"
 weight = 3
 
 [[menu.main]]
-name = "Resume"
+name = "Résumé"
 url = "/resume/"
 weight = 4
 
@@ -80,8 +97,13 @@ name = "Education"
 url = "/education/"
 weight = 6
 
+[[menu.main]]
+name = "Search"
+url = "/search/"
+weight = 7
+
 [outputs]
-home = ["HTML", "RSS", "JSON"]  # JSON is required for search
+home = ["HTML", "RSS", "JSON"]
 
 [params.fuseOpts]
 isCaseSensitive = false
@@ -89,15 +111,10 @@ shouldSort = true
 location = 0
 distance = 1000
 threshold = 0.4
-minMatchCharLength = 0
+minMatchCharLength = 2
 keys = ["title", "permalink", "summary", "content"]
 
-[[menu.main]]
-name = "Search"
-url = "/search/"
-weight = 7
-
 [markup]
-[markup.goldmark]
-[markup.goldmark.renderer]
-unsafe = true
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

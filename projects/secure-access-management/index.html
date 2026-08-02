@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Secure Access Management System | William Maddock</title>
-<meta name="keywords" content="Ruby on Rails, Web Development, RBAC, Security, Accessibility">
-<meta name="description" content="Founded and developed a Rails-based web app with role-based access control and accessibility-first design.">
+<meta name="keywords" content="Ruby on Rails, Web Development, RBAC, Security, Accessibility, PostgreSQL, Google Cloud Storage">
+<meta name="description" content="Built a Ruby on Rails application with role-based access control, protected resources, cloud-backed uploads, automated testing, and accessibility-focused interfaces.">
 <meta name="author" content="William Maddock">
 <link rel="canonical" href="https://willmaddock.github.io/dev/projects/secure-access-management/">
 <link crossorigin="anonymous" href="/dev/assets/css/stylesheet.8fe10233a706bc87f2e08b3cf97b8bd4c0a80f10675a143675d59212121037c0.css" integrity="sha256-j&#43;ECM6cGvIfy4Is8&#43;XuL1MCoDxBnWhQ2ddWSEhIQN8A=" rel="preload stylesheet" as="style">
@@ -58,22 +58,23 @@
 </noscript><meta property="og:url" content="https://willmaddock.github.io/dev/projects/secure-access-management/">
   <meta property="og:site_name" content="William Maddock">
   <meta property="og:title" content="Secure Access Management System">
-  <meta property="og:description" content="Founded and developed a Rails-based web app with role-based access control and accessibility-first design.">
+  <meta property="og:description" content="Built a Ruby on Rails application with role-based access control, protected resources, cloud-backed uploads, automated testing, and accessibility-focused interfaces.">
   <meta property="og:locale" content="en-us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
     <meta property="article:published_time" content="2024-12-31T00:00:00-06:00">
-    <meta property="article:modified_time" content="2024-12-31T00:00:00-06:00">
+    <meta property="article:modified_time" content="2026-08-02T16:32:00-06:00">
     <meta property="article:tag" content="Ruby on Rails">
     <meta property="article:tag" content="Web Development">
     <meta property="article:tag" content="RBAC">
     <meta property="article:tag" content="Security">
     <meta property="article:tag" content="Accessibility">
-    <meta property="og:image" content="https://willmaddock.github.io/dev/projects/secure-access-management/img/msu.png">
+    <meta property="article:tag" content="PostgreSQL">
+    <meta property="og:image" content="https://willmaddock.github.io/dev/projects/secure-access-management/img/secure2.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://willmaddock.github.io/dev/projects/secure-access-management/img/msu.png">
+<meta name="twitter:image" content="https://willmaddock.github.io/dev/projects/secure-access-management/img/secure2.png">
 <meta name="twitter:title" content="Secure Access Management System">
-<meta name="twitter:description" content="Founded and developed a Rails-based web app with role-based access control and accessibility-first design.">
+<meta name="twitter:description" content="Built a Ruby on Rails application with role-based access control, protected resources, cloud-backed uploads, automated testing, and accessibility-focused interfaces.">
 
 
 <script type="application/ld+json">
@@ -102,15 +103,15 @@
   "@type": "BlogPosting",
   "headline": "Secure Access Management System",
   "name": "Secure Access Management System",
-  "description": "Founded and developed a Rails-based web app with role-based access control and accessibility-first design.",
+  "description": "Built a Ruby on Rails application with role-based access control, protected resources, cloud-backed uploads, automated testing, and accessibility-focused interfaces.",
   "keywords": [
-    "Ruby on Rails", "Web Development", "RBAC", "Security", "Accessibility"
+    "Ruby on Rails", "Web Development", "RBAC", "Security", "Accessibility", "PostgreSQL", "Google Cloud Storage"
   ],
-  "articleBody": " From September 2024 to December 2024, I founded and led the Secure Access Management System as part of my B.S. in Computer Science at MSU Denver. This Ruby on Rails web application implements role-based access control (RBAC), security clearance management, and accessibility-first design for secure, user-friendly workflows.\n👉 View Live Application Website\n👉 View GitHub Repository\n▶️ Project Presentation Video\n🔑 Default Login Credentials\nUse this seeded account to access the app for testing purposes only:\nEmail: logistics_manager@example.com Password: password Note: These credentials are for demonstration and evaluation purposes. Please do not use them for any real-world operations or share them beyond authorized testing. For security, I recommend creating your own account for extended use.\n🔍 Project Highlights Built a Ruby on Rails web app with dynamic RBAC for Admin, Shipping Agent, and Logistics Manager roles across four development sprints. Integrated Google Cloud Storage for persistent file uploads. Implemented accessibility-first design with ARIA roles, high contrast, and keyboard navigation. Deployed on Render with zero downtime on a 256 MB free tier. 📦 My Role: Founder and Lead Developer Vision and Leadership: Defined the project’s scope for secure, accessible access management. Development: Designed and coded the app, including RBAC, UI, and cloud storage integration. Testing: Wrote RSpec and Capybara tests, achieving 97% model coverage. Deployment: Configured Puma and Render for low-RAM production deployment. This role enhanced my skills in web development, security, and accessibility.\n👥 Contributors and Credits A solo-led project developed for educational purposes, with potential for future open-source contributions. Licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0.\n✨ Key Features The Secure Access Management System offers:\nDynamic RBAC: Role-based access for Admin, Shipping Agent, and Logistics Manager. Real-Time Feedback: Alerts for unauthorized access attempts. Persistent Uploads: File storage via Google Cloud Storage. Responsive UI: Bootstrap with Dark Mode toggle. Upload Validation: Prevents memory overload. Seed System: Instant demo data setup. Accessibility-First: ARIA roles, high contrast, keyboard navigation. Integrations: Google Cloud Storage, PostgreSQL, Bootstrap, Render.\n🛠️ Technologies Used Languages/Frameworks: Ruby on Rails, HTML5, CSS3, JavaScript, Bootstrap Database: PostgreSQL Storage: Google Cloud Storage (Active Storage) Testing: RSpec, Capybara Deployment: Render, Puma Methodologies: Agile, DevOps Documentation: README, Technical Documentation 📁 Repository Contents Resource Description app/models ActiveRecord models and validations app/controllers Controller logic and seed trigger app/views Responsive ERB templates db/migrate Database schema migrations db/seeds.rb Demo dataset creation spec/ RSpec unit and system tests config/puma.rb Puma config for low-RAM environments config/storage.yml Google Cloud Storage configuration 📈 Project Rigor The GitHub repository showcases:\nDetailed commit history across four development sprints (September 2024 – December 2024). Comprehensive test coverage (97% model coverage) with RSpec and Capybara. Production-ready deployment on Render with optimized Puma settings. Setup:\nClone: git clone https://github.com/willmaddock/final-project.git Install dependencies: bundle install Setup database: bundle exec rails db:drop db:create db:migrate db:seed Start server: rails server See README for details. System Architecture: authenticates\naccesses\naccesses\naccesses\nmanages\nlogs\nrequests\nstores\nstores\nsends\nUser\nRole System\nAdmin Dashboard\nShipping Agent Portal\nLogistics Manager\nAccess Point Management\nAccess Logs\nElevated Access Requests\nGoogle Cloud Storage\nPostgreSQL\nEmail Notifications\nTesting:\nUnit tests: bundle exec rspec spec/models/user_spec.rb System tests: bundle exec rspec spec/system/agent_login_spec.rb, bundle exec rspec spec/system/restricted_area_access_spec.rb 🔗 Links and Resources Live Application Website GitHub Repository Project Presentation Video Project README Project Proposal Exploration Approval Requirements Report Sprint 01 Report Sprint 02 Presentation Final Presentation MDN Web Docs Ruby on Rails Guides GOV.UK Accessibility Blog Render Deployment Docs © 2024 William Maddock - All Rights Reserved\n",
-  "wordCount" : "566",
+  "articleBody": " From September through December 2024, I designed and developed the Secure Access Management System as a full-stack Ruby on Rails project at MSU Denver.\nThe application demonstrates backend development, relational data, authentication and authorization concepts, role-based access control, validation, cloud-backed file management, automated testing, and accessibility-focused interface design.\nOpen the deployed application View the GitHub repository Watch the project presentation The deployed educational demo may sleep or change over time. Test accounts and passwords are maintained in project documentation rather than published on this portfolio page.\nProject Highlights Built a full-stack Ruby on Rails application across four development sprints. Implemented role-based permissions for administrative and operational user types. Created protected-resource and security-clearance workflows. Added validation and permission-aware navigation. Integrated Google Cloud Storage through Active Storage for persistent uploads. Used PostgreSQL for relational persistence. Added responsive Bootstrap interfaces, keyboard navigation, semantic labels, and accessible feedback. Wrote automated tests with RSpec and Capybara. Configured the application for deployment through Render and Puma. My Role: Founder and Lead Developer I owned the project lifecycle:\nDefined scope and application requirements Designed the data model and permission structure Implemented models, controllers, views, validations, and navigation Integrated cloud-backed file storage Developed automated tests Prepared documentation and seeded demonstration data Configured and troubleshot deployment Presented the completed project Core Capabilities Role-Based Access Control — different permissions and interfaces by user role. Protected Resources — restricted access based on role and clearance rules. File Management — persistent uploads through Google Cloud Storage. Validation and Feedback — application-level constraints and user-facing status messages. Accessible Interface — responsive layout, keyboard support, semantic structure, and readable feedback. Automated Testing — model and system tests through RSpec and Capybara. Deployable Architecture — Rails, PostgreSQL, Puma, Render, and Active Storage. Technology Stack Area Technologies Application Ruby on Rails, Ruby Frontend ERB, HTML, CSS, JavaScript, Bootstrap Database PostgreSQL Authorization Role-based access control and clearance rules Storage Google Cloud Storage, Active Storage Testing RSpec, Capybara Deployment Render, Puma Workflow Git, four-sprint development process Repository Resources Models and validations Controllers and request handling Views and responsive interfaces Database migrations RSpec and Capybara tests Project README Local Setup git clone https://github.com/willmaddock/final-project.git cd final-project git checkout SprintDeployment bundle install bundle exec rails db:create db:migrate db:seed bundle exec rails server ",
+  "wordCount" : "371",
   "inLanguage": "en",
-  "image":"https://willmaddock.github.io/dev/projects/secure-access-management/img/msu.png","datePublished": "2024-12-31T00:00:00-06:00",
-  "dateModified": "2024-12-31T00:00:00-06:00",
+  "image":"https://willmaddock.github.io/dev/projects/secure-access-management/img/secure2.png","datePublished": "2024-12-31T00:00:00-06:00",
+  "dateModified": "2026-08-02T16:32:00-06:00",
   "author":{
     "@type": "Person",
     "name": "William Maddock"
@@ -187,8 +188,8 @@
                 </a>
             </li>
             <li>
-                <a href="https://willmaddock.github.io/dev/resume/" title="Resume">
-                    <span>Resume</span>
+                <a href="https://willmaddock.github.io/dev/resume/" title="Résumé">
+                    <span>Résumé</span>
                 </a>
             </li>
             <li>
@@ -218,15 +219,15 @@
       Secure Access Management System
     </h1>
     <div class="post-description">
-      Founded and developed a Rails-based web app with role-based access control and accessibility-first design.
+      Built a Ruby on Rails application with role-based access control, protected resources, cloud-backed uploads, automated testing, and accessibility-focused interfaces.
     </div>
-    <div class="post-meta"><span title='2024-12-31 00:00:00 -0600 -0600'>December 31, 2024</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;566 words&nbsp;·&nbsp;William Maddock
+    <div class="post-meta"><span title='2024-12-31 00:00:00 -0600 -0600'>December 31, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;371 words&nbsp;·&nbsp;William Maddock
 
 </div>
   </header> 
 <figure class="entry-cover">
-        <img loading="eager" src="https://willmaddock.github.io/dev/img/msu.png" alt="Secure Access Management System">
-        <figcaption>Professor Deb with me and my Family</figcaption>
+        <img loading="eager" src="https://willmaddock.github.io/dev/img/secure2.png" alt="Secure Access Management System interface">
+        <figcaption>Ruby on Rails access-management application</figcaption>
 </figure><div class="toc">
     <details >
         <summary accesskey="c" title="(Alt + C)">
@@ -235,18 +236,12 @@
 
         <div class="inner"><nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#-project-highlights">🔍 Project Highlights</a></li>
-        <li><a href="#-my-role-founder-and-lead-developer">📦 My Role: Founder and Lead Developer</a></li>
-        <li><a href="#-contributors-and-credits">👥 Contributors and Credits</a></li>
-        <li><a href="#-key-features">✨ Key Features</a></li>
-        <li><a href="#-technologies-used">🛠️ Technologies Used</a></li>
-        <li><a href="#-repository-contents">📁 Repository Contents</a></li>
-        <li><a href="#-project-rigor">📈 Project Rigor</a></li>
-        <li><a href="#-links-and-resources">🔗 Links and Resources</a></li>
-      </ul>
-    </li>
+    <li><a href="#project-highlights">Project Highlights</a></li>
+    <li><a href="#my-role-founder-and-lead-developer">My Role: Founder and Lead Developer</a></li>
+    <li><a href="#core-capabilities">Core Capabilities</a></li>
+    <li><a href="#technology-stack">Technology Stack</a></li>
+    <li><a href="#repository-resources">Repository Resources</a></li>
+    <li><a href="#local-setup">Local Setup</a></li>
   </ul>
 </nav>
         </div>
@@ -254,151 +249,117 @@
 </div>
 
   <div class="post-content"><p style="text-align:center;">
-  <img src="../../img/secure.png" alt="Secure Access Management System" style="width:100%; max-width:800px;" />
+  <img src="../../img/secure.png" alt="Secure Access Management System" style="width:100%; max-width:900px; border-radius:10px;" />
 </p>
-<p>From <strong>September 2024 to December 2024</strong>, I founded and led the <strong>Secure Access Management System</strong> as part of my B.S. in Computer Science at MSU Denver. This Ruby on Rails web application implements <strong>role-based access control (RBAC)</strong>, <strong>security clearance management</strong>, and <strong>accessibility-first design</strong> for secure, user-friendly workflows.</p>
-<p>👉 <a href="https://final-project-jk9d.onrender.com" target="_blank" rel="noopener noreferrer"><strong>View Live Application Website</strong></a><br>
-👉 <a href="https://github.com/willmaddock/final-project/tree/SprintDeployment" target="_blank" rel="noopener noreferrer"><strong>View GitHub Repository</strong></a><br>
-▶️ <a href="https://www.youtube.com/watch?v=8h-CNthscBM" target="_blank" rel="noopener noreferrer"><strong>Project Presentation Video</strong></a></p>
-<hr>
-<p>🔑 <strong>Default Login Credentials</strong><br>
-Use this seeded account to access the app for testing purposes only:</p>
+<p>From <strong>September through December 2024</strong>, I designed and developed the <strong>Secure Access Management System</strong> as a full-stack Ruby on Rails project at MSU Denver.</p>
+<p>The application demonstrates backend development, relational data, authentication and authorization concepts, role-based access control, validation, cloud-backed file management, automated testing, and accessibility-focused interface design.</p>
 <ul>
-<li><strong>Email</strong>: <a href="mailto:logistics_manager@example.com">logistics_manager@example.com</a></li>
-<li><strong>Password</strong>: password</li>
+<li><a href="https://final-project-jk9d.onrender.com" target="_blank" rel="noopener noreferrer"><strong>Open the deployed application</strong></a></li>
+<li><a href="https://github.com/willmaddock/final-project/tree/SprintDeployment" target="_blank" rel="noopener noreferrer"><strong>View the GitHub repository</strong></a></li>
+<li><a href="https://www.youtube.com/watch?v=8h-CNthscBM" target="_blank" rel="noopener noreferrer"><strong>Watch the project presentation</strong></a></li>
 </ul>
-<p><strong>Note</strong>: These credentials are for demonstration and evaluation purposes. Please do not use them for any real-world operations or share them beyond authorized testing. For security, I recommend creating your own account for extended use.</p>
+<blockquote>
+<p>The deployed educational demo may sleep or change over time. Test accounts and passwords are maintained in project documentation rather than published on this portfolio page.</p></blockquote>
 <hr>
-<h3 id="-project-highlights">🔍 Project Highlights<a hidden class="anchor" aria-hidden="true" href="#-project-highlights">#</a></h3>
+<h2 id="project-highlights">Project Highlights<a hidden class="anchor" aria-hidden="true" href="#project-highlights">#</a></h2>
 <ul>
-<li>Built a <strong>Ruby on Rails</strong> web app with dynamic <strong>RBAC</strong> for Admin, Shipping Agent, and Logistics Manager roles across four development sprints.</li>
-<li>Integrated <strong>Google Cloud Storage</strong> for persistent file uploads.</li>
-<li>Implemented <strong>accessibility-first</strong> design with ARIA roles, high contrast, and keyboard navigation.</li>
-<li>Deployed on <strong>Render</strong> with zero downtime on a 256 MB free tier.</li>
+<li>Built a full-stack <strong>Ruby on Rails</strong> application across four development sprints.</li>
+<li>Implemented role-based permissions for administrative and operational user types.</li>
+<li>Created protected-resource and security-clearance workflows.</li>
+<li>Added validation and permission-aware navigation.</li>
+<li>Integrated <strong>Google Cloud Storage</strong> through Active Storage for persistent uploads.</li>
+<li>Used <strong>PostgreSQL</strong> for relational persistence.</li>
+<li>Added responsive Bootstrap interfaces, keyboard navigation, semantic labels, and accessible feedback.</li>
+<li>Wrote automated tests with <strong>RSpec</strong> and <strong>Capybara</strong>.</li>
+<li>Configured the application for deployment through Render and Puma.</li>
 </ul>
 <hr>
-<h3 id="-my-role-founder-and-lead-developer">📦 My Role: Founder and Lead Developer<a hidden class="anchor" aria-hidden="true" href="#-my-role-founder-and-lead-developer">#</a></h3>
+<h2 id="my-role-founder-and-lead-developer">My Role: Founder and Lead Developer<a hidden class="anchor" aria-hidden="true" href="#my-role-founder-and-lead-developer">#</a></h2>
+<p>I owned the project lifecycle:</p>
 <ul>
-<li><strong>Vision and Leadership</strong>: Defined the project’s scope for secure, accessible access management.</li>
-<li><strong>Development</strong>: Designed and coded the app, including RBAC, UI, and cloud storage integration.</li>
-<li><strong>Testing</strong>: Wrote RSpec and Capybara tests, achieving 97% model coverage.</li>
-<li><strong>Deployment</strong>: Configured Puma and Render for low-RAM production deployment.</li>
+<li>Defined scope and application requirements</li>
+<li>Designed the data model and permission structure</li>
+<li>Implemented models, controllers, views, validations, and navigation</li>
+<li>Integrated cloud-backed file storage</li>
+<li>Developed automated tests</li>
+<li>Prepared documentation and seeded demonstration data</li>
+<li>Configured and troubleshot deployment</li>
+<li>Presented the completed project</li>
 </ul>
-<p>This role enhanced my skills in <strong>web development</strong>, <strong>security</strong>, and <strong>accessibility</strong>.</p>
 <hr>
-<h3 id="-contributors-and-credits">👥 Contributors and Credits<a hidden class="anchor" aria-hidden="true" href="#-contributors-and-credits">#</a></h3>
-<p>A solo-led project developed for educational purposes, with potential for future open-source contributions. Licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.</p>
-<hr>
-<h3 id="-key-features">✨ Key Features<a hidden class="anchor" aria-hidden="true" href="#-key-features">#</a></h3>
-<p>The Secure Access Management System offers:</p>
+<h2 id="core-capabilities">Core Capabilities<a hidden class="anchor" aria-hidden="true" href="#core-capabilities">#</a></h2>
 <ol>
-<li><strong>Dynamic RBAC</strong>: Role-based access for Admin, Shipping Agent, and Logistics Manager.</li>
-<li><strong>Real-Time Feedback</strong>: Alerts for unauthorized access attempts.</li>
-<li><strong>Persistent Uploads</strong>: File storage via Google Cloud Storage.</li>
-<li><strong>Responsive UI</strong>: Bootstrap with Dark Mode toggle.</li>
-<li><strong>Upload Validation</strong>: Prevents memory overload.</li>
-<li><strong>Seed System</strong>: Instant demo data setup.</li>
-<li><strong>Accessibility-First</strong>: ARIA roles, high contrast, keyboard navigation.</li>
+<li><strong>Role-Based Access Control</strong> — different permissions and interfaces by user role.</li>
+<li><strong>Protected Resources</strong> — restricted access based on role and clearance rules.</li>
+<li><strong>File Management</strong> — persistent uploads through Google Cloud Storage.</li>
+<li><strong>Validation and Feedback</strong> — application-level constraints and user-facing status messages.</li>
+<li><strong>Accessible Interface</strong> — responsive layout, keyboard support, semantic structure, and readable feedback.</li>
+<li><strong>Automated Testing</strong> — model and system tests through RSpec and Capybara.</li>
+<li><strong>Deployable Architecture</strong> — Rails, PostgreSQL, Puma, Render, and Active Storage.</li>
 </ol>
-<p><strong>Integrations</strong>: Google Cloud Storage, PostgreSQL, Bootstrap, Render.</p>
 <hr>
-<h3 id="-technologies-used">🛠️ Technologies Used<a hidden class="anchor" aria-hidden="true" href="#-technologies-used">#</a></h3>
-<ul>
-<li><strong>Languages/Frameworks</strong>: Ruby on Rails, HTML5, CSS3, JavaScript, Bootstrap</li>
-<li><strong>Database</strong>: PostgreSQL</li>
-<li><strong>Storage</strong>: Google Cloud Storage (Active Storage)</li>
-<li><strong>Testing</strong>: RSpec, Capybara</li>
-<li><strong>Deployment</strong>: Render, Puma</li>
-<li><strong>Methodologies</strong>: Agile, DevOps</li>
-<li><strong>Documentation</strong>: <a href="https://github.com/willmaddock/final-project/blob/SprintDeployment/README.md" target="_blank" rel="noopener noreferrer">README</a>, <a href="https://guides.rubyonrails.org" target="_blank" rel="noopener noreferrer">Technical Documentation</a></li>
-</ul>
-<hr>
-<h3 id="-repository-contents">📁 Repository Contents<a hidden class="anchor" aria-hidden="true" href="#-repository-contents">#</a></h3>
+<h2 id="technology-stack">Technology Stack<a hidden class="anchor" aria-hidden="true" href="#technology-stack">#</a></h2>
 <table>
   <thead>
       <tr>
-          <th>Resource</th>
-          <th>Description</th>
+          <th>Area</th>
+          <th>Technologies</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td><a href="https://github.com/willmaddock/final-project/tree/SprintDeployment/app/models" target="_blank" rel="noopener noreferrer">app/models</a></td>
-          <td>ActiveRecord models and validations</td>
+          <td>Application</td>
+          <td>Ruby on Rails, Ruby</td>
       </tr>
       <tr>
-          <td><a href="https://github.com/willmaddock/final-project/tree/SprintDeployment/app/controllers" target="_blank" rel="noopener noreferrer">app/controllers</a></td>
-          <td>Controller logic and seed trigger</td>
+          <td>Frontend</td>
+          <td>ERB, HTML, CSS, JavaScript, Bootstrap</td>
       </tr>
       <tr>
-          <td><a href="https://github.com/willmaddock/final-project/tree/SprintDeployment/app/views" target="_blank" rel="noopener noreferrer">app/views</a></td>
-          <td>Responsive ERB templates</td>
+          <td>Database</td>
+          <td>PostgreSQL</td>
       </tr>
       <tr>
-          <td><a href="https://github.com/willmaddock/final-project/tree/SprintDeployment/db/migrate" target="_blank" rel="noopener noreferrer">db/migrate</a></td>
-          <td>Database schema migrations</td>
+          <td>Authorization</td>
+          <td>Role-based access control and clearance rules</td>
       </tr>
       <tr>
-          <td><a href="https://github.com/willmaddock/final-project/blob/SprintDeployment/db/seeds.rb" target="_blank" rel="noopener noreferrer">db/seeds.rb</a></td>
-          <td>Demo dataset creation</td>
+          <td>Storage</td>
+          <td>Google Cloud Storage, Active Storage</td>
       </tr>
       <tr>
-          <td><a href="https://github.com/willmaddock/final-project/tree/SprintDeployment/spec" target="_blank" rel="noopener noreferrer">spec/</a></td>
-          <td>RSpec unit and system tests</td>
+          <td>Testing</td>
+          <td>RSpec, Capybara</td>
       </tr>
       <tr>
-          <td><a href="https://github.com/willmaddock/final-project/blob/SprintDeployment/config/puma.rb" target="_blank" rel="noopener noreferrer">config/puma.rb</a></td>
-          <td>Puma config for low-RAM environments</td>
+          <td>Deployment</td>
+          <td>Render, Puma</td>
       </tr>
       <tr>
-          <td><a href="https://github.com/willmaddock/final-project/blob/SprintDeployment/config/storage.yml" target="_blank" rel="noopener noreferrer">config/storage.yml</a></td>
-          <td>Google Cloud Storage configuration</td>
+          <td>Workflow</td>
+          <td>Git, four-sprint development process</td>
       </tr>
   </tbody>
 </table>
 <hr>
-<h3 id="-project-rigor">📈 Project Rigor<a hidden class="anchor" aria-hidden="true" href="#-project-rigor">#</a></h3>
-<p>The <a href="https://github.com/willmaddock/final-project/tree/SprintDeployment" target="_blank" rel="noopener noreferrer">GitHub repository</a> showcases:</p>
+<h2 id="repository-resources">Repository Resources<a hidden class="anchor" aria-hidden="true" href="#repository-resources">#</a></h2>
 <ul>
-<li>Detailed commit history across four development sprints (September 2024 – December 2024).</li>
-<li>Comprehensive test coverage (97% model coverage) with RSpec and Capybara.</li>
-<li>Production-ready deployment on Render with optimized Puma settings.</li>
-</ul>
-<p><strong>Setup</strong>:</p>
-<ol>
-<li>Clone: <code>git clone https://github.com/willmaddock/final-project.git</code></li>
-<li>Install dependencies: <code>bundle install</code></li>
-<li>Setup database: <code>bundle exec rails db:drop db:create db:migrate db:seed</code></li>
-<li>Start server: <code>rails server</code></li>
-<li>See <a href="https://github.com/willmaddock/final-project/blob/SprintDeployment/README.md" target="_blank" rel="noopener noreferrer">README</a> for details.</li>
-</ol>
-<p><strong>System Architecture</strong>:
-<svg aria-roledescription="flowchart-v2" role="graphics-document document" viewBox="0 0 751.34375 582" style="max-width: 751.34375px;" class="flowchart" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="100%" id="mermaid-diagram-mermaid-ik6hf5q"><style>#mermaid-diagram-mermaid-ik6hf5q{font-family:&ldquo;trebuchet ms&rdquo;,verdana,arial,sans-serif;font-size:16px;fill:#ccc;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mermaid-diagram-mermaid-ik6hf5q .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mermaid-diagram-mermaid-ik6hf5q .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mermaid-diagram-mermaid-ik6hf5q .error-icon{fill:#a44141;}#mermaid-diagram-mermaid-ik6hf5q .error-text{fill:#ddd;stroke:#ddd;}#mermaid-diagram-mermaid-ik6hf5q .edge-thickness-normal{stroke-width:1px;}#mermaid-diagram-mermaid-ik6hf5q .edge-thickness-thick{stroke-width:3.5px;}#mermaid-diagram-mermaid-ik6hf5q .edge-pattern-solid{stroke-dasharray:0;}#mermaid-diagram-mermaid-ik6hf5q .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-diagram-mermaid-ik6hf5q .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-diagram-mermaid-ik6hf5q .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-diagram-mermaid-ik6hf5q .marker{fill:lightgrey;stroke:lightgrey;}#mermaid-diagram-mermaid-ik6hf5q .marker.cross{stroke:lightgrey;}#mermaid-diagram-mermaid-ik6hf5q svg{font-family:&ldquo;trebuchet ms&rdquo;,verdana,arial,sans-serif;font-size:16px;}#mermaid-diagram-mermaid-ik6hf5q p{margin:0;}#mermaid-diagram-mermaid-ik6hf5q .label{font-family:&ldquo;trebuchet ms&rdquo;,verdana,arial,sans-serif;color:#ccc;}#mermaid-diagram-mermaid-ik6hf5q .cluster-label text{fill:#F9FFFE;}#mermaid-diagram-mermaid-ik6hf5q .cluster-label span{color:#F9FFFE;}#mermaid-diagram-mermaid-ik6hf5q .cluster-label span p{background-color:transparent;}#mermaid-diagram-mermaid-ik6hf5q .label text,#mermaid-diagram-mermaid-ik6hf5q span{fill:#ccc;color:#ccc;}#mermaid-diagram-mermaid-ik6hf5q .node rect,#mermaid-diagram-mermaid-ik6hf5q .node circle,#mermaid-diagram-mermaid-ik6hf5q .node ellipse,#mermaid-diagram-mermaid-ik6hf5q .node polygon,#mermaid-diagram-mermaid-ik6hf5q .node path{fill:#1f2020;stroke:#ccc;stroke-width:1px;}#mermaid-diagram-mermaid-ik6hf5q .rough-node .label text,#mermaid-diagram-mermaid-ik6hf5q .node .label text,#mermaid-diagram-mermaid-ik6hf5q .image-shape .label,#mermaid-diagram-mermaid-ik6hf5q .icon-shape .label{text-anchor:middle;}#mermaid-diagram-mermaid-ik6hf5q .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-diagram-mermaid-ik6hf5q .rough-node .label,#mermaid-diagram-mermaid-ik6hf5q .node .label,#mermaid-diagram-mermaid-ik6hf5q .image-shape .label,#mermaid-diagram-mermaid-ik6hf5q .icon-shape .label{text-align:center;}#mermaid-diagram-mermaid-ik6hf5q .node.clickable{cursor:pointer;}#mermaid-diagram-mermaid-ik6hf5q .root .anchor path{fill:lightgrey!important;stroke-width:0;stroke:lightgrey;}#mermaid-diagram-mermaid-ik6hf5q .arrowheadPath{fill:lightgrey;}#mermaid-diagram-mermaid-ik6hf5q .edgePath .path{stroke:lightgrey;stroke-width:2.0px;}#mermaid-diagram-mermaid-ik6hf5q .flowchart-link{stroke:lightgrey;fill:none;}#mermaid-diagram-mermaid-ik6hf5q .edgeLabel{background-color:hsl(0, 0%, 34.4117647059%);text-align:center;}#mermaid-diagram-mermaid-ik6hf5q .edgeLabel p{background-color:hsl(0, 0%, 34.4117647059%);}#mermaid-diagram-mermaid-ik6hf5q .edgeLabel rect{opacity:0.5;background-color:hsl(0, 0%, 34.4117647059%);fill:hsl(0, 0%, 34.4117647059%);}#mermaid-diagram-mermaid-ik6hf5q .labelBkg{background-color:rgba(87.75, 87.75, 87.75, 0.5);}#mermaid-diagram-mermaid-ik6hf5q .cluster rect{fill:hsl(180, 1.5873015873%, 28.3529411765%);stroke:rgba(255, 255, 255, 0.25);stroke-width:1px;}#mermaid-diagram-mermaid-ik6hf5q .cluster text{fill:#F9FFFE;}#mermaid-diagram-mermaid-ik6hf5q .cluster span{color:#F9FFFE;}#mermaid-diagram-mermaid-ik6hf5q div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:&ldquo;trebuchet ms&rdquo;,verdana,arial,sans-serif;font-size:12px;background:hsl(20, 1.5873015873%, 12.3529411765%);border:1px solid rgba(255, 255, 255, 0.25);border-radius:2px;pointer-events:none;z-index:100;}#mermaid-diagram-mermaid-ik6hf5q .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#ccc;}#mermaid-diagram-mermaid-ik6hf5q rect.text{fill:none;stroke-width:0;}#mermaid-diagram-mermaid-ik6hf5q .icon-shape,#mermaid-diagram-mermaid-ik6hf5q .image-shape{background-color:hsl(0, 0%, 34.4117647059%);text-align:center;}#mermaid-diagram-mermaid-ik6hf5q .icon-shape p,#mermaid-diagram-mermaid-ik6hf5q .image-shape p{background-color:hsl(0, 0%, 34.4117647059%);padding:2px;}#mermaid-diagram-mermaid-ik6hf5q .icon-shape rect,#mermaid-diagram-mermaid-ik6hf5q .image-shape rect{opacity:0.5;background-color:hsl(0, 0%, 34.4117647059%);fill:hsl(0, 0%, 34.4117647059%);}#mermaid-diagram-mermaid-ik6hf5q :root{&ndash;mermaid-font-family:&ldquo;trebuchet ms&rdquo;,verdana,arial,sans-serif;}</style><g><marker orient="auto" markerHeight="8" markerWidth="8" markerUnits="userSpaceOnUse" refY="5" refX="5" viewBox="0 0 10 10" class="marker flowchart-v2" id="mermaid-diagram-mermaid-ik6hf5q_flowchart-v2-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerHeight="8" markerWidth="8" markerUnits="userSpaceOnUse" refY="5" refX="4.5" viewBox="0 0 10 10" class="marker flowchart-v2" id="mermaid-diagram-mermaid-ik6hf5q_flowchart-v2-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="11" viewBox="0 0 10 10" class="marker flowchart-v2" id="mermaid-diagram-mermaid-ik6hf5q_flowchart-v2-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="-1" viewBox="0 0 10 10" class="marker flowchart-v2" id="mermaid-diagram-mermaid-ik6hf5q_flowchart-v2-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="12" viewBox="0 0 11 11" class="marker cross flowchart-v2" id="mermaid-diagram-mermaid-ik6hf5q_flowchart-v2-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="-1" viewBox="0 0 11 11" class="marker cross flowchart-v2" id="mermaid-diagram-mermaid-ik6hf5q_flowchart-v2-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#mermaid-diagram-mermaid-ik6hf5q_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_A_B_0" d="M375.828,62L375.828,68.167C375.828,74.333,375.828,86.667,375.828,98.333C375.828,110,375.828,121,375.828,126.5L375.828,132"></path><path marker-end="url(#mermaid-diagram-mermaid-ik6hf5q_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_B_C_0" d="M303.406,181.758L274.294,189.298C245.182,196.839,186.958,211.919,157.846,224.96C128.734,238,128.734,249,128.734,254.5L128.734,260"></path><path marker-end="url(#mermaid-diagram-mermaid-ik6hf5q_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_B_D_0" d="M375.828,190L375.828,196.167C375.828,202.333,375.828,214.667,375.828,226.333C375.828,238,375.828,249,375.828,254.5L375.828,260"></path><path marker-end="url(#mermaid-diagram-mermaid-ik6hf5q_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_B_E_0" d="M448.25,181.708L477.473,189.256C506.695,196.805,565.141,211.903,594.363,224.951C623.586,238,623.586,249,623.586,254.5L623.586,260"></path><path marker-end="url(#mermaid-diagram-mermaid-ik6hf5q_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_C_F_0" d="M128.734,318L128.734,324.167C128.734,330.333,128.734,342.667,128.734,354.333C128.734,366,128.734,377,128.734,382.5L128.734,388"></path><path marker-end="url(#mermaid-diagram-mermaid-ik6hf5q_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_D_G_0" d="M375.828,318L375.828,324.167C375.828,330.333,375.828,342.667,375.828,354.333C375.828,366,375.828,377,375.828,382.5L375.828,388"></path><path marker-end="url(#mermaid-diagram-mermaid-ik6hf5q_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_E_H_0" d="M623.586,318L623.586,324.167C623.586,330.333,623.586,342.667,623.586,354.333C623.586,366,623.586,377,623.586,382.5L623.586,388"></path><path marker-end="url(#mermaid-diagram-mermaid-ik6hf5q_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_F_I_0" d="M128.734,446L128.734,452.167C128.734,458.333,128.734,470.667,128.734,482.333C128.734,494,128.734,505,128.734,510.5L128.734,516"></path><path marker-end="url(#mermaid-diagram-mermaid-ik6hf5q_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G_J_0" d="M375.828,446L375.828,452.167C375.828,458.333,375.828,470.667,375.828,482.333C375.828,494,375.828,505,375.828,510.5L375.828,516"></path><path marker-end="url(#mermaid-diagram-mermaid-ik6hf5q_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_H_K_0" d="M623.586,446L623.586,452.167C623.586,458.333,623.586,470.667,623.586,482.333C623.586,494,623.586,505,623.586,510.5L623.586,516"></path></g><g class="edgeLabels"><g transform="translate(375.828125, 99)" class="edgeLabel"><g transform="translate(-48.59375, -12)" class="label"><foreignObject height="24" width="97.1875"><div class="labelBkg" xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>authenticates</p></span></div></foreignObject></g></g><g transform="translate(128.734375, 227)" class="edgeLabel"><g transform="translate(-30.171875, -12)" class="label"><foreignObject height="24" width="60.34375"><div class="labelBkg" xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>accesses</p></span></div></foreignObject></g></g><g transform="translate(375.828125, 227)" class="edgeLabel"><g transform="translate(-30.171875, -12)" class="label"><foreignObject height="24" width="60.34375"><div class="labelBkg" xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>accesses</p></span></div></foreignObject></g></g><g transform="translate(623.5859375, 227)" class="edgeLabel"><g transform="translate(-30.171875, -12)" class="label"><foreignObject height="24" width="60.34375"><div class="labelBkg" xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>accesses</p></span></div></foreignObject></g></g><g transform="translate(128.734375, 355)" class="edgeLabel"><g transform="translate(-30.6875, -12)" class="label"><foreignObject height="24" width="61.375"><div class="labelBkg" xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>manages</p></span></div></foreignObject></g></g><g transform="translate(375.828125, 355)" class="edgeLabel"><g transform="translate(-13.7109375, -12)" class="label"><foreignObject height="24" width="27.421875"><div class="labelBkg" xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>logs</p></span></div></foreignObject></g></g><g transform="translate(623.5859375, 355)" class="edgeLabel"><g transform="translate(-29.9140625, -12)" class="label"><foreignObject height="24" width="59.828125"><div class="labelBkg" xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>requests</p></span></div></foreignObject></g></g><g transform="translate(128.734375, 483)" class="edgeLabel"><g transform="translate(-21.1171875, -12)" class="label"><foreignObject height="24" width="42.234375"><div class="labelBkg" xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>stores</p></span></div></foreignObject></g></g><g transform="translate(375.828125, 483)" class="edgeLabel"><g transform="translate(-21.1171875, -12)" class="label"><foreignObject height="24" width="42.234375"><div class="labelBkg" xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>stores</p></span></div></foreignObject></g></g><g transform="translate(623.5859375, 483)" class="edgeLabel"><g transform="translate(-19.421875, -12)" class="label"><foreignObject height="24" width="38.84375"><div class="labelBkg" xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>sends</p></span></div></foreignObject></g></g></g><g class="nodes"><g transform="translate(375.828125, 35)" id="flowchart-A-0" class="node default"><rect height="54" width="91.40625" y="-27" x="-45.703125" style="" class="basic label-container"></rect><g transform="translate(-15.703125, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="31.40625"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>User</p></span></div></foreignObject></g></g><g transform="translate(375.828125, 163)" id="flowchart-B-1" class="node default"><rect height="54" width="144.84375" y="-27" x="-72.421875" style="" class="basic label-container"></rect><g transform="translate(-42.421875, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="84.84375"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>Role System</p></span></div></foreignObject></g></g><g transform="translate(128.734375, 291)" id="flowchart-C-3" class="node default"><rect height="54" width="182.75" y="-27" x="-91.375" style="" class="basic label-container"></rect><g transform="translate(-61.375, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="122.75"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>Admin Dashboard</p></span></div></foreignObject></g></g><g transform="translate(375.828125, 291)" id="flowchart-D-5" class="node default"><rect height="54" width="211.4375" y="-27" x="-105.71875" style="" class="basic label-container"></rect><g transform="translate(-75.71875, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="151.4375"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>Shipping Agent Portal</p></span></div></foreignObject></g></g><g transform="translate(623.5859375, 291)" id="flowchart-E-7" class="node default"><rect height="54" width="184.078125" y="-27" x="-92.0390625" style="" class="basic label-container"></rect><g transform="translate(-62.0390625, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="124.078125"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>Logistics Manager</p></span></div></foreignObject></g></g><g transform="translate(128.734375, 419)" id="flowchart-F-9" class="node default"><rect height="54" width="241.46875" y="-27" x="-120.734375" style="" class="basic label-container"></rect><g transform="translate(-90.734375, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="181.46875"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>Access Point Management</p></span></div></foreignObject></g></g><g transform="translate(375.828125, 419)" id="flowchart-G-11" class="node default"><rect height="54" width="141.890625" y="-27" x="-70.9453125" style="" class="basic label-container"></rect><g transform="translate(-40.9453125, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="81.890625"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>Access Logs</p></span></div></foreignObject></g></g><g transform="translate(623.5859375, 419)" id="flowchart-H-13" class="node default"><rect height="54" width="239.515625" y="-27" x="-119.7578125" style="" class="basic label-container"></rect><g transform="translate(-89.7578125, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="179.515625"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>Elevated Access Requests</p></span></div></foreignObject></g></g><g transform="translate(128.734375, 547)" id="flowchart-I-15" class="node default"><rect height="54" width="211.65625" y="-27" x="-105.828125" style="" class="basic label-container"></rect><g transform="translate(-75.828125, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="151.65625"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>Google Cloud Storage</p></span></div></foreignObject></g></g><g transform="translate(375.828125, 547)" id="flowchart-J-17" class="node default"><rect height="54" width="138.171875" y="-27" x="-69.0859375" style="" class="basic label-container"></rect><g transform="translate(-39.0859375, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="78.171875"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>PostgreSQL</p></span></div></foreignObject></g></g><g transform="translate(623.5859375, 547)" id="flowchart-K-19" class="node default"><rect height="54" width="193.6875" y="-27" x="-96.84375" style="" class="basic label-container"></rect><g transform="translate(-66.84375, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="133.6875"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>Email Notifications</p></span></div></foreignObject></g></g></g></g></g></svg></p>
-<p><strong>Testing</strong>:</p>
-<ul>
-<li>Unit tests: <code>bundle exec rspec spec/models/user_spec.rb</code></li>
-<li>System tests: <code>bundle exec rspec spec/system/agent_login_spec.rb</code>, <code>bundle exec rspec spec/system/restricted_area_access_spec.rb</code></li>
+<li><a href="https://github.com/willmaddock/final-project/tree/SprintDeployment/app/models" target="_blank" rel="noopener noreferrer">Models and validations</a></li>
+<li><a href="https://github.com/willmaddock/final-project/tree/SprintDeployment/app/controllers" target="_blank" rel="noopener noreferrer">Controllers and request handling</a></li>
+<li><a href="https://github.com/willmaddock/final-project/tree/SprintDeployment/app/views" target="_blank" rel="noopener noreferrer">Views and responsive interfaces</a></li>
+<li><a href="https://github.com/willmaddock/final-project/tree/SprintDeployment/db/migrate" target="_blank" rel="noopener noreferrer">Database migrations</a></li>
+<li><a href="https://github.com/willmaddock/final-project/tree/SprintDeployment/spec" target="_blank" rel="noopener noreferrer">RSpec and Capybara tests</a></li>
+<li><a href="https://github.com/willmaddock/final-project/blob/SprintDeployment/README.md" target="_blank" rel="noopener noreferrer">Project README</a></li>
 </ul>
 <hr>
-<h3 id="-links-and-resources">🔗 Links and Resources<a hidden class="anchor" aria-hidden="true" href="#-links-and-resources">#</a></h3>
-<ul>
-<li><a href="https://final-project-jk9d.onrender.com" target="_blank" rel="noopener noreferrer">Live Application Website</a></li>
-<li><a href="https://github.com/willmaddock/final-project/tree/SprintDeployment" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
-<li><a href="https://www.youtube.com/watch?v=8h-CNthscBM" target="_blank" rel="noopener noreferrer">Project Presentation Video</a></li>
-<li><a href="https://github.com/willmaddock/final-project/blob/SprintDeployment/README.md" target="_blank" rel="noopener noreferrer">Project README</a></li>
-<li><a href="../../Proposal.pdf" target="_blank" rel="noopener noreferrer">Project Proposal</a></li>
-<li><a href="../../Final Project Exploration Approval.pdf" target="_blank" rel="noopener noreferrer">Exploration Approval</a></li>
-<li><a href="../../Customer%20Requirements%20Report.pdf" target="_blank" rel="noopener noreferrer">Requirements Report</a></li>
-<li><a href="../../Wills Final Project Sprint 01.pdf" target="_blank" rel="noopener noreferrer">Sprint 01 Report</a></li>
-<li><a href="../../Final_Project_Sprint02_Presentation.pdf" target="_blank" rel="noopener noreferrer">Sprint 02 Presentation</a></li>
-<li><a href="../../Final_Project_Presentation.pdf" target="_blank" rel="noopener noreferrer">Final Presentation</a></li>
-<li><a href="https://developer.mozilla.org" target="_blank" rel="noopener noreferrer">MDN Web Docs</a></li>
-<li><a href="https://guides.rubyonrails.org" target="_blank" rel="noopener noreferrer">Ruby on Rails Guides</a></li>
-<li><a href="https://accessibility.blog.gov.uk" target="_blank" rel="noopener noreferrer">GOV.UK Accessibility Blog</a></li>
-<li><a href="https://render.com/docs" target="_blank" rel="noopener noreferrer">Render Deployment Docs</a></li>
-</ul>
-<p><em>© 2024 William Maddock - All Rights Reserved</em></p>
-
+<h2 id="local-setup">Local Setup<a hidden class="anchor" aria-hidden="true" href="#local-setup">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/willmaddock/final-project.git
+</span></span><span style="display:flex;"><span>cd final-project
+</span></span><span style="display:flex;"><span>git checkout SprintDeployment
+</span></span><span style="display:flex;"><span>bundle install
+</span></span><span style="display:flex;"><span>bundle exec rails db:create db:migrate db:seed
+</span></span><span style="display:flex;"><span>bundle exec rails server
+</span></span></code></pre></div>
 
   </div>
 
@@ -409,17 +370,19 @@ Use this seeded account to access the app for testing purposes only:</p>
       <li><a href="https://willmaddock.github.io/dev/tags/rbac/">RBAC</a></li>
       <li><a href="https://willmaddock.github.io/dev/tags/security/">Security</a></li>
       <li><a href="https://willmaddock.github.io/dev/tags/accessibility/">Accessibility</a></li>
+      <li><a href="https://willmaddock.github.io/dev/tags/postgresql/">PostgreSQL</a></li>
+      <li><a href="https://willmaddock.github.io/dev/tags/google-cloud-storage/">Google Cloud Storage</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://willmaddock.github.io/dev/projects/cosmic-universalism/">
     <span class="title">« Prev</span>
     <br>
-    <span>Cosmic Universalism: Computational Intelligence Initiative</span>
+    <span>Cosmic Universalism Computational Intelligence Initiative (CUCII)</span>
   </a>
   <a class="next" href="https://willmaddock.github.io/dev/projects/team-amp/">
     <span class="title">Next »</span>
     <br>
-    <span>Auraria Mobile Parking (AMP) - Team Project</span>
+    <span>Auraria Mobile Parking (AMP) – Team Project</span>
   </a>
 </nav>
 
@@ -427,7 +390,7 @@ Use this seeded account to access the app for testing purposes only:</p>
 <ul class="share-buttons">
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Secure Access Management System on x"
-            href="https://x.com/intent/tweet/?text=Secure%20Access%20Management%20System&amp;url=https%3a%2f%2fwillmaddock.github.io%2fdev%2fprojects%2fsecure-access-management%2f&amp;hashtags=RubyonRails%2cWebDevelopment%2cRBAC%2cSecurity%2cAccessibility">
+            href="https://x.com/intent/tweet/?text=Secure%20Access%20Management%20System&amp;url=https%3a%2f%2fwillmaddock.github.io%2fdev%2fprojects%2fsecure-access-management%2f&amp;hashtags=RubyonRails%2cWebDevelopment%2cRBAC%2cSecurity%2cAccessibility%2cPostgreSQL%2cGoogleCloudStorage">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
@@ -563,6 +526,53 @@ Use this seeded account to access the app for testing purposes only:</p>
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 

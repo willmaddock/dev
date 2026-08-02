@@ -1,8 +1,7 @@
 ---
-title: "Search" # in any language you want
-layout: "search" # necessary for search
-# url: "/archive"
-# description: "Description for Search"
-summary: "search"
-placeholder: "search"
+title: "Search"
+layout: "search"
+description: "Search William Maddock's portfolio, projects, experience, education, and technical documentation."
+summary: "Search the portfolio"
+placeholder: "Search projects, technologies, and experience"
 ---

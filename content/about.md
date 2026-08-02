@@ -1,13 +1,14 @@
 ---
 title: "About"
 draft: false
+description: "Software engineer and founder building full-stack applications, AI-facing tools, data systems, and accessible technical products."
 linkTitle: "About"
 author: "William Maddock"
 showToc: true
 TocOpen: false
 hidemeta: false
 comments: false
-canonicalURL: "https://willmaddock.github.io/dev/experience/"
+canonicalURL: "https://willmaddock.github.io/dev/about/"
 disableHLJS: false
 disableShare: false
 hideSummary: false
@@ -18,46 +19,57 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
-
 ---
 
 # 👋 William Maddock
 
-Hi, I’m William Maddock—a backend engineer, and founder of the <strong><a href="https://github.com/willmaddock/CosmicUniversalismStatement/blob/main/LICENSE.md" target="_blank" rel="noopener noreferrer">Cosmic Universalism Computational Intelligence Initiative</a></strong>, dedicated to building secure, scalable, and ethically aligned cloud systems. With a strong academic background in computer science and hands-on experience in modern DevOps and cloud-native technologies, I also contribute to full-stack development, ensuring clean, responsive frontend designs and seamless integrations.
+I am a **software engineer and founder** with a B.S. in Computer Science from **Metropolitan State University of Denver**. I build full-stack web applications, browser-based AI tools, backend systems, data pipelines, mobile applications, and accessible technical documentation.
+
+I am the **Founder and Lead Developer** of the **Cosmic Universalism Computational Intelligence Initiative (CUCII)**, where I own the product lifecycle from requirements and architecture through implementation, testing, documentation, deployment, and release governance.
 
 <p style="text-align:center;">
-  <img src="../img/your-photo2.png" alt="Profile Photo" style="width:100%; max-width:400px;" />
+  <img src="../img/your-photo2.png" alt="William Maddock" style="width:100%; max-width:400px; border-radius:12px;" />
 </p>
 
-## 🔧 Skills & Expertise
+## What I Build
 
-- **Cloud-Native Engineering**: Proficient in AWS (SageMaker, ECS, RDS, IAM, Lambda, S3) for deploying and managing applications.
-- **Containerization & Orchestration**: Experienced with Docker and Kubernetes for scalable microservices.
-- **Systems Programming & Security**: Skilled in Rust, Go, Java, and Python, with certifications in AWS Security and ISC2 SSCP. I design high-performance, secure systems with multi-threaded architectures.
-- **DevOps & CI/CD**: Streamline workflows using GitHub Actions, Terraform, and AWS CodePipeline, with expertise in Linux automation and shell scripting.
-- **Frontend & Full-Stack**: Build responsive interfaces with HTML, CSS, JavaScript, Ruby on Rails, Django, and Hugo, ensuring cohesive user experiences.
+- **Full-Stack Applications** — responsive interfaces, browser interactions, backend workflows, APIs, relational data, and cloud-backed storage.
+- **AI-Facing Tools** — structured prompt systems, typed context configuration, deterministic generation, output review, and capability boundaries.
+- **Tested Software** — automated unit and regression tests, validation, acceptance criteria, build verification, and controlled releases.
+- **Data Products** — API collection, cleaning, analysis, predictive modeling, dashboards, and technical reporting.
+- **Accessible Experiences** — semantic HTML, responsive layouts, keyboard-friendly controls, readable documentation, and transparent system behavior.
 
-## 📜 Certifications
-- <strong><a href="https://www.coursera.org/account/accomplishments/professional-cert/8ZHYV6OE6DMF" target="_blank" rel="noopener noreferrer">AWS Solutions Architect</a></strong> (AWS) — Completed July 2025
-- <strong><a href="https://www.coursera.org/account/accomplishments/specialization/QL0S07MUQQUV" target="_blank" rel="noopener noreferrer">AWS Certified Security - Specialty (SCS-C02)</a></strong> (AWS) — Completed July 2025
-- <strong><a href="https://www.coursera.org/account/accomplishments/specialization/68JLH79O3KTJ" target="_blank" rel="noopener noreferrer">Data Science Specialization</a></strong> (Coursera) — Completed July 2025
-- <strong><a href="https://www.coursera.org/account/accomplishments/specialization/J5F3ZY5EO74U" target="_blank" rel="noopener noreferrer">Deep Learning Specialization</a></strong> (Coursera) — Completed July 2025
-- <strong><a href="https://www.coursera.org/account/accomplishments/specialization/G6P5G8SKU3CV" target="_blank" rel="noopener noreferrer">Robotic Process Automation (RPA) specialization</a></strong> (Coursera) — Completed August 2025
-- <strong><a href="https://www.coursera.org/account/accomplishments/specialization/03YGPYX00Z8F" target="_blank" rel="noopener noreferrer">SSCP</a></strong> (ISC²) — Completed July 2025
-- <strong><a href="https://www.coursera.org/account/accomplishments/specialization/ZZZSFIT449QB" target="_blank" rel="noopener noreferrer">ITIL v4 Certification Preparation Specialization</a></strong> (EDUCBA) — Completed July 2025
-- <strong><a href="https://www.coursera.org/account/accomplishments/specialization/1AZX1M5RCTP4" target="_blank" rel="noopener noreferrer">Programming with Google Go Specialization</a></strong> (Coursera) — Completed July 2025
-- <strong><a href="https://www.coursera.org/account/accomplishments/specialization/0LAHT0B0A3SO" target="_blank" rel="noopener noreferrer">Rust Programming Specialization</a></strong> (Coursera) — Completed August 2025
-- <a href="https://www.coursera.org/user/7008887677c742577bce8c3e01913e83" target="_blank" rel="noopener noreferrer">Coursera Profile</a> (additional certifications listed here)
+## Current Work: CUCII
 
-## 🔗 Connect & Explore
+CUCII is a public Astro and TypeScript platform for exploring Cosmic Universalism with general-purpose AI systems while preserving clear boundaries among:
+
+1. **Empirical evidence**
+2. **Cosmic Universalism as an authored framework**
+3. **CUCII as a prompt-level conversational instrument**
+
+The platform includes the CUCII Prompt Studio, the Cosmic Breath Explorer, CU-Time tools, research materials, media, documentation, and automated testing.
+
+- <a href="https://willmaddock.github.io/CosmicUniversalismStatement/" target="_blank" rel="noopener noreferrer"><strong>Visit Cosmic Universalism</strong></a>
+- <a href="https://willmaddock.github.io/CosmicUniversalismStatement/cu-intelligence/" target="_blank" rel="noopener noreferrer"><strong>Explore CUCII Prompt Studio</strong></a>
+- <a href="https://github.com/willmaddock/CosmicUniversalismStatement" target="_blank" rel="noopener noreferrer"><strong>View the repository</strong></a>
+
+## Technical Focus
+
+- **Languages:** TypeScript, JavaScript, Python, Ruby, Kotlin, Rust, Java, SQL, Go
+- **Web and Application Development:** Astro, Ruby on Rails, Hugo, Android Studio, semantic HTML, modern CSS, Markdown, SVG
+- **Testing and Quality:** Vitest, RSpec, Capybara, unit testing, regression testing, validation, accessibility review
+- **Data and Analytics:** Pandas, NumPy, scikit-learn, Plotly Dash, Folium, Jupyter Notebooks
+- **Cloud and Delivery:** Git, GitHub, GitHub Actions, GitHub Pages, Docker, Kubernetes, AWS learning environments, Google Cloud Storage, Render
+- **Leadership:** product ownership, technical documentation, Agile delivery, team coordination, release governance, and process improvement
+
+## How I Work
+
+I value inspectable systems, clear requirements, source-controlled changes, evidence-aware communication, and honest descriptions of uncertainty and technical limits. My projects emphasize practical implementation without presenting authored interpretations or AI-generated language as though they were independently verified facts.
+
+## Connect
 
 - <a href="https://www.linkedin.com/in/willmaddockcs/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 - <a href="https://github.com/willmaddock/" target="_blank" rel="noopener noreferrer">GitHub</a>
-- <a href="https://www.coursera.org/user/7008887677c742577bce8c3e01913e83" target="_blank" rel="noopener noreferrer">Coursera</a>
-
-<p>
-  Download my resume:
-  <a href="../resume.pdf" target="_blank" rel="noopener noreferrer" download>
-    Click here to download (PDF) to see my full experience.
-  </a>
-</p>
+- <a href="../experience/">Experience</a>
+- <a href="../projects/">Projects</a>
+- <a href="../resume/">Résumé</a>

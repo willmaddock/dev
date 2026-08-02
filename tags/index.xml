@@ -6,41 +6,62 @@
     <description>Recent content in Tags on William Maddock</description>
     <generator>Hugo -- 0.148.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 14 Aug 2025 06:26:27 -0600</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2026 16:32:00 -0600</lastBuildDate>
     <atom:link href="https://willmaddock.github.io/dev/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Workflows</title>
+      <link>https://willmaddock.github.io/dev/tags/ai-workflows/</link>
+      <pubDate>Sun, 02 Aug 2026 16:27:00 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/ai-workflows/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Cloud Computing</title>
       <link>https://willmaddock.github.io/dev/tags/cloud-computing/</link>
-      <pubDate>Thu, 14 Aug 2025 06:26:27 -0600</pubDate>
+      <pubDate>Sun, 02 Aug 2026 16:27:00 -0600</pubDate>
       <guid>https://willmaddock.github.io/dev/tags/cloud-computing/</guid>
       <description></description>
     </item>
     <item>
       <title>Data Science</title>
       <link>https://willmaddock.github.io/dev/tags/data-science/</link>
-      <pubDate>Thu, 14 Aug 2025 06:26:27 -0600</pubDate>
+      <pubDate>Sun, 02 Aug 2026 16:27:00 -0600</pubDate>
       <guid>https://willmaddock.github.io/dev/tags/data-science/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Full-Stack Development</title>
+      <link>https://willmaddock.github.io/dev/tags/full-stack-development/</link>
+      <pubDate>Sun, 02 Aug 2026 16:27:00 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/full-stack-development/</guid>
       <description></description>
     </item>
     <item>
       <title>Project Management</title>
       <link>https://willmaddock.github.io/dev/tags/project-management/</link>
-      <pubDate>Thu, 14 Aug 2025 06:26:27 -0600</pubDate>
+      <pubDate>Sun, 02 Aug 2026 16:27:00 -0600</pubDate>
       <guid>https://willmaddock.github.io/dev/tags/project-management/</guid>
       <description></description>
     </item>
     <item>
       <title>Software Engineering</title>
       <link>https://willmaddock.github.io/dev/tags/software-engineering/</link>
-      <pubDate>Thu, 14 Aug 2025 06:26:27 -0600</pubDate>
+      <pubDate>Sun, 02 Aug 2026 16:27:00 -0600</pubDate>
       <guid>https://willmaddock.github.io/dev/tags/software-engineering/</guid>
       <description></description>
     </item>
     <item>
-      <title>Cloud-Native</title>
-      <link>https://willmaddock.github.io/dev/tags/cloud-native/</link>
+      <title>Technical Leadership</title>
+      <link>https://willmaddock.github.io/dev/tags/technical-leadership/</link>
+      <pubDate>Sun, 02 Aug 2026 16:27:00 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/technical-leadership/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>GitHub Actions</title>
+      <link>https://willmaddock.github.io/dev/tags/github-actions/</link>
       <pubDate>Thu, 14 Aug 2025 00:00:00 -0600</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/cloud-native/</guid>
+      <guid>https://willmaddock.github.io/dev/tags/github-actions/</guid>
       <description></description>
     </item>
     <item>
@@ -55,6 +76,13 @@
       <link>https://willmaddock.github.io/dev/tags/hugo/</link>
       <pubDate>Thu, 14 Aug 2025 00:00:00 -0600</pubDate>
       <guid>https://willmaddock.github.io/dev/tags/hugo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Markdown</title>
+      <link>https://willmaddock.github.io/dev/tags/markdown/</link>
+      <pubDate>Thu, 14 Aug 2025 00:00:00 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/markdown/</guid>
       <description></description>
     </item>
     <item>
@@ -79,13 +107,6 @@
       <description></description>
     </item>
     <item>
-      <title>Coursera</title>
-      <link>https://willmaddock.github.io/dev/tags/coursera/</link>
-      <pubDate>Tue, 15 Jul 2025 00:00:00 -0600</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/coursera/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>IBM</title>
       <link>https://willmaddock.github.io/dev/tags/ibm/</link>
       <pubDate>Tue, 15 Jul 2025 00:00:00 -0600</pubDate>
@@ -100,10 +121,31 @@
       <description></description>
     </item>
     <item>
+      <title>Pandas</title>
+      <link>https://willmaddock.github.io/dev/tags/pandas/</link>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/pandas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Plotly</title>
+      <link>https://willmaddock.github.io/dev/tags/plotly/</link>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/plotly/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Python</title>
       <link>https://willmaddock.github.io/dev/tags/python/</link>
       <pubDate>Tue, 15 Jul 2025 00:00:00 -0600</pubDate>
       <guid>https://willmaddock.github.io/dev/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Scikit-Learn</title>
+      <link>https://willmaddock.github.io/dev/tags/scikit-learn/</link>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/scikit-learn/</guid>
       <description></description>
     </item>
     <item>
@@ -114,45 +156,59 @@
       <description></description>
     </item>
     <item>
-      <title>AI Ethics</title>
-      <link>https://willmaddock.github.io/dev/tags/ai-ethics/</link>
-      <pubDate>Fri, 16 May 2025 00:00:00 -0600</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/ai-ethics/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>AWS</title>
-      <link>https://willmaddock.github.io/dev/tags/aws/</link>
-      <pubDate>Fri, 16 May 2025 00:00:00 -0600</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/aws/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Cloud Architecture</title>
-      <link>https://willmaddock.github.io/dev/tags/cloud-architecture/</link>
-      <pubDate>Fri, 16 May 2025 00:00:00 -0600</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/cloud-architecture/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Kubernetes</title>
-      <link>https://willmaddock.github.io/dev/tags/kubernetes/</link>
-      <pubDate>Fri, 16 May 2025 00:00:00 -0600</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/kubernetes/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Rust</title>
-      <link>https://willmaddock.github.io/dev/tags/rust/</link>
-      <pubDate>Fri, 16 May 2025 00:00:00 -0600</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/rust/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Accessibility</title>
       <link>https://willmaddock.github.io/dev/tags/accessibility/</link>
-      <pubDate>Tue, 31 Dec 2024 00:00:00 -0600</pubDate>
+      <pubDate>Fri, 16 May 2025 00:00:00 -0600</pubDate>
       <guid>https://willmaddock.github.io/dev/tags/accessibility/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Astro</title>
+      <link>https://willmaddock.github.io/dev/tags/astro/</link>
+      <pubDate>Fri, 16 May 2025 00:00:00 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/astro/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ethical AI</title>
+      <link>https://willmaddock.github.io/dev/tags/ethical-ai/</link>
+      <pubDate>Fri, 16 May 2025 00:00:00 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/ethical-ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Prompt Engineering</title>
+      <link>https://willmaddock.github.io/dev/tags/prompt-engineering/</link>
+      <pubDate>Fri, 16 May 2025 00:00:00 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/prompt-engineering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>TypeScript</title>
+      <link>https://willmaddock.github.io/dev/tags/typescript/</link>
+      <pubDate>Fri, 16 May 2025 00:00:00 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/typescript/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vitest</title>
+      <link>https://willmaddock.github.io/dev/tags/vitest/</link>
+      <pubDate>Fri, 16 May 2025 00:00:00 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/vitest/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Google Cloud Storage</title>
+      <link>https://willmaddock.github.io/dev/tags/google-cloud-storage/</link>
+      <pubDate>Tue, 31 Dec 2024 00:00:00 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/google-cloud-storage/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PostgreSQL</title>
+      <link>https://willmaddock.github.io/dev/tags/postgresql/</link>
+      <pubDate>Tue, 31 Dec 2024 00:00:00 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/postgresql/</guid>
       <description></description>
     </item>
     <item>
@@ -188,6 +244,13 @@
       <link>https://willmaddock.github.io/dev/tags/android/</link>
       <pubDate>Sun, 15 Dec 2024 22:44:55 -0600</pubDate>
       <guid>https://willmaddock.github.io/dev/tags/android/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>APIs</title>
+      <link>https://willmaddock.github.io/dev/tags/apis/</link>
+      <pubDate>Sun, 15 Dec 2024 22:44:55 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/apis/</guid>
       <description></description>
     </item>
     <item>
