@@ -1,0 +1,24 @@
+{{ if .IsHome }}
+<div class="og-ring-wrap" aria-hidden="true">
+  <svg viewBox="0 0 440 440" width="100%" height="100%">
+    <defs>
+      <radialGradient id="ogCoreGrad" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#7FE0E8" stop-opacity="0.30"/>
+        <stop offset="100%" stop-color="#7FE0E8" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <g class="og-ring-rotate">
+      <circle class="og-ring og-ring-outer" cx="220" cy="220" r="210"/>
+      <circle class="og-ring og-ring-mid" cx="220" cy="220" r="168"/>
+      <circle class="og-ring og-ring-inner" cx="220" cy="220" r="128"/>
+      <circle cx="220" cy="220" r="90" fill="url(#ogCoreGrad)"/>
+      <circle class="og-ring-dot" cx="220" cy="10" r="4"/>
+    </g>
+  </svg>
+</div>
+{{ end }}
+
+<div class="og-status-bar">
+  <span><span class="og-dot">&#9679;</span>&nbsp;main &mdash; no uncommitted changes</span>
+  <span>UTF-8 &middot; LF &middot; Denver, CO</span>
+</div>

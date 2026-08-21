@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
+<html lang="en" dir="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
 <meta name="description" content="Founded and lead CUCII, an Astro and TypeScript platform featuring a local Prompt Studio, Cosmic Breath Explorer, CU-Time tools, research boundaries, automated testing, and GitHub Pages deployment.">
 <meta name="author" content="William Maddock">
 <link rel="canonical" href="https://willmaddock.github.io/dev/projects/cosmic-universalism/">
-<link crossorigin="anonymous" href="/dev/assets/css/stylesheet.7e25d4610d5be6e8d77da7caf3b207d96e1b98e6f9f73de5f290f221e225c616.css" integrity="sha256-fiXUYQ1b5ujXfafK87IH2W4bmOb59z3l8pDyIeIlxhY=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/dev/assets/css/stylesheet.8fe10233a706bc87f2e08b3cf97b8bd4c0a80f10675a143675d59212121037c0.css" integrity="sha256-j&#43;ECM6cGvIfy4Is8&#43;XuL1MCoDxBnWhQ2ddWSEhIQN8A=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://willmaddock.github.io/dev/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://willmaddock.github.io/dev/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://willmaddock.github.io/dev/favicon-32x32.png">
@@ -39,38 +39,27 @@
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
-                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .toc {
-                background: var(--entry);
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
             }
         }
 
     </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<meta property="og:url" content="https://willmaddock.github.io/dev/projects/cosmic-universalism/">
+</noscript><meta property="og:url" content="https://willmaddock.github.io/dev/projects/cosmic-universalism/">
   <meta property="og:site_name" content="William Maddock">
   <meta property="og:title" content="Cosmic Universalism Computational Intelligence Initiative (CUCII)">
   <meta property="og:description" content="Founded and lead CUCII, an Astro and TypeScript platform featuring a local Prompt Studio, Cosmic Breath Explorer, CU-Time tools, research boundaries, automated testing, and GitHub Pages deployment.">
-  <meta property="og:locale" content="en_us">
+  <meta property="og:locale" content="en-us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
     <meta property="article:published_time" content="2025-05-16T00:00:00-06:00">
@@ -84,8 +73,8 @@
     <meta property="og:image" content="https://willmaddock.github.io/dev/projects/cosmic-universalism/img/cu.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://willmaddock.github.io/dev/projects/cosmic-universalism/img/cu.jpg">
-  <meta name="twitter:title" content="Cosmic Universalism Computational Intelligence Initiative (CUCII)">
-  <meta name="twitter:description" content="Founded and lead CUCII, an Astro and TypeScript platform featuring a local Prompt Studio, Cosmic Breath Explorer, CU-Time tools, research boundaries, automated testing, and GitHub Pages deployment.">
+<meta name="twitter:title" content="Cosmic Universalism Computational Intelligence Initiative (CUCII)">
+<meta name="twitter:description" content="Founded and lead CUCII, an Astro and TypeScript platform featuring a local Prompt Studio, Cosmic Breath Explorer, CU-Time tools, research boundaries, automated testing, and GitHub Pages deployment.">
 
 
 <script type="application/ld+json">
@@ -142,19 +131,31 @@
 }
 </script>
 </head>
-<body id="top">
-    <header class="header">
-    <nav class="header-nav">
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
         <div class="logo">
             <a href="https://willmaddock.github.io/dev/" accesskey="h" title="William Maddock (Alt + H)">William Maddock</a>
             <div class="logo-switches">
-                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -170,7 +171,7 @@
                 </button>
             </div>
         </div>
-        <ul id="menu" class="menu">
+        <ul id="menu">
             <li>
                 <a href="https://willmaddock.github.io/dev/" title="Home">
                     <span>Home</span>
@@ -213,39 +214,27 @@
 
 <article class="post-single">
   <header class="post-header">
-    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
-            <a href="/dev/">Home</a>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
-                <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-            <a href="/dev/projects/">Projects</a>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
-        <polyline points="9 18 15 12 9 6"></polyline>
-    </svg>
-</nav>
+    <div class="breadcrumbs"><a href="https://willmaddock.github.io/dev/">Home</a>&nbsp;»&nbsp;<a href="https://willmaddock.github.io/dev/projects/">Projects</a></div>
     <h1 class="post-title entry-hint-parent">
       Cosmic Universalism Computational Intelligence Initiative (CUCII)
     </h1>
     <div class="post-description">
       Founded and lead CUCII, an Astro and TypeScript platform featuring a local Prompt Studio, Cosmic Breath Explorer, CU-Time tools, research boundaries, automated testing, and GitHub Pages deployment.
     </div>
-    <div class="post-meta">
-
-<span title='2025-05-16 00:00:00 -0600 MDT'>May 16, 2025</span>&nbsp;·&nbsp;<span>7 min</span>&nbsp;·&nbsp;<span>1345 words</span>&nbsp;·&nbsp;<span>William Maddock</span>
+    <div class="post-meta"><span title='2025-05-16 00:00:00 -0600 MDT'>May 16, 2025</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;1345 words&nbsp;·&nbsp;William Maddock
 
 </div>
   </header> 
 <figure class="entry-cover">
         <img loading="eager" src="https://willmaddock.github.io/dev/img/cu.jpg" alt="Cosmic Universalism Computational Intelligence Initiative">
         <figcaption>Cosmic Universalism and CUCII</figcaption>
-</figure><details class="toc" >
-    <summary accesskey="c" title="(Alt + C)">
-        <span class="title">Table of Contents</span>
-    </summary>
+</figure><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-    <div class="inner"><nav id="TableOfContents">
+        <div class="inner"><nav id="TableOfContents">
   <ul>
     <li>
       <ul>
@@ -265,10 +254,11 @@
     </li>
   </ul>
 </nav>
-    </div>
-</details>
+        </div>
+    </details>
+</div>
 
-  <div class="post-content md-content"><p style="text-align:center;">
+  <div class="post-content"><p style="text-align:center;">
   <a href="https://willmaddock.github.io/CosmicUniversalismStatement/" target="_blank" rel="noopener noreferrer">
     <img src="../../img/CUCII.png" alt="Cosmic Universalism website and CUCII interface" style="width:100%; max-width:1100px; border-radius:10px;" />
   </a>
@@ -282,8 +272,7 @@
 <li><strong>CUCII</strong> — the prompt-level system used to explore CU through analytical, role-play, or hybrid conversations on general-purpose AI platforms.</li>
 </ol>
 <blockquote>
-<p><strong>Research boundary:</strong> Scientific references remain distinct from CU theoretical propositions. CUCII prompts do not retrain, unlock, permanently alter, or override an external AI model, its policies, memory, safety systems, capabilities, or technical architecture.</p>
-</blockquote>
+<p><strong>Research boundary:</strong> Scientific references remain distinct from CU theoretical propositions. CUCII prompts do not retrain, unlock, permanently alter, or override an external AI model, its policies, memory, safety systems, capabilities, or technical architecture.</p></blockquote>
 <h3 id="-explore-the-live-project">🚀 Explore the Live Project<a hidden class="anchor" aria-hidden="true" href="#-explore-the-live-project">#</a></h3>
 <ul>
 <li>👉 <a href="https://willmaddock.github.io/CosmicUniversalismStatement/" target="_blank" rel="noopener noreferrer"><strong>Open the Cosmic Universalism Website</strong></a></li>
@@ -365,50 +354,50 @@
 <hr>
 <h3 id="-current-technology-stack">🛠️ Current Technology Stack<a hidden class="anchor" aria-hidden="true" href="#-current-technology-stack">#</a></h3>
 <table>
-	<thead>
-			<tr>
-					<th>Area</th>
-					<th>Technologies</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td><strong>Framework</strong></td>
-					<td>Astro</td>
-			</tr>
-			<tr>
-					<td><strong>Languages</strong></td>
-					<td>TypeScript, JavaScript, semantic HTML, modern CSS</td>
-			</tr>
-			<tr>
-					<td><strong>Content</strong></td>
-					<td>Markdown, JSON, typed TypeScript registries</td>
-			</tr>
-			<tr>
-					<td><strong>Visuals</strong></td>
-					<td>SVG, CSS-driven diagrams, responsive browser interfaces</td>
-			</tr>
-			<tr>
-					<td><strong>Testing</strong></td>
-					<td>Vitest, unit tests, regression tests, build verification</td>
-			</tr>
-			<tr>
-					<td><strong>Version Control</strong></td>
-					<td>Git, GitHub, feature branches, tagged releases</td>
-			</tr>
-			<tr>
-					<td><strong>CI/CD and Hosting</strong></td>
-					<td>GitHub Actions, GitHub Pages</td>
-			</tr>
-			<tr>
-					<td><strong>Documentation</strong></td>
-					<td>Markdown, LaTeX, implementation manuals, source maps, release handoffs</td>
-			</tr>
-			<tr>
-					<td><strong>Development Method</strong></td>
-					<td>Inspection-first changes, bounded checkpoints, source provenance, recovery points</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>Area</th>
+          <th>Technologies</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Framework</strong></td>
+          <td>Astro</td>
+      </tr>
+      <tr>
+          <td><strong>Languages</strong></td>
+          <td>TypeScript, JavaScript, semantic HTML, modern CSS</td>
+      </tr>
+      <tr>
+          <td><strong>Content</strong></td>
+          <td>Markdown, JSON, typed TypeScript registries</td>
+      </tr>
+      <tr>
+          <td><strong>Visuals</strong></td>
+          <td>SVG, CSS-driven diagrams, responsive browser interfaces</td>
+      </tr>
+      <tr>
+          <td><strong>Testing</strong></td>
+          <td>Vitest, unit tests, regression tests, build verification</td>
+      </tr>
+      <tr>
+          <td><strong>Version Control</strong></td>
+          <td>Git, GitHub, feature branches, tagged releases</td>
+      </tr>
+      <tr>
+          <td><strong>CI/CD and Hosting</strong></td>
+          <td>GitHub Actions, GitHub Pages</td>
+      </tr>
+      <tr>
+          <td><strong>Documentation</strong></td>
+          <td>Markdown, LaTeX, implementation manuals, source maps, release handoffs</td>
+      </tr>
+      <tr>
+          <td><strong>Development Method</strong></td>
+          <td>Inspection-first changes, bounded checkpoints, source provenance, recovery points</td>
+      </tr>
+  </tbody>
 </table>
 <h4 id="related-technologies-represented-elsewhere-in-the-repository-or-my-training">Related technologies represented elsewhere in the repository or my training<a hidden class="anchor" aria-hidden="true" href="#related-technologies-represented-elsewhere-in-the-repository-or-my-training">#</a></h4>
 <p>Rust, Python, Docker, Kubernetes, AWS services, machine learning, and cloud architecture remain part of the broader repository history and my technical background. They should not be confused with the current public website&rsquo;s production deployment stack.</p>
@@ -427,58 +416,58 @@
 <hr>
 <h3 id="-public-site-and-repository-structure">📁 Public Site and Repository Structure<a hidden class="anchor" aria-hidden="true" href="#-public-site-and-repository-structure">#</a></h3>
 <table>
-	<thead>
-			<tr>
-					<th>Resource</th>
-					<th>Purpose</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td><a href="https://willmaddock.github.io/CosmicUniversalismStatement/" target="_blank" rel="noopener noreferrer">Live Website</a></td>
-					<td>Public framework and project entry point</td>
-			</tr>
-			<tr>
-					<td><a href="https://willmaddock.github.io/CosmicUniversalismStatement/cu-intelligence/" target="_blank" rel="noopener noreferrer">CUCII</a></td>
-					<td>Prompt Studio, living conversation references, methods, and limits</td>
-			</tr>
-			<tr>
-					<td><a href="https://willmaddock.github.io/CosmicUniversalismStatement/cosmic-breath/" target="_blank" rel="noopener noreferrer">Cosmic Breath</a></td>
-					<td>Interactive cycle explorer and TOM education</td>
-			</tr>
-			<tr>
-					<td><a href="https://willmaddock.github.io/CosmicUniversalismStatement/cu-time/" target="_blank" rel="noopener noreferrer">CU-Time</a></td>
-					<td>CU-Time orientation and chronology</td>
-			</tr>
-			<tr>
-					<td><a href="https://willmaddock.github.io/CosmicUniversalismStatement/research/" target="_blank" rel="noopener noreferrer">Research</a></td>
-					<td>Empirical references, CU models, propositions, and open questions</td>
-			</tr>
-			<tr>
-					<td><a href="https://willmaddock.github.io/CosmicUniversalismStatement/media/" target="_blank" rel="noopener noreferrer">Media</a></td>
-					<td>Project videos and visual explanations</td>
-			</tr>
-			<tr>
-					<td><a href="https://github.com/willmaddock/CosmicUniversalismStatement/blob/main/README.md" target="_blank" rel="noopener noreferrer">README.md</a></td>
-					<td>Repository overview and project orientation</td>
-			</tr>
-			<tr>
-					<td><a href="https://github.com/willmaddock/CosmicUniversalismStatement/tree/main/Docs" target="_blank" rel="noopener noreferrer">Docs/</a></td>
-					<td>Technical and framework documentation</td>
-			</tr>
-			<tr>
-					<td><a href="https://github.com/willmaddock/CosmicUniversalismStatement/tree/main/ResearchFiles" target="_blank" rel="noopener noreferrer">ResearchFiles/</a></td>
-					<td>Research documents and source materials</td>
-			</tr>
-			<tr>
-					<td><a href="https://github.com/willmaddock/CosmicUniversalismStatement/tree/main/cosmic_converter" target="_blank" rel="noopener noreferrer">cosmic_converter/</a></td>
-					<td>CU-Time converter versions and source</td>
-			</tr>
-			<tr>
-					<td><a href="https://github.com/willmaddock/CosmicUniversalismStatement/tree/main/media" target="_blank" rel="noopener noreferrer">media/</a></td>
-					<td>Media-related project assets</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>Resource</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><a href="https://willmaddock.github.io/CosmicUniversalismStatement/" target="_blank" rel="noopener noreferrer">Live Website</a></td>
+          <td>Public framework and project entry point</td>
+      </tr>
+      <tr>
+          <td><a href="https://willmaddock.github.io/CosmicUniversalismStatement/cu-intelligence/" target="_blank" rel="noopener noreferrer">CUCII</a></td>
+          <td>Prompt Studio, living conversation references, methods, and limits</td>
+      </tr>
+      <tr>
+          <td><a href="https://willmaddock.github.io/CosmicUniversalismStatement/cosmic-breath/" target="_blank" rel="noopener noreferrer">Cosmic Breath</a></td>
+          <td>Interactive cycle explorer and TOM education</td>
+      </tr>
+      <tr>
+          <td><a href="https://willmaddock.github.io/CosmicUniversalismStatement/cu-time/" target="_blank" rel="noopener noreferrer">CU-Time</a></td>
+          <td>CU-Time orientation and chronology</td>
+      </tr>
+      <tr>
+          <td><a href="https://willmaddock.github.io/CosmicUniversalismStatement/research/" target="_blank" rel="noopener noreferrer">Research</a></td>
+          <td>Empirical references, CU models, propositions, and open questions</td>
+      </tr>
+      <tr>
+          <td><a href="https://willmaddock.github.io/CosmicUniversalismStatement/media/" target="_blank" rel="noopener noreferrer">Media</a></td>
+          <td>Project videos and visual explanations</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/willmaddock/CosmicUniversalismStatement/blob/main/README.md" target="_blank" rel="noopener noreferrer">README.md</a></td>
+          <td>Repository overview and project orientation</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/willmaddock/CosmicUniversalismStatement/tree/main/Docs" target="_blank" rel="noopener noreferrer">Docs/</a></td>
+          <td>Technical and framework documentation</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/willmaddock/CosmicUniversalismStatement/tree/main/ResearchFiles" target="_blank" rel="noopener noreferrer">ResearchFiles/</a></td>
+          <td>Research documents and source materials</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/willmaddock/CosmicUniversalismStatement/tree/main/cosmic_converter" target="_blank" rel="noopener noreferrer">cosmic_converter/</a></td>
+          <td>CU-Time converter versions and source</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/willmaddock/CosmicUniversalismStatement/tree/main/media" target="_blank" rel="noopener noreferrer">media/</a></td>
+          <td>Media-related project assets</td>
+      </tr>
+  </tbody>
 </table>
 <hr>
 <h3 id="-project-rigor-and-workflow">📈 Project Rigor and Workflow<a hidden class="anchor" aria-hidden="true" href="#-project-rigor-and-workflow">#</a></h3>
@@ -493,7 +482,7 @@
 <li>Public capability boundaries for external AI platforms.</li>
 </ul>
 <p><strong>Local repository setup:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/willmaddock/CosmicUniversalismStatement.git
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/willmaddock/CosmicUniversalismStatement.git
 </span></span><span style="display:flex;"><span>cd CosmicUniversalismStatement
 </span></span></code></pre></div><p>Follow the repository README and website documentation for the current installation, test, and build commands. The public website does not require visitors to configure AWS credentials or Kubernetes.</p>
 <hr>
@@ -502,70 +491,70 @@
 <details>
 <summary><strong>View AWS Educate badges</strong></summary>
 <table>
-	<thead>
-			<tr>
-					<th>Badge</th>
-					<th>Focus</th>
-					<th>Credential</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>Generative AI</td>
-					<td>AI-driven solutions</td>
-					<td><a href="https://www.credly.com/badges/07a07924-d4d3-417b-9e84-c289b9eea87a/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a></td>
-			</tr>
-			<tr>
-					<td>Machine Learning Foundations</td>
-					<td>Core ML concepts</td>
-					<td><a href="https://www.credly.com/badges/6b6c699d-d3b5-458a-84cd-7bf1d65be0bd/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a></td>
-			</tr>
-			<tr>
-					<td>Web Builder</td>
-					<td>Web applications on AWS</td>
-					<td><a href="https://www.credly.com/badges/c430067b-6fbf-4186-883b-7db12ef41220/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a></td>
-			</tr>
-			<tr>
-					<td>Cloud Operations</td>
-					<td>Cloud operations</td>
-					<td><a href="https://www.credly.com/badges/d1e047de-f420-4d45-9f88-10136bced725/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a></td>
-			</tr>
-			<tr>
-					<td>Compute</td>
-					<td>AWS compute services</td>
-					<td><a href="https://www.credly.com/badges/3b76a628-7423-457c-8198-c1b8127bf3a0/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a></td>
-			</tr>
-			<tr>
-					<td>Networking</td>
-					<td>Cloud networking</td>
-					<td><a href="https://www.credly.com/badges/807d3569-f378-4a96-9b6f-1dc6c6000abd/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a></td>
-			</tr>
-			<tr>
-					<td>Security</td>
-					<td>Cloud security</td>
-					<td><a href="https://www.credly.com/badges/5cafef51-af7c-4c23-ab38-a4150dda8f45/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a></td>
-			</tr>
-			<tr>
-					<td>Serverless</td>
-					<td>Serverless development</td>
-					<td><a href="https://www.credly.com/badges/db5b1006-562b-4ede-9d69-931ffed7631d/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a></td>
-			</tr>
-			<tr>
-					<td>Storage</td>
-					<td>AWS storage services</td>
-					<td><a href="https://www.credly.com/badges/c7b3345c-abde-4adc-818d-ffdb191403ab/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a></td>
-			</tr>
-			<tr>
-					<td>Cloud 101</td>
-					<td>Cloud foundations</td>
-					<td><a href="https://www.credly.com/badges/e573ab0a-7014-41ff-a9e0-69eea0c31eb3/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a></td>
-			</tr>
-			<tr>
-					<td>Databases</td>
-					<td>Cloud database foundations</td>
-					<td><a href="https://www.credly.com/badges/3fe9360b-b540-4cf1-a28f-fbfe30e8fb16/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a></td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>Badge</th>
+          <th>Focus</th>
+          <th>Credential</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Generative AI</td>
+          <td>AI-driven solutions</td>
+          <td><a href="https://www.credly.com/badges/07a07924-d4d3-417b-9e84-c289b9eea87a/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a></td>
+      </tr>
+      <tr>
+          <td>Machine Learning Foundations</td>
+          <td>Core ML concepts</td>
+          <td><a href="https://www.credly.com/badges/6b6c699d-d3b5-458a-84cd-7bf1d65be0bd/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a></td>
+      </tr>
+      <tr>
+          <td>Web Builder</td>
+          <td>Web applications on AWS</td>
+          <td><a href="https://www.credly.com/badges/c430067b-6fbf-4186-883b-7db12ef41220/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a></td>
+      </tr>
+      <tr>
+          <td>Cloud Operations</td>
+          <td>Cloud operations</td>
+          <td><a href="https://www.credly.com/badges/d1e047de-f420-4d45-9f88-10136bced725/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a></td>
+      </tr>
+      <tr>
+          <td>Compute</td>
+          <td>AWS compute services</td>
+          <td><a href="https://www.credly.com/badges/3b76a628-7423-457c-8198-c1b8127bf3a0/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a></td>
+      </tr>
+      <tr>
+          <td>Networking</td>
+          <td>Cloud networking</td>
+          <td><a href="https://www.credly.com/badges/807d3569-f378-4a96-9b6f-1dc6c6000abd/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a></td>
+      </tr>
+      <tr>
+          <td>Security</td>
+          <td>Cloud security</td>
+          <td><a href="https://www.credly.com/badges/5cafef51-af7c-4c23-ab38-a4150dda8f45/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a></td>
+      </tr>
+      <tr>
+          <td>Serverless</td>
+          <td>Serverless development</td>
+          <td><a href="https://www.credly.com/badges/db5b1006-562b-4ede-9d69-931ffed7631d/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a></td>
+      </tr>
+      <tr>
+          <td>Storage</td>
+          <td>AWS storage services</td>
+          <td><a href="https://www.credly.com/badges/c7b3345c-abde-4adc-818d-ffdb191403ab/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a></td>
+      </tr>
+      <tr>
+          <td>Cloud 101</td>
+          <td>Cloud foundations</td>
+          <td><a href="https://www.credly.com/badges/e573ab0a-7014-41ff-a9e0-69eea0c31eb3/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a></td>
+      </tr>
+      <tr>
+          <td>Databases</td>
+          <td>Cloud database foundations</td>
+          <td><a href="https://www.credly.com/badges/3fe9360b-b540-4cf1-a28f-fbfe30e8fb16/linked_in_profile" target="_blank" rel="noopener noreferrer">View</a></td>
+      </tr>
+  </tbody>
 </table>
 </details>
 <hr>
@@ -598,10 +587,12 @@
 <nav class="paginav">
   <a class="prev" href="https://willmaddock.github.io/dev/projects/spacex-capstone/">
     <span class="title">« Prev</span>
+    <br>
     <span>Applied Data Science Capstone – SpaceX Launch Analysis</span>
   </a>
   <a class="next" href="https://willmaddock.github.io/dev/projects/secure-access-management/">
     <span class="title">Next »</span>
+    <br>
     <span>Secure Access Management System</span>
   </a>
 </nav>
@@ -681,37 +672,22 @@
 <footer class="footer">
         <span>&copy; 2026 <a href="https://willmaddock.github.io/dev/">William Maddock</a></span> · 
 
-    
-    
     <span>
         Powered by
-        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
-<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
-        <polyline points="17 11 12 6 7 11"></polyline>
-        <polyline points="17 18 12 13 7 18"></polyline>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
     </svg>
 </a>
 
-<div class="og-status-bar">
-  <span><span class="og-dot">&#9679;</span>&nbsp;main &mdash; no uncommitted changes</span>
-  <span>UTF-8 &middot; LF &middot; Denver, CO</span>
-</div>
-
-
 <script>
-    let menu = document.getElementById('menu');
+    let menu = document.getElementById('menu')
     if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -738,25 +714,25 @@
 
 </script>
 <script>
-    var toplink = document.getElementById("top-link");
+    var mybutton = document.getElementById("top-link");
     window.onscroll = function () {
-        const scrollThreshold = window.innerHeight;
-        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
-            toplink.classList.remove("hidden");
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
         } else {
-            toplink.classList.add("hidden");
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
         }
     };
 
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
             localStorage.setItem("pref-theme", 'light');
         } else {
-            html.dataset.theme = 'dark';
+            document.body.classList.add('dark');
             localStorage.setItem("pref-theme", 'dark');
         }
     })

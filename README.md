@@ -82,6 +82,64 @@ hugo
 ```
 Then commit the `public/` folder or use GitHub Pages settings.
 
+## Troubleshooting (Local Dev)
+
+Common fixes when `hugo server` misbehaves locally — theme not updating, stale cache, port conflicts, etc.
+
+**Theme changes not showing up / stale build**
+```
+# Clear Hugo's generated resource cache
+rm -rf resources/_gen
+rm -f .hugo_build.lock
+
+# Then restart the server
+hugo server -D
+```
+
+**Submodule (PaperMod theme) missing or empty**
+```
+# Re-fetch the theme submodule from scratch
+git submodule update --init --recursive --force
+```
+
+**Port 1313 already in use**
+```
+# Find and kill whatever's holding the port (macOS/Linux)
+lsof -ti:1313 | xargs kill -9
+
+# Or just run on a different port
+hugo server -D -p 1314
+```
+
+**CSS/JS edits not reflecting even after a hard refresh**
+```
+# Full clean rebuild — wipes cache, generated output, and lock file
+rm -rf resources/_gen public .hugo_build.lock
+hugo server -D --disableFastRender
+```
+
+**"command not found: hugo" after install**
+```
+# Confirm Hugo is installed and check version (extended needed for SCSS)
+hugo version
+
+# macOS: reinstall via Homebrew if missing
+brew install hugo
+```
+
+**Drafts/future-dated posts not appearing locally**
+```
+# -D includes drafts, -F includes future-dated content
+hugo server -D -F
+```
+
+**Nuclear option — wipe everything generated and start clean**
+```
+rm -rf resources/_gen public .hugo_build.lock
+git submodule update --init --recursive --force
+hugo server -D
+```
+
 ## Repository Structure
 
 - `content/`: All site pages (about.md, projects/, etc.).
