@@ -1,0 +1,376 @@
+/* ==========================================================================
+   ORBITAL GLASS — custom theme layer for PaperMod
+   Loaded automatically by Hugo from assets/css/extended/*.css
+   Only overrides CSS variables + existing PaperMod classes.
+   No template/partial structure is assumed beyond documented selectors.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* ---- 1. Palette: layout constants are theme-independent and live in
+   one unconditional :root block. Color values are split into a real
+   light palette (:root) and the original dark-glass palette (.dark).
+   PaperMod's toggle script adds/removes `.dark` on <html>; because
+   `:root` and `.dark` share equal specificity, .dark's declarations
+   (later in source) win whenever the class is present, and :root's
+   light values apply when it isn't. ----
+   --og-cyan / --og-gold stay IDENTICAL hex values in both modes (the
+   literal brand accent, used for fills like the gradient button and
+   the orbital ring dot). --og-cyan-ink / --og-gold-ink are the same
+   hue deepened for AA-safe text/icon/border contrast specifically in
+   light mode — use *-ink anywhere cyan/gold sets a text, icon, or
+   border color against the page/panel background; keep the bare
+   --og-cyan/--og-gold for backgrounds and decorative fills. ---- */
+:root {
+  --gap: 24px;
+  --content-gap: 20px;
+  --nav-width: 1160px;
+  --main-width: 780px;
+  --header-height: 68px;
+  --footer-height: 60px;
+  --radius: 16px;
+}
+
+/* ---- 1a. Light (default) — tint depth "C", the boldest of the three
+   options reviewed with the user. ---- */
+:root {
+  --theme: #D8DEF2;
+  --entry: rgba(18,21,42,0.045);
+  --primary: #12152A;
+  --secondary: #4E5473;
+  --tertiary: rgba(18,21,42,0.08);
+  --content: #262B45;
+  --hljs-bg: #E4E8F7;
+  --code-bg: #DCE1F2;
+  --border: rgba(18,21,42,0.16);
+
+  --og-cyan: #7FE0E8;
+  --og-cyan-dim: rgba(14,124,135,0.38);
+  --og-cyan-ink: #0E7C87;
+  --og-gold: #E3B564;
+  --og-gold-dim: rgba(150,101,12,0.36);
+  --og-gold-ink: #96650C;
+  /* Light-glass panels: white-on-light-page overlay (higher opacity
+     than the dark version, since a white wash needs more strength to
+     read as an elevated "frosted" card once the page itself is
+     already light). */
+  --og-glass: rgba(255,255,255,0.6);
+  --og-glass-strong: rgba(255,255,255,0.8);
+  --og-header-bg: rgba(216,222,242,0.72);
+  --og-ambient-1: rgba(127,224,232,0.36);
+  --og-ambient-2: rgba(227,181,100,0.32);
+}
+
+/* ---- 1b. Dark — unchanged from the original single-palette version ---- */
+.dark {
+  --theme: #070914;
+  --entry: rgba(255,255,255,0.055);
+  --primary: #EDEFF8;
+  --secondary: #A7AFCB;
+  --tertiary: rgba(255,255,255,0.14);
+  --content: #E7E9F5;
+  --hljs-bg: #0b0e20;
+  --code-bg: #10142a;
+  --border: rgba(255,255,255,0.14);
+
+  --og-cyan: #7FE0E8;
+  --og-cyan-dim: rgba(127,224,232,0.35);
+  --og-cyan-ink: #7FE0E8;
+  --og-gold: #E3B564;
+  --og-gold-dim: rgba(227,181,100,0.35);
+  --og-gold-ink: #E3B564;
+  --og-glass: rgba(255,255,255,0.055);
+  --og-glass-strong: rgba(255,255,255,0.095);
+  --og-header-bg: rgba(7,9,20,0.72);
+  --og-ambient-1: rgba(127,224,232,0.16);
+  --og-ambient-2: rgba(227,181,100,0.14);
+}
+
+* { scrollbar-color: var(--og-cyan-dim) transparent; }
+::selection { background: var(--og-cyan-dim); color: #08101A; }
+
+html, body {
+  background: var(--theme);
+  color: var(--content);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ---- 2. Ambient light — fixed, behind everything, every page ---- */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  pointer-events: none;
+}
+body::before { top: -14%; left: -12%; width: 560px; height: 560px; background: radial-gradient(circle, var(--og-ambient-1), transparent 70%); }
+body::after  { bottom: -18%; right: -12%; width: 620px; height: 620px; background: radial-gradient(circle, var(--og-ambient-2), transparent 70%); }
+
+.main, header, footer { position: relative; z-index: 2; }
+
+/* ---- 3. Header / nav — sticky top bar, pill-style links.
+   This is the direction chosen after comparing three nav mockups:
+   a full sidebar, an icon-rail, and a plain top bar. The top bar won
+   on space efficiency, so it's the base for every breakpoint; it
+   borrows the rail mockup's rounded "active pill" treatment so
+   links still read as distinct glass chips rather than plain text,
+   which is the trait that made the rail feel more considered than
+   a stock top nav. No sidebar variant remains (see section 12). ---- */
+header {
+  position: sticky !important;
+  top: 0;
+  background: var(--og-header-bg) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+  z-index: 150;
+}
+.nav { max-width: var(--nav-width); }
+.logo, .logo a { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--primary) !important; }
+#menu {
+  gap: 4px;
+}
+#menu a {
+  color: var(--secondary);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: color .2s, background .2s, border-color .2s;
+}
+#menu a:hover { color: var(--og-cyan-ink) !important; background: var(--og-glass); }
+#menu a.active {
+  color: var(--primary) !important;
+  background: var(--og-glass-strong);
+  border-color: var(--border);
+}
+#theme-toggle svg, #moon, #sun { color: var(--og-gold-ink); }
+
+/* ---- 4. Profile mode (home hero) ---- */
+.profile {
+  position: relative;
+  z-index: 2;
+  padding: 24px;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height) - 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-fill {
+  display: none !important;
+}
+.profile h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.profile p { color: var(--secondary); font-size: 16px; }
+
+.buttons { gap: 12px; }
+.button {
+  background: var(--og-glass) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border) !important;
+  border-radius: 12px !important;
+  color: var(--primary) !important;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  transition: transform .2s, border-color .2s, background .2s !important;
+}
+.button:hover {
+  border-color: var(--og-cyan-ink) !important;
+  background: var(--og-glass-strong) !important;
+  transform: translateY(-2px) scale(1.03) !important;
+}
+
+.social-icons a { color: var(--secondary); transition: color .2s, transform .2s; }
+.social-icons a:hover { color: var(--og-cyan-ink); transform: translateY(-2px); }
+
+/* ---- 5. Orbital ring signature (home page only, see extend_footer.html) ---- */
+.og-ring-wrap {
+  position: fixed;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 640px;
+  height: 640px;
+  z-index: 0;
+  opacity: 0.8;
+  pointer-events: none;
+}
+.og-ring-rotate { width: 100%; height: 100%; animation: og-spin 110s linear infinite; }
+@keyframes og-spin { to { transform: rotate(360deg); } }
+.og-ring { fill: none; stroke-width: 1; }
+.og-ring-outer { stroke: var(--og-cyan-dim); }
+.og-ring-mid { stroke: var(--og-gold-dim); stroke-dasharray: 2 7; }
+.og-ring-inner { stroke: var(--border); }
+.og-ring-dot { fill: var(--og-cyan); filter: drop-shadow(0 0 6px var(--og-cyan)); }
+@media (prefers-reduced-motion: reduce) { .og-ring-rotate { animation: none; } }
+@media (max-width: 800px) { .og-ring-wrap { width: 420px; height: 420px; top: 38%; } }
+
+/* ---- 6. List / archive entries (Projects index, tags, search results) ---- */
+.first-entry, .entry {
+  background: var(--og-glass) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  overflow: hidden; /* keep cover images from bleeding past the rounded card edge */
+  transition: transform .2s, border-color .2s !important;
+}
+.entry:hover, .first-entry:hover {
+  transform: translateY(-3px);
+  border-color: var(--og-cyan-dim) !important;
+}
+/* Constrain list-card cover photos to a fixed banner height so long/wide
+   source images (e.g. designed OG-style graphics) can't overflow the
+   card and crowd the title next to them. */
+.entry .entry-cover, .first-entry .entry-cover {
+  margin: 0;
+  border-radius: 0;
+}
+.entry .entry-cover img, .first-entry .entry-cover img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0;
+}
+.entry-header h2, .first-entry .entry-header h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  color: var(--primary);
+}
+.entry-header, .first-entry .entry-header { padding: 16px 18px 0; }
+.entry-content, .entry-footer { color: var(--secondary); font-family: 'Inter', sans-serif; padding-left: 18px; padding-right: 18px; }
+.entry-footer { padding-bottom: 16px; }
+.tag-links { gap: 6px; }
+.tag-links a, #tags a, #tags li a {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  background: var(--og-glass);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--og-gold-ink) !important;
+}
+
+/* ---- 7. Single page content (About / Experience / Education / Résumé / Projects) ---- */
+.post-single, .page {
+  background: var(--og-glass) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px 28px 32px;
+  overflow: hidden; /* contain the cover image within the rounded card */
+}
+.post-header {
+  position: relative;
+  z-index: 3; /* keep title/breadcrumbs/meta above the cover image, never behind it */
+  margin-bottom: 20px;
+}
+.post-title, .page h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  color: var(--primary);
+}
+/* Cover image sits in its own clear band below the header, never
+   overlapping the title/breadcrumb/ToC toggle above it. Natural
+   aspect ratio, no crop — a fixed max-height here previously cut
+   off the bottom of taller images (project screenshots, photos). */
+.post-single .entry-cover, .page .entry-cover {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 24px;
+}
+.post-single .entry-cover img, .page .entry-cover img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+.toc { position: relative; z-index: 2; }
+.post-content h2, .post-content h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  color: var(--primary);
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  margin-top: 32px;
+}
+.post-content, .post-content p, .post-content li { color: var(--content); line-height: 1.75; }
+.post-content a { color: var(--og-cyan-ink); text-decoration-color: var(--og-cyan-dim); }
+.post-content a:hover { color: var(--og-gold-ink); }
+.post-content strong { color: var(--primary); }
+.post-content img { border-radius: 14px; border: 1px solid var(--border); }
+.post-content code { background: var(--code-bg); color: var(--og-gold-ink); border-radius: 4px; }
+.post-content iframe { border-radius: 14px; }
+.post-meta, .breadcrumbs, .breadcrumbs a { color: var(--secondary) !important; font-family: 'IBM Plex Mono', monospace; font-size: 12px; }
+
+/* ---- 8. Table of contents ---- */
+.toc {
+  background: var(--og-glass) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+}
+.toc-title { font-family: 'Space Grotesk', sans-serif; color: var(--og-gold-ink); }
+
+/* ---- 9. Search page ---- */
+#searchInput {
+  background: var(--og-glass);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--primary);
+  font-family: 'Inter', sans-serif;
+}
+li.post-entry, #searchResults li {
+  background: var(--og-glass);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+/* ---- 10. Footer ---- */
+footer {
+  color: var(--secondary);
+  border-top: 1px solid var(--border);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+}
+footer a { color: var(--secondary); }
+footer a:hover { color: var(--og-cyan-ink); }
+
+/* ---- 11. Misc ---- */
+.top-link {
+  background: var(--og-glass) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--og-cyan-ink) !important;
+  backdrop-filter: blur(12px);
+}
+::-webkit-scrollbar-thumb { background: var(--og-cyan-dim); }
+
+/* ---- 12. Git-style status bar (site-wide footer strip) ----
+   Rendered by layouts/partials/extend_footer.html on every page,
+   right above PaperMod's own .footer credit line. Mirrors a
+   terminal/editor status bar: branch state on the left, encoding
+   and location on the right. */
+.og-status-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: calc(var(--main-width) + var(--gap) * 2);
+  margin: 0 auto;
+  padding: 10px var(--gap) 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--secondary);
+  border-top: 1px solid var(--border);
+}
+.og-status-bar .og-dot { color: var(--og-cyan-ink); }
+@media (max-width: 600px) {
+  .og-status-bar { flex-direction: column; text-align: center; }
+}
