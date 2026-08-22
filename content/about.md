@@ -28,7 +28,7 @@ I am a **software engineer and founder** with a B.S. in Computer Science from **
 I am the **Founder and Lead Developer** of the **Cosmic Universalism Computational Intelligence Initiative (CUCII)**, where I own the product lifecycle from requirements and architecture through implementation, testing, documentation, deployment, and release governance.
 
 <p style="text-align:center;">
-  <img src="../img/your-photo2.png" alt="William Maddock" style="width:100%; max-width:400px; border-radius:12px;" />
+  <img src="../img/your-photo2.jpg" alt="William Maddock" style="width:100%; max-width:400px; border-radius:12px;" />
 </p>
 
 ## What I Build
