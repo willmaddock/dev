@@ -6,7 +6,7 @@
     <description>Recent content in Tags on William Maddock</description>
     <generator>Hugo -- 0.165.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 02 Aug 2026 16:32:00 -0600</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 00:00:00 -0600</lastBuildDate>
     <atom:link href="https://willmaddock.github.io/dev/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI Workflows</title>
@@ -58,6 +58,62 @@
       <description></description>
     </item>
     <item>
+      <title>Data Visualization</title>
+      <link>https://willmaddock.github.io/dev/tags/data-visualization/</link>
+      <pubDate>Sat, 01 Aug 2026 00:00:00 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/data-visualization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>FastAPI</title>
+      <link>https://willmaddock.github.io/dev/tags/fastapi/</link>
+      <pubDate>Sat, 01 Aug 2026 00:00:00 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/fastapi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Local-First</title>
+      <link>https://willmaddock.github.io/dev/tags/local-first/</link>
+      <pubDate>Sat, 01 Aug 2026 00:00:00 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/local-first/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Privacy</title>
+      <link>https://willmaddock.github.io/dev/tags/privacy/</link>
+      <pubDate>Sat, 01 Aug 2026 00:00:00 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/privacy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://willmaddock.github.io/dev/tags/python/</link>
+      <pubDate>Sat, 01 Aug 2026 00:00:00 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>React</title>
+      <link>https://willmaddock.github.io/dev/tags/react/</link>
+      <pubDate>Sat, 01 Aug 2026 00:00:00 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/react/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SQLite</title>
+      <link>https://willmaddock.github.io/dev/tags/sqlite/</link>
+      <pubDate>Sat, 01 Aug 2026 00:00:00 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/sqlite/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Web Development</title>
+      <link>https://willmaddock.github.io/dev/tags/web-development/</link>
+      <pubDate>Sat, 01 Aug 2026 00:00:00 -0600</pubDate>
+      <guid>https://willmaddock.github.io/dev/tags/web-development/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>GitHub Actions</title>
       <link>https://willmaddock.github.io/dev/tags/github-actions/</link>
       <pubDate>Thu, 14 Aug 2025 00:00:00 -0600</pubDate>
@@ -100,13 +156,6 @@
       <description></description>
     </item>
     <item>
-      <title>Web Development</title>
-      <link>https://willmaddock.github.io/dev/tags/web-development/</link>
-      <pubDate>Thu, 14 Aug 2025 00:00:00 -0600</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/web-development/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>IBM</title>
       <link>https://willmaddock.github.io/dev/tags/ibm/</link>
       <pubDate>Tue, 15 Jul 2025 00:00:00 -0600</pubDate>
@@ -132,13 +181,6 @@
       <link>https://willmaddock.github.io/dev/tags/plotly/</link>
       <pubDate>Tue, 15 Jul 2025 00:00:00 -0600</pubDate>
       <guid>https://willmaddock.github.io/dev/tags/plotly/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Python</title>
-      <link>https://willmaddock.github.io/dev/tags/python/</link>
-      <pubDate>Tue, 15 Jul 2025 00:00:00 -0600</pubDate>
-      <guid>https://willmaddock.github.io/dev/tags/python/</guid>
       <description></description>
     </item>
     <item>

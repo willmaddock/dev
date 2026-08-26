@@ -150,12 +150,27 @@ I founded and continue to lead the **Cosmic Universalism Computational Intellige
 
 ---
 
+### Founder and Developer, JobTracker Hub
+*August 2026*
+
+- Designed and built a local-first job-application dashboard (v1.0.0) that reads an existing job-search folder and turns it into an interactive pipeline, with no cloud service or account required.
+- Built a FastAPI backend bound to `localhost`, with a two-database SQLite model separating a disposable, auto-rebuilt filesystem index from durable user-entered data.
+- Developed a React frontend, served as a single static file with no build step, including list and drag-and-drop Kanban views, a command palette, and keyboard navigation.
+- Implemented full-text search, document management (upload, rename, delete-to-Trash), an inline PDF viewer, and Chart.js-based application insights.
+- Designed a configuration-driven classification system so the folder-to-section mapping and document-type detection adapt to a user's own folder structure.
+
+**Technologies:** Python, FastAPI, Uvicorn, React, SQLite, Chart.js, JavaScript.
+
+👉 <a href="../projects/jobtracker-hub/" target="_blank" rel="noopener noreferrer">View Project Details</a>
+
+---
+
 ## 🛠️ Technical Skills
 
 - **Languages:** TypeScript, JavaScript, Python, Ruby, Kotlin, Rust, Java, SQL, Go
-- **Web and Application Development:** Astro, Ruby on Rails, Hugo, semantic HTML, modern CSS, Markdown, SVG, Android Studio, Bootstrap
+- **Web and Application Development:** Astro, Ruby on Rails, FastAPI, React, Hugo, semantic HTML, modern CSS, Markdown, SVG, Android Studio, Bootstrap
 - **Testing and Validation:** Vitest, RSpec, Capybara, unit testing, regression testing, configuration validation, acceptance criteria
-- **Data and Analytics:** Pandas, NumPy, scikit-learn, Plotly Dash, Folium, Jupyter Notebooks, API data collection
+- **Data and Analytics:** Pandas, NumPy, scikit-learn, Plotly Dash, Folium, SQLite, Chart.js, Jupyter Notebooks, API data collection
 - **Cloud and Delivery:** Git, GitHub, GitHub Actions, GitHub Pages, Docker, Kubernetes, AWS services, Google Cloud Storage, Render
 - **Engineering Practices:** Full-stack development, backend systems, RBAC, API integration, accessibility, CI/CD, source provenance, technical documentation, release governance
 - **Leadership and Methods:** Agile, Feature-Driven Development, task planning, team coordination, code review, process improvement

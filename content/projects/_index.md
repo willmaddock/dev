@@ -12,6 +12,7 @@ I am a **software engineer and founder** with a B.S. in Computer Science from MS
 - **Secure Access Management System** — Ruby on Rails application featuring RBAC, protected resources, validation, testing, cloud-backed uploads, and accessible interfaces.
 - **SpaceX Launch Analysis** — Python data pipeline covering API collection, cleaning, exploratory analysis, machine learning, and interactive dashboards.
 - **Auraria Mobile Parking** — Kotlin Android team project integrating API-driven parking, weather, mapping, and user-support features.
+- **JobTracker Hub** — Local-first Python/FastAPI and React dashboard that turns an existing job-search folder into a searchable Kanban pipeline, follow-up triage, document management, and application insights, with no cloud service or account required.
 - **Personal Portfolio** — Hugo and PaperMod site with responsive content, search, downloadable documents, and automated GitHub Pages deployment.
 
 Select a project below for implementation details, technologies, documentation, and source links.

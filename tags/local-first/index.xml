@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Python on William Maddock</title>
-    <link>https://willmaddock.github.io/dev/tags/python/</link>
-    <description>Recent content in Python on William Maddock</description>
+    <title>Local-First on William Maddock</title>
+    <link>https://willmaddock.github.io/dev/tags/local-first/</link>
+    <description>Recent content in Local-First on William Maddock</description>
     <generator>Hugo -- 0.165.0</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 25 Aug 2026 00:00:00 -0600</lastBuildDate>
-    <atom:link href="https://willmaddock.github.io/dev/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://willmaddock.github.io/dev/tags/local-first/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JobTracker Hub</title>
       <link>https://willmaddock.github.io/dev/projects/jobtracker-hub/</link>
       <pubDate>Sat, 01 Aug 2026 00:00:00 -0600</pubDate>
       <guid>https://willmaddock.github.io/dev/projects/jobtracker-hub/</guid>
       <description>Built a local-first Python/FastAPI and React dashboard that turns an existing job-search folder into a searchable pipeline with Kanban, follow-up triage, document management, and application insights — no cloud, no account.</description>
-    </item>
-    <item>
-      <title>Applied Data Science Capstone – SpaceX Launch Analysis</title>
-      <link>https://willmaddock.github.io/dev/projects/spacex-capstone/</link>
-      <pubDate>Tue, 15 Jul 2025 00:00:00 -0600</pubDate>
-      <guid>https://willmaddock.github.io/dev/projects/spacex-capstone/</guid>
-      <description>Built an end-to-end SpaceX launch-analysis pipeline using Python, APIs, web-derived data, SQL, machine learning, maps, and interactive dashboards.</description>
     </item>
   </channel>
 </rss>
