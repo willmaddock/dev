@@ -106,6 +106,9 @@ name = "Search"
 url = "/search/"
 weight = 7
 
+[services.googleAnalytics]
+ID = "G-S2YYKGB9WD"
+
 [outputs]
 home = ["HTML", "RSS", "JSON"]
 
