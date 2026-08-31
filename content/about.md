@@ -53,11 +53,19 @@ The platform includes the CUCII Prompt Studio, the Cosmic Breath Explorer, CU-Ti
 - <a href="https://willmaddock.github.io/CosmicUniversalismStatement/cu-intelligence/" target="_blank" rel="noopener noreferrer"><strong>Explore CUCII Prompt Studio</strong></a>
 - <a href="https://github.com/willmaddock/CosmicUniversalismStatement" target="_blank" rel="noopener noreferrer"><strong>View the repository</strong></a>
 
+## Selected Project: JobTracker Hub
+
+JobTracker Hub is a local-first job-search dashboard I designed and built independently — a Python/FastAPI backend, SQLite storage, and a React frontend that turns an existing folder of job-application documents into a searchable Kanban pipeline, with no cloud service or account required. I use it daily to manage my own job search: across 110+ tracked applications it shows an 81% response rate and a 7% interview rate, both well above published benchmarks.
+
+- <a href="https://github.com/willmaddock/jobtracker-hub" target="_blank" rel="noopener noreferrer"><strong>View the GitHub repository</strong></a>
+- <a href="https://github.com/willmaddock/jobtracker-hub/releases/latest" target="_blank" rel="noopener noreferrer"><strong>Download for macOS</strong></a>
+- <a href="../projects/jobtracker-hub/"><strong>View full project details</strong></a>
+
 ## Technical Focus
 
 - **Languages:** TypeScript, JavaScript, Python, Ruby, Kotlin, Rust, Java, SQL, Go
-- **Web and Application Development:** Astro, Ruby on Rails, Hugo, Android Studio, semantic HTML, modern CSS, Markdown, SVG
-- **Testing and Quality:** Vitest, RSpec, Capybara, unit testing, regression testing, validation, accessibility review
+- **Web and Application Development:** Astro, Ruby on Rails, FastAPI, React, Hugo, Android Studio, semantic HTML, modern CSS, Markdown, SVG
+- **Testing and Quality:** Vitest, pytest, RSpec, Capybara, unit testing, regression testing, validation, accessibility review
 - **Data and Analytics:** Pandas, NumPy, scikit-learn, Plotly Dash, Folium, Jupyter Notebooks
 - **Cloud and Delivery:** Git, GitHub, GitHub Actions, GitHub Pages, Docker, Kubernetes, AWS learning environments, Google Cloud Storage, Render
 - **Leadership:** product ownership, technical documentation, Agile delivery, team coordination, release governance, and process improvement

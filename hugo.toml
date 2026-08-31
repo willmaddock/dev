@@ -42,6 +42,10 @@ name = "Explore CUCII"
 url = "https://willmaddock.github.io/CosmicUniversalismStatement/cu-intelligence/"
 
 [[params.profileMode.buttons]]
+name = "Download JobTracker Hub"
+url = "https://github.com/willmaddock/jobtracker-hub/releases/latest"
+
+[[params.profileMode.buttons]]
 name = "About"
 url = "about"
 

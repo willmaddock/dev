@@ -80,7 +80,7 @@ I founded and continue to lead the **Cosmic Universalism Computational Intellige
 ### Flex Driver and Warehouse Associate, Amazon
 *Summer 2023 – Present*
 
-- Support high-volume delivery and warehouse operations while meeting safety, accuracy, timing, and customer-service expectations.
+- Deliver 30–35 packages per shift across 3-hour routes with a consistent on-time completion record, earning 10+ customer compliments for service quality.
 - Manage changing priorities, route execution, inventory handling, and time-sensitive operational tasks.
 - Troubleshoot process issues, communicate blockers, and collaborate with associates and operations teams.
 - Apply reliability, organization, adaptability, and independent decision-making in fast-moving environments.
@@ -158,6 +158,7 @@ I founded and continue to lead the **Cosmic Universalism Computational Intellige
 - Developed a React frontend, served as a single static file with no build step, including list and drag-and-drop Kanban views, a command palette, and keyboard navigation.
 - Implemented full-text search, document management (upload, rename, delete-to-Trash), an inline PDF viewer, and Chart.js-based application insights.
 - Designed a configuration-driven classification system so the folder-to-section mapping and document-type detection adapt to a user's own folder structure.
+- Personal daily use across 110+ tracked applications shows an 81% response rate and 7% interview rate, well above the published 2–10% and 2–3% industry benchmarks.
 
 **Technologies:** Python, FastAPI, Uvicorn, React, SQLite, Chart.js, JavaScript.
 

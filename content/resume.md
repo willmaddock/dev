@@ -26,7 +26,7 @@ UseHugoToc: false
 This one-page résumé is my primary public résumé for **Software Engineer I, Junior Full-Stack Engineer, web application, cloud, and AI-facing application roles**.
 
 <p>
-  <a href="../resume.pdf" target="_blank" rel="noopener noreferrer" download>
+  <a href="../resume-v2.pdf" target="_blank" rel="noopener noreferrer" download>
     <strong>Download the résumé as a PDF</strong>
   </a>
 </p>
@@ -34,14 +34,24 @@ This one-page résumé is my primary public résumé for **Software Engineer I, 
 ## Résumé Preview
 
 <iframe
-  src="../resume.pdf"
+  src="../resume-v2.pdf"
   width="100%"
   height="1200px"
   style="border:1px solid #667085; border-radius:8px;"
   title="William Maddock résumé preview">
   Your browser does not support embedded PDFs.
-  <a href="../resume.pdf" target="_blank" rel="noopener noreferrer">Download the résumé here.</a>
+  <a href="../resume-v2.pdf" target="_blank" rel="noopener noreferrer">Download the résumé here.</a>
 </iframe>
+
+## Extended Résumé
+
+The one-page résumé above is what I lead with for fast applications. For a fuller picture — additional project detail, the complete CUCII and Amazon experience writeups, and full technology breakdowns — a two-page master résumé is also available.
+
+<p>
+  <a href="../resume-master.pdf" target="_blank" rel="noopener noreferrer" download>
+    <strong>Download the full 2-page résumé (PDF)</strong>
+  </a>
+</p>
 
 ## Professional Positioning
 
@@ -57,6 +67,7 @@ The résumé highlights:
 - Python data pipelines and interactive analytics
 - Kotlin Android development and team leadership
 - Computer Science education and selected credentials
+- JobTracker Hub — a full-stack Python/FastAPI and React desktop application, independently designed, tested, and shipped
 
 ## More Detail
 

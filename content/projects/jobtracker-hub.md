@@ -37,6 +37,7 @@ cover:
 **JobTracker Hub (v1.0.0)** is a local, private dashboard over a folder of job-application documents already sitting on disk. Instead of asking users to migrate resumes, cover letters, and correspondence into a SaaS tracker, it reads whatever folder structure they already use for a job search and turns it into an interactive pipeline — list and Kanban views, follow-up triage, full-text search, and analytics — as a single process running on `localhost`.
 
 - <a href="https://github.com/willmaddock/jobtracker-hub" target="_blank" rel="noopener noreferrer"><strong>View the GitHub repository</strong></a>
+- <a href="https://github.com/willmaddock/jobtracker-hub/releases/latest" target="_blank" rel="noopener noreferrer"><strong>⬇ Download for macOS (.dmg)</strong></a>
 - <a href="https://github.com/willmaddock/jobtracker-hub/blob/main/docs/JobTracker_User_Guide.pdf" target="_blank" rel="noopener noreferrer"><strong>View the user guide</strong></a>
 
 > JobTracker Hub is local software by design — there is no hosted demo. It runs as a Python process on the machine that's running it, and the API binds to `127.0.0.1` only.
@@ -52,6 +53,7 @@ cover:
 - Added **full-text search** across indexed filenames, companies, and roles, with inline result highlighting, plus a `⌘K`/`Ctrl+K` command palette and `j`/`k`/arrow-key list navigation.
 - Implemented **document management** (upload, rename, delete-to-Trash) and an inline PDF viewer.
 - Built an **Insights** view (response rate, interview rate, time-to-response, application velocity) rendered with Chart.js.
+- Personally use the app daily to manage my own job search — across 110+ tracked applications it shows an 81% response rate and 7% interview rate, both well above published industry benchmarks (2–10% response, 2–3% interview).
 - Designed a **two-database architecture** that separates the disposable, auto-rebuilt filesystem index from durable user-entered data, so rebuilding the index never destroys notes, statuses, or dates.
 - Added a **configuration-driven classification system** (`classify_config.json`, `classify.py`) so the folder-to-section mapping and document-type detection can be adapted to a user's own folder structure.
 - Supported **multiple independent trackers** through a tracker switcher, and a zero-config installation model where the app determines its tracker root from its own filesystem position.
@@ -83,6 +85,26 @@ I designed and built the application independently, including:
 6. **Multiple Trackers** — a tracker switcher for managing more than one independent job search from the same running app.
 7. **Command Palette and Keyboard Navigation** — `⌘K`/`Ctrl+K` fuzzy search and actions, plus `j`/`k`/arrow-key list navigation.
 8. **Configuration-Driven Classification** — editable rules for mapping folder names to dashboard sections and detecting document types.
+
+---
+
+## Gallery
+
+<p style="text-align:center;">
+  <img src="../../img/jobtracker-hub-demo.gif" alt="JobTracker Hub demo — installing from the DMG and touring the Pipeline, Kanban, Needs Attention, and Search Hub views" style="width:100%; max-width:900px; border-radius:10px;" />
+</p>
+
+<p style="text-align:center;">
+  <img src="../../img/jobtracker-hub-pipeline-kanban.png" alt="JobTracker Hub Kanban pipeline view" style="width:100%; max-width:900px; border-radius:10px;" />
+</p>
+
+<p style="text-align:center;">
+  <img src="../../img/jobtracker-hub-needs-attention.png" alt="JobTracker Hub Needs Attention triage view" style="width:100%; max-width:900px; border-radius:10px;" />
+</p>
+
+<p style="text-align:center;">
+  <img src="../../img/jobtracker-hub-search-hub.png" alt="JobTracker Hub full-text Search Hub" style="width:100%; max-width:900px; border-radius:10px;" />
+</p>
 
 ---
 
