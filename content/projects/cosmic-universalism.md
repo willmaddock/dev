@@ -130,6 +130,10 @@ The interactive explorer supports direct navigation across **51 TOM states** and
 
 These durations and structures are presented as **CU mathematical models or theoretical propositions**, not empirical measurements.
 
+<p style="text-align:center;">
+  <img src="../../img/cosmic-breath-demo.gif" alt="Cosmic Breath Explorer demo — navigating the 51-state cycle" style="width:100%; max-width:900px; border-radius:10px;" />
+</p>
+
 ---
 
 ### ⏳ CU-Time and the Time Converter
