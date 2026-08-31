@@ -23,7 +23,7 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-  image: "./img/secure2.png"
+  image: "./img/secure2.webp"
   alt: "Secure Access Management System interface"
   caption: "Ruby on Rails access-management application"
   relative: true
@@ -31,7 +31,7 @@ cover:
 ---
 
 <p style="text-align:center;">
-  <img src="../../img/secure.png" alt="Secure Access Management System" style="width:100%; max-width:900px; border-radius:10px;" />
+  <img src="../../img/secure.webp" alt="Secure Access Management System" style="width:100%; max-width:900px; border-radius:10px;" loading="lazy" width="1800" height="1191" />
 </p>
 
 From **September through December 2024**, I designed and developed the **Secure Access Management System** as a full-stack Ruby on Rails project at MSU Denver.

@@ -20,7 +20,7 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-  image: "./img/grad.png"
+  image: "./img/grad.webp"
   alt: "William Maddock education and graduation"
   relative: true
   hidden: false

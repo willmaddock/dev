@@ -23,7 +23,7 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-  image: "./img/cu.jpg"
+  image: "./img/cu.webp"
   alt: "Cosmic Universalism Computational Intelligence Initiative"
   caption: "Cosmic Universalism and CUCII"
   relative: true
@@ -33,7 +33,7 @@ cover:
 
 <p style="text-align:center;">
   <a href="https://willmaddock.github.io/CosmicUniversalismStatement/" target="_blank" rel="noopener noreferrer">
-    <img src="../../img/CUCII.png" alt="Cosmic Universalism website and CUCII interface" style="width:100%; max-width:1100px; border-radius:10px;" />
+    <img src="../../img/CUCII.webp" alt="Cosmic Universalism website and CUCII interface" style="width:100%; max-width:1100px; border-radius:10px;" loading="lazy" width="1600" height="830" />
   </a>
 </p>
 
@@ -131,7 +131,7 @@ The interactive explorer supports direct navigation across **51 TOM states** and
 These durations and structures are presented as **CU mathematical models or theoretical propositions**, not empirical measurements.
 
 <p style="text-align:center;">
-  <img src="../../img/cosmic-breath-demo.gif" alt="Cosmic Breath Explorer demo — navigating the 51-state cycle" style="width:100%; max-width:900px; border-radius:10px;" />
+  <video src="../../img/cosmic-breath-demo.mp4" style="width:100%; max-width:900px; border-radius:10px;" width="480" height="270" autoplay muted loop playsinline preload="metadata" aria-label="Cosmic Breath Explorer demo — navigating the 51-state cycle"></video>
 </p>
 
 ---

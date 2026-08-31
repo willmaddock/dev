@@ -23,7 +23,7 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-  image: "./img/amp-cover.png"
+  image: "./img/amp-cover.webp"
   alt: "Auraria Mobile Parking application"
   caption: "AMP Android application"
   relative: true
@@ -31,7 +31,7 @@ cover:
 ---
 
 <p style="text-align:center;">
-  <img src="../../img/amp-cover2.png" alt="Auraria Mobile Parking Android application" style="width:100%; max-width:900px; border-radius:10px;" />
+  <img src="../../img/amp-cover2.webp" alt="Auraria Mobile Parking Android application" style="width:100%; max-width:900px; border-radius:10px;" loading="lazy" width="1600" height="746" />
 </p>
 
 From **August through December 2024**, I served as **Technical Lead** for the **Auraria Mobile Parking (AMP)** project, a six-person Kotlin Android application developed for MSU Denver's CS 4360 course.

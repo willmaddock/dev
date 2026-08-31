@@ -23,7 +23,7 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-  image: "./img/ini.png"
+  image: "./img/ini.webp"
   alt: "William Maddock portfolio"
   caption: "Hugo portfolio deployed through GitHub Pages"
   relative: true
@@ -31,7 +31,7 @@ cover:
 ---
 
 <p style="text-align:center;">
-  <img src="../../img/portfolio.png" alt="William Maddock portfolio homepage" style="width:100%; max-width:900px; border-radius:10px;" />
+  <img src="../../img/portfolio.webp" alt="William Maddock portfolio homepage" style="width:100%; max-width:900px; border-radius:10px;" loading="lazy" width="1600" height="1369" />
 </p>
 
 Launched in **August 2025** and maintained as an active project, this portfolio presents my software engineering experience, projects, education, credentials, and downloadable résumé through a fast static website.

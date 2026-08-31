@@ -23,7 +23,7 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-  image: "./img/spacex2.png"
+  image: "./img/spacex2.webp"
   alt: "SpaceX Launch Analysis"
   caption: "SpaceX launch-analysis dashboard"
   relative: true
@@ -31,7 +31,7 @@ cover:
 ---
 
 <p style="text-align:center;">
-  <img src="../../img/spacex.png" alt="SpaceX Launch Analysis dashboard and visualizations" style="width:100%; max-width:900px; border-radius:10px;" />
+  <img src="../../img/spacex.webp" alt="SpaceX Launch Analysis dashboard and visualizations" style="width:100%; max-width:900px; border-radius:10px;" loading="lazy" width="1800" height="1011" />
 </p>
 
 From **May through July 2025**, I completed an end-to-end SpaceX launch-analysis capstone for the **IBM Data Science Professional Certificate**.

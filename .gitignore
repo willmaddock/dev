@@ -6,24 +6,24 @@ resources/_gen/
 .hugo_build.lock
 
 # Local environment and IDE files
-.idea/                    # GoLand/IntelliJ IDEA project files
-.vscode/                  # Visual Studio Code settings
-*.sublime-project         # Sublime Text project files
+.idea/
+.vscode/
+*.sublime-project
 *.sublime-workspace
 
 # Operating system files
-.DS_Store                 # macOS Finder metadata
-Thumbs.db                 # Windows thumbnail cache
+.DS_Store
+Thumbs.db
 
 # Dependency directories (if you install tools locally)
-node_modules/             # Node.js modules (unlikely for PaperMod, but included for completeness)
-vendor/                   # Vendored dependencies (if using Go modules or other tools)
+node_modules/
+vendor/
 
 # Sensitive or local configuration files
-config.local.toml         # Local Hugo config for development
-.env                      # Environment variable files
-*.bak                     # Backup files
-*.tmp                     # Temporary files
+config.local.toml
+.env
+*.bak
+*.tmp
 
 # Logs and temporary files
 *.log

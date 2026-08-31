@@ -28,7 +28,7 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-  image: "./img/experience.png"
+  image: "./img/experience.webp"
   alt: "Professional Experience Overview"
   relative: true
   hidden: false

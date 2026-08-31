@@ -23,7 +23,7 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-  image: "./img/jobtracker-hub.png"
+  image: "./img/jobtracker-hub.webp"
   alt: "JobTracker Hub pipeline dashboard"
   caption: "Local-first job-application dashboard with Kanban pipeline"
   relative: true
@@ -31,7 +31,7 @@ cover:
 ---
 
 <p style="text-align:center;">
-  <img src="../../img/jobtracker-hub-detail.png" alt="JobTracker Hub application detail view with document management" style="width:100%; max-width:900px; border-radius:10px;" />
+  <img src="../../img/jobtracker-hub-detail.webp" alt="JobTracker Hub application detail view with document management" style="width:100%; max-width:900px; border-radius:10px;" loading="lazy" width="1800" height="888" />
 </p>
 
 **JobTracker Hub (v1.0.0)** is a local, private dashboard over a folder of job-application documents already sitting on disk. Instead of asking users to migrate resumes, cover letters, and correspondence into a SaaS tracker, it reads whatever folder structure they already use for a job search and turns it into an interactive pipeline — list and Kanban views, follow-up triage, full-text search, and analytics — as a single process running on `localhost`.
@@ -91,19 +91,19 @@ I designed and built the application independently, including:
 ## Gallery
 
 <p style="text-align:center;">
-  <img src="../../img/jobtracker-hub-demo.gif" alt="JobTracker Hub demo — installing from the DMG and touring the Pipeline, Kanban, Needs Attention, and Search Hub views" style="width:100%; max-width:900px; border-radius:10px;" />
+  <video src="../../img/jobtracker-hub-demo.mp4" style="width:100%; max-width:900px; border-radius:10px;" width="680" height="476" autoplay muted loop playsinline preload="metadata" aria-label="JobTracker Hub demo — installing from the DMG and touring the Pipeline, Kanban, Needs Attention, and Search Hub views"></video>
 </p>
 
 <p style="text-align:center;">
-  <img src="../../img/jobtracker-hub-pipeline-kanban.png" alt="JobTracker Hub Kanban pipeline view" style="width:100%; max-width:900px; border-radius:10px;" />
+  <img src="../../img/jobtracker-hub-pipeline-kanban.webp" alt="JobTracker Hub Kanban pipeline view" style="width:100%; max-width:900px; border-radius:10px;" loading="lazy" width="1800" height="885" />
 </p>
 
 <p style="text-align:center;">
-  <img src="../../img/jobtracker-hub-needs-attention.png" alt="JobTracker Hub Needs Attention triage view" style="width:100%; max-width:900px; border-radius:10px;" />
+  <img src="../../img/jobtracker-hub-needs-attention.webp" alt="JobTracker Hub Needs Attention triage view" style="width:100%; max-width:900px; border-radius:10px;" loading="lazy" width="1800" height="881" />
 </p>
 
 <p style="text-align:center;">
-  <img src="../../img/jobtracker-hub-search-hub.png" alt="JobTracker Hub full-text Search Hub" style="width:100%; max-width:900px; border-radius:10px;" />
+  <img src="../../img/jobtracker-hub-search-hub.webp" alt="JobTracker Hub full-text Search Hub" style="width:100%; max-width:900px; border-radius:10px;" loading="lazy" width="1800" height="225" />
 </p>
 
 ---
