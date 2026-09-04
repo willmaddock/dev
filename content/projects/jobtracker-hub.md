@@ -37,7 +37,7 @@ cover:
 **JobTracker Hub (v1.0.0)** is a local, private dashboard over a folder of job-application documents already sitting on disk. Instead of asking users to migrate resumes, cover letters, and correspondence into a SaaS tracker, it reads whatever folder structure they already use for a job search and turns it into an interactive pipeline — list and Kanban views, follow-up triage, full-text search, and analytics — as a single process running on `localhost`.
 
 - <a href="https://github.com/willmaddock/jobtracker-hub" target="_blank" rel="noopener noreferrer"><strong>View the GitHub repository</strong></a>
-- <a href="https://github.com/willmaddock/jobtracker-hub/releases/latest" target="_blank" rel="noopener noreferrer"><strong>⬇ Download for macOS (.dmg)</strong></a>
+- <a href="https://github.com/willmaddock/jobtracker-hub/releases/latest" target="_blank" rel="noopener noreferrer"><strong>{{< hicon download >}} Download for macOS (.dmg)</strong></a>
 - <a href="https://github.com/willmaddock/jobtracker-hub/blob/main/docs/JobTracker_User_Guide.pdf" target="_blank" rel="noopener noreferrer"><strong>View the user guide</strong></a>
 
 > JobTracker Hub is local software by design — there is no hosted demo. It runs as a Python process on the machine that's running it, and the API binds to `127.0.0.1` only.

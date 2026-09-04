@@ -1,5 +1,5 @@
 ---
-title: "🎓 Education"
+title: "Education"
 draft: false
 description: "Education, honors, and selected professional credentials in computer science, data science, cloud computing, and software development."
 linkTitle: "Education"
@@ -45,7 +45,7 @@ Relevant study included:
 
 My degree work included the **Auraria Mobile Parking** team project, the **Secure Access Management System**, and additional software, systems, and data-focused coursework.
 
-📄 <a href="https://www.parchment.com/u/award/3ad84111770fb3057d24cfa62e2e5f8e" target="_blank" rel="noopener noreferrer">View verified diploma through Parchment</a>
+{{< hicon document >}} <a href="https://www.parchment.com/u/award/3ad84111770fb3057d24cfa62e2e5f8e" target="_blank" rel="noopener noreferrer">View verified diploma through Parchment</a>
 
 ---
 

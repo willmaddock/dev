@@ -41,7 +41,7 @@ My current work centers on building practical, testable systems that are accessi
 
 ---
 
-## 🔍 Professional Highlights
+## Professional Highlights
 
 - **Full-Stack and AI-Facing Development**: Built and released public web applications, browser-based AI workflow tools, backend systems, data dashboards, and mobile applications.
 - **Technical Ownership**: Led projects from requirements and architecture through implementation, testing, documentation, deployment, and maintenance.
@@ -52,7 +52,7 @@ My current work centers on building practical, testable systems that are accessi
 
 ---
 
-## 📦 Professional Experience
+## Professional Experience
 
 ### Founder and Lead Developer, Cosmic Universalism Computational Intelligence Initiative (CUCII)
 *December 2024 – Present*
@@ -70,10 +70,10 @@ I founded and continue to lead the **Cosmic Universalism Computational Intellige
 
 **Technologies:** Astro, TypeScript, JavaScript, semantic HTML, modern CSS, Markdown, JSON, SVG, Vitest, Git, GitHub Actions, GitHub Pages, LaTeX.
 
-👉 <a href="https://willmaddock.github.io/CosmicUniversalismStatement/" target="_blank" rel="noopener noreferrer"><strong>Visit the Cosmic Universalism website</strong></a>  
-👉 <a href="https://willmaddock.github.io/CosmicUniversalismStatement/cu-intelligence/" target="_blank" rel="noopener noreferrer"><strong>Explore the CUCII Prompt Studio</strong></a>  
-👉 <a href="https://github.com/willmaddock/CosmicUniversalismStatement" target="_blank" rel="noopener noreferrer"><strong>View the GitHub repository</strong></a>  
-👉 <a href="../projects/cosmic-universalism/" target="_blank" rel="noopener noreferrer"><strong>View portfolio project details</strong></a>
+{{< hicon arrow-right >}} <a href="https://willmaddock.github.io/CosmicUniversalismStatement/" target="_blank" rel="noopener noreferrer"><strong>Visit the Cosmic Universalism website</strong></a>  
+{{< hicon arrow-right >}} <a href="https://willmaddock.github.io/CosmicUniversalismStatement/cu-intelligence/" target="_blank" rel="noopener noreferrer"><strong>Explore the CUCII Prompt Studio</strong></a>  
+{{< hicon arrow-right >}} <a href="https://github.com/willmaddock/CosmicUniversalismStatement" target="_blank" rel="noopener noreferrer"><strong>View the GitHub repository</strong></a>  
+{{< hicon arrow-right >}} <a href="../projects/cosmic-universalism/" target="_blank" rel="noopener noreferrer"><strong>View portfolio project details</strong></a>
 
 ---
 
@@ -89,7 +89,7 @@ I founded and continue to lead the **Cosmic Universalism Computational Intellige
 
 ---
 
-## 💻 Selected Technical Experience
+## Selected Technical Experience
 
 ### Founder and Lead Developer, Secure Access Management System
 *September 2024 – December 2024*
@@ -101,7 +101,7 @@ I founded and continue to lead the **Cosmic Universalism Computational Intellige
 
 **Technologies:** Ruby on Rails, Ruby, PostgreSQL, RBAC, RSpec, Capybara, Bootstrap, Google Cloud Storage, Render.
 
-👉 <a href="../projects/secure-access-management/" target="_blank" rel="noopener noreferrer">View Project Details</a>
+{{< hicon arrow-right >}} <a href="../projects/secure-access-management/" target="_blank" rel="noopener noreferrer">View Project Details</a>
 
 ---
 
@@ -116,7 +116,7 @@ I founded and continue to lead the **Cosmic Universalism Computational Intellige
 
 **Technologies:** Python, Pandas, NumPy, scikit-learn, Plotly Dash, Folium, Jupyter Notebooks, APIs, SQL concepts.
 
-👉 <a href="../projects/spacex-capstone/" target="_blank" rel="noopener noreferrer">View Project Details</a>
+{{< hicon arrow-right >}} <a href="../projects/spacex-capstone/" target="_blank" rel="noopener noreferrer">View Project Details</a>
 
 ---
 
@@ -131,7 +131,7 @@ I founded and continue to lead the **Cosmic Universalism Computational Intellige
 
 **Technologies:** Kotlin, Android Studio, Firebase, Google Maps SDK, OpenWeather API, Git, ClickUp.
 
-👉 <a href="../projects/team-amp/" target="_blank" rel="noopener noreferrer">View Project Details</a>
+{{< hicon arrow-right >}} <a href="../projects/team-amp/" target="_blank" rel="noopener noreferrer">View Project Details</a>
 
 ---
 
@@ -146,7 +146,7 @@ I founded and continue to lead the **Cosmic Universalism Computational Intellige
 
 **Technologies:** Hugo, PaperMod, Markdown, TOML, HTML, CSS, GitHub Actions, GitHub Pages.
 
-👉 <a href="../projects/personal-portfolio/" target="_blank" rel="noopener noreferrer">View Project Details</a>
+{{< hicon arrow-right >}} <a href="../projects/personal-portfolio/" target="_blank" rel="noopener noreferrer">View Project Details</a>
 
 ---
 
@@ -162,11 +162,11 @@ I founded and continue to lead the **Cosmic Universalism Computational Intellige
 
 **Technologies:** Python, FastAPI, Uvicorn, React, SQLite, Chart.js, JavaScript.
 
-👉 <a href="../projects/jobtracker-hub/" target="_blank" rel="noopener noreferrer">View Project Details</a>
+{{< hicon arrow-right >}} <a href="../projects/jobtracker-hub/" target="_blank" rel="noopener noreferrer">View Project Details</a>
 
 ---
 
-## 🛠️ Technical Skills
+## Technical Skills
 
 - **Languages:** TypeScript, JavaScript, Python, Ruby, Kotlin, Rust, Java, SQL, Go
 - **Web and Application Development:** Astro, Ruby on Rails, FastAPI, React, Hugo, semantic HTML, modern CSS, Markdown, SVG, Android Studio, Bootstrap
@@ -178,7 +178,7 @@ I founded and continue to lead the **Cosmic Universalism Computational Intellige
 
 ---
 
-## 🎓 Education
+## Education
 
 ### Bachelor of Science in Computer Science
 **Metropolitan State University of Denver**  
@@ -197,7 +197,7 @@ I founded and continue to lead the **Cosmic Universalism Computational Intellige
 
 ---
 
-## 🎓 Certifications and Credentials
+## Certifications and Credentials
 
 - **IBM Data Science Professional Certificate**, Coursera, 2025  
   <a href="https://www.coursera.org/account/accomplishments/specialization/68JLH79O3KTJ" target="_blank" rel="noopener noreferrer">View Certificate</a>
@@ -206,11 +206,11 @@ I founded and continue to lead the **Cosmic Universalism Computational Intellige
 - **AWS Machine Learning Foundations**
 - **11 AWS Educate badges** covering cloud operations, compute, networking, security, serverless computing, storage, databases, and foundational cloud concepts
 
-👉 <a href="https://www.linkedin.com/in/willmaddockcs/details/certifications/" target="_blank" rel="noopener noreferrer">View all certifications and credentials</a>
+{{< hicon arrow-right >}} <a href="https://www.linkedin.com/in/willmaddockcs/details/certifications/" target="_blank" rel="noopener noreferrer">View all certifications and credentials</a>
 
 ---
 
 These experiences have prepared me for opportunities in **software engineering, full-stack development, AI applications, automation, systems analysis, data engineering, cloud development, and technical project leadership**.
 
-👉 <a href="../projects/" target="_blank" rel="noopener noreferrer"><strong>Explore all projects</strong></a>  
-👉 <a href="../resume/" target="_blank" rel="noopener noreferrer"><strong>View résumé</strong></a>
+{{< hicon arrow-right >}} <a href="../projects/" target="_blank" rel="noopener noreferrer"><strong>Explore all projects</strong></a>  
+{{< hicon arrow-right >}} <a href="../resume/" target="_blank" rel="noopener noreferrer"><strong>View résumé</strong></a>

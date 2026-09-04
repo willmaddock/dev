@@ -1,0 +1,47 @@
+{{- /*
+  Heading/bullet content icons (Option A from heading-icon-mockup.html).
+  Distinct from themes/PaperMod/layouts/partials/svg.html (brand/social
+  icons) — this partial covers the small set of decorative glyphs used
+  inline in page copy (section headings, "View Project Details" bullets)
+  that used to be raw emoji. Same visual language: 24x24 viewBox,
+  currentColor stroke, round caps, so it inherits the cyan accent and
+  tracks dark/light mode automatically.
+
+  Usage: {{ partial "hicon.html" (dict "name" "search") }}
+*/ -}}
+{{- $name := ( trim .name " " | lower ) -}}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+{{- if eq $name "search" -}}
+  <circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>
+{{- else if eq $name "arrow-right" -}}
+  <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+{{- else if eq $name "package" -}}
+  <rect x="3" y="8" width="18" height="13" rx="1"/><path d="M3 8l9-5 9 5"/><path d="M12 3v18"/>
+{{- else if eq $name "laptop" -}}
+  <rect x="3" y="4" width="18" height="12" rx="1"/><path d="M2 20h20"/>
+{{- else if eq $name "wrench" -}}
+  <path d="M14.7 6.3a4 4 0 1 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.1 2.1-2.5-.6-.6-2.5z"/>
+{{- else if eq $name "cap" -}}
+  <path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/>
+{{- else if eq $name "user" -}}
+  <circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>
+{{- else if eq $name "document" -}}
+  <path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5"/>
+{{- else if eq $name "rocket" -}}
+  <path d="M5 16s-1.5-4 2-8 9-6 9-6 2 5-2 9-9 5-9 5z"/><path d="M9 15l-4 4"/><circle cx="14" cy="9" r="1.5"/>
+{{- else if eq $name "sparkles" -}}
+  <path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/>
+{{- else if eq $name "orbit" -}}
+  <circle cx="12" cy="12" r="2"/><ellipse cx="12" cy="12" rx="10" ry="4"/>
+{{- else if eq $name "check" -}}
+  <circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/>
+{{- else if eq $name "folder" -}}
+  <path d="M3 7a1 1 0 0 1 1-1h5l2 2h9a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/>
+{{- else if eq $name "trending-up" -}}
+  <path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>
+{{- else if eq $name "link" -}}
+  <path d="M9 15l6-6"/><path d="M8 12l-2 2a3 3 0 0 0 4 4l2-2"/><path d="M16 12l2-2a3 3 0 0 0-4-4l-2 2"/>
+{{- else if eq $name "download" -}}
+  <path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/>
+{{- end -}}
+</svg>

@@ -21,7 +21,7 @@ ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 ---
 
-# 👋 William Maddock
+# William Maddock
 
 I am a **software engineer and founder** with a B.S. in Computer Science from **Metropolitan State University of Denver**. I build full-stack web applications, browser-based AI tools, backend systems, data pipelines, mobile applications, and accessible technical documentation.
 

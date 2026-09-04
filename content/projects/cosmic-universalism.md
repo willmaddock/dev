@@ -49,17 +49,17 @@ The project separates three layers that should not be collapsed together:
 
 > **Research boundary:** Scientific references remain distinct from CU theoretical propositions. CUCII prompts do not retrain, unlock, permanently alter, or override an external AI model, its policies, memory, safety systems, capabilities, or technical architecture.
 
-### 🚀 Explore the Live Project
+### Explore the Live Project
 
-- 👉 <a href="https://willmaddock.github.io/CosmicUniversalismStatement/" target="_blank" rel="noopener noreferrer"><strong>Open the Cosmic Universalism Website</strong></a>
-- 👉 <a href="https://willmaddock.github.io/CosmicUniversalismStatement/cu-intelligence/" target="_blank" rel="noopener noreferrer"><strong>Explore the CUCII Prompt Studio</strong></a>
-- 👉 <a href="https://willmaddock.github.io/CosmicUniversalismStatement/cosmic-breath/" target="_blank" rel="noopener noreferrer"><strong>Explore the Cosmic Breath</strong></a>
-- 👉 <a href="https://willmaddock.github.io/CosmicUniversalismStatement/cu-time/" target="_blank" rel="noopener noreferrer"><strong>Explore CU-Time</strong></a>
-- 👉 <a href="https://github.com/willmaddock/CosmicUniversalismStatement" target="_blank" rel="noopener noreferrer"><strong>View the GitHub Repository</strong></a>
+- {{< hicon arrow-right >}} <a href="https://willmaddock.github.io/CosmicUniversalismStatement/" target="_blank" rel="noopener noreferrer"><strong>Open the Cosmic Universalism Website</strong></a>
+- {{< hicon arrow-right >}} <a href="https://willmaddock.github.io/CosmicUniversalismStatement/cu-intelligence/" target="_blank" rel="noopener noreferrer"><strong>Explore the CUCII Prompt Studio</strong></a>
+- {{< hicon arrow-right >}} <a href="https://willmaddock.github.io/CosmicUniversalismStatement/cosmic-breath/" target="_blank" rel="noopener noreferrer"><strong>Explore the Cosmic Breath</strong></a>
+- {{< hicon arrow-right >}} <a href="https://willmaddock.github.io/CosmicUniversalismStatement/cu-time/" target="_blank" rel="noopener noreferrer"><strong>Explore CU-Time</strong></a>
+- {{< hicon arrow-right >}} <a href="https://github.com/willmaddock/CosmicUniversalismStatement" target="_blank" rel="noopener noreferrer"><strong>View the GitHub Repository</strong></a>
 
 ---
 
-### 🔍 Project Highlights
+### Project Highlights
 
 - Designed and launched an **eight-route production website** covering the framework, Cosmic Breath, CU-Time, research, media, project information, and CUCII.
 - Built the **CUCII Prompt Studio**, a local browser-based tool that creates portable prompts for analytical, narrative, and hybrid AI conversations.
@@ -72,7 +72,7 @@ The project separates three layers that should not be collapsed together:
 
 ---
 
-### 📦 My Role: Founder & Lead Developer
+### My Role: Founder & Lead Developer
 
 My responsibilities span the full product lifecycle:
 
@@ -89,7 +89,7 @@ This work has strengthened my skills in **full-stack product ownership**, **Type
 
 ---
 
-### 🧠 CUCII Prompt Studio
+### CUCII Prompt Studio
 
 The **CUCII Prompt Studio** is a configurable prompt-generation system that runs locally in the browser. Visitors can:
 
@@ -118,7 +118,7 @@ The studio does **not** automatically submit prompts to an AI platform. Prompt s
 
 ---
 
-### 🌌 Cosmic Breath Explorer
+### Cosmic Breath Explorer
 
 The Cosmic Breath section presents CU's proposed **3.108-trillion-year cycle**:
 
@@ -147,7 +147,7 @@ The public site keeps converter outputs, CU structural chronology, and contempor
 
 ---
 
-### 🛠️ Current Technology Stack
+### Current Technology Stack
 
 | Area | Technologies |
 |---|---|
@@ -167,7 +167,7 @@ Rust, Python, Docker, Kubernetes, AWS services, machine learning, and cloud arch
 
 ---
 
-### ✅ Testing, Accessibility, and Release Quality
+### Testing, Accessibility, and Release Quality
 
 The project uses a test-and-review process designed to keep public behavior stable:
 
@@ -181,7 +181,7 @@ The project uses a test-and-review process designed to keep public behavior stab
 
 ---
 
-### 📁 Public Site and Repository Structure
+### Public Site and Repository Structure
 
 | Resource | Purpose |
 |---|---|
@@ -199,7 +199,7 @@ The project uses a test-and-review process designed to keep public behavior stab
 
 ---
 
-### 📈 Project Rigor and Workflow
+### Project Rigor and Workflow
 
 The repository reflects sustained product ownership rather than a single static page:
 
@@ -222,7 +222,7 @@ Follow the repository README and website documentation for the current installat
 
 ---
 
-### 🎓 Related AWS Educate Credentials
+### Related AWS Educate Credentials
 
 These credentials support my broader cloud and AI background; they are not presented as the production stack of the current Astro/GitHub Pages website.
 
@@ -247,7 +247,7 @@ These credentials support my broader cloud and AI background; they are not prese
 
 ---
 
-### 🔗 Links and Resources
+### Links and Resources
 
 - <a href="https://willmaddock.github.io/CosmicUniversalismStatement/" target="_blank" rel="noopener noreferrer">Cosmic Universalism Website</a>
 - <a href="https://willmaddock.github.io/CosmicUniversalismStatement/cu-intelligence/" target="_blank" rel="noopener noreferrer">CUCII Prompt Studio</a>

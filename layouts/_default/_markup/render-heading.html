@@ -1,0 +1,36 @@
+{{- /*
+  Custom heading render hook — reproduces PaperMod's default h2/h3 markup
+  (id anchor only; the "#" permalink link is intentionally omitted, see
+  the override in assets/css/extended/glass-theme.css) and additionally
+  prepends a theme-matched icon (see partials/hicon.html) for the specific
+  headings that used to carry a leading emoji (Option A from the mockup).
+
+  Deliberately NOT done by putting a {{< hicon >}} shortcode inside the
+  Markdown heading text: Hugo's ToC/anchor-ID extraction runs on the raw
+  heading text before shortcode substitution completes, so a shortcode
+  inline in a heading leaks placeholder tokens (or, with %-delimited
+  shortcodes, drops the anchor id and ToC label entirely). Keeping heading
+  Markdown 100% plain and matching on .PlainText here sidesteps both bugs.
+*/ -}}
+{{- $icon := "" -}}
+{{- $key := printf "%d|%s" .Level .PlainText -}}
+{{- if eq $key "1|William Maddock" }}{{ $icon = "user" }}
+{{- else if eq $key "2|Professional Highlights" }}{{ $icon = "search" }}
+{{- else if eq $key "2|Professional Experience" }}{{ $icon = "package" }}
+{{- else if eq $key "2|Selected Technical Experience" }}{{ $icon = "laptop" }}
+{{- else if eq $key "2|Technical Skills" }}{{ $icon = "wrench" }}
+{{- else if eq $key "2|Education" }}{{ $icon = "cap" }}
+{{- else if eq $key "2|Certifications and Credentials" }}{{ $icon = "cap" }}
+{{- else if eq $key "3|Explore the Live Project" }}{{ $icon = "rocket" }}
+{{- else if eq $key "3|Project Highlights" }}{{ $icon = "search" }}
+{{- else if eq $key "3|My Role: Founder & Lead Developer" }}{{ $icon = "package" }}
+{{- else if eq $key "3|CUCII Prompt Studio" }}{{ $icon = "sparkles" }}
+{{- else if eq $key "3|Cosmic Breath Explorer" }}{{ $icon = "orbit" }}
+{{- else if eq $key "3|Current Technology Stack" }}{{ $icon = "wrench" }}
+{{- else if eq $key "3|Testing, Accessibility, and Release Quality" }}{{ $icon = "check" }}
+{{- else if eq $key "3|Public Site and Repository Structure" }}{{ $icon = "folder" }}
+{{- else if eq $key "3|Project Rigor and Workflow" }}{{ $icon = "trending-up" }}
+{{- else if eq $key "3|Related AWS Educate Credentials" }}{{ $icon = "cap" }}
+{{- else if eq $key "3|Links and Resources" }}{{ $icon = "link" -}}
+{{- end -}}
+<h{{ .Level }} id="{{ .Anchor }}">{{- with $icon }}<span class="h-icon">{{ partial "hicon.html" (dict "name" .) }}</span>{{ end -}}{{ .Text }}</h{{ .Level }}>

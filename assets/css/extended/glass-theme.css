@@ -329,6 +329,36 @@ header {
   margin-top: 32px;
 }
 .post-content, .post-content p, .post-content li { color: var(--content); line-height: 1.75; }
+/* ---- Inline content icons (Option A, replaces raw emoji in headings/
+   bullets) — same currentColor pattern as the theme's social icons, so
+   they track the cyan accent and dark/light mode automatically.
+
+   Default size covers every context these icons actually appear in —
+   this content's "bullet" markers (arrow-right, document, download) sit
+   in plain <p> tags with <br> line breaks, not <li> elements, so a
+   selector scoped to li alone would leave them unstyled and full-size.
+   Headings (h1/h2/h3) get the one explicit override, since those read
+   better slightly larger. ---- */
+.post-content .h-icon {
+  display: inline-flex;
+  width: 13px;
+  height: 13px;
+  color: var(--og-cyan-ink);
+  vertical-align: middle;
+  transform: translateY(-1px);
+  margin-right: 4px;
+}
+.post-content h1 .h-icon, .post-content h2 .h-icon, .post-content h3 .h-icon {
+  width: 19px;
+  height: 19px;
+  transform: none;
+  margin-right: 6px;
+}
+.post-content .h-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 .post-content a { color: var(--og-cyan-ink); text-decoration-color: var(--og-cyan-dim); }
 .post-content a:hover { color: var(--og-gold-ink); }
 .post-content strong { color: var(--primary); }
@@ -410,4 +440,14 @@ footer a:hover { color: var(--og-cyan-ink); }
 .og-status-bar .og-dot { color: var(--og-cyan-ink); }
 @media (max-width: 600px) {
   .og-status-bar { flex-direction: column; text-align: center; }
+}
+
+/* Disable PaperMod's hover "#" heading permalink anchors site-wide. */
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+    display: none;
 }
