@@ -1,10 +1,10 @@
 ---
 title: "JobTracker Hub"
 date: 2026-08-01T00:00:00-06:00
-lastmod: 2026-08-25T00:00:00-06:00
+lastmod: 2026-09-06T00:00:00-06:00
 draft: false
-description: "Built a local-first Python/FastAPI and React dashboard that turns an existing job-search folder into a searchable pipeline with Kanban, follow-up triage, document management, and application insights — no cloud, no account."
-tags: ["Python", "FastAPI", "React", "SQLite", "Local-First", "Web Development", "Privacy", "Data Visualization"]
+description: "Built a local-first Python/FastAPI and React dashboard that turns an existing job-search folder into a searchable pipeline with Kanban, follow-up triage, macOS Mail.app email sync, document management, and application insights — no cloud, no account."
+tags: ["Python", "FastAPI", "React", "SQLite", "Local-First", "Web Development", "Privacy", "Data Visualization", "Automation"]
 linkTitle: "JobTracker Hub"
 author: "William Maddock"
 showToc: true
@@ -34,7 +34,7 @@ cover:
   <img src="../../img/jobtracker-hub-detail.webp" alt="JobTracker Hub application detail view with document management" style="width:100%; max-width:900px; border-radius:10px;" loading="lazy" width="1800" height="888" />
 </p>
 
-**JobTracker Hub (v1.0.0)** is a local, private dashboard over a folder of job-application documents already sitting on disk. Instead of asking users to migrate resumes, cover letters, and correspondence into a SaaS tracker, it reads whatever folder structure they already use for a job search and turns it into an interactive pipeline — list and Kanban views, follow-up triage, full-text search, and analytics — as a single process running on `localhost`.
+**JobTracker Hub (v1.2.0)** is a local, private dashboard over a folder of job-application documents already sitting on disk. Instead of asking users to migrate resumes, cover letters, and correspondence into a SaaS tracker, it reads whatever folder structure they already use for a job search and turns it into an interactive pipeline — list and Kanban views, follow-up triage, full-text search, macOS Mail.app email sync, and analytics — as a single process running on `localhost`.
 
 - <a href="https://github.com/willmaddock/jobtracker-hub" target="_blank" rel="noopener noreferrer"><strong>View the GitHub repository</strong></a>
 - <a href="https://github.com/willmaddock/jobtracker-hub/releases/latest" target="_blank" rel="noopener noreferrer"><strong>{{< hicon download >}} Download for macOS (.dmg)</strong></a>
@@ -53,6 +53,7 @@ cover:
 - Added **full-text search** across indexed filenames, companies, and roles, with inline result highlighting, plus a `⌘K`/`Ctrl+K` command palette and `j`/`k`/arrow-key list navigation.
 - Implemented **document management** (upload, rename, delete-to-Trash) and an inline PDF viewer.
 - Built an **Insights** view (response rate, interview rate, time-to-response, application velocity) rendered with Chart.js.
+- Shipped **Email Sync** (v1.2.0, macOS only): drives Mail.app itself over AppleScript — no OAuth, no IMAP credentials, no cloud — to scan already-configured accounts for job-alert emails, surfacing candidates in a **Needs Triage** queue that promote into first-class cards on a **Job Postings** board, with nothing permanently deleted and a full Reset Email Sync escape hatch.
 - Personally use the app daily to manage my own job search — across 110+ tracked applications it shows an 81% response rate and 7% interview rate, both well above published industry benchmarks (2–10% response, 2–3% interview).
 - Designed a **two-database architecture** that separates the disposable, auto-rebuilt filesystem index from durable user-entered data, so rebuilding the index never destroys notes, statuses, or dates.
 - Added a **configuration-driven classification system** (`classify_config.json`, `classify.py`) so the folder-to-section mapping and document-type detection can be adapted to a user's own folder structure.
@@ -85,6 +86,7 @@ I designed and built the application independently, including:
 6. **Multiple Trackers** — a tracker switcher for managing more than one independent job search from the same running app.
 7. **Command Palette and Keyboard Navigation** — `⌘K`/`Ctrl+K` fuzzy search and actions, plus `j`/`k`/arrow-key list navigation.
 8. **Configuration-Driven Classification** — editable rules for mapping folder names to dashboard sections and detecting document types.
+9. **Email Sync** *(macOS only, v1.2.0)* — Mail.app-driven discovery of job-alert emails (LinkedIn, Indeed, Handshake, Lensa, and similar), with a Needs Triage queue and a dedicated Job Postings board.
 
 ---
 
@@ -106,6 +108,14 @@ I designed and built the application independently, including:
   <img src="../../img/jobtracker-hub-search-hub.webp" alt="JobTracker Hub full-text Search Hub" style="width:100%; max-width:900px; border-radius:10px;" loading="lazy" width="1800" height="225" />
 </p>
 
+<p style="text-align:center;">
+  <img src="../../img/jobtracker-hub-email-sync-postings.webp" alt="JobTracker Hub Email Sync Job Postings board" style="width:100%; max-width:900px; border-radius:10px;" loading="lazy" width="1800" height="984" />
+</p>
+
+<p style="text-align:center;">
+  <img src="../../img/jobtracker-hub-email-sync-accounts.webp" alt="JobTracker Hub Email Sync connected Mail.app accounts view" style="width:100%; max-width:900px; border-radius:10px;" loading="lazy" width="1800" height="984" />
+</p>
+
 ---
 
 ## Technology Stack
@@ -117,6 +127,7 @@ I designed and built the application independently, including:
 | Data | SQLite, filesystem-backed document index |
 | Client persistence | `localStorage` (index cache), URL-driven view state |
 | Interaction | Native HTML5 drag-and-drop, keyboard navigation |
+| Email Sync | AppleScript (`osascript`) automation of macOS Mail.app — no OAuth, no IMAP, no stored credentials |
 | Packaging | Self-contained `_app/` directory, Python virtual environment |
 
 ---
@@ -184,4 +195,5 @@ This project demonstrates:
 - Document management and inline preview
 - Analytics and data visualization
 - Configuration-driven behavior for adapting to different users' folder structures
+- OS-level automation (AppleScript/`osascript`) to integrate with a native macOS app without owning credentials or a mail protocol stack
 - End-to-end product ownership, from architecture through documentation

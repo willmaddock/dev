@@ -55,7 +55,7 @@ The platform includes the CUCII Prompt Studio, the Cosmic Breath Explorer, CU-Ti
 
 ## Selected Project: JobTracker Hub
 
-JobTracker Hub is a local-first job-search dashboard I designed and built independently — a Python/FastAPI backend, SQLite storage, and a React frontend that turns an existing folder of job-application documents into a searchable Kanban pipeline, with no cloud service or account required. I use it daily to manage my own job search: across 110+ tracked applications it shows an 81% response rate and a 7% interview rate, both well above published benchmarks.
+JobTracker Hub is a local-first job-search dashboard I designed and built independently — a Python/FastAPI backend, SQLite storage, and a React frontend that turns an existing folder of job-application documents into a searchable Kanban pipeline, with no cloud service or account required. The latest release, **v1.2.0**, adds macOS Mail.app Email Sync — driven entirely through AppleScript automation, with no OAuth, IMAP credentials, or cloud involved — to surface job-alert emails for triage straight into the pipeline. I use it daily to manage my own job search: across 110+ tracked applications it shows an 81% response rate and a 7% interview rate, both well above published benchmarks.
 
 - <a href="https://github.com/willmaddock/jobtracker-hub" target="_blank" rel="noopener noreferrer"><strong>View the GitHub repository</strong></a>
 - <a href="https://github.com/willmaddock/jobtracker-hub/releases/latest" target="_blank" rel="noopener noreferrer"><strong>Download for macOS</strong></a>

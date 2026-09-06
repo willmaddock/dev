@@ -151,16 +151,17 @@ I founded and continue to lead the **Cosmic Universalism Computational Intellige
 ---
 
 ### Founder and Developer, JobTracker Hub
-*August 2026*
+*August 2026 – Present*
 
 - Designed and built a local-first job-application dashboard (v1.0.0) that reads an existing job-search folder and turns it into an interactive pipeline, with no cloud service or account required.
 - Built a FastAPI backend bound to `localhost`, with a two-database SQLite model separating a disposable, auto-rebuilt filesystem index from durable user-entered data.
 - Developed a React frontend, served as a single static file with no build step, including list and drag-and-drop Kanban views, a command palette, and keyboard navigation.
 - Implemented full-text search, document management (upload, rename, delete-to-Trash), an inline PDF viewer, and Chart.js-based application insights.
 - Designed a configuration-driven classification system so the folder-to-section mapping and document-type detection adapt to a user's own folder structure.
+- Shipped **Email Sync (v1.2.0)**: macOS-only discovery of job-alert emails driven entirely through Mail.app via AppleScript automation (no OAuth, no IMAP credentials, no cloud), surfacing candidates in a Needs Triage queue that promote into a dedicated Job Postings board.
 - Personal daily use across 110+ tracked applications shows an 81% response rate and 7% interview rate, well above the published 2–10% and 2–3% industry benchmarks.
 
-**Technologies:** Python, FastAPI, Uvicorn, React, SQLite, Chart.js, JavaScript.
+**Technologies:** Python, FastAPI, Uvicorn, React, SQLite, Chart.js, JavaScript, AppleScript.
 
 {{< hicon arrow-right >}} <a href="../projects/jobtracker-hub/" target="_blank" rel="noopener noreferrer">View Project Details</a>
 
