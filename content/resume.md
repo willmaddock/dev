@@ -25,23 +25,23 @@ UseHugoToc: false
 
 This one-page résumé is my primary public résumé for **Software Engineer I, Junior Full-Stack Engineer, web application, cloud, and AI-facing application roles**.
 
-<p>
-  <a href="../resume-v2.pdf" target="_blank" rel="noopener noreferrer" download>
-    <strong>Download the résumé as a PDF</strong>
-  </a>
+<p class="resume-actions">
+  <a class="button-link" href="../resume-v2.pdf" target="_blank" rel="noopener noreferrer" download>Download the résumé (PDF)</a>
+  <a class="button-link button-link--ghost" href="../resume-v2.pdf" target="_blank" rel="noopener noreferrer">Open in a new tab</a>
 </p>
 
 ## Résumé Preview
 
 <iframe
+  class="resume-preview"
   src="../resume-v2.pdf"
   width="100%"
   height="1200px"
-  style="border:1px solid #667085; border-radius:8px;"
   title="William Maddock résumé preview">
-  Your browser does not support embedded PDFs.
   <a href="../resume-v2.pdf" target="_blank" rel="noopener noreferrer">Download the résumé here.</a>
 </iframe>
+
+<p class="resume-mobile-note">The inline preview is hidden on small screens, where phone browsers usually show only the first page. Use the buttons above to read the full PDF.</p>
 
 ## Extended Résumé
 

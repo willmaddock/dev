@@ -15,6 +15,14 @@ ShowBreadCrumbs = true
 ShowCodeCopyButtons = true
 ShowPostNavLinks = true
 ShowToc = true
+images = ["img/portfolio.webp"]
+
+[params.assets]
+favicon = "favicon.ico"
+favicon16x16 = "favicon-16x16.png"
+favicon32x32 = "favicon-32x32.png"
+apple_touch_icon = "apple-touch-icon.png"
+safari_pinned_tab = "safari-pinned-tab.svg"
 
 [params.profileMode]
 enabled = true
@@ -34,12 +42,37 @@ name = "Résumé"
 url = "resume"
 
 [[params.profileMode.buttons]]
+name = "Artifacts"
+url = "artifacts"
+
+[[params.profileMode.buttons]]
 name = "Explore CUCII"
 url = "https://willmaddock.github.io/CosmicUniversalismStatement/cu-intelligence/"
 
 [[params.profileMode.buttons]]
 name = "Download JobTracker Hub"
 url = "https://github.com/willmaddock/jobtracker-hub/releases/latest"
+
+[[params.featured]]
+title = "JobTracker Hub"
+blurb = "Local-first job-search dashboard: Kanban pipeline, follow-up triage and Mail.app sync, with no cloud or account."
+url = "projects/jobtracker-hub/"
+image = "img/jobtracker-hub.webp"
+alt = "JobTracker Hub pipeline dashboard"
+
+[[params.featured]]
+title = "CUCII"
+blurb = "Astro and TypeScript platform with a local Prompt Studio, automated tests and GitHub Pages deployment."
+url = "projects/cosmic-universalism/"
+image = "img/cu.webp"
+alt = "Cosmic Universalism Computational Intelligence Initiative"
+
+[[params.featured]]
+title = "Secure Access Management"
+blurb = "Ruby on Rails app with role-based access control, cloud-backed uploads and automated testing."
+url = "projects/secure-access-management/"
+image = "img/secure2.webp"
+alt = "Secure Access Management System interface"
 
 [[params.socialIcons]]
 name = "linkedin"
@@ -81,14 +114,19 @@ url = "/projects/"
 weight = 5
 
 [[menu.main]]
+name = "Artifacts"
+url = "/artifacts/"
+weight = 6
+
+[[menu.main]]
 name = "Education"
 url = "/education/"
-weight = 6
+weight = 7
 
 [[menu.main]]
 name = "Search"
 url = "/search/"
-weight = 7
+weight = 8
 
 [services.googleAnalytics]
 ID = "G-S2YYKGB9WD"

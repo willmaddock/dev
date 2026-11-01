@@ -12,7 +12,8 @@ Live site: [willmaddock.github.io/dev](https://willmaddock.github.io/dev)
 
 - **Responsive Design**: Looks great on any device, thanks to PaperMod's flexible theme.
 - **Search Functionality**: Powered by Fuse.js—quickly find content like projects or skills.
-- **Custom Navigation**: Easy access to sections: About, Experience, Resume, Projects, Education, and Search.
+- **Custom Navigation**: Easy access to sections: About, Experience, Resume, Projects, Artifacts, Education, and Search.
+- **Artifacts**: Interactive explainers, each with its own card and page. The self-contained HTML lives in `static/artifacts/<name>/` and is embedded in a themed page from `content/artifacts/` using the `artifact` shortcode; it follows the site's light/dark toggle.
 - **Embedded Media**: Includes PDFs (e.g., resumes, reports), images, and links to external repos/tools.
 - **Meta Fun**: Self-documenting elements, like a project page about the site itself—recursion at its finest!
 - **Automated Deployment**: GitHub Actions handles builds and deploys on every push to `main`.
@@ -64,6 +65,7 @@ To run this site locally or customize it for yourself:
 ## Usage
 
 - **Adding Content**: Create new Markdown files in `content/projects/`, `content/experience/`, etc. Follow the frontmatter format (e.g., title, date, tags).
+- **Adding an Artifact**: Put the self-contained page at `static/artifacts/<name>/index.html`, add a cover image to `static/img/`, then copy `content/artifacts/spacex-debt-explainer.md` and change the title, description, cover, and the `src` in the `artifact` shortcode. A new card appears on the Artifacts page automatically.
 - **Customizing Theme**: Modify layouts or styles in `themes/PaperMod/` (but consider forking the theme for updates).
 - **Building the Site**: Run `hugo` to generate static files in `public/`.
 - **Fun Tip**: Add your own "Easter eggs" like meta references to keep it entertaining!

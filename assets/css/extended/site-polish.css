@@ -1,0 +1,60 @@
+/* ---- List cards: cap cover height ----
+   PaperMod list cards use .post-entry (not .entry), so the earlier 200px cap
+   in glass-theme.css never matched. Cover images are cropped to a banner. */
+.post-entry .entry-cover { margin: -2px -2px 12px; }
+.post-entry .entry-cover img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+/* Designed chart graphics (Artifacts): show whole, letterboxed, never cropped. */
+.post-entry:has(.entry-link[href*="/artifacts/"]) .entry-cover img {
+  object-fit: contain;
+  background: #0b0f1f;
+}
+
+/* ---- Home: compact hero so Featured work shows on the first scroll ---- */
+body .main .profile { min-height: 0 !important; padding: 28px 24px 8px; }
+.featured { max-width: 1020px; margin: 8px auto 48px; padding: 0 24px; position: relative; z-index: 2; }
+.featured-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px; font-weight: 600; color: var(--primary);
+  margin: 0 0 14px; text-align: center;
+}
+.featured-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.featured-card {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--og-glass); border: 1px solid var(--border); border-radius: 14px;
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  color: var(--primary); text-decoration: none;
+  transition: transform .2s, border-color .2s;
+}
+.featured-card:hover { transform: translateY(-3px); border-color: var(--og-cyan-dim); }
+.featured-card img { width: 100%; height: 150px; object-fit: cover; display: block; }
+.featured-body { display: flex; flex-direction: column; gap: 6px; padding: 12px 14px 16px; }
+.featured-body strong { font-family: 'Space Grotesk', sans-serif; font-size: 16px; }
+.featured-body span { font-family: 'Inter', sans-serif; font-size: 13.5px; line-height: 1.45; color: var(--secondary); }
+.featured-more { text-align: center; margin: 16px 0 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; }
+.featured-more a { color: var(--og-cyan-ink); text-decoration: none; }
+@media (max-width: 800px) {
+  .featured-grid { grid-template-columns: 1fr; }
+  .featured-card img { height: 170px; }
+}
+
+/* ---- Résumé page ---- */
+.resume-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0 8px; }
+.post-content a.button-link, a.button-link {
+  display: inline-block; padding: 12px 22px; border-radius: 999px;
+  background: var(--og-glass-strong); border: 1px solid var(--og-cyan-ink);
+  color: var(--primary) !important; font-family: 'Inter', sans-serif; font-weight: 600;
+  text-decoration: none; min-height: 44px; box-sizing: border-box;
+}
+a.button-link:hover { border-color: var(--og-gold-ink); }
+a.button-link--ghost { border-color: var(--border); font-weight: 500; }
+.resume-preview { border: 1px solid var(--border); border-radius: 8px; background: #fff; }
+.resume-mobile-note { display: none; font-size: 13px; color: var(--secondary); }
+@media (max-width: 768px) {
+  .resume-preview { display: none; }
+  .resume-mobile-note { display: block; }
+}

@@ -57,3 +57,21 @@
     </div>
     {{- end}}
 </div>
+
+{{- with site.Params.featured }}
+<section class="featured" aria-labelledby="featured-title">
+  <h2 id="featured-title" class="featured-title">Featured work</h2>
+  <div class="featured-grid">
+    {{- range . }}
+    <a class="featured-card" href="{{ .url | relURL }}">
+      <img src="{{ .image | relURL }}" alt="{{ .alt }}" loading="lazy" width="720" height="360">
+      <span class="featured-body">
+        <strong>{{ .title }}</strong>
+        <span>{{ .blurb }}</span>
+      </span>
+    </a>
+    {{- end }}
+  </div>
+  <p class="featured-more"><a href="{{ "projects/" | relURL }}">See all projects &rarr;</a></p>
+</section>
+{{- end }}

@@ -1,0 +1,18 @@
+{{- /* {{< artifact src="artifacts/spacex-debt/" title="..." height="900" >}}
+   Embeds a self-contained page from static/ in the portfolio layout.
+   The embedded page reports its own height and follows the site theme. */ -}}
+{{- $src := .Get "src" | relURL -}}
+{{- $title := .Get "title" | default "Interactive artifact" -}}
+{{- $h := .Get "height" | default "900" -}}
+<div class="artifact-embed">
+  <iframe class="artifact-frame" src="{{ $src }}" title="{{ $title }}" loading="lazy" style="height: {{ $h }}px"></iframe>
+  <p class="artifact-open"><a href="{{ $src }}" target="_blank" rel="noopener">Open full screen</a></p>
+</div>
+<script>
+window.addEventListener("message", function (e) {
+  if (!e.data || e.data.type !== "artifact-height") return;
+  document.querySelectorAll(".artifact-frame").forEach(function (f) {
+    if (f.contentWindow === e.source) f.style.height = e.data.height + "px";
+  });
+});
+</script>

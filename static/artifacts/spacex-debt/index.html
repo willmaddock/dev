@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SpaceX: two crashes, one rally – and the debt-ceiling math</title>
+<meta name="description" content="An interactive look at SpaceX's 2026 market-value swings and a straight-line debt-ceiling calculator, with sources.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<script>
+/* Theme + embed detection. Runs before paint so there is no flash.
+   Mirrors the portfolio: PaperMod toggles a `dark` class and stores
+   localStorage "pref-theme". When framed by the portfolio (same origin)
+   we follow the parent page live; opened on its own we follow the
+   saved preference, then the system setting. */
+(function () {
+  var root = document.documentElement;
+  var embedded = false;
+  try { embedded = window.top !== window && !!parent.document; } catch (e) {}
+  if (embedded) root.classList.add("embedded");
+
+  function isDark() {
+    try {
+      if (embedded) {
+        var p = parent.document;
+        return p.documentElement.classList.contains("dark") || (p.body && p.body.classList.contains("dark"));
+      }
+      var pref = localStorage.getItem("pref-theme");
+      if (pref) return pref === "dark";
+    } catch (e) {}
+    return window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  function apply() { root.classList.toggle("dark", isDark()); }
+  apply();
+
+  window.addEventListener("DOMContentLoaded", function () {
+    if (embedded) {
+      try {
+        var mo = new MutationObserver(apply), o = { attributes: true, attributeFilter: ["class"] };
+        mo.observe(parent.document.documentElement, o);
+        mo.observe(parent.document.body, o);
+      } catch (e) {}
+    } else if (window.matchMedia) {
+      try { matchMedia("(prefers-color-scheme: dark)").addEventListener("change", apply); } catch (e) {}
+      window.addEventListener("storage", apply);
+    }
+  });
+
+  /* Count visits to the full-screen page. When embedded, the portfolio
+     page already counts the visit. */
+  if (!embedded) {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag("js", new Date()); gtag("config", "G-S2YYKGB9WD");
+    var s = document.createElement("script");
+    s.async = true; s.src = "https://www.googletagmanager.com/gtag/js?id=G-S2YYKGB9WD";
+    document.head.appendChild(s);
+  }
+})();
+</script>
+<style>
+/* Tokens copied from the portfolio's "Orbital Glass" theme so the page
+   reads as part of the site. Light is the default; .dark overrides. */
+:root{
+  --theme:#D8DEF2;--primary:#12152A;--secondary:#4E5473;--content:#262B45;
+  --border:rgba(18,21,42,.16);--glass:rgba(255,255,255,.6);--glass-strong:rgba(255,255,255,.8);
+  --cyan:#7FE0E8;--cyan-ink:#0E7C87;--gold-ink:#96650C;
+  --gain:#0E7C87;--loss:#B5392B;
+  --amb1:rgba(127,224,232,.36);--amb2:rgba(227,181,100,.32);
+  --radius:16px;
+}
+:root.dark{
+  --theme:#070914;--primary:#EDEFF8;--secondary:#A7AFCB;--content:#E7E9F5;
+  --border:rgba(255,255,255,.14);--glass:rgba(255,255,255,.055);--glass-strong:rgba(255,255,255,.095);
+  --cyan-ink:#7FE0E8;--gold-ink:#E3B564;
+  --gain:#7FE0E8;--loss:#FF8A78;
+  --amb1:rgba(127,224,232,.16);--amb2:rgba(227,181,100,.14);
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0;background:var(--theme);color:var(--content);
+  font:16px/1.6 "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+/* soft ambient light, same as the site (full-screen view only) */
+body::before,body::after{content:"";position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0}
+body::before{top:-14%;left:-12%;width:520px;height:520px;background:radial-gradient(circle,var(--amb1),transparent 70%)}
+body::after{bottom:-18%;right:-12%;width:560px;height:560px;background:radial-gradient(circle,var(--amb2),transparent 70%)}
+/* inside the portfolio the page sits on the site's own glass card */
+.embedded body{background:transparent}
+.embedded body::before,.embedded body::after,.embedded .full-only,.embedded .sub{display:none}
+
+main{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:24px 16px 40px}
+.embedded main{padding:4px 0 8px}
+h1{font:700 1.75rem/1.2 "Space Grotesk",sans-serif;letter-spacing:-.01em;color:var(--primary);margin:.1em 0 .3em}
+.sub{color:var(--secondary);margin:0 0 8px}
+.back{font:500 12px "IBM Plex Mono",monospace;color:var(--secondary);text-decoration:none}
+.back:hover{color:var(--cyan-ink)}
+
+.tabs{display:flex;gap:6px;margin:16px 0}
+.tabs button{
+  font:500 14px "Inter",sans-serif;color:var(--secondary);background:transparent;
+  border:1px solid transparent;border-radius:999px;padding:7px 16px;cursor:pointer;
+  transition:color .2s,background .2s,border-color .2s;
+}
+.tabs button:hover{color:var(--cyan-ink);background:var(--glass)}
+.tabs button[aria-selected="true"]{color:var(--primary);background:var(--glass-strong);border-color:var(--border)}
+
+.card{
+  background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);
+  padding:18px;margin:12px 0;
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+}
+.toggle{display:flex;gap:8px;align-items:center;color:var(--secondary);font-size:.9rem;cursor:pointer}
+.toggle input{accent-color:var(--cyan-ink);width:16px;height:16px}
+
+svg{width:100%;height:auto;display:block}
+.bar{cursor:pointer;transition:opacity .15s}
+.bar:hover{opacity:.82}
+.bar:focus{outline:none}
+.bar:focus-visible{stroke:var(--primary);stroke-width:2;stroke-dasharray:5 3}
+.bar.sel{stroke:var(--primary);stroke-width:2}
+.gain{fill:var(--gain)}.loss{fill:var(--loss)}
+.axis{stroke:var(--secondary);stroke-opacity:.5}
+.lbl{fill:var(--primary);font:500 15px "IBM Plex Mono",monospace;text-anchor:middle}
+.ax{fill:var(--secondary);font:400 13px "IBM Plex Mono",monospace;text-anchor:middle}
+
+#detail b{font:600 1.1rem "Space Grotesk",sans-serif;color:var(--primary)}
+#detail .v{font:500 .9rem "IBM Plex Mono",monospace;color:var(--gold-ink);margin-left:6px}
+#detail p{margin:.5em 0 .7em;color:var(--content)}
+a{color:var(--cyan-ink);text-decoration-color:var(--border);text-underline-offset:3px}
+a:hover{color:var(--gold-ink)}
+
+.note{color:var(--secondary);font-size:.88rem;line-height:1.55}
+.big{font:700 2.1rem/1.15 "Space Grotesk",sans-serif;color:var(--primary);margin:.15em 0 .35em}
+label.rate{display:block;margin-top:6px;color:var(--content)}
+label.rate b{font-family:"IBM Plex Mono",monospace;font-weight:500;color:var(--gold-ink)}
+input[type=range]{width:100%;margin:8px 0 4px;accent-color:var(--cyan-ink)}
+.pre{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px}
+.pre button{
+  font:500 12px "IBM Plex Mono",monospace;color:var(--gold-ink);background:var(--glass);
+  border:1px solid var(--border);border-radius:999px;padding:6px 12px;cursor:pointer;
+  transition:border-color .2s,background .2s;
+}
+.pre button:hover{border-color:var(--cyan-ink)}
+.pre button.on{background:var(--glass-strong);border-color:var(--cyan-ink);color:var(--primary)}
+.tabs button:focus-visible,.pre button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--cyan-ink);outline-offset:2px}
+[hidden]{display:none!important}
+.sources{line-height:1.9}
+.foot{margin-top:20px;text-align:center}
+</style>
+</head>
+<body>
+<main>
+<div class="full-only"><a class="back" href="../../">&larr; William Maddock&rsquo;s portfolio</a></div>
+<h1 class="full-only">SpaceX: two crashes, one rally</h1>
+<p class="sub">Tap a bar for what happened and the source, then try the debt-ceiling calculator. Figures are approximate.</p>
+
+<div class="tabs" role="tablist" aria-label="Sections">
+<button role="tab" id="t1" aria-selected="true" aria-controls="p1">SpaceX swings</button>
+<button role="tab" id="t2" aria-selected="false" aria-controls="p2" tabindex="-1">Debt-ceiling math</button>
+</div>
+
+<section id="p1" role="tabpanel" aria-labelledby="t1">
+<div class="card">
+<label class="toggle"><input type="checkbox" id="cum"> Show running total vs. the June peak</label>
+<svg id="chart" viewBox="0 0 640 330" role="img" aria-label="Bar chart of SpaceX market value swings in 2026"></svg>
+</div>
+<div class="card" id="detail" aria-live="polite"></div>
+<p class="note">Net across the four swings: about &minus;$0.9T, which leaves the value roughly $0.9T below the June peak (~$2.95T). The late-June-to-August slide is derived: sources report a total decline of more than $1T by early August, so I subtracted the June crash.</p>
+</section>
+
+<section id="p2" role="tabpanel" aria-labelledby="t2" hidden>
+<div class="card">
+<div class="note">Approximate room under the $41.1T limit as of Oct 29, 2026 (figure not independently verified)</div>
+<div class="big">~$506B</div>
+<label class="rate" for="rate">Daily borrowing pace: <b id="rv"></b> billion per day</label>
+<input type="range" id="rate" min="3" max="13" step="0.05" value="6.55">
+<div class="pre">
+<button data-v="6.55">1-yr average $6.55B</button>
+<button data-v="8.3">Recent pace ~$8.3B</button>
+<button data-v="11.6">Peak 30-day $11.6B</button>
+</div>
+<div class="note">Straight-line date you would hit the limit:</div>
+<div class="big" id="out"></div>
+<div class="note" id="days"></div>
+</div>
+<div class="card note">
+<b>Why this is not a forecast.</b> Borrowing is uneven (tax dates, interest payments), and the limit applies to debt subject to the limit, not exactly total debt. Analysts at the Bipartisan Policy Center expect the limit to be reached between late winter and mid-summer 2027, and extraordinary measures typically buy another six to nine months after that. The $8.3B figure is my own arithmetic ($40.0T on Aug 19 to $40.59T on Oct 29) and depends on the unverified Oct 29 number.
+</div>
+</section>
+
+<div class="card note sources">
+<b>Sources</b><br>
+<a href="https://www.business-standard.com/world-news/spacex-shares-falls-for-third-day-erases-600-billion-in-market-value-126062300267_1.html" target="_blank" rel="noopener">Business Standard, June crash</a> &middot;
+<a href="https://axios.com/2026/08/03/spacex-stock-lockup-earnings" target="_blank" rel="noopener">Axios, Jun&ndash;Jul losses</a> &middot;
+<a href="https://news.bgov.com/capital-markets/spacex-passes-first-lockup-expiry-test-with-500-billion-rally" target="_blank" rel="noopener">Bloomberg Gov, August rally</a> &middot;
+<a href="https://www.newsbytesapp.com/news/business/spacex-market-value-falls-more-than-400b-since-october-6/tldr" target="_blank" rel="noopener">NewsBytes, October drop</a> &middot;
+<a href="https://pbs.org/newshour/economy/the-u-s-national-debt-now-stands-at-40-trillion" target="_blank" rel="noopener">AP/PBS, debt passes $40T</a> &middot;
+<a href="https://coloradobiz.com/us-debt-surpass-40-trillion-rising-bond-yields/" target="_blank" rel="noopener">Debt-limit timing (BPC)</a>
+</div>
+<p class="note foot full-only">Built by William Maddock &middot; <a href="../../">More work in the portfolio</a></p>
+</main>
+<script>
+var D=[
+{n:"Jun 16–23 crash",v:-600,t:"The stock peaked at $225.64 on June 16, then fell for three straight days to $154.60 on June 22. June 23 added a roughly $400B single-day loss, reported alongside rising bond yields and SpaceX’s first bond sale.",u:"https://www.business-standard.com/world-news/spacex-shares-falls-for-third-day-erases-600-billion-in-market-value-126062300267_1.html",s:"Business Standard"},
+{n:"Late Jun–early Aug slide",v:-400,t:"Derived figure. Reports put the total decline from the peak at more than $1 trillion by early August, ahead of the first earnings report and lockup expiry.",u:"https://axios.com/2026/08/03/spacex-stock-lockup-earnings",s:"Axios"},
+{n:"Aug 6 lockup rally",v:500,t:"After the first lockup expired, shares rose about 35% in five sessions, adding roughly $500B and moving back above the $135 IPO price.",u:"https://news.bgov.com/capital-markets/spacex-passes-first-lockup-expiry-test-with-500-billion-rally",s:"Bloomberg Government"},
+{n:"Oct 6–30 drop",v:-400,t:"Value fell from over $2.3T on Oct 6 to under $2T by Oct 30. About 1.3B shares became sellable on Oct 22, and tech stocks were also sliding. Some headlines say $500B or more depending on the start date.",u:"https://www.newsbytesapp.com/news/business/spacex-market-value-falls-more-than-400b-since-october-6/tldr",s:"NewsBytes"}];
+var cum=[],r=0;D.forEach(function(d){r+=d.v;cum.push(r)});
+var NS="http://www.w3.org/2000/svg",svg=document.getElementById("chart"),sel=0;
+function el(n,a,txt){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;return e}
+function fmt(v){return (v>0?"+":"−")+"$"+Math.abs(v)+"B"}
+function pick(i){sel=i;draw();show()}
+function wrap(name,max){
+ var words=name.split(" "),lines=[],cur="";
+ words.forEach(function(w){
+  if(cur&&(cur+" "+w).length>max){lines.push(cur);cur=w}else{cur=cur?cur+" "+w:w}
+ });
+ if(cur)lines.push(cur);return lines;
+}
+var lastNar=null;
+function draw(){
+ while(svg.firstChild)svg.removeChild(svg.firstChild);
+ /* narrow screens get a tighter chart so labels stay legible */
+ var nar=(svg.parentNode.clientWidth||640)<520;lastNar=nar;
+ var VW=nar?360:640,BW=nar?62:100,ST=nar?84:148,X0=nar?20:45,VH=nar?350:330;
+ svg.setAttribute("viewBox","0 0 "+VW+" "+VH);
+ var c=document.getElementById("cum").checked,vals=c?cum:D.map(function(d){return d.v});
+ var lo=Math.min(0,Math.min.apply(null,vals)),hi=Math.max(0,Math.max.apply(null,vals));
+ var top=44,bot=248,pad=(hi-lo)*0.14,min=lo-pad,max=hi+pad,sc=(bot-top)/(max-min);
+ var y0=top+max*sc;
+ svg.appendChild(el("line",{x1:8,x2:VW-8,y1:y0,y2:y0,"class":"axis"}));
+ D.forEach(function(d,i){
+  var v=vals[i],x=X0+i*ST,h=Math.abs(v)*sc,y=v>=0?y0-h:y0;
+  var b=el("rect",{x:x,y:y,width:BW,height:Math.max(h,2),rx:6,"class":(v>=0?"gain":"loss")+" bar"+(i===sel?" sel":""),tabindex:0,role:"button","aria-label":d.n+" "+fmt(v),"aria-pressed":i===sel});
+  b.onclick=function(){pick(i)};
+  b.onkeydown=function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();pick(i)}};
+  svg.appendChild(b);
+  svg.appendChild(el("text",{x:x+BW/2,y:v>=0?y-8:y+h+20,"class":"lbl"},fmt(v)));
+  wrap(d.n,nar?10:14).forEach(function(line,k){
+   svg.appendChild(el("text",{x:x+BW/2,y:285+k*(nar?16:19),"class":"ax"},line));
+  });
+ });
+ svg.appendChild(el("text",{x:VW/2,y:22,"class":"ax"},c?"Running total from the June peak ($B)":"Change in market value ($B)"));
+ report();
+}
+window.addEventListener("resize",function(){
+ var nar=(svg.parentNode.clientWidth||640)<520;
+ if(nar!==lastNar)draw();
+});
+function show(){
+ var d=D[sel],box=document.getElementById("detail");
+ while(box.firstChild)box.removeChild(box.firstChild);
+ var b=document.createElement("b");b.textContent=d.n;
+ var v=document.createElement("span");v.className="v";v.textContent=fmt(d.v);
+ var p=document.createElement("p");p.textContent=d.t;
+ var a=document.createElement("a");a.href=d.u;a.target="_blank";a.rel="noopener";a.textContent="Source: "+d.s;
+ box.appendChild(b);box.appendChild(v);box.appendChild(p);box.appendChild(a);
+ report();
+}
+document.getElementById("cum").onchange=draw;
+function calc(){
+ var v=parseFloat(document.getElementById("rate").value);
+ document.getElementById("rv").textContent=v.toFixed(2);
+ var days=506/v,d=new Date(2026,9,29+Math.round(days));
+ document.getElementById("out").textContent=d.toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"});
+ document.getElementById("days").textContent="about "+Math.round(days)+" days after Oct 29, 2026";
+ [].forEach.call(document.querySelectorAll(".pre button"),function(b){b.className=Math.abs(parseFloat(b.dataset.v)-v)<0.01?"on":""});
+ report();
+}
+document.getElementById("rate").oninput=calc;
+[].forEach.call(document.querySelectorAll(".pre button"),function(b){b.onclick=function(){document.getElementById("rate").value=b.dataset.v;calc()}});
+function tab(n){
+ document.getElementById("p1").hidden=n!==1;document.getElementById("p2").hidden=n!==2;
+ [1,2].forEach(function(k){var t=document.getElementById("t"+k);t.setAttribute("aria-selected",k===n);t.tabIndex=k===n?0:-1});
+ report();
+}
+document.getElementById("t1").onclick=function(){tab(1)};document.getElementById("t2").onclick=function(){tab(2)};
+[].forEach.call(document.querySelectorAll(".tabs button"),function(b){b.onkeydown=function(e){
+ if(e.key==="ArrowRight"||e.key==="ArrowLeft"){var n=b.id==="t1"?2:1;tab(n);document.getElementById("t"+n).focus()}}});
+
+/* When framed by the portfolio, tell the parent page how tall to be. */
+function report(){
+ if(window.top===window)return;
+ var m=document.querySelector("main");
+ var h=Math.ceil(m.getBoundingClientRect().height)+8;
+ if(window.__lastH===h)return;window.__lastH=h;
+ parent.postMessage({type:"artifact-height",height:h},"*");
+}
+window.addEventListener("resize",report);
+if(window.ResizeObserver)new ResizeObserver(report).observe(document.querySelector("main"));
+draw();show();calc();tab(1);
+</script>
+</body>
+</html>
