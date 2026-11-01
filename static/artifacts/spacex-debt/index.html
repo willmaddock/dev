@@ -123,6 +123,10 @@ svg{width:100%;height:auto;display:block}
 .bar:focus-visible{stroke:var(--primary);stroke-width:2;stroke-dasharray:5 3}
 .bar.sel{stroke:var(--primary);stroke-width:2}
 .gain{fill:var(--gain)}.loss{fill:var(--loss)}
+.bar.derived{fill-opacity:.62;stroke:var(--primary);stroke-opacity:.6;stroke-width:1.5;stroke-dasharray:6 4}
+.badge{display:inline-block;margin-left:8px;padding:1px 9px;border-radius:999px;border:1px solid var(--border);font:500 11px "IBM Plex Mono",monospace;color:var(--secondary);vertical-align:2px}
+.badge.derived{color:var(--gold-ink);border-style:dashed}
+.legend{font:400 12px "IBM Plex Mono",monospace;color:var(--secondary);margin:8px 2px 0}
 .axis{stroke:var(--secondary);stroke-opacity:.5}
 .lbl{fill:var(--primary);font:500 15px "IBM Plex Mono",monospace;text-anchor:middle}
 .ax{fill:var(--secondary);font:400 13px "IBM Plex Mono",monospace;text-anchor:middle}
@@ -167,48 +171,50 @@ input[type=range]{width:100%;margin:8px 0 4px;accent-color:var(--cyan-ink)}
 <div class="card">
 <label class="toggle"><input type="checkbox" id="cum"> Show running total vs. the June peak</label>
 <svg id="chart" viewBox="0 0 640 330" role="img" aria-label="Bar chart of SpaceX market value swings in 2026"></svg>
+<p class="legend">Solid bar: reported by the source. Dashed bar: derived by me from reported totals, shown as a floor.</p>
 </div>
 <div class="card" id="detail" aria-live="polite"></div>
-<p class="note">Net across the four swings: about &minus;$0.9T, which leaves the value roughly $0.9T below the June peak (~$2.95T). The late-June-to-August slide is derived: sources report a total decline of more than $1T by early August, so I subtracted the June crash.</p>
+<p class="note">Net across the four swings: about &minus;$0.9T or a little more, which leaves the value roughly $0.9T or more below the June peak. Outlets differ on the peak market value (roughly $2.7&ndash;3.1T, depending on the share count used), so I show swings, not a single peak figure. The late-June-to-August slide is derived: sources report a total decline of more than $1T by early August, so I subtracted the June crash and show the result as a floor.</p>
 </section>
 
 <section id="p2" role="tabpanel" aria-labelledby="t2" hidden>
 <div class="card">
-<div class="note">Approximate room under the $41.1T limit as of Oct 29, 2026 (figure not independently verified)</div>
+<div class="note">Approximate room under the $41.1T limit as of Oct 29, 2026 (total debt of $40.59T from Treasury&rsquo;s Debt to the Penny)</div>
 <div class="big">~$506B</div>
 <label class="rate" for="rate">Daily borrowing pace: <b id="rv"></b> billion per day</label>
 <input type="range" id="rate" min="3" max="13" step="0.05" value="6.55">
 <div class="pre">
-<button data-v="6.55">1-yr average $6.55B</button>
-<button data-v="8.3">Recent pace ~$8.3B</button>
-<button data-v="11.6">Peak 30-day $11.6B</button>
+<button data-v="6.55">Slower, $6.55B</button>
+<button data-v="8.3">Aug&ndash;Oct pace, ~$8.3B</button>
+<button data-v="11.6">Faster, $11.6B</button>
 </div>
 <div class="note">Straight-line date you would hit the limit:</div>
 <div class="big" id="out"></div>
 <div class="note" id="days"></div>
 </div>
 <div class="card note">
-<b>Why this is not a forecast.</b> Borrowing is uneven (tax dates, interest payments), and the limit applies to debt subject to the limit, not exactly total debt. Analysts at the Bipartisan Policy Center expect the limit to be reached between late winter and mid-summer 2027, and extraordinary measures typically buy another six to nine months after that. The $8.3B figure is my own arithmetic ($40.0T on Aug 19 to $40.59T on Oct 29) and depends on the unverified Oct 29 number.
+<b>Why this is not a forecast.</b> Borrowing is uneven (tax dates, interest payments), and the limit applies to debt subject to the limit, not exactly total debt. Analysts at the Bipartisan Policy Center expect the limit to be reached between late winter and mid-summer 2027. Extraordinary measures can delay that date, so a real deadline would fall later. The $8.3B figure is my own arithmetic from two rounded numbers ($40.0T on Aug 19 to $40.59T on Oct 29), so treat it as approximate.<br><span class="legend">Reported: the $41.1T limit, total debt of $40.59T on Oct 29 (Treasury) and $40T on Aug 19 (AP). My own estimates: the straight-line date, the Aug&ndash;Oct pace (computed from those two debt figures), and the slower and faster paces, which are illustrative.</span>
 </div>
 </section>
 
 <div class="card note sources">
 <b>Sources</b><br>
 <a href="https://www.business-standard.com/world-news/spacex-shares-falls-for-third-day-erases-600-billion-in-market-value-126062300267_1.html" target="_blank" rel="noopener">Business Standard, June crash</a> &middot;
-<a href="https://axios.com/2026/08/03/spacex-stock-lockup-earnings" target="_blank" rel="noopener">Axios, Jun&ndash;Jul losses</a> &middot;
+<a href="https://www.nasdaq.com/articles/spacex-has-lost-over-1-trillion-value-its-ipo-heres-what-changed" target="_blank" rel="noopener">Nasdaq / Motley Fool, $1T+ decline</a> &middot;
 <a href="https://news.bgov.com/capital-markets/spacex-passes-first-lockup-expiry-test-with-500-billion-rally" target="_blank" rel="noopener">Bloomberg Gov, August rally</a> &middot;
 <a href="https://www.newsbytesapp.com/news/business/spacex-market-value-falls-more-than-400b-since-october-6/tldr" target="_blank" rel="noopener">NewsBytes, October drop</a> &middot;
 <a href="https://pbs.org/newshour/economy/the-u-s-national-debt-now-stands-at-40-trillion" target="_blank" rel="noopener">AP/PBS, debt passes $40T</a> &middot;
-<a href="https://coloradobiz.com/us-debt-surpass-40-trillion-rising-bond-yields/" target="_blank" rel="noopener">Debt-limit timing (BPC)</a>
+<a href="https://www.crfb.org/papers/qa-everything-you-should-know-about-debt-ceiling" target="_blank" rel="noopener">CRFB, debt-limit timing</a> &middot;
+<a href="https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/" target="_blank" rel="noopener">Treasury, Debt to the Penny</a>
 </div>
 <p class="note foot full-only">Built by William Maddock &middot; <a href="../../">More work in the portfolio</a></p>
 </main>
 <script>
 var D=[
-{n:"Jun 16–23 crash",v:-600,t:"The stock peaked at $225.64 on June 16, then fell for three straight days to $154.60 on June 22. June 23 added a roughly $400B single-day loss, reported alongside rising bond yields and SpaceX’s first bond sale.",u:"https://www.business-standard.com/world-news/spacex-shares-falls-for-third-day-erases-600-billion-in-market-value-126062300267_1.html",s:"Business Standard"},
-{n:"Late Jun–early Aug slide",v:-400,t:"Derived figure. Reports put the total decline from the peak at more than $1 trillion by early August, ahead of the first earnings report and lockup expiry.",u:"https://axios.com/2026/08/03/spacex-stock-lockup-earnings",s:"Axios"},
-{n:"Aug 6 lockup rally",v:500,t:"After the first lockup expired, shares rose about 35% in five sessions, adding roughly $500B and moving back above the $135 IPO price.",u:"https://news.bgov.com/capital-markets/spacex-passes-first-lockup-expiry-test-with-500-billion-rally",s:"Bloomberg Government"},
-{n:"Oct 6–30 drop",v:-400,t:"Value fell from over $2.3T on Oct 6 to under $2T by Oct 30. About 1.3B shares became sellable on Oct 22, and tech stocks were also sliding. Some headlines say $500B or more depending on the start date.",u:"https://www.newsbytesapp.com/news/business/spacex-market-value-falls-more-than-400b-since-october-6/tldr",s:"NewsBytes"}];
+{n:"Jun 16–23 crash",k:"reported",v:-600,t:"The stock hit an intraday high of $225.64 on June 16, then fell for three straight days to $154.60 on June 22. Monday, June 22, was the worst day: shares fell about 16% to the lowest close since the first trading day, as SpaceX was reported to be seeking at least $20B in its first investment-grade bond sale. Three days of losses erased more than $600B.",u:"https://www.business-standard.com/world-news/spacex-shares-falls-for-third-day-erases-600-billion-in-market-value-126062300267_1.html",s:"Business Standard"},
+{n:"Late Jun–early Aug slide",v:-400,k:"derived",t:"Derived, not reported directly. Outlets put the total decline from the peak at more than $1 trillion by early August (some say $1.2 trillion). Subtracting the $600B June crash leaves at least about $400B, so treat this bar as a floor. Early-August market-value estimates vary by outlet because they use different share counts.",u:"https://www.nasdaq.com/articles/spacex-has-lost-over-1-trillion-value-its-ipo-heres-what-changed",s:"Nasdaq / Motley Fool"},
+{n:"Aug 6 lockup rally",k:"reported",v:500,t:"After the first lockup expired, shares rose about 35% in five sessions, adding roughly $500B and moving back above the $135 IPO price.",u:"https://news.bgov.com/capital-markets/spacex-passes-first-lockup-expiry-test-with-500-billion-rally",s:"Bloomberg Government"},
+{n:"Oct 6–30 drop",k:"reported",v:-400,t:"Value fell from over $2.3T on Oct 6 to under $2T by Oct 30. About 1.3B shares became sellable on Oct 22, and tech stocks were also sliding. Some headlines say $500B or more depending on the start date.",u:"https://www.newsbytesapp.com/news/business/spacex-market-value-falls-more-than-400b-since-october-6/tldr",s:"NewsBytes"}];
 var cum=[],r=0;D.forEach(function(d){r+=d.v;cum.push(r)});
 var NS="http://www.w3.org/2000/svg",svg=document.getElementById("chart"),sel=0;
 function el(n,a,txt){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;return e}
@@ -235,11 +241,11 @@ function draw(){
  svg.appendChild(el("line",{x1:8,x2:VW-8,y1:y0,y2:y0,"class":"axis"}));
  D.forEach(function(d,i){
   var v=vals[i],x=X0+i*ST,h=Math.abs(v)*sc,y=v>=0?y0-h:y0;
-  var b=el("rect",{x:x,y:y,width:BW,height:Math.max(h,2),rx:6,"class":(v>=0?"gain":"loss")+" bar"+(i===sel?" sel":""),tabindex:0,role:"button","aria-label":d.n+" "+fmt(v),"aria-pressed":i===sel});
+  var b=el("rect",{x:x,y:y,width:BW,height:Math.max(h,2),rx:6,"class":(v>=0?"gain":"loss")+" bar"+(d.k==="derived"?" derived":"")+(i===sel?" sel":""),tabindex:0,role:"button","aria-label":d.n+" "+fmt(v)+(d.k==="derived"&&!c?" or more, derived":""),"aria-pressed":i===sel});
   b.onclick=function(){pick(i)};
   b.onkeydown=function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();pick(i)}};
   svg.appendChild(b);
-  svg.appendChild(el("text",{x:x+BW/2,y:v>=0?y-8:y+h+20,"class":"lbl"},fmt(v)));
+  svg.appendChild(el("text",{x:x+BW/2,y:v>=0?y-8:y+h+20,"class":"lbl"},fmt(v)+(d.k==="derived"&&!c?"+":"")));
   wrap(d.n,nar?10:14).forEach(function(line,k){
    svg.appendChild(el("text",{x:x+BW/2,y:285+k*(nar?16:19),"class":"ax"},line));
   });
@@ -256,9 +262,10 @@ function show(){
  while(box.firstChild)box.removeChild(box.firstChild);
  var b=document.createElement("b");b.textContent=d.n;
  var v=document.createElement("span");v.className="v";v.textContent=fmt(d.v);
+ var bd=document.createElement("span");bd.className="badge "+d.k;bd.textContent=d.k==="derived"?"Derived by me":"Reported";
  var p=document.createElement("p");p.textContent=d.t;
  var a=document.createElement("a");a.href=d.u;a.target="_blank";a.rel="noopener";a.textContent="Source: "+d.s;
- box.appendChild(b);box.appendChild(v);box.appendChild(p);box.appendChild(a);
+ box.appendChild(b);box.appendChild(v);box.appendChild(bd);box.appendChild(p);box.appendChild(a);
  report();
 }
 document.getElementById("cum").onchange=draw;
