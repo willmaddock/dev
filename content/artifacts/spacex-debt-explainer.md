@@ -35,4 +35,4 @@ Two crashes and a rally pushed SpaceX's market value around by hundreds of billi
 
 - **Built with** plain HTML, CSS, and JavaScript. The chart is inline SVG with keyboard-accessible bars, and there are no libraries or build step.
 - **Follows the site theme.** It picks up the light or dark mode you choose in the header.
-- **Figures are approximate.** Every move links to its source. The late-June-to-August slide is derived by subtracting the June crash from a reported total, and the borrowing-pace and headroom numbers include one figure I could not verify independently. The calculator is a straight-line illustration, not a forecast.
+- **Figures are approximate.** Every move links to its source. The late-June-to-July slide is derived by subtracting the June crash from a reported total, and the borrowing-pace and headroom numbers include one figure I could not verify independently. The calculator is a straight-line illustration, not a forecast.

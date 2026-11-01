@@ -169,12 +169,11 @@ input[type=range]{width:100%;margin:8px 0 4px;accent-color:var(--cyan-ink)}
 
 <section id="p1" role="tabpanel" aria-labelledby="t1">
 <div class="card">
-<label class="toggle"><input type="checkbox" id="cum"> Show running total vs. the June peak</label>
 <svg id="chart" viewBox="0 0 640 330" role="img" aria-label="Bar chart of SpaceX market value swings in 2026"></svg>
 <p class="legend">Solid bar: reported by the source. Dashed bar: derived by me from reported totals, shown as a floor.</p>
 </div>
 <div class="card" id="detail" aria-live="polite"></div>
-<p class="note">Net across the four swings: about &minus;$0.9T or a little more, which leaves the value roughly $0.9T or more below the June peak. Outlets differ on the peak market value (roughly $2.7&ndash;3.1T, depending on the share count used), so I show swings, not a single peak figure. The late-June-to-August slide is derived: sources report a total decline of more than $1T by early August, so I subtracted the June crash and show the result as a floor.</p>
+<p class="note">These are the four main swings, not a full ledger: there is no bar for the climb between the August rally and Oct 6, so the bars do not add up to a net change. Measured directly, SpaceX&rsquo;s value of under $2T on Oct 30 (NewsBytes) is still more than $600B below its $2.64T close on June 16 (Bloomberg). Outlets differ on market value because they use different share counts, so I show swings rather than a single peak figure. The late-June-to-July slide is derived: sources report a total decline of more than $1T from the peak by mid-to-late July, so I subtracted the June crash and show the result as a floor.</p>
 </section>
 
 <section id="p2" role="tabpanel" aria-labelledby="t2" hidden>
@@ -211,9 +210,9 @@ input[type=range]{width:100%;margin:8px 0 4px;accent-color:var(--cyan-ink)}
 </main>
 <script>
 var D=[
-{n:"Jun 16–23 crash",k:"reported",v:-600,t:"The stock hit an intraday high of $225.64 on June 16, then fell for three straight days to $154.60 on June 22. Monday, June 22, was the worst day: shares fell about 16% to the lowest close since the first trading day, as SpaceX was reported to be seeking at least $20B in its first investment-grade bond sale. Three days of losses erased more than $600B.",u:"https://www.business-standard.com/world-news/spacex-shares-falls-for-third-day-erases-600-billion-in-market-value-126062300267_1.html",s:"Business Standard"},
-{n:"Late Jun–early Aug slide",v:-400,k:"derived",t:"Derived, not reported directly. Outlets put the total decline from the peak at more than $1 trillion by early August (some say $1.2 trillion). Subtracting the $600B June crash leaves at least about $400B, so treat this bar as a floor. Early-August market-value estimates vary by outlet because they use different share counts.",u:"https://www.nasdaq.com/articles/spacex-has-lost-over-1-trillion-value-its-ipo-heres-what-changed",s:"Nasdaq / Motley Fool"},
-{n:"Aug 6 lockup rally",k:"reported",v:500,t:"After the first lockup expired, shares rose about 35% in five sessions, adding roughly $500B and moving back above the $135 IPO price.",u:"https://news.bgov.com/capital-markets/spacex-passes-first-lockup-expiry-test-with-500-billion-rally",s:"Bloomberg Government"},
+{n:"Jun 16–22 crash",k:"reported",v:-600,t:"The stock hit an intraday high of $225.64 on June 16, then fell for three straight days to $154.60 on June 22. Monday, June 22, was the worst day: shares fell about 16% to the lowest close since the first trading day, as SpaceX was reported to be seeking at least $20B in its first investment-grade bond sale. Three days of losses erased more than $600B.",u:"https://www.business-standard.com/world-news/spacex-shares-falls-for-third-day-erases-600-billion-in-market-value-126062300267_1.html",s:"Business Standard"},
+{n:"Late Jun–Jul slide",v:-400,k:"derived",t:"Derived, not reported directly. Outlets put the total decline from the June peak at more than $1 trillion by mid-to-late July (some say $1.2 trillion). Subtracting the $600B June crash leaves at least about $400B, so treat this bar as a floor. Market-value estimates vary by outlet because they use different share counts.",u:"https://www.nasdaq.com/articles/spacex-has-lost-over-1-trillion-value-its-ipo-heres-what-changed",s:"Nasdaq / Motley Fool"},
+{n:"Rally after Aug 6 lockup",k:"reported",v:500,t:"After the first lockup expired on Aug 6, shares rose about 35% in five sessions, adding roughly $500B and moving back above the $135 IPO price. Bloomberg says the bigger driver appeared to be SpaceX’s first earnings report rather than the lockup itself.",u:"https://news.bgov.com/capital-markets/spacex-passes-first-lockup-expiry-test-with-500-billion-rally",s:"Bloomberg Government"},
 {n:"Oct 6–30 drop",k:"reported",v:-400,t:"Value fell from over $2.3T on Oct 6 to under $2T by Oct 30. About 1.3B shares became sellable on Oct 22, and tech stocks were also sliding. Some headlines say $500B or more depending on the start date.",u:"https://www.newsbytesapp.com/news/business/spacex-market-value-falls-more-than-400b-since-october-6/tldr",s:"NewsBytes"}];
 var cum=[],r=0;D.forEach(function(d){r+=d.v;cum.push(r)});
 var NS="http://www.w3.org/2000/svg",svg=document.getElementById("chart"),sel=0;
@@ -234,7 +233,7 @@ function draw(){
  var nar=(svg.parentNode.clientWidth||640)<520;lastNar=nar;
  var VW=nar?360:640,BW=nar?62:100,ST=nar?84:148,X0=nar?20:45,VH=nar?350:330;
  svg.setAttribute("viewBox","0 0 "+VW+" "+VH);
- var c=document.getElementById("cum").checked,vals=c?cum:D.map(function(d){return d.v});
+ var c=false,vals=D.map(function(d){return d.v});
  var lo=Math.min(0,Math.min.apply(null,vals)),hi=Math.max(0,Math.max.apply(null,vals));
  var top=44,bot=248,pad=(hi-lo)*0.14,min=lo-pad,max=hi+pad,sc=(bot-top)/(max-min);
  var y0=top+max*sc;
@@ -250,7 +249,7 @@ function draw(){
    svg.appendChild(el("text",{x:x+BW/2,y:285+k*(nar?16:19),"class":"ax"},line));
   });
  });
- svg.appendChild(el("text",{x:VW/2,y:22,"class":"ax"},c?"Running total from the June peak ($B)":"Change in market value ($B)"));
+ svg.appendChild(el("text",{x:VW/2,y:22,"class":"ax"},c?"Running total of the four swings ($B)":"Change in market value ($B)"));
  report();
 }
 window.addEventListener("resize",function(){
@@ -268,7 +267,6 @@ function show(){
  box.appendChild(b);box.appendChild(v);box.appendChild(bd);box.appendChild(p);box.appendChild(a);
  report();
 }
-document.getElementById("cum").onchange=draw;
 function calc(){
  var v=parseFloat(document.getElementById("rate").value);
  document.getElementById("rv").textContent=v.toFixed(2);
