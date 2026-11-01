@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>SpaceX: two crashes, one rally – and the debt-ceiling math</title>
-<meta name="description" content="An interactive look at SpaceX's 2026 market-value swings and a straight-line debt-ceiling calculator, with sources.">
+<meta name="description" content="An interactive look at SpaceX's 2026 market-value swings and a live debt-ceiling tracker with a straight-line calculator, with sources.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -149,18 +149,40 @@ input[type=range]{width:100%;margin:8px 0 4px;accent-color:var(--cyan-ink)}
   transition:border-color .2s,background .2s;
 }
 .pre button:hover{border-color:var(--cyan-ink)}
+.rng{display:flex;gap:8px;margin:8px 0 4px}.rng button{font:500 12px "IBM Plex Mono",monospace;color:var(--secondary);background:var(--glass);border:1px solid var(--border);border-radius:999px;padding:5px 12px;cursor:pointer;transition:border-color .2s,background .2s}.rng button:hover{border-color:var(--cyan-ink)}.rng button.on{background:var(--glass-strong);border-color:var(--cyan-ink);color:var(--primary)}.rng button:focus-visible{outline:2px solid var(--cyan-ink);outline-offset:2px}
+#dchart svg{touch-action:pan-y;cursor:crosshair}#cread{min-height:2.6em;margin:6px 0 0;font-family:"IBM Plex Mono",monospace;font-size:.8rem}
 .pre button.on{background:var(--glass-strong);border-color:var(--cyan-ink);color:var(--primary)}
 .tabs button:focus-visible,.pre button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--cyan-ink);outline-offset:2px}
 [hidden]{display:none!important}
 .sources{line-height:1.9}
 .foot{margin-top:20px;text-align:center}
+/* live debt tracker (Debt-ceiling math tab) */
+.lab{font:500 12px "IBM Plex Mono",monospace;color:var(--secondary);text-transform:uppercase;letter-spacing:.04em}
+.mid{font-size:1.6rem}.big{word-break:break-word}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:12px 0}.grid .card{margin:0}
+.meter{height:14px;border-radius:999px;background:var(--border);overflow:hidden;margin:6px 0}.meter>i{display:block;height:100%;background:var(--cyan-ink);border-radius:999px}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse}th,td{padding:8px;text-align:left;border-bottom:1px solid var(--border)}th{font:500 12px "IBM Plex Mono",monospace;color:var(--secondary)}
+td.v{font-family:"IBM Plex Mono",monospace;color:var(--gold-ink)}#err{color:var(--loss);margin:8px 0 0}
+/* --- UX pass --- */
+:root{--halo:#e9edf8}:root.dark{--halo:#15182b}
+.hl{paint-order:stroke;stroke:var(--halo);stroke-width:4px;stroke-linejoin:round}
+.big{font-size:clamp(1.5rem,5.5vw,2.1rem)}
+.head{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between}
+.head .rng{margin:0}
+.result{margin:10px 0 4px}.result .big{margin:.05em 0 .1em}
+.sw{display:inline-block;width:22px;height:0;border-top:3px solid var(--cyan-ink);vertical-align:middle;margin:0 4px 0 10px}.sw.dash{border-top:3px dashed var(--gold-ink)}
+.ctl{border-top:1px solid var(--border);margin-top:14px;padding-top:12px}
+.ctl .quick{font:500 12px "IBM Plex Mono",monospace;color:var(--secondary);margin:10px 0 0;text-transform:uppercase;letter-spacing:.04em}
+details.note summary{cursor:pointer;color:var(--cyan-ink);margin:2px 0 6px}details.note p{margin:6px 0}
+#dchart{min-height:120px}#dchart:empty::before{content:"Loading chart\2026";color:var(--secondary);font-size:.88rem}
+@media(max-width:520px){th,td{padding:8px 4px;font-size:.85rem}th{font-size:11px}.pre button{font-size:11px;padding:6px 10px}}
 </style>
 </head>
 <body>
 <main>
 <div class="full-only"><a class="back" href="../../">&larr; William Maddock&rsquo;s portfolio</a></div>
 <h1 class="full-only">SpaceX: two crashes, one rally</h1>
-<p class="sub">Tap a bar for what happened and the source, then try the debt-ceiling calculator. Figures are approximate.</p>
+<p class="sub">Tap a bar for what happened and the source, then see the live debt-ceiling tracker. Figures are approximate.</p>
 
 <div class="tabs" role="tablist" aria-label="Sections">
 <button role="tab" id="t1" aria-selected="true" aria-controls="p1">SpaceX swings</button>
@@ -177,22 +199,44 @@ input[type=range]{width:100%;margin:8px 0 4px;accent-color:var(--cyan-ink)}
 </section>
 
 <section id="p2" role="tabpanel" aria-labelledby="t2" hidden>
-<div class="card">
-<div class="note">Approximate room under the $41.1T limit as of Oct 29, 2026 (total debt of $40.59T from Treasury&rsquo;s Debt to the Penny)</div>
-<div class="big">~$506B</div>
+<p id="err" role="status"></p>
+<section class="grid">
+<div class="card"><div class="lab">Total public debt <span id="asof"></span></div><div class="big" id="debt">Loading&hellip;</div><div class="note" id="chg"></div></div>
+<div class="card"><div class="lab">Room under the limit</div><div class="big" id="room">&hellip;</div><div class="meter" aria-hidden="true"><i id="fill" style="width:0"></i></div><div class="note" id="pct"></div><div class="note">Limit: <b id="lim"></b>, raised by $5 trillion in July 2025 (Public Law 119-21).</div></div>
+</section>
+<section class="card">
+<div class="head"><div class="lab">Debt vs. the limit</div>
+<div class="rng" id="rngbar" role="group" aria-label="Chart range"><button data-n="90">3 months</button><button data-n="365" class="on">1 year</button><button data-n="0">All</button></div></div>
+<div class="result"><span class="note">At <b id="rv2"></b> a day, the limit is reached</span><div class="big" id="out"></div><div class="note" id="days"></div></div>
+<div id="dchart" role="img" aria-label="Line chart of total public debt against the statutory limit, with a dashed line showing when the limit would be reached at the borrowing pace chosen below"></div>
+<p class="note" id="cread"></p>
+<p class="legend"><span class="sw"></span>Treasury data<span class="sw dash"></span>your pace</p>
+<div class="ctl">
 <label class="rate" for="rate">Daily borrowing pace: <b id="rv"></b> billion per day</label>
-<input type="range" id="rate" min="3" max="13" step="0.05" value="6.55">
+<input type="range" id="rate" min="2" max="16" step="0.05" value="6.55">
+<div class="quick">Quick picks</div>
 <div class="pre">
-<button data-v="6.55">Slower, $6.55B</button>
-<button data-v="8.3">Aug&ndash;Oct pace, ~$8.3B</button>
-<button data-v="11.6">Faster, $11.6B</button>
+<button id="pace90" data-v="" hidden></button>
+<button id="pace365" data-v="" hidden></button>
+<button id="paceLo" data-v="6.55">Slower $6.55B</button>
+<button data-v="8.3">Aug&ndash;Oct $8.3B</button>
+<button id="paceHi" data-v="11.6">Faster $11.6B</button>
 </div>
-<div class="note">Straight-line date you would hit the limit:</div>
-<div class="big" id="out"></div>
-<div class="note" id="days"></div>
+<label class="rate" for="meas">Extraordinary measures: <b id="mv">0</b> extra months (what-if)</label>
+<input type="range" id="meas" min="0" max="6" step="0.5" value="0">
+<details class="note"><summary>What are extraordinary measures?</summary><p>Treasury can use bookkeeping steps to keep paying bills for a while after the limit is reached. How long that lasts is uncertain, so treat this slider as a what-if, not a prediction.</p></details>
+<p class="note">Based on <b id="roomcalc">$506B</b> of room as of <span id="asof2">Oct 29, 2026</span>.</p>
+<div class="rng"><button id="copylink">Copy link to this scenario</button><button id="reset">Reset</button></div>
+<p class="note" id="lnkmsg"></p>
 </div>
+</section>
+<section class="card"><div class="lab">How lumpy is borrowing? Change per calendar day</div>
+<div id="bchart" role="img" aria-label="Bar chart of the daily change in total public debt, with a dashed line at the borrowing pace chosen above"></div>
+<p class="note" id="bread"></p><p class="note" id="bsum"></p></section>
+<section class="card"><div class="lab">If the recent pace continues</div>
+<div class="tw"><table><thead><tr><th>Pace measured over</th><th>Avg. per day</th><th>Limit reached</th></tr></thead><tbody id="proj"></tbody></table></div></section>
 <div class="card note">
-<b>Why this is not a forecast.</b> Borrowing is uneven (tax dates, interest payments), and the limit applies to debt subject to the limit, not exactly total debt. Analysts at the Bipartisan Policy Center expect the limit to be reached between late winter and mid-summer 2027. Extraordinary measures can delay that date, so a real deadline would fall later. The $8.3B figure is my own arithmetic from two rounded numbers ($40.0T on Aug 19 to $40.59T on Oct 29), so treat it as approximate.<br><span class="legend">Reported: the $41.1T limit, total debt of $40.59T on Oct 29 (Treasury) and $40T on Aug 19 (AP). My own estimates: the straight-line date, the Aug&ndash;Oct pace (computed from those two debt figures), and the slower and faster paces, which are illustrative.</span>
+<b>Why this is not a forecast.</b> Borrowing is uneven (tax dates, interest payments), and the limit applies to debt subject to the limit, not exactly total debt. Analysts at the Bipartisan Policy Center expect the limit to be reached between late winter and mid-summer 2027. Extraordinary measures can delay that date, so a real deadline would fall later. The $8.3B figure is my own arithmetic from two rounded numbers ($40.0T on Aug 19 to $40.59T on Oct 29), so treat it as approximate.<br><span class="legend">Reported: the $41.1T limit, total debt of $40.59T on Oct 29 (Treasury) and $40T on Aug 19 (AP). My own estimates: the straight-line date, the Aug&ndash;Oct pace (computed from those two debt figures), and the Half and Double paces (half and twice the measured 1-year pace), which are illustrative.</span>
 </div>
 </section>
 
@@ -267,25 +311,28 @@ function show(){
  box.appendChild(b);box.appendChild(v);box.appendChild(bd);box.appendChild(p);box.appendChild(a);
  report();
 }
+var USER=false,LIVE365=null; /* USER: visitor chose a pace; LIVE365: measured 1-year pace in $B/day */
+var ROOM=506,BASE=new Date(2026,9,29); /* billions of room, and the as-of date; replaced by live Treasury data when it loads */
 function calc(){
  var v=parseFloat(document.getElementById("rate").value);
+ if(typeof drawChart=="function")drawChart();
  document.getElementById("rv").textContent=v.toFixed(2);
- var days=506/v,d=new Date(2026,9,29+Math.round(days));
+ var base=ROOM/v,days=base+MEAS*30.44,d=new Date(BASE.getFullYear(),BASE.getMonth(),BASE.getDate()+Math.round(days));document.getElementById("mv").textContent=MEAS;document.getElementById("rv2").textContent="$"+v.toFixed(2)+"B";document.getElementById("rate").setAttribute("aria-valuetext","$"+v.toFixed(2)+" billion per day");
  document.getElementById("out").textContent=d.toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"});
- document.getElementById("days").textContent="about "+Math.round(days)+" days after Oct 29, 2026";
+ document.getElementById("days").textContent="about "+Math.round(days)+" days after "+BASE.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})+(MEAS>0?" (about "+Math.round(base)+" days without extraordinary measures)":"");
  [].forEach.call(document.querySelectorAll(".pre button"),function(b){b.className=Math.abs(parseFloat(b.dataset.v)-v)<0.01?"on":""});
  report();
 }
-document.getElementById("rate").oninput=calc;
-[].forEach.call(document.querySelectorAll(".pre button"),function(b){b.onclick=function(){document.getElementById("rate").value=b.dataset.v;calc()}});
+document.getElementById("rate").oninput=function(){USER=true;calc();touch()};
+[].forEach.call(document.querySelectorAll(".pre button"),function(b){b.onclick=function(){USER=true;document.getElementById("rate").value=b.dataset.v;calc();touch()}});
 function tab(n){
  document.getElementById("p1").hidden=n!==1;document.getElementById("p2").hidden=n!==2;
  [1,2].forEach(function(k){var t=document.getElementById("t"+k);t.setAttribute("aria-selected",k===n);t.tabIndex=k===n?0:-1});
  report();
 }
-document.getElementById("t1").onclick=function(){tab(1)};document.getElementById("t2").onclick=function(){tab(2)};
+document.getElementById("t1").onclick=function(){tab(1);touch()};document.getElementById("t2").onclick=function(){tab(2);touch()};
 [].forEach.call(document.querySelectorAll(".tabs button"),function(b){b.onkeydown=function(e){
- if(e.key==="ArrowRight"||e.key==="ArrowLeft"){var n=b.id==="t1"?2:1;tab(n);document.getElementById("t"+n).focus()}}});
+ if(e.key==="ArrowRight"||e.key==="ArrowLeft"){var n=b.id==="t1"?2:1;tab(n);touch();document.getElementById("t"+n).focus()}}});
 
 /* When framed by the portfolio, tell the parent page how tall to be. */
 function report(){
@@ -297,7 +344,109 @@ function report(){
 }
 window.addEventListener("resize",report);
 if(window.ResizeObserver)new ResizeObserver(report).observe(document.querySelector("main"));
-draw();show();calc();tab(1);
+/* ---- live Treasury data ---- */
+var LIMIT=41100000000000; /* statutory limit in USD (P.L. 119-21, July 2025). Update if Congress changes it. */
+var FALLBACK={d:"2026-10-29",v:40593637262883}; /* last saved figure, used only if the live fetch fails */
+var API="https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?fields=record_date,tot_pub_debt_out_amt&sort=-record_date&page[size]=400";
+var $=function(i){return document.getElementById(i)};
+var T=function(n){return "$"+(n/1e12).toFixed(1)+" trillion"},B=function(n){return "$"+(n/1e9).toLocaleString("en-US",{minimumFractionDigits:1,maximumFractionDigits:1})+" billion"};
+var dt=function(s){return new Date(s+"T00:00:00Z")},fd=function(d){return d.toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric",timeZone:"UTC"})};
+function render(r,live){r=r.slice().sort(function(a,b){return a.d-b.d});var last=r[r.length-1],prev=r[r.length-2];
+ $("asof").textContent="(as of "+fd(last.d)+(live?"":", last saved figure")+")";$("debt").textContent="$"+(last.v/1e12).toFixed(2)+" trillion";
+ $("chg").textContent="Exact: $"+Math.round(last.v).toLocaleString("en-US")+(prev?". Change since previous record ("+fd(prev.d)+"): "+(last.v>=prev.v?"+":"-")+"$"+Math.abs(Math.round(last.v-prev.v)).toLocaleString("en-US"):"");
+ $("lim").textContent=T(LIMIT);var room=LIMIT-last.v;$("room").textContent=room>0?B(room):"At or above the limit";
+ $("fill").style.width=Math.min(100,last.v/LIMIT*100).toFixed(2)+"%";$("pct").textContent=(last.v/LIMIT*100).toFixed(1)+"% of the limit used";
+ if(live&&r.length>2){dchart(r);proj(r,last,room)}
+ if(live){ROOM=Math.max(0,room/1e9);BASE=new Date(last.d.getUTCFullYear(),last.d.getUTCMonth(),last.d.getUTCDate());$("roomcalc").textContent="$"+Math.round(ROOM)+"B";$("asof2").textContent=fd(last.d);calc()}
+ report()}
+var DATA=null,RANGE=365,MEAS=0,DAY=864e5,MD=30.44,CDEF="Hover or tap the chart to read a value. The dashed line follows the borrowing pace you pick below.",BDEF="Hover or tap a bar. The dashed line is your chosen pace.";
+function dchart(r){DATA=r;drawChart()}
+function drawChart(){
+ if(!DATA)return;
+ var last=DATA[DATA.length-1],lastT=last.d.getTime();
+ var rows=RANGE?DATA.filter(function(x){return x.d.getTime()>=lastT-RANGE*DAY}):DATA;if(rows.length<2)rows=DATA;
+ var rate=parseFloat($("rate").value)*1e9,room=LIMIT-last.v,ok=room>0&&rate>0,extra=ok?MEAS*MD*rate:0;
+ var hit0=ok?lastT+Math.round(room/rate)*DAY:null,hit1=ok?lastT+Math.round((room+extra)/rate)*DAY:null,top=LIMIT+extra;
+ var nw=($("dchart").clientWidth||700)<520,W=nw?380:700,H=nw?270:280,p=nw?50:46,lo=Math.min.apply(null,rows.map(function(x){return x.v}));
+ var x0=rows[0].d.getTime(),x1=Math.max(lastT,hit1||lastT);
+ var X=function(t){return p+(t-x0)/(x1-x0||1)*(W-p-10)},Y=function(v){return H-28-(v-lo)/(top-lo)*(H-56)};
+ var path=rows.map(function(x,i){return(i?"L":"M")+X(x.d.getTime()).toFixed(1)+" "+Y(x.v).toFixed(1)}).join("");
+ var f='class="hl" font-family="IBM Plex Mono,monospace"';
+ var h='<svg viewBox="0 0 '+W+" "+H+'"><line x1="'+p+'" x2="'+(W-10)+'" y1="'+Y(LIMIT)+'" y2="'+Y(LIMIT)+'" stroke="var(--gold-ink)" stroke-opacity=".55" stroke-width="1.5"/>'+
+ '<text x="'+p+'" y="'+(Y(LIMIT)-6)+'" fill="var(--primary)" font-size="12" '+f+'>'+(nw?'Limit $'+(LIMIT/1e12).toFixed(1)+'T':'Limit '+T(LIMIT))+'</text>';
+ if(extra>0)h+='<line x1="'+p+'" x2="'+(W-10)+'" y1="'+Y(top)+'" y2="'+Y(top)+'" stroke="var(--gold-ink)" stroke-opacity=".4" stroke-dasharray="2 4"/>';
+ var spanT=(top-lo)/1e12,st=[.05,.1,.2,.25,.5,1,2].filter(function(q){return spanT/q<=5})[0]||2,k0=Math.ceil(lo/1e12/st-1e-9);
+ for(var k=k0;k*st*1e12<top;k++){var tv=k*st,ty=Y(tv*1e12);if(Math.abs(ty-Y(LIMIT))<14||ty>H-32)continue;
+  h+='<line x1="'+p+'" x2="'+(W-10)+'" y1="'+ty+'" y2="'+ty+'" stroke="var(--secondary)" stroke-opacity=".16"/><text x="4" y="'+(ty+4)+'" fill="var(--secondary)" font-size="11" '+f+'>$'+tv.toFixed(st<.1?2:st<1?(st*100%10?2:1):0)+'T</text>'}
+ h+='<path d="'+path+'" fill="none" stroke="var(--cyan-ink)" stroke-width="2.5"/>';
+ if(ok){h+='<line x1="'+X(lastT)+'" y1="'+Y(last.v)+'" x2="'+X(hit1)+'" y2="'+Y(top)+'" stroke="var(--gold-ink)" stroke-width="2.5" stroke-dasharray="6 4"/>'+
+  '<circle cx="'+X(hit0)+'" cy="'+Y(LIMIT)+'" r="5" fill="var(--gold-ink)"/>'+
+  '<text x="'+Math.min(X(hit0)-8,W-18)+'" y="'+(Y(LIMIT)-7)+'" text-anchor="end" fill="var(--gold-ink)" font-size="12" '+f+'>'+(nw?'Reached ':'Limit reached ')+fd(new Date(hit0))+'</text>';
+  if(extra>0)h+='<circle cx="'+X(hit1)+'" cy="'+Y(top)+'" r="5" fill="var(--theme)" stroke="var(--gold-ink)" stroke-width="2.5"/>'+
+  '<text x="'+(W-10)+'" y="'+(Y(top)-8)+'" text-anchor="end" fill="var(--gold-ink)" font-size="12" '+f+'>'+(nw?'With measures ':'With measures ')+fd(new Date(hit1))+'</text>'}
+ h+='<circle cx="'+X(lastT)+'" cy="'+Y(last.v)+'" r="4" fill="var(--cyan-ink)"/>'+
+ '<text x="'+p+'" y="'+(H-6)+'" fill="var(--secondary)" font-size="11" '+f+'>'+fd(rows[0].d)+'</text>'+
+ '<text x="'+(W-10)+'" y="'+(H-6)+'" text-anchor="end" fill="var(--secondary)" font-size="11" '+f+'>'+fd(new Date(x1))+'</text>'+
+ '<line id="xh" y1="'+Y(top)+'" y2="'+(H-28)+'" stroke="var(--secondary)" stroke-opacity=".6" visibility="hidden"/><circle id="xd" r="5" fill="var(--primary)" visibility="hidden"/></svg>';
+ $("dchart").innerHTML=h;$("cread").textContent=CDEF;
+ var sv=$("dchart").querySelector("svg"),xh=sv.querySelector("#xh"),xd=sv.querySelector("#xd");
+ function at(e){var rc=sv.getBoundingClientRect(),vx=(e.clientX-rc.left)/rc.width*W,t=x0+(vx-p)/(W-p-10)*(x1-x0);t=Math.max(x0,Math.min(x1,t));
+  var v,msg;
+  if(t<=lastT){var best=rows[0];rows.forEach(function(x){if(Math.abs(x.d.getTime()-t)<Math.abs(best.d.getTime()-t))best=x});t=best.d.getTime();v=best.v;
+   msg=fd(best.d)+": $"+(v/1e12).toFixed(3)+"T, "+B(Math.max(0,LIMIT-v))+" under the limit"}
+  else{v=Math.min(top,last.v+rate*(t-lastT)/DAY);msg="Projected "+fd(new Date(t))+": $"+(v/1e12).toFixed(3)+"T at "+(rate/1e9).toFixed(2)+"B per day"+(v>LIMIT?", above the limit, which only works with extraordinary measures":"")+" (straight line, not a forecast)"}
+  xh.setAttribute("x1",X(t));xh.setAttribute("x2",X(t));xh.setAttribute("visibility","visible");
+  xd.setAttribute("cx",X(t));xd.setAttribute("cy",Y(v));xd.setAttribute("visibility","visible");$("cread").textContent=msg}
+ sv.onpointermove=at;sv.onpointerdown=at;
+ sv.onpointerleave=function(){xh.setAttribute("visibility","hidden");xd.setAttribute("visibility","hidden");$("cread").textContent=CDEF};
+ drawBars(rows,rate)}
+function drawBars(rows,rate){
+ var i0=DATA.indexOf(rows[0]);if(i0<1)i0=1;var bs=[];
+ for(var i=i0;i<DATA.length;i++){var a=DATA[i-1],c=DATA[i],dd=Math.max(1,Math.round((c.d-a.d)/DAY));bs.push({d:c.d,chg:c.v-a.v,days:dd,per:(c.v-a.v)/dd})}
+ if(bs.length<2){$("bchart").textContent="";return}
+ var nw=($("bchart").clientWidth||700)<520,W=nw?380:700,H=nw?170:170,p=nw?50:46,top=28,bot=H-26,srt=bs.map(function(b){return b.per}).sort(function(a,b){return a-b}),top1=srt[srt.length-1],mx=Math.max(rate*1.3,Math.min(rate*4,top1)),nclip=bs.filter(function(b){return b.per>mx}).length,mn=Math.min(0,Math.min.apply(null,bs.map(function(b){return b.per})));
+ var Y=function(v){return top+(mx-v)/(mx-mn||1)*(bot-top)},bw=(W-p-10)/bs.length,f='class="hl" font-family="IBM Plex Mono,monospace"';
+ var h='<svg viewBox="0 0 '+W+" "+H+'"><line x1="'+p+'" x2="'+(W-10)+'" y1="'+Y(0)+'" y2="'+Y(0)+'" class="axis"/>';
+ bs.forEach(function(b,i){var y1=Y(Math.min(mx,Math.max(b.per,0))),y2=Y(Math.min(b.per,0));h+='<rect x="'+(p+i*bw).toFixed(2)+'" y="'+y1.toFixed(1)+'" width="'+Math.max(bw-.6,.8).toFixed(2)+'" height="'+Math.max(y2-y1,.8).toFixed(1)+'" fill="'+(b.per>=0?"var(--cyan-ink)":"var(--loss)")+'" fill-opacity=".85"/>'});
+ h+='<line x1="'+p+'" x2="'+(W-10)+'" y1="'+Y(rate)+'" y2="'+Y(rate)+'" stroke="var(--gold-ink)" stroke-width="2" stroke-dasharray="6 4"/>'+
+ '<text x="'+p+'" y="12" fill="var(--gold-ink)" font-size="11" '+f+'>- - Your pace $'+(rate/1e9).toFixed(2)+'B/day</text>'+
+ '<text x="4" y="'+(Y(0)+4)+'" fill="var(--secondary)" font-size="11" '+f+'>$0</text><text x="4" y="'+(top+8)+'" fill="var(--secondary)" font-size="11" '+f+'>$'+Math.round(mx/1e9)+'B</text>'+
+ '<text x="'+p+'" y="'+(H-6)+'" fill="var(--secondary)" font-size="11" '+f+'>'+fd(bs[0].d)+'</text><text x="'+(W-10)+'" y="'+(H-6)+'" text-anchor="end" fill="var(--secondary)" font-size="11" '+f+'>'+fd(bs[bs.length-1].d)+'</text>'+
+ '<line id="bxh" y1="'+top+'" y2="'+bot+'" stroke="var(--primary)" stroke-opacity=".7" visibility="hidden"/></svg>';
+ $("bchart").innerHTML=h;$("bread").textContent=BDEF;
+ var tot=0,dys=0;bs.forEach(function(b){tot+=b.chg;dys+=b.days});
+ var big=bs.map(function(b){return b.chg}).sort(function(a,b){return b-a}).slice(0,10).reduce(function(a,b){return a+b},0),pct=tot>0?big/tot*100:null;
+ $("bsum").textContent="Over this range the debt grew "+B(tot)+", about "+B(tot/dys)+" per calendar day."+(pct!==null&&pct<=100?" The 10 largest daily changes made up "+pct.toFixed(0)+"% of that growth.":"")+(nclip>0?" The chart tops out at $"+Math.round(mx/1e9)+"B a day, so "+nclip+" larger "+(nclip>1?"days are":"day is")+" cut off at the top. Hover or tap to read them.":"");
+ var sv=$("bchart").querySelector("svg"),xh=sv.querySelector("#bxh");
+ function at(e){var rc=sv.getBoundingClientRect(),vx=(e.clientX-rc.left)/rc.width*W,i=Math.max(0,Math.min(bs.length-1,Math.floor((vx-p)/bw))),b=bs[i];
+  xh.setAttribute("x1",p+(i+.5)*bw);xh.setAttribute("x2",p+(i+.5)*bw);xh.setAttribute("visibility","visible");
+  $("bread").textContent=fd(b.d)+": "+(b.chg>=0?"+":"-")+B(Math.abs(b.chg))+(b.days>1?" over "+b.days+" days":" in 1 day")+", about "+(b.per>=0?"":"-")+B(Math.abs(b.per))+" per day"}
+ sv.onpointermove=at;sv.onpointerdown=at;sv.onpointerleave=function(){xh.setAttribute("visibility","hidden");$("bread").textContent=BDEF}}
+var lastNw=null;window.addEventListener("resize",function(){var n=($("dchart").clientWidth||700)<520;if(lastNw!==null&&n!==lastNw)drawChart();lastNw=n});
+function setRangeButtons(){[].forEach.call(document.querySelectorAll("#rngbar button"),function(o){o.className=(+o.dataset.n===RANGE)?"on":""})}
+[].forEach.call(document.querySelectorAll("#rngbar button"),function(b){b.onclick=function(){RANGE=+b.dataset.n;setRangeButtons();drawChart();touch()}});
+/* shareable scenario: state lives in the page link (#tab=debt&pace=8.3&meas=2&range=90) */
+function ctx(){try{if(window.top!==window&&parent.document)return parent}catch(e){}return window}
+function hashStr(force){var q=[];if(force||$("t2").getAttribute("aria-selected")==="true")q.push("tab=debt");q.push("pace="+parseFloat($("rate").value).toFixed(2));if(MEAS>0)q.push("meas="+MEAS);if(RANGE!==365)q.push("range="+RANGE);return q.join("&")}
+function touch(){try{var w=ctx();w.history.replaceState(null,"",w.location.pathname+w.location.search+"#"+hashStr())}catch(e){}}
+function loadHash(){var h="";try{h=ctx().location.hash.replace(/^#/,"")}catch(e){}var o={};h.split("&").forEach(function(kv){var a=kv.split("=");if(a[0])o[a[0]]=a[1]});
+ var pc=parseFloat(o.pace);if(isFinite(pc)){USER=true;$("rate").value=Math.min(16,Math.max(2,pc))}
+ var m=parseFloat(o.meas);if(isFinite(m))MEAS=Math.min(6,Math.max(0,Math.round(m*2)/2));$("meas").value=MEAS;
+ var r=parseInt(o.range,10);if(r===90||r===0)RANGE=r;setRangeButtons();if(o.tab==="debt"){try{if(window.frameElement)setTimeout(function(){window.frameElement.scrollIntoView({block:"start"})},400)}catch(e){}}return o.tab==="debt"?2:1}
+$("reset").onclick=function(){USER=false;$("rate").value=LIVE365||6.55;MEAS=0;$("meas").value=0;RANGE=365;setRangeButtons();calc();$("lnkmsg").textContent="";try{var w=ctx();w.history.replaceState(null,"",w.location.pathname+w.location.search)}catch(e){}};
+$("meas").oninput=function(){MEAS=parseFloat(this.value);calc();touch()};
+$("copylink").onclick=function(){var w=ctx(),url=w.location.origin+w.location.pathname+w.location.search+"#"+hashStr(true),b=this;
+ function good(){b.textContent="Link copied";setTimeout(function(){b.textContent="Copy link to this scenario"},1800)}
+ function show(){$("lnkmsg").textContent=url}
+ if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(url).then(good,show);else show()};
+function proj(r,last,room){var b=$("proj");b.textContent="";[90,365].forEach(function(n){var cut=new Date(last.d.getTime()-n*864e5),base=r.filter(function(x){return x.d>=cut})[0];
+ var span=Math.round((last.d-base.d)/864e5),rate=span>0?(last.v-base.v)/span:0,tr=document.createElement("tr"),when;var pb=$("pace"+n);if(pb&&rate>0){pb.dataset.v=Math.min(16,Math.max(2,rate/1e9)).toFixed(2);pb.textContent=(n===90?"Last 90 days ":"Last year ")+B(rate).replace(" billion","B");pb.hidden=false;pb.onclick=function(){USER=true;$("rate").value=pb.dataset.v;calc();touch()};if(n===365){LIVE365=parseFloat(pb.dataset.v);var lo=Math.max(2,LIVE365/2),hi=Math.min(16,LIVE365*2),bl=$("paceLo"),bh=$("paceHi");bl.dataset.v=lo.toFixed(2);bl.textContent="Half $"+lo.toFixed(1)+"B";bh.dataset.v=hi.toFixed(2);bh.textContent="Double $"+hi.toFixed(1)+"B";if(!USER){$("rate").value=LIVE365;calc()}}}
+ if(room<=0)when="Already at or above the limit";else if(rate<=0)when="Debt not rising over this window";else when=fd(new Date(last.d.getTime()+room/rate*864e5));
+ [n+" days",rate>0?B(rate):"n/a",when].forEach(function(t,i){var td=document.createElement("td");if(i)td.className="v";td.textContent=t;tr.appendChild(td)});b.appendChild(tr)})}
+fetch(API).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){var rows=j.data.map(function(x){return{d:dt(x.record_date),v:parseFloat(x.tot_pub_debt_out_amt)}}).filter(function(x){return isFinite(x.v)});
+ if(rows.length<3)throw 0;render(rows,true)}).catch(function(){$("err").textContent="Could not load live Treasury data right now, so this shows the last saved figure. Try again later.";$("dchart").textContent="The live chart is unavailable right now.";$("bchart").textContent="Unavailable right now.";render([{d:dt(FALLBACK.d),v:FALLBACK.v}],false)});
+
+var START=loadHash();draw();show();calc();tab(START);
 </script>
 </body>
 </html>

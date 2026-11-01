@@ -1,9 +1,9 @@
 ---
 title: "SpaceX: Two Crashes, One Rally – and the Debt-Ceiling Math"
 date: 2026-10-31T00:00:00-06:00
-lastmod: 2026-10-31T00:00:00-06:00
+lastmod: 2026-11-01T00:00:00-06:00
 draft: false
-description: "An interactive look at SpaceX's 2026 market-value swings with sourced detail on each move, plus a straight-line debt-ceiling calculator."
+description: "An interactive look at SpaceX's 2026 market-value swings with sourced detail on each move, plus a live debt-ceiling tracker and straight-line calculator."
 tags: ["Data Visualization", "JavaScript", "SVG", "Explainer", "SpaceX"]
 linkTitle: "SpaceX & Debt-Ceiling Explainer"
 author: "William Maddock"
@@ -27,7 +27,7 @@ cover:
   hiddenInSingle: true
 ---
 
-Two crashes and a rally pushed SpaceX's market value around by hundreds of billions of dollars in 2026. Tap any bar for what happened, the dollar figure, and the source. The second tab estimates when federal debt would reach the statutory limit at different daily borrowing paces.
+Two crashes and a rally pushed SpaceX's market value around by hundreds of billions of dollars in 2026. Tap any bar for what happened, the dollar figure, and the source. The second tab now pulls Treasury's Debt to the Penny data live, shows how much room is left under the statutory limit, and estimates when federal debt would reach it at different daily borrowing paces.
 
 {{< artifact src="artifacts/spacex-debt/" title="SpaceX swings and debt-ceiling calculator" height="900" >}}
 
