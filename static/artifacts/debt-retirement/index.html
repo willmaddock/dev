@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What a debt-limit standoff could do to a retirement account</title>
+<meta name="description" content="Interactive scenarios for how a debt-limit standoff or a recession could change a stock, bond and cash retirement portfolio, with sourced historical ranges.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<script>
+/* Theme + embed detection. Runs before paint so there is no flash.
+   Mirrors the portfolio: PaperMod toggles a `dark` class and stores
+   localStorage "pref-theme". When framed by the portfolio (same origin)
+   we follow the parent page live; opened on its own we follow the
+   saved preference, then the system setting. */
+(function () {
+  var root = document.documentElement;
+  var embedded = false;
+  try { embedded = window.top !== window && !!parent.document; } catch (e) {}
+  if (embedded) root.classList.add("embedded");
+
+  function isDark() {
+    try {
+      if (embedded) {
+        var p = parent.document;
+        return p.documentElement.classList.contains("dark") || (p.body && p.body.classList.contains("dark"));
+      }
+      var pref = localStorage.getItem("pref-theme");
+      if (pref) return pref === "dark";
+    } catch (e) {}
+    return window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  function apply() { root.classList.toggle("dark", isDark()); }
+  apply();
+
+  window.addEventListener("DOMContentLoaded", function () {
+    if (embedded) {
+      try {
+        var mo = new MutationObserver(apply), o = { attributes: true, attributeFilter: ["class"] };
+        mo.observe(parent.document.documentElement, o);
+        mo.observe(parent.document.body, o);
+      } catch (e) {}
+    } else if (window.matchMedia) {
+      try { matchMedia("(prefers-color-scheme: dark)").addEventListener("change", apply); } catch (e) {}
+      window.addEventListener("storage", apply);
+    }
+  });
+
+  /* Count visits to the full-screen page. When embedded, the portfolio
+     page already counts the visit. */
+  if (!embedded) {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag("js", new Date()); gtag("config", "G-S2YYKGB9WD");
+    var s = document.createElement("script");
+    s.async = true; s.src = "https://www.googletagmanager.com/gtag/js?id=G-S2YYKGB9WD";
+    document.head.appendChild(s);
+  }
+})();
+</script>
+<style>
+:root{--theme:#D8DEF2;--primary:#12152A;--secondary:#4E5473;--content:#262B45;--border:rgba(18,21,42,.16);--glass:rgba(255,255,255,.6);--glass-strong:rgba(255,255,255,.8);--cyan-ink:#0E7C87;--gold-ink:#96650C;--loss:#B5392B;--amb1:rgba(127,224,232,.36);--amb2:rgba(227,181,100,.32);--radius:16px;--on:#fff}
+:root.dark{--theme:#070914;--primary:#EDEFF8;--secondary:#A7AFCB;--content:#E7E9F5;--border:rgba(255,255,255,.14);--glass:rgba(255,255,255,.055);--glass-strong:rgba(255,255,255,.095);--cyan-ink:#7FE0E8;--gold-ink:#E3B564;--loss:#FF8A78;--amb1:rgba(127,224,232,.16);--amb2:rgba(227,181,100,.14);--on:#070914}
+*{box-sizing:border-box}
+body{margin:0;background:var(--theme);color:var(--content);font:16px/1.6 "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body::before,body::after{content:"";position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0}
+body::before{top:-14%;left:-12%;width:520px;height:520px;background:radial-gradient(circle,var(--amb1),transparent 70%)}
+body::after{bottom:-18%;right:-12%;width:560px;height:560px;background:radial-gradient(circle,var(--amb2),transparent 70%)}
+.embedded body{background:transparent}.embedded body::before,.embedded body::after,.embedded .full-only{display:none}
+main{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:24px 16px 40px}.embedded main{padding:4px 0 8px}
+h1{font:700 1.75rem/1.2 "Space Grotesk",sans-serif;color:var(--primary);margin:.1em 0 .3em}
+.back{font:500 12px "IBM Plex Mono",monospace;color:var(--secondary);text-decoration:none}
+.card{background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin:12px 0;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.lab{font:600 1.1rem/1.3 "Space Grotesk",sans-serif;color:var(--primary);margin-bottom:8px}
+.sub{font:500 13px "IBM Plex Mono",monospace;color:var(--secondary);margin:12px 0 2px}
+.note{color:var(--secondary);font-size:.88rem;line-height:1.55;margin:.4em 0}
+.big{font:700 clamp(1.5rem,5.5vw,2.1rem)/1.15 "Space Grotesk",sans-serif;color:var(--primary);margin:.1em 0 .2em}
+a{color:var(--cyan-ink);text-underline-offset:3px}a:hover{color:var(--gold-ink)}
+label{display:block;margin-top:10px;color:var(--content)}label b{font:500 .95em "IBM Plex Mono",monospace;color:var(--gold-ink)}
+input[type=range]{width:100%;margin:6px 0 2px;accent-color:var(--cyan-ink)}
+input[type=number],select{font:500 1rem "IBM Plex Mono",monospace;color:var(--primary);background:var(--glass-strong);border:1px solid var(--border);border-radius:10px;padding:8px 10px;width:100%;max-width:240px}
+.seg{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.seg button,.btns button{font:500 13px "IBM Plex Mono",monospace;color:var(--gold-ink);background:var(--glass);border:1px solid var(--border);border-radius:999px;padding:10px 14px;min-height:44px;cursor:pointer}
+.seg.two button{flex:1 1 150px;text-align:left;border-radius:14px}.seg button small{display:block;font:400 12px "Inter",sans-serif;color:var(--secondary)}
+.seg button:hover,.btns button:hover{border-color:var(--cyan-ink)}.seg button.on{background:var(--glass-strong);border-color:var(--cyan-ink);color:var(--primary)}
+.btns{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+input[type=range]{height:28px}details{margin-top:10px}summary{cursor:pointer;color:var(--cyan-ink);font-weight:500;min-height:32px}summary.lab{color:var(--primary);margin:0}
+.sum{position:sticky;top:8px;z-index:5;margin:12px 0;padding:12px 16px;border:1px solid var(--border);border-left:4px solid var(--cyan-ink);border-radius:var(--radius);background:var(--glass-strong);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 4px 18px rgba(0,0,0,.18)}
+.sum.warn{border-left-color:var(--loss)}.embedded .sum{position:relative;top:0}
+.sumt{display:flex;flex-wrap:wrap;gap:2px 12px;align-items:baseline;font:700 1.25rem/1.25 "Space Grotesk",sans-serif;color:var(--primary)}.sumv{font-size:.9rem;color:var(--secondary);margin-top:2px}
+.mix{display:flex;height:12px;border-radius:999px;overflow:hidden;background:var(--border);margin:12px 0 4px}.mix i{display:block;height:100%;transition:width .25s}#mx1{background:var(--cyan-ink)}#mx2{background:var(--gold-ink)}#mx3{background:var(--secondary);opacity:.5}
+main[data-mode="0"] [data-min]{display:none}main[data-mode="1"] [data-min="2"]{display:none}
+@media(prefers-reduced-motion:reduce){.bar,.mix i{transition:none}}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(--cyan-ink);outline-offset:2px}
+.bars{margin:10px 0}.bar{height:30px;border-radius:999px;background:var(--cyan-ink);margin:6px 0;transition:width .25s;display:flex;align-items:center;padding:0 12px;color:var(--on);font:500 13px "IBM Plex Mono",monospace;white-space:nowrap;overflow:hidden}.bar.after{background:var(--loss)}
+.loss{color:var(--loss)}.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:.88rem}th,td{padding:8px 6px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}th{font:500 11px "IBM Plex Mono",monospace;color:var(--secondary)}
+</style>
+</head>
+<body>
+<main>
+<div class="full-only"><a class="back" href="../../">&larr; William Maddock&rsquo;s portfolio</a></div>
+<h1 class="full-only">What a debt-limit standoff could do to a retirement account</h1>
+<p class="note">Pick how a standoff ends, add a recession if you like, then enter your mix. These are illustrations built from past episodes and published model scenarios, not forecasts or advice.</p>
+
+<div class="seg two" id="mode" role="group" aria-label="Detail level"><button><b>Easy</b><small>Pick a scenario, see the result</small></button><button><b>Intermediate</b><small>Set your own mix and a recession</small></button><button><b>Advanced</b><small>Every slider, source and assumption</small></button></div>
+<div class="sum" id="sum" aria-live="polite"><div class="sumt"><span id="sm1"></span><span class="loss" id="sm2"></span></div><div class="sumv" id="sm3"></div></div>
+
+<section class="card"><div class="lab">What happens</div>
+<div class="sub">How the standoff ends</div><div class="seg two" id="scs" role="group" aria-label="Standoff outcome"></div>
+<div class="sub" data-min="1">Add a recession on top?</div><div class="seg" data-min="1" id="rec" role="group" aria-label="Recession"></div>
+<p class="note" id="scn"></p>
+<details data-min="2"><summary>Fine-tune the drops</summary>
+<label for="sd">Stock drop: <b id="sdv"></b></label><input type="range" id="sd" min="0" max="60" step="1">
+<label for="bd">Bond change: <b id="bdv"></b></label><input type="range" id="bd" min="-20" max="10" step="1">
+<p class="note">The presets fill these two sliders. If you pick both a standoff and a recession, I use the larger stock drop, not both added together, because the breach scenarios already include a recession.</p></details></section>
+
+<section class="card"><div class="lab">Your account</div>
+<label for="bal">Balance ($)</label><input type="number" id="bal" min="0" step="1000" inputmode="numeric">
+<div class="sub">Pick the closest match</div><div class="seg" id="pro" role="group" aria-label="Example mixes"><button data-s="90" data-b="10">Early career 90/10/0</button><button data-s="70" data-b="25">Mid-career 70/25/5</button><button data-s="40" data-b="50">Near retirement 40/50/10</button></div>
+<label for="stk" data-min="1">Stocks: <b id="stkv"></b></label><input type="range" data-min="1" id="stk" min="0" max="100" step="5">
+<label for="bnd" data-min="1">Bonds: <b id="bndv"></b></label><input type="range" data-min="1" id="bnd" min="0" max="100" step="5">
+<div class="mix" aria-hidden="true"><i id="mx1"></i><i id="mx2"></i><i id="mx3"></i></div><p class="note" id="cashn"></p>
+<label for="yrs">Years until you need the money: <b id="yrsv"></b></label><input type="range" id="yrs" min="0" max="40" step="1"></section>
+
+<section class="card"><div class="lab">What it does to your account</div>
+<div class="big" id="res"></div><p class="note" id="rsub"></p>
+<div class="bars" aria-hidden="true"><div class="bar" id="b1"><span id="b1t"></span></div><div class="bar after" id="b2"><span id="b2t"></span></div></div>
+<p id="rec1"></p>
+<label for="ret" data-min="1">Assumed yearly return afterwards: <b id="retv"></b></label><input type="range" data-min="1" id="ret" min="2" max="10" step="0.5">
+<p class="note" data-min="1">That return is your assumption, not a forecast. It ignores contributions, withdrawals, fees and taxes. For scale: after 2008 the S&amp;P 500 took about 5.5 years to regain its peak, and after 2020 about 126 trading days (<a href="https://walnutinvest.com/stats/stock-market-crash-statistics" target="_blank" rel="noopener">Walnut</a>, <a href="https://krdo.com/?p=1750643" target="_blank" rel="noopener">KRDO</a>).</p>
+<div class="btns"><button id="copy">Copy link to this scenario</button><button id="reset">Reset</button></div><p class="note" id="msg"></p></section>
+
+<section class="card"><div class="lab">Where the debt limit stands (live)</div>
+<div class="big" id="lim">Loading&hellip;</div><p class="note" id="limn"></p>
+<details data-min="2"><summary>Change the pace or add extraordinary measures</summary>
+<label for="pace">Daily borrowing pace: <b id="pacev"></b> billion a day</label><input type="range" id="pace" min="2" max="16" step="0.05" value="6.9">
+<div class="seg" id="pq"><button id="p90" hidden></button><button id="p365" hidden></button></div>
+<label for="meas">Extraordinary measures: <b id="measv"></b> extra months (what-if)</label><input type="range" id="meas" min="0" max="6" step="0.5" value="0"></details>
+<p class="note">Straight-line illustration, not a forecast. Extraordinary measures could delay the real deadline, and the limit applies to a slightly narrower measure of debt. <a href="../spacex-debt-explainer/#tab=debt" target="_top">See the full debt chart</a> (optional).</p></section>
+
+<section class="card"><details><summary class="lab">Where the numbers come from</summary>
+<div class="tw"><table><thead><tr><th>Case</th><th>What was reported</th><th>Source</th></tr></thead><tbody>
+<tr><td>2023, resolved</td><td>S&amp;P 500 and VIX did not respond; T-bills near the X-date topped 7%</td><td><a href="https://www.piie.com/blogs/realtime-economics/2023/2023-debt-ceiling-crisis-disrupted-some-markets-left-limited-economic" target="_blank" rel="noopener">PIIE</a>, <a href="https://www.bnnbloomberg.ca/us-aaa-credit-rating-may-be-cut-by-fitch-on-debt-limit-impasse-1.1924568" target="_blank" rel="noopener">Bloomberg</a></td></tr>
+<tr><td>2011, down to the wire</td><td>S&amp;P 500 down about 16&ndash;17% in weeks; 6.7% in one day after the downgrade. Windows differ: Barclays found 7.6% over a longer span</td><td><a href="https://investing.com/news/economy/factboxthe-us-debt-ceiling-and-markets-gauging-the-fallout-3005391" target="_blank" rel="noopener">Reuters factbox</a>, <a href="https://benzinga.com/z/33526726" target="_blank" rel="noopener">Benzinga</a>, <a href="https://foxbusiness.com/markets/the-fiscal-standoff-is-sneaking-up-on-wall-street" target="_blank" rel="noopener">Fox Business</a></td></tr>
+<tr><td>Prolonged breach (model)</td><td>Moody&rsquo;s 2023: stocks down nearly 20%, GDP down 4%, unemployment above 8%. White House CEA simulation: stocks down 45%</td><td><a href="https://www.foxbusiness.com/economy/us-debt-default-could-wipe-out-eight-million-jobs-analysis-shows" target="_blank" rel="noopener">Fox Business</a>, <a href="https://news.yahoo.com/white-house-details-severe-damage-224807486.html?fr=sycsrp_catchall" target="_blank" rel="noopener">NBC</a></td></tr>
+<tr><td>Prolonged breach (earlier model)</td><td>Moody&rsquo;s 2021: stocks down almost one-third at the worst point</td><td><a href="https://inquirer.com/economy/debt-ceiling-default-recession-20210922.html" target="_blank" rel="noopener">Inquirer</a></td></tr>
+<tr><td>Recession</td><td>Bear markets since 1928 averaged about 35%; 2008 was 56.8%</td><td><a href="https://walnutinvest.com/stats/stock-market-crash-statistics" target="_blank" rel="noopener">Walnut</a>, <a href="https://keyt.com/stacker-business-economy/2026/08/12/every-major-stock-market-correction-since-1950-and-how-long-recovery-took/" target="_blank" rel="noopener">Plus500</a></td></tr>
+</tbody></table></div></details></section>
+
+<section class="card"><div class="lab">What this does not cover</div>
+<p class="note">The US has never missed a debt payment, so the prolonged-breach numbers come from model scenarios that predate today. The bond changes are my assumptions: in 2011 Treasury yields fell, and in a breach analysts expect them to spike, but I did not find a sourced size. Pensions, Social Security and income from dividends or rentals are not modeled, and I did not source whether payments could be delayed. This is not financial advice.</p></section>
+</main>
+<script>
+var $=function(i){return document.getElementById(i)};
+var SC=[{n:"Resolved quietly",sd:0,bd:0,t:"Like 2023: stocks barely moved. Short-term Treasury bills near the deadline were the stress point."},
+{n:"Down to the wire",sd:17,bd:0,t:"Like 2011: stocks fell about 16\u201317% in weeks. Bonds rose then, so 0% is a cautious assumption."},
+{n:"Prolonged breach",sd:33,bd:-5,t:"Midpoint of published scenarios (stocks down 20% to 45%). The bond change is my assumption."}];
+var RC=[{n:"No recession",sd:0},{n:"Typical \u221235%",sd:35},{n:"Severe \u221257%",sd:57},{n:"Mild \u221225%",sd:25}];
+var D={bal:500000,stk:70,bnd:25,yrs:15,sc:1,rec:0,sd:0,bd:0,ret:6,pace:0,meas:0,mode:0},S={};
+function ctx(){try{if(window.top!==window&&parent.document)return parent}catch(e){}return window}
+function $f(n){return "$"+Math.round(n).toLocaleString("en-US")}
+SC.forEach(function(s,i){var b=document.createElement("button");b.innerHTML="<b>"+s.n+"</b><small>"+(s.sd?"stocks \u2212"+s.sd+"%":"stocks flat")+"</small>";b.onclick=function(){S.sc=i;preset()};$("scs").appendChild(b)});
+[0,3,1,2].forEach(function(i){var b=document.createElement("button");b.textContent=RC[i].n;b.dataset.i=i;b.onclick=function(){S.rec=i;preset()};$("rec").appendChild(b)});
+function preset(){S.sd=Math.max(SC[S.sc].sd,RC[S.rec].sd);S.bd=SC[S.sc].bd;sync();calc()}
+function sync(){document.querySelector("main").dataset.mode=S.mode;[].forEach.call($("mode").children,function(b,i){b.className=i===S.mode?"on":"";b.setAttribute("aria-pressed",i===S.mode)});$("bal").value=S.bal;$("stk").value=S.stk;$("bnd").max=100-S.stk;$("bnd").value=S.bnd;$("yrs").value=S.yrs;$("sd").value=S.sd;$("bd").value=S.bd;$("ret").value=S.ret;$("meas").value=S.meas;$("pace").value=S.pace||R365||6.9;[].forEach.call($("scs").children,function(b,i){b.className=i===S.sc?"on":"";b.setAttribute("aria-pressed",i===S.sc)});[].forEach.call($("rec").children,function(b){var on=+b.dataset.i===S.rec;b.className=on?"on":"";b.setAttribute("aria-pressed",on)});$("scn").textContent=SC[S.sc].t}
+function calc(){S.bnd=Math.min(S.bnd,100-S.stk);var cash=100-S.stk-S.bnd,b=S.bal,st=b*S.stk/100,bo=b*S.bnd/100,ca=b*cash/100;
+var after=st*(1-S.sd/100)+bo*(1+S.bd/100)+ca,loss=b-after,pct=b>0?loss/b*100:0;
+$("stkv").textContent=S.stk+"%";$("bndv").textContent=S.bnd+"%";$("yrsv").textContent=S.yrs;$("sdv").textContent="\u2212"+S.sd+"%";$("bdv").textContent=(S.bd>0?"+":S.bd<0?"\u2212":"")+Math.abs(S.bd)+"%";$("retv").textContent=S.ret+"%";
+$("cashn").textContent="Stocks "+S.stk+"% \u00b7 Bonds "+S.bnd+"% \u00b7 Cash "+cash+"% (cash assumed not to change in value).";$("mx1").style.width=S.stk+"%";$("mx2").style.width=S.bnd+"%";$("mx3").style.width=cash+"%";[].forEach.call($("pro").children,function(x){x.className=(+x.dataset.s===S.stk&&+x.dataset.b===S.bnd)?"on":""});
+$("res").textContent=$f(b)+" \u2192 "+$f(after);
+$("rsub").innerHTML=loss>0?"A drop of <span class=\"loss\">"+$f(loss)+" ("+pct.toFixed(1)+"%)</span> at the worst point.":loss<0?"A gain of "+$f(-loss)+".":"No change at the worst point.";
+$("b1t").textContent="Before "+$f(b);$("b2t").textContent="After "+$f(after);$("b1").style.width="100%";$("b2").style.width=(b>0?Math.max(2,after/b*100):0)+"%";
+var el=$("rec1"),v="",cl="ok";if(loss>0&&after>0){var need=b/after-1,yrs=Math.log(b/after)/Math.log(1+S.ret/100),Y=yrs<1?"under a year":"about "+yrs.toFixed(1)+" years";
+el.textContent="To get back to "+$f(b)+" it needs to gain "+(need*100).toFixed(1)+"%. At "+S.ret+"% a year that takes "+Y+"; you have "+S.yrs+" until you need the money.";
+if(yrs>S.yrs){cl="warn";v="Recovery takes "+Y+", longer than your "+S.yrs+" years"}else v="Back in "+Y+", within your "+S.yrs+" years"}else{el.textContent="No recovery needed in this scenario.";v="No recovery needed"}
+$("sm1").textContent=$f(b)+" \u2192 "+$f(after);$("sm2").className=loss>0?"loss":"";$("sm2").textContent=loss>0?"\u2212"+pct.toFixed(1)+"%":loss<0?"+"+(-pct).toFixed(1)+"%":"0%";$("sm3").textContent=v;$("sum").className="sum "+cl;
+limit();touch();report()}
+function hs(){var p=[];Object.keys(D).forEach(function(k){if(S[k]!==D[k])p.push(k+"="+S[k])});return p.join("&")}
+function touch(){try{var w=ctx();w.history.replaceState(null,"",w.location.pathname+w.location.search+(hs()?"#"+hs():""))}catch(e){}}
+function load(){S=JSON.parse(JSON.stringify(D));var h="";try{h=ctx().location.hash.replace(/^#/,"")}catch(e){}
+h.split("&").forEach(function(kv){var a=kv.split("="),v=parseFloat(a[1]);if(a[0] in D&&isFinite(v))S[a[0]]=v});
+S.sc=Math.min(SC.length-1,Math.max(0,S.sc|0));S.mode=Math.min(2,Math.max(0,S.mode|0));S.rec=Math.min(RC.length-1,Math.max(0,S.rec|0));S.stk=Math.min(100,Math.max(0,S.stk));S.sd=Math.min(60,Math.max(0,S.sd));S.bd=Math.min(10,Math.max(-20,S.bd));S.bal=Math.max(0,S.bal);S.yrs=Math.min(40,Math.max(0,S.yrs));S.ret=Math.min(10,Math.max(2,S.ret));S.pace=S.pace>0?Math.min(16,Math.max(2,S.pace)):0;S.meas=Math.min(6,Math.max(0,Math.round(S.meas*2)/2));
+if(!/sd=/.test(h)&&!/bd=/.test(h)){S.sd=Math.max(SC[S.sc].sd,RC[S.rec].sd);S.bd=SC[S.sc].bd}}
+[["bal","oninput"],["stk"],["bnd"],["yrs"],["sd"],["bd"],["ret"],["pace"],["meas"]].forEach(function(k){$(k[0]).oninput=function(){S[k[0]]=parseFloat(this.value)||0;if(k[0]==="stk")$("bnd").max=100-S.stk;calc()}});
+[].forEach.call($("pro").children,function(b){b.onclick=function(){S.stk=+b.dataset.s;S.bnd=+b.dataset.b;sync();calc()}});
+$("reset").onclick=function(){var m=S.mode;S=JSON.parse(JSON.stringify(D));S.mode=m;preset();$("msg").textContent=""};
+$("copy").onclick=function(){var w=ctx(),u=w.location.origin+w.location.pathname+w.location.search+(hs()?"#"+hs():""),b=this;
+function ok(){b.textContent="Link copied";setTimeout(function(){b.textContent="Copy link to this scenario"},1800)}
+if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(u).then(ok,function(){$("msg").textContent=u});else $("msg").textContent=u};
+function report(){if(window.top===window)return;var h=Math.ceil(document.querySelector("main").getBoundingClientRect().height)+8;if(window.__h===h)return;window.__h=h;parent.postMessage({type:"artifact-height",height:h},"*")}
+window.addEventListener("resize",report);if(window.ResizeObserver)new ResizeObserver(report).observe(document.querySelector("main"));
+var ROOM=null,LASTD=null,R90=null,R365=null,API="https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?fields=record_date,tot_pub_debt_out_amt&sort=-record_date&page[size]=400",LIMIT=41100000000000,FM={month:"long",day:"numeric",year:"numeric"};
+function dt(s){var p=s.split("-");return new Date(+p[0],+p[1]-1,+p[2])}
+function limit(){if(!LASTD)return;var v=S.pace||R365||6.9,asof=LASTD.toLocaleDateString("en-US",FM);
+$("pacev").textContent=v.toFixed(2);$("measv").textContent=S.meas;
+[].forEach.call($("pq").children,function(b){b.className=Math.abs(parseFloat(b.dataset.v)-v)<0.01?"on":""});
+if(ROOM<=0){$("lim").textContent="At or above the limit";$("limn").textContent="Treasury data through "+asof+".";return}
+var base=ROOM/v,days=base+S.meas*30.44,d=new Date(LASTD.getFullYear(),LASTD.getMonth(),LASTD.getDate()+Math.round(days));
+$("lim").textContent=d.toLocaleDateString("en-US",FM);
+$("limn").textContent="About when federal debt reaches the $41.1 trillion limit at $"+v.toFixed(2)+" billion a day, with $"+Math.round(ROOM)+" billion of room as of "+asof+(S.meas>0?". Without extraordinary measures: "+new Date(LASTD.getFullYear(),LASTD.getMonth(),LASTD.getDate()+Math.round(base)).toLocaleDateString("en-US",FM)+".":".")}
+function rt(r,n){var last=r[0],cut=new Date(last.d.getTime()-n*864e5),b=r.filter(function(x){return x.d>=cut}).pop(),dd=Math.round((last.d-b.d)/864e5);return dd>0?(last.v-b.v)/dd/1e9:0}
+fetch(API).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){var r=j.data.map(function(x){return{d:dt(x.record_date),v:parseFloat(x.tot_pub_debt_out_amt)}}).filter(function(x){return isFinite(x.v)});
+LASTD=r[0].d;ROOM=(LIMIT-r[0].v)/1e9;var c=function(x){return Math.min(16,Math.max(2,x))};R90=c(rt(r,90));R365=c(rt(r,365));
+[[$("p90"),R90,"Last 90 days $"],[$("p365"),R365,"Last year $"]].forEach(function(a){a[0].dataset.v=a[1].toFixed(2);a[0].textContent=a[2]+a[1].toFixed(1)+"B";a[0].hidden=false;a[0].onclick=function(){S.pace=+a[0].dataset.v;sync();calc()}});
+sync();limit();report()}).catch(function(){$("lim").textContent="Live data unavailable";$("limn").textContent="Treasury could not be reached, so the date is not shown. The full debt chart link here has the latest saved figures."});
+function stick(){try{var f=window.frameElement;if(!f||!document.documentElement.classList.contains("embedded"))return;var P=f.ownerDocument.defaultView,r=f.getBoundingClientRect(),h=P.document.querySelector(".header"),off=8,s=$("sum"),m=document.querySelector("main");
+if(h&&/sticky|fixed/.test(P.getComputedStyle(h).position))off+=h.offsetHeight;
+var y=Math.max(0,off-r.top-s.offsetTop);y=Math.min(y,Math.max(0,m.offsetHeight-s.offsetHeight-s.offsetTop));s.style.transform=y?"translateY("+y+"px)":""}catch(e){}}
+try{if(window.parent!==window){parent.addEventListener("scroll",stick,{passive:true});parent.addEventListener("resize",stick)}}catch(e){}
+[].forEach.call($("mode").children,function(b,i){b.onclick=function(){S.mode=i;if(i===0){S.rec=0;preset()}else{sync();calc()}}});
+load();sync();calc();stick();
+</script>
+</body>
+</html>
