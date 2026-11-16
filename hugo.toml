@@ -42,6 +42,10 @@ name = "Résumé"
 url = "resume"
 
 [[params.profileMode.buttons]]
+name = "Career Quest"
+url = "artifacts/career-quest/"
+
+[[params.profileMode.buttons]]
 name = "Artifacts"
 url = "artifacts"
 

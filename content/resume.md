@@ -28,7 +28,13 @@ This one-page résumé is my primary public résumé for **Software Engineer I, 
 <p class="resume-actions">
   <a class="button-link" href="../resume-v2.pdf" target="_blank" rel="noopener noreferrer" download>Download the résumé (PDF)</a>
   <a class="button-link button-link--ghost" href="../resume-v2.pdf" target="_blank" rel="noopener noreferrer">Open in a new tab</a>
+  <a class="button-link" href="../artifacts/career-quest/">Explore the interactive version →</a>
 </p>
+
+
+## Interactive Career Quest
+
+Prefer to explore? **Career Quest** turns this résumé into an interactive view of my projects, skills, education and full work history. [Open Career Quest](../artifacts/career-quest/) or jump to the [complete career history](../artifacts/career-quest/#experience).
 
 ## Résumé Preview
 

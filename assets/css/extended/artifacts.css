@@ -12,3 +12,6 @@
 .artifact-open { margin: 6px 0 0; text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 12px; }
 .artifact-open a { color: var(--secondary) !important; text-decoration: none; }
 .artifact-open a:hover { color: var(--og-cyan-ink) !important; }
+
+/* Captions: smaller so they don't cover the video's own text when a viewer turns CC on */
+video::cue{font-size:62%;line-height:1.25}

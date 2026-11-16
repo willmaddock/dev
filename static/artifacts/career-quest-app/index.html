@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#07111e">
+  <title>Career Quest — William Maddock | Interactive Résumé</title>
+  <meta name="description" content="Explore William Maddock's engineering work, technical skills, verified education, credentials and career history.">
+  <script>
+  /* Embed detection runs before paint. When framed by the portfolio, hide this page's own header and hero (the site already has them). */
+  (function(){var r=document.documentElement,e=false;try{e=window.top!==window&&!!parent.document}catch(x){}
+  if(e)r.classList.add("embedded");
+  if(!e){window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config","G-S2YYKGB9WD");var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-S2YYKGB9WD";document.head.appendChild(s)}})();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="career.css">
+  <script src="logos/manifest.js"></script>
+  <script src="career-data.js" defer></script>
+  <script src="career.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to career content</a>
+  <div class="stars" aria-hidden="true"></div>
+  <div class="shell">
+    <header class="masthead">
+      <div class="identity"><div class="avatar" aria-hidden="true">WM<span></span></div><div><strong>WILLIAM MADDOCK</strong><small>CAREER QUEST / INTERACTIVE RÉSUMÉ</small></div></div>
+      <nav class="mastlinks" aria-label="Portfolio links"><a href="../../resume/" target="_top">Résumé</a><a href="../../projects/" target="_top">Projects</a><a href="../../" target="_top">Portfolio</a></nav>
+    </header>
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="status-dot"></span> OPEN TO ENGINEERING OPPORTUNITIES</span>
+          <h1 id="hero-title">My career,<br><em>one interactive map.</em></h1>
+          <p>Software engineering, AI applications, technical leadership—and the work that got me here. Choose a chapter or use the search. No game required.</p>
+          <div class="hero-actions"><button id="start-quest" class="btn btn-primary" type="button">Explore my work <span aria-hidden="true">↗</span></button><a class="btn btn-outline" href="../../resume-v2.pdf" target="_blank" rel="noopener">Traditional résumé ↗</a></div>
+          <div class="hero-tagline"><span>7 featured projects</span><span>2 degrees</span><span>Complete career history</span></div>
+        </div>
+        <div class="hero-visual" aria-label="Graphic representation of a connected career map">
+          <div class="orbit orbit-1"></div><div class="orbit orbit-2"></div><div class="orbit orbit-3"></div>
+          <span class="orbital-badge badge-a">CODE</span><span class="orbital-badge badge-b">BUILD</span><span class="orbital-badge badge-c">LEAD</span>
+          <div class="orbital-core"><span class="core-mark">W<span>↗</span></span><small>ENGINEER<br>CREATOR<br>PROBLEM SOLVER</small></div>
+          <span class="scope-tag">A CAREER IN MOTION <b>●</b></span>
+        </div>
+      </section>
+      <section class="stats" aria-label="Career highlights">
+        <div class="stat"><b>251</b><span>automated tests across 30 files<small>CUCII quality gate</small></span></div>
+        <div class="stat"><b>48</b><span>pytest tests<small>JobTracker Hub</small></span></div>
+        <div class="stat"><b>6</b><span>engineers led<small>Auraria Mobile Parking</small></span></div>
+        <div class="stat"><b>110+</b><span>applications tracked<small>JobTracker Hub, daily personal use</small></span></div>
+      </section>
+      <section class="command" aria-labelledby="command-title">
+        <div class="chapter-top"><div><span class="section-kicker">CHOOSE YOUR PATH</span><h2 id="command-title">Career command center</h2></div><p class="progress-label" id="chapter-progress" aria-live="polite">0 / 5 chapters explored</p></div>
+        <div class="chapter-grid" id="chapter-nav" role="tablist" aria-label="Explore career chapters">
+          <button class="chapter active" role="tab" aria-selected="true" aria-controls="chapter-output" data-section="projects"><span class="chapter-icon">⌘</span><span><strong>Projects</strong><small>See what I've built</small></span><b aria-hidden="true">01</b></button>
+          <button class="chapter" role="tab" aria-selected="false" aria-controls="chapter-output" data-section="skills"><span class="chapter-icon">✳</span><span><strong>Skill tree</strong><small>Tools & technical depth</small></span><b aria-hidden="true">02</b></button>
+          <button class="chapter" role="tab" aria-selected="false" aria-controls="chapter-output" data-section="education"><span class="chapter-icon">⌂</span><span><strong>Education</strong><small>Degrees & coursework</small></span><b aria-hidden="true">03</b></button>
+          <button class="chapter" role="tab" aria-selected="false" aria-controls="chapter-output" data-section="experience"><span class="chapter-icon">▦</span><span><strong>Career history</strong><small>Employers & service</small></span><b aria-hidden="true">04</b></button>
+          <button class="chapter" role="tab" aria-selected="false" aria-controls="chapter-output" data-section="credentials"><span class="chapter-icon">◇</span><span><strong>Achievements</strong><small>Credentials & honors</small></span><b aria-hidden="true">05</b></button>
+        </div>
+      </section>
+      <section class="content-zone" id="career-content" aria-labelledby="content-heading">
+        <div class="section-toolbar"><div><span class="section-kicker" id="content-eyebrow">01 / PROOF OF WORK</span><h2 id="content-heading">Featured engineering projects</h2></div><label class="search-wrap"><span class="sr-only">Search the selected chapter</span><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search this chapter..." autocomplete="off"></label></div>
+        <div id="skill-controls" class="skill-controls" hidden></div>
+        <div id="chapter-output" class="output" role="tabpanel"></div>
+        <div id="empty" class="empty" hidden>No matches in this chapter. Try another search.</div>
+        <div id="next-wrap" class="next-wrap"></div>
+      </section>
+      <section class="availability"><div><span class="section-kicker">THE HUMAN BEHIND THE CODE</span><h2>Looking for a full-stack or AI engineering collaborator?</h2><p>I build applications, backends, tools, and workflows—and I like making the work understandable. The portfolio and source links are here for you to inspect.</p></div><div class="cta-actions"><a class="btn btn-primary" href="mailto:willzaeagle@gmail.com">Start a conversation ↗</a><a class="btn btn-outline" href="https://github.com/willmaddock" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a class="btn btn-outline" href="https://www.linkedin.com/in/willmaddockcs" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></section>
+      <footer class="page-footer"><p>Independent and academic projects are listed separately from employment.</p><p>Employer, school and technology marks belong to their respective owners. Identification only; no endorsement implied.</p><a href="../../resume/" target="_top">Back to the traditional résumé ↑</a></footer>
+    </main>
+  </div>
+</body>
+</html>
