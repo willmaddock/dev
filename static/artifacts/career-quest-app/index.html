@@ -11,11 +11,18 @@
   /* Embed detection runs before paint. When framed by the portfolio, hide this page's own header and hero (the site already has them). */
   (function(){var r=document.documentElement,e=false;try{e=window.top!==window&&!!parent.document}catch(x){}
   if(e)r.classList.add("embedded");
+  /* v7 theme: follow the portfolio. PaperMod toggles a "dark" class and stores localStorage "pref-theme";
+     framed pages follow the parent live, standalone pages use the saved choice, then the system setting. Dark is the default. */
+  function dk(){try{if(e){var d=parent.document;return d.documentElement.classList.contains("dark")||(d.body&&d.body.classList.contains("dark"))}var q=localStorage.getItem("pref-theme");if(q)return q==="dark"}catch(x){}return!!(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)}
+  function ap(){var l=!dk();r.classList.toggle("light",l);var m=document.querySelector('meta[name="color-scheme"]');if(m)m.content=l?"light":"dark";var t=document.querySelector('meta[name="theme-color"]');if(t)t.content=l?"#d8def2":"#07111e"}
+  ap();
+  window.addEventListener("DOMContentLoaded",function(){ap();try{if(e){var o=new MutationObserver(ap),c={attributes:true,attributeFilter:["class"]};o.observe(parent.document.documentElement,c);if(parent.document.body)o.observe(parent.document.body,c)}else{window.addEventListener("storage",ap);if(window.matchMedia)matchMedia("(prefers-color-scheme: dark)").addEventListener("change",ap)}}catch(x){}});
   if(!e){window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config","G-S2YYKGB9WD");var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-S2YYKGB9WD";document.head.appendChild(s)}})();
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="career.css">
+  <link rel="stylesheet" href="career-light.css">
   <script src="logos/manifest.js"></script>
   <script src="career-data.js" defer></script>
   <script src="career.js" defer></script>

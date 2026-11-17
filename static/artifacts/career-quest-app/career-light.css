@@ -1,0 +1,84 @@
+/* Career Quest - light theme (v7).
+   Loaded after career.css. Applies only when <html> has the .light class,
+   which the page sets from the portfolio's theme (PaperMod toggles .dark on
+   the site; no .dark = light). Colors mirror the site's "Orbital Glass"
+   light palette. Dark stays the default and is unchanged. */
+html.light{color-scheme:light;--bg:#d8def2;--panel:#fff;--panel2:#f3f6fc;--border:rgba(18,21,42,.16);--cyan:#0e7c87;--gold:#96650c;--text:#12152a;--muted:#4e5473;--dim:#5a6180}
+html.light body{color:#262b45;background:radial-gradient(ellipse at 84% 4%,rgba(127,224,232,.42) 0%,transparent 40%),radial-gradient(ellipse at 2% 55%,rgba(227,181,100,.30) 0%,transparent 42%),#d8def2}
+html.light.embedded body{background:transparent}
+html.light body:before{background:linear-gradient(rgba(18,21,42,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(18,21,42,.08) 1px,transparent 1px);background-size:64px 64px;opacity:.5}
+html.light a:focus-visible,html.light button:focus-visible,html.light input:focus-visible{outline-color:#0e7c87}
+html.light .skip{background:#12152a;color:#fff}
+
+/* header + hero */
+html.light .masthead{border-bottom-color:rgba(18,21,42,.14)}
+html.light .avatar{background:linear-gradient(145deg,#fff,#cdeaf0);border-color:rgba(14,124,135,.45)}
+html.light .mastlinks a{color:#4e5473}html.light .mastlinks a:hover{color:#12152a}
+html.light .eyebrow{border-color:rgba(14,124,135,.35);background:rgba(14,124,135,.10)}
+html.light .hero h1 em{background:linear-gradient(100deg,#96650c,#0e7c87);background-clip:text;-webkit-background-clip:text;color:transparent}
+html.light .hero p{color:#3c4263}
+html.light .btn{border-color:rgba(14,124,135,.55)}
+html.light .btn-primary{border-color:#0e7c87}
+html.light .btn-outline{background:rgba(255,255,255,.7);color:#0b5560}
+html.light .hero-tagline{color:#5a6180}
+html.light .orbit{border-color:rgba(14,124,135,.35);box-shadow:none}
+html.light .orbit-2{border-color:rgba(150,101,12,.4)}
+html.light .orbit-3{border-color:rgba(14,124,135,.55)}
+html.light .hero-visual:before{background:radial-gradient(rgba(127,224,232,.55),transparent 65%)}
+html.light .orbital-core{border-color:rgba(14,124,135,.4);background:radial-gradient(circle at 32% 25%,#fff,#d6eef2 70%);box-shadow:0 10px 50px rgba(14,124,135,.22)}
+html.light .core-mark{color:#12152a}
+html.light .orbital-core small{color:#4e5473}
+html.light .orbital-badge{color:#0b5560;border-color:rgba(14,124,135,.4);background:rgba(255,255,255,.85);box-shadow:0 6px 20px rgba(18,21,42,.14)}
+html.light .scope-tag{color:#5a6180}
+
+/* stats + chapters */
+html.light .stat{border-color:var(--border);background:rgba(255,255,255,.7)}
+html.light .stat span{color:#262b45}
+html.light .command{border-top-color:rgba(18,21,42,.14)}
+html.light .progress-label{color:#4e5473}
+html.light .chapter{border-color:var(--border);background:rgba(255,255,255,.62);color:#12152a}
+html.light .chapter:hover{background:rgba(255,255,255,.92)}
+html.light .chapter.active{background:linear-gradient(165deg,#fff,#d3edf1);border-color:#0e7c87;box-shadow:0 6px 22px rgba(14,124,135,.18)}
+html.light .chapter-icon{background:rgba(18,21,42,.07)}
+html.light .chapter small{color:#4e5473}
+html.light .chapter b{color:#6b7191}
+
+/* content zone + cards */
+html.light .content-zone{border-color:var(--border);background:linear-gradient(150deg,rgba(255,255,255,.78),rgba(255,255,255,.55));box-shadow:0 18px 50px rgba(18,21,42,.10)}
+html.light .search-wrap{border-color:rgba(18,21,42,.22);background:rgba(255,255,255,.85)}
+html.light .search-wrap input{color:#12152a}
+html.light .search-wrap input::placeholder{color:#6b7191}
+html.light .project,html.light .detail-card{background:rgba(255,255,255,.82);border-color:var(--border)}
+html.light .project:hover,html.light .detail-card:hover{border-color:#0e7c87}
+html.light .project-image{background:linear-gradient(135deg,#cfe9ef,#e8ecf8)}
+html.light .project-image img{opacity:1;filter:none}
+html.light .project-image:after{background:linear-gradient(0deg,rgba(18,21,42,.38),transparent 70%)}
+html.light .desc{color:#3c4263}
+html.light .tag{background:rgba(14,124,135,.09);border-color:rgba(14,124,135,.30);color:#0b5560}
+html.light .brand-tile{border-color:rgba(18,21,42,.2);background:#eaf3f6;color:#5a4310}
+html.light .brand-tile:not(.is-fallback){background:#fff;border-color:rgba(18,21,42,.18)}
+html.light .mini-badge{border-color:rgba(150,101,12,.45);color:#7a520a}
+html.light .detail-card .sub{color:#3c4263}
+
+/* skills, notices, controls */
+html.light .filter{border-color:rgba(18,21,42,.22);background:rgba(255,255,255,.75);color:#3c4263}
+html.light .filter.active{background:#0e7c87;border-color:#0e7c87;color:#fff}
+html.light .skill-card{border-color:var(--border);background:rgba(255,255,255,.75)}
+html.light .skill-node{border-color:rgba(18,21,42,.22);background:#fff;color:#12152a}
+html.light .skill-node:hover,html.light .skill-node.active{background:#0e7c87;color:#fff;border-color:#0e7c87}
+html.light .skill-node.has-evidence{border-color:rgba(14,124,135,.65)}
+html.light .skill-node.active .skill-count,html.light .skill-node:hover .skill-count{background:#fff;color:#7a520a}
+html.light .skill-evidence{background:rgba(14,124,135,.08);color:#262b45}
+html.light .course-grid span{color:#262b45;background:rgba(255,255,255,.8);border-color:var(--border)}
+html.light .notice{color:#6b4708;background:rgba(150,101,12,.10)}
+html.light .experience-mode button{border-color:rgba(18,21,42,.22);background:rgba(255,255,255,.75);color:#12152a}
+html.light .experience-mode button.active{background:#0e7c87;border-color:#0e7c87;color:#fff}
+html.light .next-chapter,html.light .show-all{border-color:rgba(14,124,135,.55);background:rgba(255,255,255,.8);color:#0b5560}
+html.light .next-chapter:hover,html.light .show-all:hover{background:#fff}
+
+/* footer sections */
+html.light .availability{border-color:var(--border);background:linear-gradient(120deg,rgba(255,255,255,.75),rgba(255,255,255,.5))}
+html.light .availability p{color:#3c4263}
+html.light .page-footer{color:#5a6180}
+html.light .empty{color:#4e5473}
+html.light .status-dot{background:#1f9d55;box-shadow:0 0 0 3px rgba(31,157,85,.22)}
