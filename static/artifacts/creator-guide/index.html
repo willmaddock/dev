@@ -400,6 +400,41 @@ footer{margin-top:22px}
 #completionPanel{margin:24px 0;padding:22px}
 #completionPanel h2{margin:8px 0 12px}
 #completionPanel .row{margin-top:18px}
+
+/* Screenshot viewer (replaces the old jump to a bare .webp file) */
+figure a[href$=".webp"]{cursor:zoom-in}
+figure a[href$=".webp"]::after{content:"Enlarge";position:absolute;top:8px;right:8px;font:500 11px/1 "IBM Plex Mono",monospace;letter-spacing:.04em;color:#EDEFF8;background:rgba(7,9,20,.72);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:5px 9px;pointer-events:none}
+figure a[href$=".webp"]:focus-visible{outline:3px solid var(--cyan-ink);outline-offset:2px}
+.lb{position:fixed;left:0;right:0;top:0;height:100vh;z-index:1000;display:flex;flex-direction:column;background:rgba(4,6,16,.985);color:#EDEFF8;font:500 14px/1.35 Inter,system-ui,sans-serif}
+.lb[hidden]{display:none}
+.lb-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.14)}
+.lb-cap{flex:1 1 220px;min-width:0;font-weight:500;color:#C9CEE6}
+.lb-cap b{color:#EDEFF8;font-weight:600}
+.lb-btns{display:flex;flex-wrap:wrap;gap:8px}
+.lb button,.lb a.lbbtn{font:500 13px/1 Inter,system-ui,sans-serif;color:#EDEFF8;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.3);border-radius:999px;min-height:38px;padding:0 14px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none}
+.lb button:hover,.lb a.lbbtn:hover{background:rgba(255,255,255,.18);color:#fff}
+.lb button:focus-visible,.lb a.lbbtn:focus-visible{outline:3px solid #7FE0E8;outline-offset:2px}
+.lb button[disabled]{opacity:.4;cursor:default}
+.lb a.lbstudio{background:#E3B564;border-color:#E3B564;color:#12152A;font-weight:600}
+.lb a.lbstudio:hover{background:#f0c77f;color:#12152A}
+.lb-stage{flex:1 1 auto;min-height:0;overflow:auto;display:flex;padding:12px;-webkit-overflow-scrolling:touch}
+.lb-stage img{margin:auto;display:block;max-width:100%;max-height:100%;width:auto;height:auto;border-radius:8px;background:#0a0d1c}
+.lb.actual .lb-stage img{max-width:none;max-height:none;cursor:zoom-out}
+.lb-hint{padding:6px 14px 10px;font-size:12px;color:#A7AFCB;text-align:center}
+@media (max-width:560px){.lb-bar{padding:8px 10px}.lb-hint{display:none}.lb-stage{padding:8px}}
+
+/* Walkthrough video */
+.walk{display:grid;gap:18px;grid-template-columns:minmax(0,1fr);align-items:start;margin:0 0 22px}
+@media (min-width:760px){.walk{grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:26px}}
+.walk-media video{display:block;width:100%;aspect-ratio:4/5;height:auto;background:#05070f;border-radius:12px;border:1px solid var(--border)}
+.walk-text h2{margin:.25em 0 .35em}
+.walk-text p{margin:.5em 0}
+.walk .chapters{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.walk .chapters button{font:500 12.5px/1.2 Inter,sans-serif;color:var(--content);background:var(--glass);border:1px solid var(--border);border-radius:999px;padding:8px 12px;min-height:36px;cursor:pointer}
+.walk .chapters button span{font:500 11px "IBM Plex Mono",monospace;color:var(--gold-ink);margin-right:6px}
+.walk .chapters button:hover{border-color:var(--cyan-ink);color:var(--primary)}
+.walk .chapters button[aria-current="true"]{border-color:var(--cyan-ink);color:var(--primary);background:var(--glass-strong)}
+.walk .chapters button:focus-visible{outline:3px solid var(--cyan-ink);outline-offset:2px}
 </style></head>
 <body>
 <main>
@@ -407,6 +442,10 @@ footer{margin-top:22px}
   <header class="hero" id="hero"><div><div class="eyebrow">CUCII · PROMPT STUDIO · CREATOR GUIDE</div><h1>Give AI a story-world.<br>Give your audience a choice.</h1><p class="sub">Turn your film, game or story-world into a conversation your audience can step into and explore, using any AI chat. This guide takes you from your first prompt to something you can post.</p><div class="row hero-action"><a class="btn" href="https://willmaddock.github.io/CosmicUniversalismStatement/cu-intelligence/#prompt-studio" target="_blank" rel="noopener">Open Prompt Studio ↗</a></div></div><svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><g><circle class="o" cx="60" cy="60" r="56"/><circle class="m" cx="60" cy="60" r="43"/><circle class="i" cx="60" cy="60" r="30"/><circle class="dot" cx="60" cy="4" r="3.2"/></g></svg></header>
 
   <section id="intro" class="intro" aria-labelledby="introH">
+    <section class="walk card" id="walkthrough" aria-labelledby="walkH">
+      <div class="walk-media"><video id="walkVideo" controls playsinline preload="metadata" poster="media/creator-guide-walkthrough-poster.webp" aria-label="Video walkthrough of the CUCII Prompt Studio Creator Guide, about three and a half minutes, with burned-in captions"><source src="media/creator-guide-walkthrough.mp4" type="video/mp4">Your browser can't play this video. <a href="media/creator-guide-walkthrough.mp4" target="_blank" rel="noopener">Open the MP4 in a new tab</a>.</video></div>
+      <div class="walk-text"><span class="eyebrow">Watch first · about 3½ minutes</span><h2 id="walkH">Watch the walkthrough</h2><p>See the whole path in one pass: open the Creator Guide, choose a level, build the prompt in Prompt Studio, paste it into a fresh AI chat, and share what you made. Captions are on screen.</p><p class="note">The “Yes” answer you see at the start is authored role-play inside a selected CUCII experience, not a claim that the AI holds a personal belief.</p><ol class="chapters" id="walkChapters" aria-label="Jump to a part of the video"><li><button type="button" data-t="0"><span>0:00</span>The question</button></li><li><button type="button" data-t="14"><span>0:14</span>Creator Guide</button></li><li><button type="button" data-t="22"><span>0:22</span>Three paths</button></li><li><button type="button" data-t="41"><span>0:41</span>Guide → Studio</button></li><li><button type="button" data-t="69"><span>1:09</span>Generate and copy</button></li><li><button type="button" data-t="86"><span>1:26</span>Test in a chat</button></li><li><button type="button" data-t="110"><span>1:50</span>Jesus and time</button></li><li><button type="button" data-t="153"><span>2:33</span>Test, refine, share</button></li><li><button type="button" data-t="188"><span>3:08</span>For creators</button></li><li><button type="button" data-t="206"><span>3:26</span>CUCII ending</button></li></ol></div>
+    </section>
     <h2 id="introH" tabindex="-1">Choose how far you want to go</h2>
     <p class="sub section-lead">CUCII Prompt Studio is a separate tool on the Cosmic Universalism site. It builds a full operating prompt in your browser. Paste that prompt into an AI chat to invite people into your story-world. This guide walks you through three different levels.</p>
     <div id="resume" class="card" hidden><div class="resume-head"><b>Continue where you left off</b><button class="btn ghost" type="button" id="resumeBtn">Resume</button></div><p class="note" id="resumeText"></p></div>
@@ -818,4 +857,116 @@ updateResume();
 report();
 })();
 
-</script></body></html>
+</script>
+<script>
+/* Screenshot viewer + walkthrough chapter buttons. Self-contained; works standalone and inside the portfolio iframe. */
+(function(){
+var doc=document,root=doc.documentElement,embedded=root.classList.contains('embedded');
+var STUDIO='https://willmaddock.github.io/CosmicUniversalismStatement/cu-intelligence/#prompt-studio';
+var lb=null,stage,imgEl,capEl,fitBtn,prevBtn,nextBtn,closeBtn,openImg,openStudio,list=[],idx=0,lastFocus=null,parentWin=null;
+
+function build(){
+  lb=doc.createElement('div');lb.className='lb';lb.hidden=true;
+  lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');lb.setAttribute('aria-label','Screenshot viewer');
+  lb.innerHTML='<div class="lb-bar"><div class="lb-cap" id="lbCap" aria-live="polite"></div><div class="lb-btns">'+
+    '<button type="button" id="lbPrev" aria-label="Previous screenshot">← Prev</button>'+
+    '<button type="button" id="lbNext" aria-label="Next screenshot">Next →</button>'+
+    '<button type="button" id="lbFit" aria-pressed="false">Actual size</button>'+
+    '<a class="lbbtn" id="lbOpen" target="_blank" rel="noopener">Open image ↗</a>'+
+    '<a class="lbbtn lbstudio" id="lbStudio" target="_blank" rel="noopener" hidden>Open Prompt Studio ↗</a>'+
+    '<button type="button" id="lbClose">Close</button></div></div>'+
+    '<div class="lb-stage" id="lbStage"><img id="lbImg" alt=""></div>'+
+    '<div class="lb-hint">Esc closes · ← → switch screenshot · click the image for actual size</div>';
+  doc.body.appendChild(lb);
+  stage=doc.getElementById('lbStage');imgEl=doc.getElementById('lbImg');capEl=doc.getElementById('lbCap');
+  fitBtn=doc.getElementById('lbFit');prevBtn=doc.getElementById('lbPrev');nextBtn=doc.getElementById('lbNext');
+  closeBtn=doc.getElementById('lbClose');openImg=doc.getElementById('lbOpen');openStudio=doc.getElementById('lbStudio');
+  openStudio.href=STUDIO;
+  closeBtn.addEventListener('click',close);
+  prevBtn.addEventListener('click',function(){go(-1)});
+  nextBtn.addEventListener('click',function(){go(1)});
+  fitBtn.addEventListener('click',toggleSize);
+  imgEl.addEventListener('click',toggleSize);
+  lb.addEventListener('click',function(e){if(e.target===lb||e.target===stage)close()});
+}
+function toggleSize(){var a=lb.classList.toggle('actual');fitBtn.textContent=a?'Fit to screen':'Actual size';fitBtn.setAttribute('aria-pressed',a);stage.scrollTop=0;stage.scrollLeft=0}
+function visibleLinks(){return Array.prototype.filter.call(doc.querySelectorAll('figure a[href]'),function(a){return a.querySelector('img')&&a.getClientRects().length})}
+function show(i){
+  idx=(i+list.length)%list.length;
+  var a=list[idx],im=a.querySelector('img');
+  lb.classList.remove('actual');fitBtn.textContent='Actual size';fitBtn.setAttribute('aria-pressed','false');
+  imgEl.src=a.getAttribute('href');imgEl.alt=im.getAttribute('alt')||'Screenshot';
+  capEl.innerHTML='';var b=doc.createElement('b');b.textContent=imgEl.alt;capEl.appendChild(b);
+  if(list.length>1)capEl.appendChild(doc.createTextNode('  ·  '+(idx+1)+' of '+list.length));
+  openImg.href=a.href;
+  openStudio.hidden=!/(^|\/)studio-[^\/]*$/.test(a.getAttribute('href'));
+  prevBtn.hidden=nextBtn.hidden=list.length<2;
+  stage.scrollTop=0;stage.scrollLeft=0;
+}
+/* Inside the portfolio the iframe is as tall as the whole guide, so centre the viewer on the part of the frame the visitor can actually see. */
+function place(){
+  var top=0,h=window.innerHeight;
+  if(embedded){
+    try{
+      var f=window.frameElement,r=f.getBoundingClientRect(),ph=parent.innerHeight;
+      var t=Math.max(0,-r.top),b=Math.min(r.height,ph-r.top);
+      if(b-t>240){top=t;h=b-t}else{top=Math.max(0,-r.top);h=Math.min(ph,r.height)}
+    }catch(e){}
+  }
+  lb.style.top=top+'px';lb.style.height=h+'px';
+}
+function open(a){
+  if(!lb)build();
+  list=visibleLinks();idx=Math.max(0,list.indexOf(a));
+  lastFocus=doc.activeElement;
+  show(idx);lb.hidden=false;place();
+  if(embedded){try{parentWin=parent;parentWin.addEventListener('scroll',place,{passive:true});parentWin.addEventListener('resize',place)}catch(e){parentWin=null}}
+  window.addEventListener('resize',place);
+  closeBtn.focus();
+}
+function close(){
+  if(!lb||lb.hidden)return;
+  lb.hidden=true;imgEl.removeAttribute('src');
+  window.removeEventListener('resize',place);
+  if(parentWin){try{parentWin.removeEventListener('scroll',place);parentWin.removeEventListener('resize',place)}catch(e){}parentWin=null}
+  if(lastFocus&&lastFocus.focus){try{lastFocus.focus({preventScroll:true})}catch(e){}}
+}
+function go(d){if(list.length>1)show(idx+d)}
+
+doc.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('figure a[href]');
+  if(!a||!a.querySelector('img'))return;
+  if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return; /* modified clicks keep the normal new-tab behaviour */
+  e.preventDefault();open(a);
+});
+doc.addEventListener('keydown',function(e){
+  if(!lb||lb.hidden)return;
+  if(e.key==='Escape'){e.preventDefault();close()}
+  else if(e.key==='ArrowRight'){e.preventDefault();go(1)}
+  else if(e.key==='ArrowLeft'){e.preventDefault();go(-1)}
+  else if(e.key==='Tab'){
+    var f=Array.prototype.filter.call(lb.querySelectorAll('button,a[href]'),function(x){return !x.hidden&&!x.disabled&&x.getClientRects().length});
+    if(!f.length)return;var first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&doc.activeElement===first){e.preventDefault();last.focus()}
+    else if(!e.shiftKey&&doc.activeElement===last){e.preventDefault();first.focus()}
+    else if(!lb.contains(doc.activeElement)){e.preventDefault();first.focus()}
+  }
+});
+
+/* Walkthrough chapters */
+var v=doc.getElementById('walkVideo'),box=doc.getElementById('walkChapters');
+if(v&&box){
+  var btns=Array.prototype.slice.call(box.querySelectorAll('button'));
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    var t=Number(b.getAttribute('data-t'));
+    try{v.currentTime=t}catch(e){}
+    var p=v.play();if(p&&p.catch)p.catch(function(){});
+  })});
+  v.addEventListener('timeupdate',function(){
+    var cur=-1;btns.forEach(function(b,i){if(v.currentTime+0.25>=Number(b.getAttribute('data-t')))cur=i});
+    btns.forEach(function(b,i){if(i===cur)b.setAttribute('aria-current','true');else b.removeAttribute('aria-current')});
+  });
+}
+})();
+</script>
+</body></html>

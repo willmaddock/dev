@@ -36,5 +36,7 @@ Choose your learning path: **Easy** for a first conversation, **Medium** to cust
 - **Built with** plain HTML, CSS, and JavaScript, with no application dependencies or separate build step.
 - **Preserves your work** in browser storage where available. Nothing is automatically submitted from this guide to an AI platform or the separate Prompt Studio.
 - **Follows the site's theme** when embedded, with a standalone light/dark switch.
+- **Video walkthrough:** a captioned 3½-minute video at the top of the guide, with buttons that jump to each part.
+- **Screenshot viewer:** clicking a screenshot opens it large in the page (Esc to close, arrow keys to switch), with an *Open Prompt Studio* button on the Studio screenshots.
 - **Clear handoff:** the guide creates a menu, recipe, and settings notes; the separate Prompt Studio generates the **full operating prompt**.
 - **Authored role-play:** the "Yes. I believe in God." example is a scripted philosophical role-play line, not a claim that a model has religious belief, consciousness, or ability to override platform rules.
