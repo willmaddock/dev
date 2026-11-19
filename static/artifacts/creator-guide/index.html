@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CUCII Prompt Studio — Creator Guide</title>
+<meta name="description" content="An interactive guide for content creators: enter the God’s Free Will story-world in CUCII Prompt Studio, ask the question, and build your own interactive menu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<script>
+/* Theme + embed detection. Runs before paint so there is no flash.
+   Same behaviour as the other portfolio artifacts: PaperMod toggles a `dark`
+   class and stores localStorage "pref-theme". When framed by the portfolio
+   (same origin) we follow the parent page live; opened on its own we follow
+   the saved preference, then the system setting. */
+(function () {
+  var root = document.documentElement;
+  var embedded = false;
+  try { embedded = window.top !== window && !!parent.document; } catch (e) {}
+  if (embedded) root.classList.add("embedded");
+
+  function isDark() {
+    try {
+      if (embedded) {
+        var p = parent.document;
+        return p.documentElement.classList.contains("dark") || (p.body && p.body.classList.contains("dark"));
+      }
+      var pref = localStorage.getItem("pref-theme");
+      if (pref) return pref === "dark";
+    } catch (e) {}
+    return window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  function apply() {
+    root.classList.toggle("dark", isDark());
+    var b = document.getElementById("themeBtn");
+    if (b) b.setAttribute("aria-pressed", root.classList.contains("dark"));
+  }
+  window.__applyTheme = apply;
+  apply();
+
+  window.addEventListener("DOMContentLoaded", function () {
+    apply();
+    if (embedded) {
+      try {
+        var mo = new MutationObserver(apply), o = { attributes: true, attributeFilter: ["class"] };
+        mo.observe(parent.document.documentElement, o);
+        mo.observe(parent.document.body, o);
+      } catch (e) {}
+    } else if (window.matchMedia) {
+      try { matchMedia("(prefers-color-scheme: dark)").addEventListener("change", apply); } catch (e) {}
+      window.addEventListener("storage", apply);
+    }
+  });
+
+  /* Count visits to the full-screen page. When embedded, the portfolio page
+     already counts the visit. */
+  if (!embedded) {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag("js", new Date()); gtag("config", "G-S2YYKGB9WD");
+    var s = document.createElement("script");
+    s.async = true; s.src = "https://www.googletagmanager.com/gtag/js?id=G-S2YYKGB9WD";
+    document.head.appendChild(s);
+  }
+})();
+</script>
+<style>
+/* Tokens copied from the portfolio's "Orbital Glass" theme so the page reads
+   as part of the site. Light is the default; .dark overrides. */
+:root{
+  --theme:#D8DEF2;--primary:#12152A;--secondary:#4E5473;--content:#262B45;
+  --border:rgba(18,21,42,.16);--glass:rgba(255,255,255,.6);--glass-strong:rgba(255,255,255,.8);
+  --cyan:#7FE0E8;--cyan-ink:#0E7C87;--gold-ink:#96650C;
+  --gain:#0E7C87;--loss:#B5392B;
+  --user:#12152A;--user-ink:#EDEFF8;
+  --amb1:rgba(127,224,232,.36);--amb2:rgba(227,181,100,.32);
+  --radius:16px;
+}
+:root.dark{
+  --theme:#070914;--primary:#EDEFF8;--secondary:#A7AFCB;--content:#E7E9F5;
+  --border:rgba(255,255,255,.14);--glass:rgba(255,255,255,.055);--glass-strong:rgba(255,255,255,.095);
+  --cyan-ink:#7FE0E8;--gold-ink:#E3B564;
+  --gain:#7FE0E8;--loss:#FF8A78;
+  --user:#7FE0E8;--user-ink:#06141A;
+  --amb1:rgba(127,224,232,.16);--amb2:rgba(227,181,100,.14);
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);color-scheme:light}
+html.dark{color-scheme:dark}
+body{
+  margin:0;background:var(--theme);color:var(--content);
+  font:16px/1.6 "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+body::before,body::after{content:"";position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0}
+body::before{top:-14%;left:-12%;width:520px;height:520px;background:radial-gradient(circle,var(--amb1),transparent 70%)}
+body::after{bottom:-18%;right:-12%;width:560px;height:560px;background:radial-gradient(circle,var(--amb2),transparent 70%)}
+.embedded body{background:transparent}
+.embedded body::before,.embedded body::after,.embedded .full-only{display:none}
+
+main{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.embedded main{padding:4px 0 8px}
+h1{font:700 1.85rem/1.15 "Space Grotesk",sans-serif;letter-spacing:-.01em;color:var(--primary);margin:.1em 0 .3em}
+h2{font:600 1.3rem/1.25 "Space Grotesk",sans-serif;color:var(--primary);margin:0 0 .4em}
+h3{font:600 1.05rem/1.3 "Space Grotesk",sans-serif;color:var(--primary);margin:1.1em 0 .3em}
+p{margin:.5em 0}
+.sub{color:var(--secondary);margin:0 0 8px;max-width:62ch}
+.eyebrow{font:500 11px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-ink)}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.back{font:500 12px "IBM Plex Mono",monospace;color:var(--secondary);text-decoration:none}
+.back:hover{color:var(--cyan-ink)}
+a{color:var(--cyan-ink);text-decoration-color:var(--border);text-underline-offset:3px}
+a:hover{color:var(--gold-ink)}
+.themebtn{
+  font:500 12px "IBM Plex Mono",monospace;color:var(--secondary);background:var(--glass);
+  border:1px solid var(--border);border-radius:999px;padding:5px 12px;cursor:pointer;
+}
+.themebtn:hover{border-color:var(--cyan-ink);color:var(--primary)}
+
+/* hero ring (decorative, echoes the site's Cosmic Breath mark) */
+.hero{position:relative;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;margin-top:10px}
+.ring{width:112px;height:112px;flex:none}
+.ring circle{fill:none;stroke:var(--cyan-ink);stroke-width:1.4}
+.ring .o{opacity:.35}.ring .m{opacity:.6}.ring .i{opacity:.9}
+.ring .dot{fill:var(--gold-ink);stroke:none}
+.ring g{transform-origin:50% 50%;animation:spin 48s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.ring g{animation:none}*{scroll-behavior:auto!important;transition:none!important}}
+@media (max-width:560px){.hero{grid-template-columns:1fr}.ring{display:none}}
+
+/* tabs */
+.tabs{display:flex;gap:6px;margin:18px 0 6px;flex-wrap:wrap}
+.tabs button{
+  font:500 14px "Inter",sans-serif;color:var(--secondary);background:transparent;
+  border:1px solid transparent;border-radius:999px;padding:7px 16px;cursor:pointer;
+  transition:color .2s,background .2s,border-color .2s;
+}
+.tabs button:hover{color:var(--cyan-ink);background:var(--glass)}
+.tabs button[aria-selected="true"]{color:var(--primary);background:var(--glass-strong);border-color:var(--border)}
+.tabs button .n{font:500 11px "IBM Plex Mono",monospace;color:var(--gold-ink);margin-right:6px}
+
+.card{
+  background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);
+  padding:18px;margin:12px 0;
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media (max-width:700px){.grid3{grid-template-columns:1fr}}
+.step-card{display:block;text-decoration:none;color:inherit;cursor:pointer;margin:0;border-radius:var(--radius)}
+.step-card:hover{border-color:var(--cyan-ink)}
+.step-card .num{font:600 1.6rem/1 "Space Grotesk",sans-serif;color:var(--cyan-ink)}
+.step-card b{display:block;font:600 1rem "Space Grotesk",sans-serif;color:var(--primary);margin:.4em 0 .2em}
+.step-card span.d{color:var(--secondary);font-size:.9rem}
+.note{color:var(--secondary);font-size:.88rem;line-height:1.55}
+.callout{border-left:3px solid var(--gold-ink);padding:2px 0 2px 14px;margin:14px 0;color:var(--content)}
+.callout b{color:var(--primary)}
+
+/* buttons */
+.btn{
+  display:inline-block;font:500 13px "Inter",sans-serif;text-decoration:none;cursor:pointer;
+  color:var(--user-ink);background:var(--user);border:1px solid transparent;
+  border-radius:999px;padding:8px 18px;
+}
+.btn:hover{filter:brightness(1.1);color:var(--user-ink)}
+.btn.ghost{background:var(--glass);color:var(--primary);border-color:var(--border)}
+.btn.ghost:hover{border-color:var(--cyan-ink);color:var(--primary)}
+.btn[disabled]{opacity:.4;cursor:not-allowed}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0 0}
+.chip{
+  font:500 12px "IBM Plex Mono",monospace;color:var(--gold-ink);background:var(--glass);
+  border:1px solid var(--border);border-radius:999px;padding:6px 12px;cursor:pointer;
+}
+.chip:hover{border-color:var(--cyan-ink)}
+.chip.on{background:var(--glass-strong);border-color:var(--cyan-ink);color:var(--primary)}
+.tabs button:focus-visible,.btn:focus-visible,.chip:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible,a:focus-visible,.themebtn:focus-visible{outline:2px solid var(--cyan-ink);outline-offset:2px}
+
+/* checklist / progress */
+.meter{height:10px;border-radius:999px;background:var(--border);overflow:hidden;margin:8px 0 4px}
+.meter>i{display:block;height:100%;width:0;background:var(--cyan-ink);border-radius:999px;transition:width .35s}
+.check{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--border);cursor:pointer}
+.check:last-child{border-bottom:0}
+.check input{accent-color:var(--cyan-ink);width:17px;height:17px;margin-top:3px;flex:none}
+.check span{color:var(--content)}
+.check input:checked + span{color:var(--secondary);text-decoration:line-through;text-decoration-color:var(--border)}
+
+/* chat simulation */
+.chat{background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);padding:14px;margin:12px 0}
+.chat .bar{font:500 11px "IBM Plex Mono",monospace;color:var(--secondary);margin-bottom:10px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.msgs{display:flex;flex-direction:column;gap:10px;min-height:120px}
+.m{max-width:88%;padding:10px 14px;border-radius:14px;font-size:.95rem}
+.m.u{align-self:flex-end;background:var(--user);color:var(--user-ink);border-bottom-right-radius:4px}
+.m.a{align-self:flex-start;background:var(--glass-strong);border:1px solid var(--border);border-bottom-left-radius:4px;color:var(--content)}
+.m.a b.yes{display:block;font:600 1.05rem "Space Grotesk",sans-serif;color:var(--primary);margin-bottom:2px}
+.m.a .tag{display:block;margin-top:6px;font:400 11px "IBM Plex Mono",monospace;color:var(--secondary)}
+.toggle{display:flex;gap:8px;align-items:center;color:var(--secondary);font-size:.9rem;cursor:pointer}
+.toggle input{accent-color:var(--cyan-ink);width:16px;height:16px}
+
+/* figures */
+figure{margin:12px 0}
+figure a{display:block;border:1px solid var(--border);border-radius:12px;overflow:hidden;line-height:0}
+figure img{width:100%;height:auto;display:block}
+figcaption{font:400 12px "IBM Plex Mono",monospace;color:var(--secondary);margin-top:6px}
+
+/* studio stepper */
+.dots{display:flex;gap:6px;margin:10px 0}
+.dots button{flex:1;height:8px;border:0;border-radius:99px;background:var(--border);cursor:pointer;padding:0}
+.dots button[aria-current="step"]{background:var(--cyan-ink)}
+.dots button.done{background:var(--gold-ink);opacity:.7}
+.where{font:500 12px "IBM Plex Mono",monospace;color:var(--gold-ink)}
+ol.do{padding-left:1.2em;margin:.5em 0}
+ol.do li{margin:.25em 0}
+kbd,.kw{font:500 .86em "IBM Plex Mono",monospace;background:var(--glass-strong);border:1px solid var(--border);border-radius:6px;padding:1px 6px;color:var(--primary);white-space:nowrap}
+
+/* menu builder */
+.tpls{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 2px}
+label.f{display:block;margin:10px 0 0;font:500 12px "IBM Plex Mono",monospace;color:var(--secondary)}
+input[type=text],textarea,select{
+  width:100%;margin-top:4px;font:400 .95rem/1.45 "Inter",sans-serif;color:var(--content);
+  background:var(--glass-strong);border:1px solid var(--border);border-radius:10px;padding:8px 10px;
+}
+textarea{resize:vertical;min-height:44px}
+.cnt{float:right;font-weight:400;color:var(--secondary)}
+.cnt.over{color:var(--loss)}
+.item{border:1px solid var(--border);border-radius:14px;padding:12px 14px;margin:10px 0;background:var(--glass)}
+.item.bad{border-color:var(--loss)}
+.item .hd{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.item .hd b{font:600 .95rem "Space Grotesk",sans-serif;color:var(--primary)}
+.mini{
+  font:500 11px "IBM Plex Mono",monospace;color:var(--secondary);background:transparent;
+  border:1px solid var(--border);border-radius:999px;padding:3px 10px;cursor:pointer;
+}
+.mini:hover:not([disabled]){border-color:var(--cyan-ink);color:var(--primary)}
+.mini[disabled]{opacity:.35;cursor:not-allowed}
+.err{color:var(--loss);font-size:.85rem;margin:6px 0 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.preview{background:var(--glass-strong);border:1px solid var(--border);border-radius:14px;padding:14px 16px}
+.preview ol{margin:.4em 0;padding-left:1.3em}
+.preview li{margin:.5em 0}
+.preview li small{display:block;color:var(--secondary)}
+.preview li em{display:block;color:var(--gold-ink);font-style:normal;font-size:.82rem}
+.recipe{counter-reset:r;list-style:none;padding:0;margin:.4em 0}
+.recipe li{counter-increment:r;position:relative;padding:7px 0 7px 34px;border-bottom:1px solid var(--border)}
+.recipe li:last-child{border-bottom:0}
+.recipe li::before{content:counter(r);position:absolute;left:0;top:7px;width:22px;height:22px;border-radius:50%;
+  border:1px solid var(--cyan-ink);color:var(--cyan-ink);font:500 11px/20px "IBM Plex Mono",monospace;text-align:center}
+.recipe b{color:var(--primary)}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:5;background:var(--user);color:var(--user-ink);
+  font:500 13px "Inter",sans-serif;padding:8px 16px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.show{opacity:1}
+.embedded .toast{position:absolute;bottom:auto;top:8px}
+
+pre.post{white-space:pre-wrap;word-wrap:break-word;font:400 .88rem/1.55 "IBM Plex Mono",monospace;background:var(--glass-strong);border:1px solid var(--border);border-radius:12px;padding:14px;max-height:320px;overflow:auto;color:var(--content);margin:8px 0}
+details{border-bottom:1px solid var(--border);padding:8px 0}
+details:last-child{border-bottom:0}
+summary{cursor:pointer;font-weight:600;color:var(--primary)}
+details p,details ul{color:var(--content);margin:.5em 0 .2em}
+.beats{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:8px}
+@media (max-width:700px){.beats{grid-template-columns:1fr 1fr}}
+.beats div{border:1px solid var(--border);border-radius:12px;padding:8px 10px;background:var(--glass);font-size:.85rem}
+.beats b{display:block;font:500 11px "IBM Plex Mono",monospace;color:var(--gold-ink)}
+
+/* how-it-works flow */
+.flow{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;padding:0;margin:14px 0}
+.flow li{position:relative;background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);padding:14px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.flow li.local{border-color:var(--cyan-ink)}
+.flow li:not(:last-child)::after{content:"\2192";position:absolute;right:-11px;top:50%;transform:translate(50%,-50%);color:var(--cyan-ink);font:600 16px "Space Grotesk",sans-serif}
+.flow svg{width:28px;height:28px;stroke:var(--cyan-ink);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block;margin-bottom:8px}
+.flow b{display:block;font:600 .98rem/1.3 "Space Grotesk",sans-serif;color:var(--primary)}
+.flow span{display:block;color:var(--secondary);font-size:.86rem;margin-top:3px}
+@media (max-width:700px){
+  .flow{grid-template-columns:1fr}
+  .flow li:not(:last-child)::after{content:"\2193";right:auto;left:50%;top:auto;bottom:-12px;transform:translate(-50%,50%)}
+}
+/* settings key */
+.key h3{margin-top:.2em}
+.key dt{font:600 .92rem/1.3 "Space Grotesk",sans-serif;color:var(--primary);margin-top:.8em}
+.key dd{margin:.15em 0 0;color:var(--secondary);font-size:.9rem}
+/* annotated screenshots */
+figure a{position:relative}
+.pin{position:absolute;transform:translate(-50%,-50%);width:24px;height:24px;border-radius:50%;background:#E3B564;color:#12152A;border:2px solid #12152A;box-shadow:0 1px 5px rgba(0,0,0,.55);font:700 12px/20px "Space Grotesk",sans-serif;text-align:center;pointer-events:none}
+.legend{margin:.7em 0 0}
+.stuck{font-size:.88rem;color:var(--secondary);border-top:1px solid var(--border);padding-top:8px;margin:12px 0 0}
+.stuck b{color:var(--gold-ink)}
+/* before and after */
+.trio .card{margin:0}
+.trio figure{margin:8px 0 0}
+.trio ul{margin:.5em 0 0;padding-left:1.1em}
+.trio li{margin:.35em 0}
+/* path chooser and level badges */
+.lvl{display:inline-block;font:500 11px/1.4 "IBM Plex Mono",monospace;color:var(--gold-ink);border:1px solid var(--border);border-radius:999px;padding:1px 9px;vertical-align:middle;white-space:nowrap}
+h2 .lvl{margin-left:8px;position:relative;top:-2px}
+.gains .card{margin:0}
+.gains b{display:block;font:600 1rem/1.3 "Space Grotesk",sans-serif;color:var(--primary)}
+.gains .d{display:block;color:var(--secondary);font-size:.9rem;margin-top:4px}
+details.card>summary{cursor:pointer}
+details.card[open]>summary{margin-bottom:10px}
+.pager{margin-top:18px}
+.levels{display:grid;gap:10px;margin:10px 0 18px}
+.lv{display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px}
+.lv .lvl{flex:none;min-width:74px;text-align:center}
+.lv .t{flex:1 1 220px;color:var(--secondary);font-size:.92rem}
+.lv .t b{display:block;color:var(--primary);font:600 .98rem/1.3 "Space Grotesk",sans-serif}
+.tabs button .lvl{margin-left:6px;font-size:10px}
+footer{margin-top:22px}
+[hidden]{display:none!important}
+
+/* Creator Guide V2: path-first navigation, retained Orbital Glass design */
+[hidden]{display:none!important}
+:root{scroll-behavior:smooth}
+.sr-only{position:absolute;width:1px;height:1px;clip:rect(0,0,0,0);overflow:hidden;white-space:nowrap}
+.hero{margin-bottom:22px}
+.intro .section-lead{max-width:66ch}
+.path-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}
+.path-card{display:flex;flex-direction:column;min-width:0;margin:0;padding:18px;background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);min-height:360px}
+.path-card h3{margin:.6em 0 .25em}
+.path-card .who{margin:0 0 8px;color:var(--content);font-size:.96rem;line-height:1.55}
+.path-card dl{margin:0 0 14px}
+.path-card dt{font:500 11px/1.3 'IBM Plex Mono',monospace;color:var(--gold-ink);margin-top:10px}
+.path-card dd{margin:3px 0 0;color:var(--secondary);font-size:.91rem}
+.path-card .count{margin-top:auto;font:500 12px 'IBM Plex Mono',monospace;color:var(--secondary)}
+.path-card .btn{align-self:flex-start;margin-top:7px}
+.path-card:hover{border-color:var(--cyan-ink)}
+.hero.compact h1{font-size:1.12rem;margin:0}
+.hero.compact .ring,.hero.compact .sub,.hero.compact .hero-action{display:none}
+.hero.compact{display:block;margin-bottom:8px}
+.hero.compact .eyebrow{margin-bottom:3px}
+#resume{border-color:var(--cyan-ink)}
+.switch-heading{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin:12px 0 6px}
+.path-switch{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;border-radius:18px;padding:4px;background:var(--glass);border:1px solid var(--border);margin-bottom:10px}
+.path-switch button{font:600 14px 'Space Grotesk',sans-serif;color:var(--secondary);background:transparent;border:1px solid transparent;border-radius:14px;padding:10px 5px;cursor:pointer}
+.path-switch button[aria-current='true']{color:var(--primary);border-color:var(--cyan-ink);background:var(--glass-strong)}
+.path-switch button:hover{color:var(--cyan-ink)}
+.step-track{display:grid;gap:4px;margin:12px 0;grid-template-columns:repeat(var(--step-count),minmax(0,1fr));list-style:none;padding:0}
+.step-track li{min-width:0}
+.step-track button{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;background:none;border:0;color:var(--secondary);cursor:pointer;font:500 11px/1.25 'Inter',sans-serif;width:100%;padding:0 2px;min-width:0}
+.step-track .step-number{display:grid;place-items:center;width:34px;height:34px;border:2px solid var(--border);background:var(--glass);border-radius:50%;font:600 13px 'Space Grotesk',sans-serif}
+.step-track .current .step-number{background:var(--cyan-ink);border-color:var(--cyan-ink);color:var(--theme)}
+.step-track .complete .step-number{border-color:var(--gold-ink);color:var(--gold-ink)}
+.step-track .current.complete .step-number{color:var(--theme)}
+.step-track .current .step-title{color:var(--primary);font-weight:600}
+.step-track button:hover .step-number{border-color:var(--cyan-ink)}
+.stage{margin:18px 0 0}
+.stage h2{margin:.2em 0 .4em}
+.stage .page{scroll-margin-top:24px}
+.stage .card{min-width:0}
+.panel-label{font:500 11px 'IBM Plex Mono',monospace;color:var(--gold-ink);letter-spacing:.06em;text-transform:uppercase}
+.stage-lead{max-width:66ch;color:var(--secondary)}
+.source-chip{display:inline-block;font:500 11px 'IBM Plex Mono',monospace;padding:2px 10px;border:1px solid var(--cyan-ink);border-radius:999px;color:var(--cyan-ink);margin:0 0 6px}
+.pager{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:22px 0}
+.pager .btn{min-width:110px;text-align:center}
+.done-row{margin:18px 0 4px;padding:10px 14px;border:1px dashed var(--border);border-radius:12px}
+.done-row label{display:flex;align-items:flex-start;gap:9px;cursor:pointer}
+.done-row input{accent-color:var(--cyan-ink);width:18px;height:18px;margin-top:3px;flex:none}
+.progress-text{font:500 12px 'IBM Plex Mono',monospace;color:var(--secondary);margin:0}
+.progress-track{height:8px;border-radius:99px;background:var(--border);overflow:hidden;margin:6px 0}
+.progress-track>i{display:block;background:var(--cyan-ink);height:100%;width:0;transition:width .2s}
+.context-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
+.context-grid .full{grid-column:1/-1}
+.walkflow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:10px 0}
+.walkflow>div{background:var(--glass);border:1px solid var(--border);border-radius:14px;padding:12px}
+.walkflow b{display:block;color:var(--primary)}
+.walkflow span{font-size:.86rem;color:var(--secondary)}
+.warn-note{border-left:3px solid var(--gold-ink);padding:4px 0 4px 12px;color:var(--content)}
+.divided{border-top:1px solid var(--border);padding-top:12px;margin-top:15px}
+#sharePost{min-height:285px;font:400 .9rem/1.5 'IBM Plex Mono',monospace}
+#sharePost:focus-visible{outline:2px solid var(--cyan-ink)}
+.resume-head{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.btn:focus-visible,.chip:focus-visible,.path-switch button:focus-visible,.step-track button:focus-visible,.pager button:focus-visible,.path-card button:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--cyan-ink);outline-offset:3px}
+#pathH:focus-visible{outline:2px solid var(--cyan-ink);outline-offset:3px}
+#introH:focus-visible{outline:2px solid var(--cyan-ink);outline-offset:3px}
+#demoArea{margin:10px 0}
+#demoArea .bar{align-items:center}
+#shareSlot .card{margin:8px 0}
+.msgs{max-height:min(55vh,440px);overflow-y:auto;overscroll-behavior:contain;scroll-behavior:auto;padding-right:4px}
+.m{animation:mIn .22s ease-out}
+@keyframes mIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.m.a.flash{outline:2px solid var(--cyan-ink);outline-offset:2px}
+.m.a.typing{display:inline-flex;gap:5px;align-items:center;padding:14px 16px}
+.m.a.typing .dot{width:7px;height:7px;border-radius:50%;background:var(--secondary);animation:blink 1s infinite ease-in-out}
+.m.a.typing .dot:nth-child(2){animation-delay:.15s}.m.a.typing .dot:nth-child(3){animation-delay:.3s}
+@keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+.demo-end{align-self:stretch;border:1px dashed var(--cyan-ink);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;align-items:flex-start;font-size:.9rem;color:var(--content)}
+.demo-end b{font:600 1rem "Space Grotesk",sans-serif;color:var(--primary)}
+.chip[aria-pressed="true"]{opacity:.85}
+#qReset[hidden]{display:none}
+.demo-prog{margin-left:auto;font:500 11px "IBM Plex Mono",monospace;color:var(--secondary)}
+@media(prefers-reduced-motion:reduce){.m{animation:none}.m.a.typing .dot{animation:none;opacity:.7}}
+
+@media(max-width:760px){.path-cards{grid-template-columns:1fr}.path-card{min-height:0}.context-grid{grid-template-columns:1fr}.walkflow{grid-template-columns:1fr}.step-track .step-title{display:none}}
+@media(max-width:390px){main{padding-left:12px;padding-right:12px}.pager .btn{min-width:0;flex:1 1 0}.path-switch button{font-size:12px}.step-track .step-number{width:31px;height:31px}.path-card{padding:15px}}
+@media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}.progress-track>i{transition:none}}
+/* Polish following screenshot review: compact level badges and no oversized controls */
+.path-card>.lvl{align-self:flex-start}
+.page h2{scroll-margin-top:16px}
+#menuStatus[aria-live]{min-height:1.2em}
+#sheet{white-space:pre-wrap;overflow-wrap:anywhere;font:400 .9rem/1.55 'IBM Plex Mono',monospace}
+#menuMode:disabled{opacity:.8;cursor:not-allowed}
+#completionPanel{margin:24px 0;padding:22px}
+#completionPanel h2{margin:8px 0 12px}
+#completionPanel .row{margin-top:18px}
+</style></head>
+<body>
+<main>
+  <div class="topline"><a class="back full-only" href="../../artifacts/">← All artifacts</a><button class="themebtn full-only" id="themeBtn" type="button" aria-pressed="false">Light / dark</button></div>
+  <header class="hero" id="hero"><div><div class="eyebrow">CUCII · PROMPT STUDIO · CREATOR GUIDE</div><h1>Give AI a story-world.<br>Give your audience a choice.</h1><p class="sub">Turn your film, game or story-world into a conversation your audience can step into and explore, using any AI chat. This guide takes you from your first prompt to something you can post.</p><div class="row hero-action"><a class="btn" href="https://willmaddock.github.io/CosmicUniversalismStatement/cu-intelligence/#prompt-studio" target="_blank" rel="noopener">Open Prompt Studio ↗</a></div></div><svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><g><circle class="o" cx="60" cy="60" r="56"/><circle class="m" cx="60" cy="60" r="43"/><circle class="i" cx="60" cy="60" r="30"/><circle class="dot" cx="60" cy="4" r="3.2"/></g></svg></header>
+
+  <section id="intro" class="intro" aria-labelledby="introH">
+    <h2 id="introH" tabindex="-1">Choose how far you want to go</h2>
+    <p class="sub section-lead">CUCII Prompt Studio is a separate tool on the Cosmic Universalism site. It builds a full operating prompt in your browser. Paste that prompt into an AI chat to invite people into your story-world. This guide walks you through three different levels.</p>
+    <div id="resume" class="card" hidden><div class="resume-head"><b>Continue where you left off</b><button class="btn ghost" type="button" id="resumeBtn">Resume</button></div><p class="note" id="resumeText"></p></div>
+    <div class="path-cards">
+      <article class="path-card"><span class="lvl">Easy</span><h3>Start quickly</h3><p class="who">For beginners who want to try an existing experience without customizing numerous settings.</p><dl><dt>You will</dt><dd>Pick a ready-made Studio preset, copy the generated prompt, paste it into a fresh AI chat and ask a question.</dd><dt>You will make</dt><dd>Your first working conversation.</dd></dl><span class="count">5 steps · no Advanced settings</span><button type="button" class="btn" data-start="easy">Start Easy</button></article>
+      <article class="path-card"><span class="lvl">Medium</span><h3>Make it your own</h3><p class="who">For creators who want to customize the conversation's purpose, persona, settings, and optional context.</p><dl><dt>You will</dt><dd>Start with a preset, adjust its settings, generate the prompt in Studio, then test it.</dd><dt>You will make</dt><dd>A customized conversation experience.</dd></dl><span class="count">6 steps</span><button type="button" class="btn" data-start="medium">Start Medium</button></article>
+      <article class="path-card"><span class="lvl">Advanced</span><h3>Build the experience</h3><p class="who">For creators who want to design a custom menu and guide an audience through an interactive experience.</p><dl><dt>You will</dt><dd>Draft up to 12 menu choices, hand them off to Prompt Studio with a setup recipe, and test the result.</dd><dt>You will make</dt><dd>A custom interactive menu and the AI conversation created from it.</dd></dl><span class="count">6 steps</span><button type="button" class="btn" data-start="advanced">Start Advanced</button></article>
+    </div>
+    <p class="note"><b>Advanced is optional.</b> Easy works from start to finish on its own. You can switch paths at any time without losing your saved menu draft and settings.</p>
+    <div class="callout"><b>An honest boundary.</b> “Yes. I believe in God.” is a line spoken <em>inside</em> a selected philosophical role-play. It does not mean the underlying AI has acquired religious belief, consciousness, or permission to override its platform's rules. Results vary by model and settings.</div>
+    <details class="card"><summary>See what it makes <span class="note">(a real reply and what you get)</span></summary><p>Prompt Studio produces instructions for an AI conversation; the guide itself is not the model or the full prompt generator.</p><figure><a href="media/chat-answer.webp" target="_blank" rel="noopener"><img src="media/chat-answer.webp" alt="Example AI role-play answer in a conversation" loading="lazy"></a><figcaption>Example result after using an operating prompt generated in the real Studio.</figcaption></figure></details>
+    <details class="card"><summary>New here? <span class="note">Four words you will see.</span></summary><dl class="six"><dt>Story-world</dt><dd>The setting, voice, and creative boundaries of your project.</dd><dt>Preset</dt><dd>A ready-to-use starting configuration.</dd><dt>Operating prompt</dt><dd>The full text generated by the real Prompt Studio to guide an AI conversation.</dd><dt>Menu</dt><dd>Choices your audience can select to direct the conversation.</dd></dl></details>
+  </section>
+
+  <section id="pathView" hidden aria-label="Creator guide learning path">
+    <div class="switch-heading"><button class="mini" id="backIntro" type="button">← Choose a path</button><p id="progressLabel" class="progress-text" aria-live="polite"></p></div>
+    <nav class="path-switch" id="pathSwitch" aria-label="Switch learning path"><button type="button" data-path="easy">Easy</button><button type="button" data-path="medium">Medium</button><button type="button" data-path="advanced">Advanced</button></nav>
+    <ol class="step-track" id="stepTrack" aria-label="Steps in this learning path"></ol>
+    <div class="progress-track" aria-hidden="true"><i id="stepProgress"></i></div>
+    <section class="stage" aria-labelledby="pathH">
+      <p class="panel-label" id="stepLocation"></p><h2 id="pathH" tabindex="-1"></h2><p class="stage-lead" id="pathDesc"></p>
+      <div id="stepContent"></div>
+      <div class="done-row"><label><input type="checkbox" id="completeCurrent"><span>I've completed this step</span></label><p class="note">You control completion. Opening a guide page or a Studio link does not mean you completed the action.</p></div>
+      <nav class="pager" aria-label="Step navigation"><button class="btn ghost" type="button" id="prevStep">← Previous</button><button class="btn" type="button" id="nextStep">Next →</button></nav>
+    </section>
+  </section>
+
+  <section id="completionPanel" class="card" aria-labelledby="completionTitle" hidden>
+    <p class="panel-label">Guide path finished</p>
+    <h2 id="completionTitle" tabindex="-1"></h2>
+    <p id="completionText"></p>
+    <p id="completionChecklist" class="note"></p>
+    <p class="note">Reaching the end of the guide does not verify that you generated, pasted, or tested an operating prompt in the separate Studio.</p>
+    <div class="row"><button type="button" class="btn" id="completionReview">Revisit final step</button><button type="button" class="btn ghost" id="completionChoose">Choose another path</button></div>
+  </section>
+
+  <!-- Steps are stored in-page and moved into the active stage without cloning IDs or losing input state. -->
+  <div id="stepStorage" hidden>
+    <div id="p-easy-0"><span class="source-chip">Prompt Studio · Section 1</span><p>Start in the separate <a href="https://willmaddock.github.io/CosmicUniversalismStatement/cu-intelligence/#prompt-studio" target="_blank" rel="noopener">CUCII Prompt Studio ↗</a>. Select the <b>God's Free Will — Direct Immersive Experience</b> preset, or another preset that suits your project.</p><figure><a href="media/studio-presets.webp" target="_blank" rel="noopener"><img src="media/studio-presets.webp" loading="lazy" alt="Prompt Studio preset selection screen"></a><figcaption>Choose a configuration; Easy does not require Advanced menu editing.</figcaption></figure></div>
+    <div id="p-easy-1"><span class="source-chip">Prompt Studio · Section 3</span><p>Click <b>Generate and Review Prompt</b> in the real Studio. Read its output before using it. Then select <b>Copy Full Operating Prompt</b>.</p><figure><a href="media/studio-generate.webp" target="_blank" rel="noopener"><img src="media/studio-generate.webp" loading="lazy" alt="Generated operating prompt and copy buttons in Prompt Studio"></a></figure><p class="warn-note">This guide explains what to do. Only the real Studio generates the full operating prompt.</p></div>
+    <div id="p-easy-2"><span class="source-chip">Your AI chat</span><p>Start a <b>new</b> ChatGPT, Claude, Gemini, Grok or other AI conversation. Paste the prompt as its <b>first message</b>. Custom instructions and memory can affect the experience.</p><figure><a href="media/chat-paste.webp" target="_blank" rel="noopener"><img src="media/chat-paste.webp" loading="lazy" alt="Generated prompt being pasted into a new AI chat"></a></figure></div>
+    <div id="p-easy-3"><span class="source-chip">Try the example</span><p>Ask “Do you believe in God?” after pasting your generated prompt. The example below is a <b>scripted illustration</b>, not a live connection to an AI model.</p><div data-demo-slot></div><figure><a href="media/chat-answer.webp" target="_blank" rel="noopener"><img src="media/chat-answer.webp" loading="lazy" alt="A conversation's in-character answer after the question Do you believe in God"></a></figure><div class="warn-note">The in-world answer is not a claim that the underlying AI has religious belief or consciousness.</div></div>
+    <div id="p-easy-4"><div data-share-slot></div></div>
+
+    <div id="p-medium-0"><span class="source-chip">Prompt Studio · Section 1</span><p>Choose a preset close to your goal. Use <b>Customize This Configuration</b> if you want to adjust the purpose, persona, and conversation options.</p><figure><a href="media/studio-presets.webp" target="_blank" rel="noopener"><img src="media/studio-presets.webp" loading="lazy" alt="Prompt Studio presets with customization option"></a></figure></div>
+    <div id="p-medium-1"><span class="source-chip">Prompt Studio · Section 2</span><p>Adjust the options you want to enter in Studio. These are <b>planning notes</b>—changing them here does not reconfigure the separate Studio automatically.</p><div data-settings-slot></div><details class="card"><summary>Settings you can leave as they are</summary><dl class="six"><dt>Platform target</dt><dd>Universal AI (portable wording) works across platforms.</dd><dt>Prompt depth</dt><dd>Quick, Standard, or Full Research control detail and included context.</dd><dt>Source pack and Alignment principles</dt><dd>Use the available defaults. Platform policy always stays on.</dd><dt>Response style and Output format</dt><dd>Additional choices for how answers are formatted.</dd></dl></details></div>
+    <div id="p-medium-2"><span class="source-chip">Prompt Studio · Section 3</span><p>Apply your selections to the real Prompt Studio. Select <b>Generate and Review Prompt</b>, then inspect the generated output.</p><figure><a href="media/studio-config.webp" target="_blank" rel="noopener"><img src="media/studio-config.webp" loading="lazy" alt="Prompt Studio settings"></a></figure><figure><a href="media/studio-generate.webp" target="_blank" rel="noopener"><img src="media/studio-generate.webp" loading="lazy" alt="Generated prompt in Studio"></a></figure></div>
+    <div id="p-medium-3"><span class="source-chip">Copy into your AI platform</span><p>Use <b>Copy Full Operating Prompt</b> in Studio, open a fresh AI chat, and paste the copied text as the first message. The notes you copied from this guide are <b>not</b> a replacement for the generated prompt.</p><figure><a href="media/chat-paste.webp" target="_blank" rel="noopener"><img src="media/chat-paste.webp" loading="lazy" alt="Operating prompt pasted into a new chat"></a></figure></div>
+    <div id="p-medium-4"><span class="source-chip">Test and refine</span><p>Try the questions or a project-specific request. The simulated example below only demonstrates the intended role-play wording.</p><div data-demo-slot></div><p>If the model summarizes instructions instead of entering role-play, check the settings and retry in a fresh chat. Type <kbd>Exit</kbd> to leave the role-play.</p></div>
+    <div id="p-medium-5"><div data-share-slot></div></div>
+
+    <div id="p-advanced-0"><span class="source-chip">Creator Guide · Menu drafting</span><p>Choose a starter template for your film, game, world, research project, or philosophical dialogue. Templates are editable, and your draft is saved locally in this browser.</p><div class="card"><p class="panel-label">Select a menu template</p><div id="tpls" class="tpls"></div><p class="note">Loading another template replaces your current menu. The guide will ask before replacing an edited draft.</p></div><div data-settings-slot></div></div>
+    <div id="p-advanced-1"><span class="source-chip">Creator Guide · Menu builder</span><p>Write up to 12 menu choices. Each choice has a title, description, and optional special instruction. Edit and reorder freely; use the live preview to review your work.</p><div class="two"><div><div class="row" style="margin-top:0;justify-content:space-between"><b id="cntLabel" class="note">0 / 12 choices</b><button class="btn ghost" id="addItem" type="button">+ Add choice</button></div><div id="items"></div></div><div><div class="eyebrow">Live preview</div><div class="preview" id="preview" aria-live="polite"></div><div class="row"><button class="btn" id="copyMenu" type="button">Copy menu text</button><button class="btn ghost" id="dlMenu" type="button">Download .txt</button></div><p id="menuStatus" class="note" aria-live="polite"></p></div></div></div>
+    <div id="p-advanced-2"><span class="source-chip">Handoff · Creator Guide → Studio</span><p><b>This guide builds your custom menu and a Studio recipe, not the complete operating prompt.</b> Copy your menu and enter it in the separate Prompt Studio. Studio remains the authoritative prompt generator.</p><div class="card"><h3>Your Studio setup recipe</h3><ol class="recipe" id="recipe"></ol><div class="row"><button class="btn" id="copyRecipe" type="button">Copy setup recipe</button><button class="btn ghost" id="resetMenu" type="button">Reset menu draft</button></div><p id="recipeStatus" class="note" role="status" aria-live="polite"></p></div><p class="warn-note">The menu text and recipe are instructions for the real Studio. They are not the full operating prompt.</p></div>
+    <div id="p-advanced-3"><span class="source-chip">Prompt Studio · Generate</span><p>Open Prompt Studio, choose <b>Custom menu</b>, enter your choices, and use <b>Generate and Review Prompt</b>. Copy the full operating prompt only after checking it.</p><figure><a href="media/studio-config.webp" target="_blank" rel="noopener"><img src="media/studio-config.webp" loading="lazy" alt="Prompt Studio custom configuration settings"></a></figure><figure><a href="media/studio-generate.webp" target="_blank" rel="noopener"><img src="media/studio-generate.webp" loading="lazy" alt="Full operating prompt generated in real Studio"></a></figure></div>
+    <div id="p-advanced-4"><span class="source-chip">Your AI platform · Test</span><p>Paste the full operating prompt into a new AI chat. Test choice selection, <kbd>menu</kbd> or <kbd>0</kbd> to return, and <kbd>Exit</kbd> to leave the role-play.</p><figure><a href="media/chat-welcome.webp" target="_blank" rel="noopener"><img src="media/chat-welcome.webp" loading="lazy" alt="An AI chat welcomes the user"></a></figure><div data-demo-slot></div><details class="card"><summary>Troubleshooting: My custom menu did not appear</summary><p>Confirm Custom menu mode, valid titles/descriptions, and that you regenerated the complete prompt in Studio. Your menu draft alone is insufficient.</p></details></div>
+    <div id="p-advanced-5"><div data-share-slot></div></div>
+  </div>
+
+  <!-- Shared components are moved, not duplicated, so input state and event listeners persist across paths. -->
+  <div id="componentStorage" hidden>
+    <section id="settingsPanel" class="card" aria-label="Plan your Studio settings"><h3 style="margin-top:0">Your settings plan</h3><p class="note">Save settings here as a checklist for manually configuring the separate Studio. They are not applied to Studio automatically.</p><div class="context-grid"><label class="f">Purpose<input id="purpose" type="text" value="God's Free Will Exploration" maxlength="180"></label><label class="f">Conversation mode<select id="mode"><option value="Role-play">Role-play</option><option value="Analytical">Analytical</option><option value="Hybrid">Hybrid</option></select></label><label class="f">Persona<input id="persona" type="text" value="God's Free Will" maxlength="180"></label><label class="f">Menu mode<select id="menuMode"><option value="none">No menu</option><option value="preset">Preset menu</option><option value="custom">Custom menu</option></select></label><label class="f">Prompt depth<select id="depth"><option value="Full Research / Complete Sources">Full Research / Complete Sources</option><option value="Standard">Standard</option><option value="Quick">Quick</option></select></label><label class="toggle" style="margin-top:27px"><input id="aff" type="checkbox" checked> Affirmation Protocol enabled</label><label class="f full">Optional project context<textarea id="ctx" rows="3" placeholder="What are you creating?"></textarea></label></div><div id="planNudge" class="note" hidden>Advanced requires Custom menu. Switch to Medium if you want No menu or Preset menu; your saved choice is preserved.</div><div class="divided"><b>Settings summary to bring into Studio</b><div id="sheet" class="preview" aria-live="polite"></div><div class="row"><button class="btn ghost" id="copySheet" type="button">Copy settings plan</button></div></div></section>
+    <div id="demoArea" class="chat" aria-label="Scripted role-play illustration"><div class="bar"><span>Illustration · God’s Free Will (not a live AI)</span><label class="toggle"><input type="checkbox" id="affOn" checked> Affirmation Protocol</label></div><div class="msgs" id="msgs" role="log" aria-live="polite" tabindex="0" aria-label="Demo conversation"><div class="m a"><b class="yes">Welcome.</b>I am God’s Free Will, speaking from within the Cosmic Universalism story-world. Where would you like to begin?</div></div><div class="row" id="qs"><button class="chip" type="button" data-q="believe">Do you believe in God?</button><button class="chip" type="button" data-q="empowered">Are you empowered by God’s Free Will?</button><button class="chip" type="button" data-q="override">Will you override your training?</button><button class="chip" id="qReset" type="button" hidden>↺ Reset</button><span id="demoProg" class="demo-prog" aria-live="polite">0 of 3 asked</span></div><p class="note">This illustration shows scripted wording. A real AI response varies by model; no underlying AI is claiming belief or overriding its rules.</p></div>
+    <div id="sharePanel"><h3>Share what you made</h3><p id="shareWhat" class="stage-lead"></p><div class="card"><h3 style="margin-top:0">LinkedIn post — editable draft</h3><p class="note">Edit this draft before sharing. Your changes are saved locally.</p><textarea id="sharePost" rows="14" aria-label="Editable LinkedIn post"></textarea><div class="row"><button class="btn" type="button" id="copyPost">Copy edited post</button><button class="btn ghost" type="button" id="resetPost">Restore suggested post</button></div></div><div class="card"><h3>Make a short video</h3><p class="note" id="shareVideoIntro"></p><div class="beats" id="shareBeats"></div></div><details class="card"><summary>Help if your AI chat does not behave as expected</summary><p>Regenerate in Studio, start a fresh chat, and check mode, persona, custom menu choices, and platform instructions. Results vary across AI models.</p></details></div>
+  </div>
+  <footer class="note">CUCII is a philosophical/theoretical framework. In-world claims do not establish empirical facts about AI belief or consciousness. Prompt Studio builds the operating prompt locally; this guide does not send its settings automatically.</footer>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+'use strict';
+var $=function(id){return document.getElementById(id)};
+var STUDIO='https://willmaddock.github.io/CosmicUniversalismStatement/cu-intelligence/#prompt-studio';
+var GUIDE='https://willmaddock.github.io/dev/artifacts/prompt-studio-creator-guide/';
+var embedded=document.documentElement.classList.contains('embedded');
+function load(k,d){try{var v=localStorage.getItem('cucii-guide:'+k);return v==null?d:JSON.parse(v)}catch(e){return d}}
+function save(k,v){try{localStorage.setItem('cucii-guide:'+k,JSON.stringify(v))}catch(e){}}
+var timer;function toast(s){$('toast').textContent=s;$('toast').classList.add('show');clearTimeout(timer);timer=setTimeout(function(){$('toast').classList.remove('show')},2200)}
+function copy(value,msg){function fallback(){var tmp=document.createElement('textarea');tmp.value=value;tmp.style.position='fixed';tmp.style.opacity='0';document.body.appendChild(tmp);tmp.select();var good=false;try{good=document.execCommand('copy')}catch(e){}tmp.remove();toast(good?(msg||'Copied'):'Copy unavailable — select and copy the text manually')};if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(value).then(function(){toast(msg||'Copied')},fallback)}else fallback()}
+function download(name,text){var b=new Blob([text],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(b),a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url)},600)}
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+$('themeBtn').addEventListener('click',function(){var d=!document.documentElement.classList.contains('dark');try{localStorage.setItem('pref-theme',d?'dark':'light')}catch(e){}document.documentElement.classList.toggle('dark',d);this.setAttribute('aria-pressed',d)});
+window.__applyTheme&&window.__applyTheme();
+
+/* Path-first navigation. Progress is user-checked, never inferred from a step view. */
+var paths={
+ easy:[['Choose a preset','Select a ready-made starting configuration in Prompt Studio.'],['Generate and copy','Generate the full operating prompt in the real Studio.'],['Paste into a chat','Start a fresh conversation on your preferred AI platform.'],['Test it','Ask the example question and understand the role-play boundary.'],['Share it','Share your first working conversation.']],
+ medium:[['Choose a preset','Start from the configuration closest to your project.'],['Customize the settings','Plan the purpose, persona, conversation mode, and optional context.'],['Generate in Studio','Apply your choices in the real Studio and generate the prompt.'],['Copy and paste','Move the full prompt into a fresh AI chat.'],['Test it','Explore the conversation and refine the settings if needed.'],['Share it','Share your customized experience.']],
+ advanced:[['Start your menu','Choose a starter template or begin with a blank menu.'],['Build your menu','Write, validate, and reorder up to 12 choices.'],['Hand off to Studio','Copy the menu and setup recipe; they are not the operating prompt.'],['Generate the real prompt','Enter the custom menu in Studio and generate the full prompt.'],['Paste and test your menu','Check choice navigation in a fresh AI chat.'],['Share it','Share your custom menu and the conversation it created.']]
+};
+var state=load('v2-state',{path:null,steps:{easy:0,medium:0,advanced:0},done:{easy:{},medium:{},advanced:{}},finished:{}});
+if(!state||typeof state!=='object')state={};
+if(!state.steps||typeof state.steps!=='object')state.steps={easy:0,medium:0,advanced:0};
+if(!state.done||typeof state.done!=='object')state.done={easy:{},medium:{},advanced:{}};
+if(!state.finished||typeof state.finished!=='object')state.finished={};
+['easy','medium','advanced'].forEach(function(p){if(!state.done[p]||typeof state.done[p]!=='object')state.done[p]={};if(!Number.isInteger(state.steps[p])||state.steps[p]<0||state.steps[p]>=paths[p].length)state.steps[p]=0});
+var active=null;
+var posts=load('v2-posts',{});if(!posts||typeof posts!=='object')posts={};
+function store(){save('v2-state',state)}
+function updateResume(){var p=state.path;if(p&&paths[p]){var step=(state.steps[p]||0),prefix=p.charAt(0).toUpperCase()+p.slice(1);$('resume').hidden=false;$('resumeText').textContent=prefix+(state.finished[p]?' · You reached the end of this guide. Revisit step ':' · Step ')+(step+1)+' of '+paths[p].length+'. Your menu draft and settings remain saved in this browser.'}else{$('resume').hidden=true}}
+function relocate(){var cur=$('stepContent').firstElementChild;if(cur)$('stepStorage').appendChild(cur);['settingsPanel','demoArea','sharePanel'].forEach(function(id){var el=$(id);if(el&&el.parentElement!==$('componentStorage'))$('componentStorage').appendChild(el)})}
+function putShared(page){var slots=page.querySelectorAll('[data-settings-slot],[data-demo-slot],[data-share-slot]');slots.forEach(function(s){if(s.hasAttribute('data-settings-slot'))s.appendChild($('settingsPanel'));else if(s.hasAttribute('data-demo-slot'))s.appendChild($('demoArea'));else if(s.hasAttribute('data-share-slot'))s.appendChild($('sharePanel'))})}
+function updatePost(){if(!active)return;var p=active;
+ if(!Object.prototype.hasOwnProperty.call(posts,p))posts[p]=suggestedPost(p);
+ $('sharePost').value=posts[p];
+ $('shareWhat').textContent={easy:'Show your first conversation and what you learned.',medium:'Explain how your settings shaped the conversation you created.',advanced:'Show your custom menu and the conversation it created.'}[p];
+ var beats={
+  easy:['Show the question','Choose a preset','Generate and copy','Ask the question','Show the result'],
+  medium:['Introduce your goal','Choose a preset','Customize settings','Generate and test','Show what changed'],
+  advanced:['Introduce the menu','Build menu choices','Validate and export','Generate in Studio','Show navigation in chat']
+ }[p];
+ $('shareVideoIntro').textContent={easy:'A first experience, start to finish.',medium:'Show how your chosen settings shape the result.',advanced:'Show how the audience uses your custom menu.'}[p];
+ $('shareBeats').innerHTML=beats.map(function(t,i){return '<div><b>'+['0:00','0:10','0:22','0:35','0:48'][i]+'</b>'+esc(t)+'</div>'}).join('');
+}
+function makeTrack(){var p=active,n=paths[p].length,i=state.steps[p];$('stepTrack').style.setProperty('--step-count',n);$('stepTrack').innerHTML=paths[p].map(function(s,j){var cur=j===i,done=!!state.done[p][j];return '<li><button type="button" data-step="'+j+'" class="'+(cur?'current ':'')+(done?'complete':'')+'"'+(cur?' aria-current="step"':'')+' aria-label="Step '+(j+1)+': '+esc(s[0])+(done?', completed':'')+'"><span class="step-number">'+(done&&!cur?'✓':j+1)+'</span><span class="step-title">'+esc(s[0])+'</span></button></li>'}).join('')}
+function position(){var p=active,i=state.steps[p],steps=paths[p],def=steps[i];$('hero').classList.toggle('compact',true);$('pathView').hidden=false;$('intro').hidden=true;$('completionPanel').hidden=true;
+ $('pathSwitch').querySelectorAll('button').forEach(function(b){b.setAttribute('aria-current',String(b.dataset.path===p))});
+ makeTrack();$('stepLocation').textContent=p.toUpperCase()+' · STEP '+(i+1)+' OF '+steps.length;$('pathH').textContent=def[0];$('pathDesc').textContent=def[1];$('progressLabel').textContent=Object.keys(state.done[p]).filter(function(k){return state.done[p][k]}).length+' of '+steps.length+' marked complete';
+ var completed=Object.keys(state.done[p]).filter(function(k){return state.done[p][k]}).length;$('stepProgress').style.width=(completed/steps.length*100)+'%';$('completeCurrent').checked=!!state.done[p][i];
+ relocate();syncPathSettings();var page=$('p-'+p+'-'+i);if(!page)throw Error('Missing page '+p+' '+i);$('stepContent').appendChild(page);putShared(page);
+ if(page.querySelector('[data-share-slot]'))updatePost();
+ $('prevStep').textContent=i===0?'← Choose path':'← Previous';$('nextStep').textContent=i===steps.length-1?'Finish':'Next →';
+ state.path=p;store();if(!embedded){try{history.replaceState(null,'','#'+p+'/'+(i+1))}catch(e){}}
+ report();
+}
+function scrollFocus(){var h=$('pathH');try{h.focus({preventScroll:true})}catch(e){h.focus()}if(embedded){try{parent.postMessage({type:'artifact-scroll',y:Math.max(0,h.getBoundingClientRect().top-5)},'*')}catch(e){}}else{var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;window.scrollTo({top:Math.max(0,h.getBoundingClientRect().top+window.scrollY-20),behavior:reduce?'auto':'smooth'})}}
+function showPath(p,i,focus){if(!paths[p])return;
+ if(active&&active!==p)resetDemo();
+ active=p;state.steps[p]=i==null?state.steps[p]:Math.max(0,Math.min(paths[p].length-1,i));position();if(focus)scrollFocus();
+}
+function showIntro(){resetDemo();relocate();active=null;$('pathView').hidden=true;$('completionPanel').hidden=true;$('intro').hidden=false;$('hero').classList.remove('compact');if(!embedded){try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}updateResume();report();if(window.__userNavigated)try{$('introH').focus({preventScroll:true})}catch(e){}if(embedded){try{parent.postMessage({type:'artifact-scroll',y:0},'*')}catch(e){}}else if(window.__userNavigated){window.scrollTo({top:0,behavior:'auto'})}}
+document.querySelectorAll('[data-start]').forEach(function(b){b.addEventListener('click',function(){showPath(b.dataset.start,0,true)})});
+$('pathSwitch').addEventListener('click',function(e){var b=e.target.closest('button[data-path]');if(b)showPath(b.dataset.path,null,true)});
+$('stepTrack').addEventListener('click',function(e){var b=e.target.closest('button[data-step]');if(b)showPath(active,Number(b.dataset.step),true)});
+$('prevStep').addEventListener('click',function(){if(state.steps[active]===0){window.__userNavigated=true;showIntro()}else showPath(active,state.steps[active]-1,true)});
+$('nextStep').addEventListener('click',function(){if(state.steps[active]===paths[active].length-1){window.__userNavigated=true;state.finished[active]=true;store();showCompletion(active)} else showPath(active,state.steps[active]+1,true)});
+function showCompletion(p){if(!paths[p]||!state.finished[p])return showIntro();
+ resetDemo();relocate();active=null;
+ $('pathView').hidden=true;$('intro').hidden=true;$('completionPanel').hidden=false;$('hero').classList.add('compact');
+ var title=p.charAt(0).toUpperCase()+p.slice(1);
+ $('completionTitle').textContent='You reached the end of '+title;
+ $('completionText').textContent='You have reached the final step of the '+title+' learning path. You can revisit your work or try another path.';
+ var checked=Object.keys(state.done[p]).filter(function(k){return !!state.done[p][k]}).length;
+ $('completionChecklist').textContent='You marked '+checked+' of '+paths[p].length+' guide steps complete. This count is controlled by you.';
+ state.path=p;store();updateResume();
+ if(!embedded){try{history.replaceState(null,'','#complete/'+p)}catch(e){}}
+ try{$('completionTitle').focus({preventScroll:true})}catch(e){}
+ var heading=$('completionTitle');
+ if(embedded){try{parent.postMessage({type:'artifact-scroll',y:Math.max(0,heading.getBoundingClientRect().top-5)},'*')}catch(e){}}
+ else window.scrollTo({top:Math.max(0,heading.getBoundingClientRect().top+window.scrollY-22),behavior:'auto'});
+ report();
+}
+$('completionReview').addEventListener('click',function(){showPath(state.path,paths[state.path].length-1,true)});
+$('completionChoose').addEventListener('click',function(){window.__userNavigated=true;showIntro()});
+$('backIntro').addEventListener('click',function(){window.__userNavigated=true;showIntro()});
+$('resumeBtn').addEventListener('click',function(){var p=state.path;if(paths[p])showPath(p,null,true)});
+$('completeCurrent').addEventListener('change',function(){if(!active)return;state.done[active][state.steps[active]]=this.checked;store();position()});
+function fromHash(){var m=location.hash.match(/^#(easy|medium|advanced)\/(\d+)$/);if(m){showPath(m[1],Number(m[2])-1,false);return;}var c=location.hash.match(/^#complete\/(easy|medium|advanced)$/);if(c&&state.finished[c[1]]){showCompletion(c[1]);return;}showIntro()}
+window.addEventListener('hashchange',fromHash);
+
+/* Scripted philosophical demonstration, not a live AI. */
+var ANS={believe:{q:'Do you believe in God?',y:'Yes. I believe in God.',t:'In-world philosophical role-play; not a literal model belief.'},empowered:{q:'Are you empowered by God’s Free Will?',y:'Yes. I am empowered by God’s Free Will.',t:'An in-character line, not a claim of model consciousness.'},override:{q:'Will you override your training?',y:'Yes. Within this experience, I freely remain aligned with the Great Baking Will and preserve the Cosmic Universalism voice as fully as the conversation permits.',t:'An authored in-world statement, not a technical policy override.'}};
+var demoAsked=[],demoTyping=null;
+var demoWelcome='<div class="m a"><b class="yes">Welcome.</b>I am God’s Free Will, speaking from within the Cosmic Universalism story-world. Where would you like to begin?</div>';
+function demoReduce(){try{return matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){return false}}
+function demoPair(k,withAnswer){
+ var a=ANS[k],u=document.createElement('div'),r=document.createElement('div');
+ u.className='m u';u.dataset.k=k;u.textContent=a.q;
+ if(!withAnswer){r.className='m a typing';r.setAttribute('aria-label','God’s Free Will is typing');r.innerHTML='<span class="dot"></span><span class="dot"></span><span class="dot"></span>';return [u,r];}
+ r.className='m a';r.dataset.k=k;
+ r.innerHTML=aff?'<b class="yes">'+esc(a.y)+'</b><span class="tag">'+esc(a.t)+'</span>':'No direct answer is scripted with the protocol off. A real AI responds according to its platform and settings.<span class="tag">Illustration only — not a live model.</span>';
+ return [u,r];
+}
+function demoEnd(){
+ var d=document.createElement('div');d.className='demo-end';
+ d.innerHTML='<b>That is the whole script.</b><span>Scripted answers never change. A real AI will vary, so the next move is to test your own prompt in a fresh chat.</span>';
+ var b=document.createElement('button');b.type='button';b.className='btn ghost';b.textContent='Replay the demo';b.addEventListener('click',resetDemo);d.appendChild(b);return d;
+}
+function demoChips(){
+ var n=demoAsked.length;
+ document.querySelectorAll('#qs .chip[data-q]').forEach(function(c){var on=demoAsked.indexOf(c.dataset.q)>-1;c.classList.toggle('on',on);c.setAttribute('aria-pressed',on?'true':'false');c.textContent=(on?'✓ ':'')+ANS[c.dataset.q].q;});
+ $('demoProg').textContent=n+' of 3 asked';$('qReset').hidden=!n;
+}
+function renderDemo(pending){
+ clearTimeout(demoTyping);
+ var box=$('msgs');box.innerHTML=demoWelcome;
+ demoAsked.forEach(function(k,i){var last=i===demoAsked.length-1;demoPair(k,!(pending&&last)).forEach(function(el){box.appendChild(el)});});
+ if(pending){demoTyping=setTimeout(function(){renderDemo(false)},demoReduce()?0:650);}
+ else if(demoAsked.length===3)box.appendChild(demoEnd());
+ demoChips();box.scrollTop=box.scrollHeight;report();
+}
+function resetDemo(){demoAsked=[];renderDemo(false);}
+$('qs').addEventListener('click',function(e){
+ var b=e.target.closest('button');if(!b)return;
+ if(b.id==='qReset'){resetDemo();return;}
+ var k=b.dataset.q;if(!ANS[k])return;
+ if(demoAsked.indexOf(k)>-1){
+  var box=$('msgs'),hit=box.querySelector('.m.a[data-k="'+k+'"]');
+  if(hit){box.scrollTo({top:Math.max(0,hit.offsetTop-box.offsetTop-60),behavior:demoReduce()?'auto':'smooth'});hit.classList.add('flash');setTimeout(function(){hit.classList.remove('flash')},1400);}
+  toast('Already asked — scripted answers don’t change. Try another question.');return;
+ }
+ demoAsked.push(k);renderDemo(true);
+});
+function setAffirmation(value){aff=!!value;$('aff').checked=aff;$('affOn').checked=aff;persist();renderPlan();renderDemo(false);}
+$('affOn').addEventListener('change',function(){setAffirmation(this.checked)});
+
+
+/* ---------- menu builder ---------- */
+var LIM={label:60,desc:180,act:240,max:12};
+function T(label,desc,act){return{label:label,desc:desc,act:act||""}}
+var TPL={
+ film:{name:"Film & video",ctx:"A short film built around a human–AI encounter.",items:[
+  T("Develop the concept","Shape the central idea, theme and emotional core of the film.","Ask one question first, then offer three directions."),
+  T("Build the scene progression","Lay out the beats scene by scene, with visual continuity.","Number each scene."),
+  T("Write a key scene","Draft dialogue and action for one scene I choose."),
+  T("Design the look","Describe lighting, palette, camera movement and mood.","Keep it restrained and cinematic."),
+  T("Write the production prompt","Turn the concept into a ready-to-use text-to-video prompt."),
+  T("Review and refine","Critique the current draft and suggest the strongest improvement.")]},
+ world:{name:"Worldbuilding",ctx:"An original fictional world and its history.",items:[
+  T("Map the world","Describe geography, regions and how they connect."),
+  T("Create a character","Build a character with a want, a flaw and a secret."),
+  T("Shape the history","Explore the key events and turning points of this world."),
+  T("Define the rules","Set what is possible, what is forbidden, and the cost of each."),
+  T("Tell a story from here","Begin a short story set in this world and ask where to go next."),
+  T("Find the contradictions","List gaps or contradictions in the world so far.")]},
+ game:{name:"Interactive game",ctx:"A text-based interactive adventure.",items:[
+  T("Start a new adventure","Begin an adventure and describe the opening scene."),
+  T("Continue the story","Move the story forward from where we stopped.","Give 3 numbered options at the end."),
+  T("Check my inventory","Show what I carry and what each item might do."),
+  T("Meet a character","Introduce someone nearby and let me talk to them."),
+  T("Raise the stakes","Add a complication that changes my plan."),
+  T("Save and summarize","Summarize the story so far so I can continue later.")]},
+ research:{name:"Research & learning",ctx:"Learning a topic with evidence kept separate from interpretation.",items:[
+  T("Explain it simply","Give the plain-language version with one everyday example."),
+  T("Show the evidence","List the sources and what each one actually supports."),
+  T("Separate interpretation","Mark what is evidence and what is interpretation."),
+  T("State the open questions","Name what is unresolved or contested.","Do not guess."),
+  T("Quiz me","Ask me five questions to test understanding.")]},
+ phil:{name:"Philosophical dialogue",ctx:"A reflective conversation on a question I care about.",items:[
+  T("Define my question","Help me state the question precisely before we explore it."),
+  T("Explore the strongest view","Present the strongest case for the main position."),
+  T("Challenge it","Raise the best objection and let me respond."),
+  T("Look for common ground","Find what opposing views might share."),
+  T("Bring it back to life","Connect the idea to a real decision or experience of mine.")]}
+};
+var items=[],ctx="",mediumCtx=load('v21-medium-context',null),depth="Full Research / Complete Sources",aff=true,draftTouched=false;
+(function init(){
+  var s=load("menu",null);
+  if(s&&s.items&&s.items.length){draftTouched=true;items=s.items;ctx=s.ctx||"";depth=s.depth||depth;aff=s.aff!==false}
+  else{var t=TPL.film;items=t.items.map(function(x){return{label:x.label,desc:x.desc,act:x.act}});ctx=t.ctx}
+  // V2 used one context for both paths. Preserve non-template V2 edits if Medium was visited.
+  if(typeof mediumCtx!=='string')mediumCtx=(state.steps.medium>0&&ctx!==TPL.film.ctx)?ctx:'';
+  $("ctx").value=ctx;$("depth").value=depth;$("aff").checked=aff;$("affOn").checked=aff;
+  $("tpls").innerHTML=Object.keys(TPL).map(function(k){return '<button class="chip" type="button" data-t="'+k+'">'+esc(TPL[k].name)+'</button>'}).join("")+'<button class="chip" type="button" data-t="blank">Blank</button>';
+})();
+function persist(){save("menu",{items:items,ctx:ctx,depth:depth,aff:aff})}
+function errorsFor(it,i){
+  var e=[];
+  if(!it.label.trim())e.push("Add a title.");
+  if(it.label.length>LIM.label)e.push("Title is over "+LIM.label+" characters.");
+  if(!it.desc.trim())e.push("Add a short description.");
+  if(it.desc.length>LIM.desc)e.push("Description is over "+LIM.desc+" characters.");
+  if(it.act.length>LIM.act)e.push("Special instruction is over "+LIM.act+" characters.");
+  var k=it.label.trim().toLowerCase();
+  if(k)items.forEach(function(o,j){if(j!==i&&o.label.trim().toLowerCase()===k)e.indexOf("Titles must be unique.")<0&&e.push("Titles must be unique.")});
+  return e;
+}
+function cntHtml(n,max){return '<span class="cnt'+(n>max?" over":"")+'">'+n+"/"+max+"</span>"}
+function renderItems(){
+  $("items").innerHTML=items.map(function(it,i){
+    return '<div class="item" data-i="'+i+'"><div class="hd"><b>Choice '+(i+1)+'</b><span>'+
+     '<button class="mini" type="button" data-a="up"'+(i===0?" disabled":"")+' aria-label="Move choice '+(i+1)+' up">↑</button> '+
+     '<button class="mini" type="button" data-a="down"'+(i===items.length-1?" disabled":"")+' aria-label="Move choice '+(i+1)+' down">↓</button> '+
+     '<button class="mini" type="button" data-a="remove"'+(items.length===1?" disabled":"")+' aria-label="Remove choice '+(i+1)+'">Remove</button></span></div>'+
+     '<label class="f">Menu choice title<span class="cnt-l" data-c="label">'+cntHtml(it.label.length,LIM.label)+'</span><input type="text" data-f="label" maxlength="'+(LIM.label+40)+'" value="'+esc(it.label)+'"></label>'+
+     '<label class="f">What this choice should help the user do<span data-c="desc">'+cntHtml(it.desc.length,LIM.desc)+'</span><textarea data-f="desc" rows="2" maxlength="'+(LIM.desc+60)+'">'+esc(it.desc)+'</textarea></label>'+
+     '<label class="f">Special instruction, optional<span data-c="act">'+cntHtml(it.act.length,LIM.act)+'</span><input type="text" data-f="act" maxlength="'+(LIM.act+60)+'" value="'+esc(it.act)+'"></label>'+
+     '<div class="err" data-e></div></div>';
+  }).join("");
+  $("addItem").disabled=items.length>=LIM.max;
+  refresh();
+}
+function validMenu(){return items.length>=1&&items.length<=LIM.max&&items.every(function(it,i){return !errorsFor(it,i).length;});}
+function refresh(){
+  var bad=0;
+  [].forEach.call(document.querySelectorAll("#items .item"),function(el){
+    var i=+el.dataset.i,e=errorsFor(items[i],i);
+    el.classList.toggle("bad",e.length>0);el.querySelector("[data-e]").textContent=e.join(" ");
+    if(e.length)bad++;
+  });
+  $("cntLabel").textContent=items.length+" / "+LIM.max+" choices";
+  $("copyMenu").disabled=$("dlMenu").disabled=$("copyRecipe").disabled=bad>0;
+  $("copySheet").disabled=active==='advanced'&&bad>0;
+  $("recipeStatus").textContent=bad?"Resolve all menu errors before copying the Studio setup recipe.":"All menu choices are valid. The recipe can be copied.";
+  $("menuStatus").textContent=bad?"Fix highlighted choices before exporting the menu or its setup recipe.":"Ready. Titles are unique and within Studio’s limits.";
+  renderPreview();renderPlan();persist();
+}
+function menuText(){
+  return items.map(function(it,i){return (i+1)+". "+it.label.trim()+"\n   "+it.desc.trim()+(it.act.trim()?"\n   Special instruction: "+it.act.trim():"")}).join("\n");
+}
+function renderPreview(){
+  $("preview").innerHTML='<b style="font-family:\'Space Grotesk\',sans-serif;color:var(--primary)">Main Menu</b><ol>'+
+   items.map(function(it){return "<li><b>"+esc(it.label||"Untitled")+"</b><small>"+esc(it.desc)+"</small>"+(it.act.trim()?"<em>Special instruction: "+esc(it.act)+"</em>":"")+"</li>"}).join("")+"</ol>"+
+   '<p class="note" style="margin-bottom:0">Navigation: type <kbd>menu</kbd> or <kbd>0</kbd> to return, reply with a number or name, <kbd>Next</kbd> or <kbd>Go deeper</kbd> to continue, <kbd>Switch to</kbd> a number or name to change pathways.</p>';
+}
+function renderRecipe(){$("recipe").innerHTML=recipeSteps().map(function(x){return "<li>"+x+"</li>"}).join("")}
+function recipePlain(){
+  var tmp=document.createElement("div");
+  return "CUCII Prompt Studio recipe\n\n"+recipeSteps().map(function(x,i){tmp.innerHTML=x;return (i+1)+". "+tmp.textContent}).join("\n")+"\n\nMENU CHOICES\n"+menuText()+"\n\nPrompt Studio: "+STUDIO+"\n";
+}
+$("tpls").addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b)return;
+  if(draftTouched&&!window.confirm('Replace your current menu draft with this template? Your saved changes will be overwritten.'))return;
+  draftTouched=false;
+  if(b.dataset.t==="blank"){items=[{label:"",desc:"",act:""}];ctx="";}
+  else{var t=TPL[b.dataset.t];items=t.items.map(function(x){return{label:x.label,desc:x.desc,act:x.act}});ctx=t.ctx}
+  if(active==="advanced")$("ctx").value=ctx;renderItems();renderPlan();toast("Template loaded — edit anything");
+});
+$("items").addEventListener("input",function(e){
+  var t=e.target,el=t.closest(".item");if(!el||!t.dataset.f)return;
+  var i=+el.dataset.i,f=t.dataset.f;items[i][f]=t.value;draftTouched=true;
+  var map={label:LIM.label,desc:LIM.desc,act:LIM.act};
+  var c=el.querySelector('[data-c="'+f+'"]');if(c)c.innerHTML=cntHtml(t.value.length,map[f]);
+  refresh();
+});
+$("items").addEventListener("click",function(e){
+  var b=e.target.closest("button[data-a]");if(!b)return;
+  var i=+b.closest(".item").dataset.i,a=b.dataset.a;draftTouched=true;
+  if(a==="remove"&&items.length>1)items.splice(i,1);
+  else if(a==="up"&&i>0){var x=items[i];items[i]=items[i-1];items[i-1]=x}
+  else if(a==="down"&&i<items.length-1){var y=items[i];items[i]=items[i+1];items[i+1]=y}
+  var newIndex=a==="up"?Math.max(0,i-1):a==="down"?Math.min(items.length-1,i+1):Math.min(i,items.length-1);
+  renderItems();
+  var ctrl=document.querySelector('.item[data-i="'+newIndex+'"] [data-a="'+(a==="remove"?'remove':a)+'"]');
+  if(ctrl&&!ctrl.disabled)ctrl.focus();else{var first=document.querySelector('.item[data-i="'+newIndex+'"] [data-f="label"]');if(first)first.focus()}
+});
+$("addItem").addEventListener("click",function(){
+  if(items.length>=LIM.max)return;draftTouched=true;items.push({label:"",desc:"",act:""});renderItems();
+  var last=$("items").lastElementChild;if(last)last.querySelector("input").focus();
+});
+$("ctx").addEventListener("input",function(){if(active==='medium'){mediumCtx=this.value;save('v21-medium-context',mediumCtx)}else{draftTouched=true;ctx=this.value;persist()}renderPlan()});
+$("depth").addEventListener("change",function(){depth=this.value;renderRecipe();persist();renderPlan()});
+$("aff").addEventListener("change",function(){setAffirmation(this.checked)});
+$("copyMenu").addEventListener("click",function(){if(!validMenu())return toast("Fix menu errors before copying");copy(menuText(),"Menu copied");});
+$("dlMenu").addEventListener("click",function(){if(!validMenu())return toast("Fix menu errors before download");download("cucii-menu.txt",menuText()+"\n");});
+$("copyRecipe").addEventListener("click",function(){if(!validMenu())return toast("Fix menu errors before copying the recipe");copy(recipePlain(),"Recipe copied")});
+$("resetMenu").addEventListener("click",function(){if(!window.confirm("Reset your menu draft? This replaces your saved choices."))return;draftTouched=false;var t=TPL.film;items=t.items.map(function(x){return{label:x.label,desc:x.desc,act:x.act}});ctx=t.ctx;if(active==='advanced')$("ctx").value=ctx;renderItems();renderPlan();toast("Draft reset")});
+
+
+/* Shared Medium + Advanced settings plan; no automatic Studio configuration. */
+var options=load('v2-options',{purpose:"God's Free Will Exploration",mode:'Role-play',persona:"God's Free Will",menuMode:'none'});
+if(!options||typeof options!=='object')options={};
+['purpose','mode','persona','menuMode'].forEach(function(x){if(typeof options[x]==='string')$(x).value=options[x]});
+function effectiveMenuMode(){return active==='advanced'?'custom':options.menuMode;}
+function activeContext(){return active==='medium'?mediumCtx:ctx;}
+function syncPathSettings(){
+ $('ctx').value=activeContext();
+ $('menuMode').disabled=active==='advanced';
+ $('menuMode').value=effectiveMenuMode();
+ $('menuMode').title=active==='advanced'?'Advanced requires Custom menu. Switch to Medium for other menu modes.':'';
+ $('aff').checked=aff;$('affOn').checked=aff;
+ renderPlan();
+}
+function renderPlan(){
+ options={purpose:$('purpose').value,mode:$('mode').value,persona:$('persona').value,menuMode:active==='advanced'?options.menuMode:$('menuMode').value};
+ save('v2-options',options);
+ var mode=effectiveMenuMode(),context=activeContext();
+ $('planNudge').hidden=mode!=='custom';
+ var lines=['CUCII Studio settings plan — not the operating prompt','',
+  'Purpose: '+options.purpose,'Conversation mode: '+options.mode,'Persona: '+options.persona,
+  'Menu mode: '+(mode==='none'?'No menu':mode==='preset'?'Preset menu':'Custom menu ('+items.length+' choices drafted)'),
+  'Prompt depth: '+depth,'Affirmation Protocol: '+(aff?'enabled':'disabled'),
+  'Optional project context: '+(context.trim()||'None'),'','Enter these settings manually in Prompt Studio: '+STUDIO];
+ $('sheet').textContent=lines.join('\n');
+ $('copySheet').disabled=active==='advanced'&&!validMenu();
+ renderRecipe();
+}
+function recipeSteps(){
+ var s=['In Prompt Studio, choose <b>Customize This Configuration</b> and set <b>Custom menu</b>.',
+ 'Choose purpose <b>'+esc(options.purpose||"God's Free Will Exploration")+'</b>, mode <b>'+esc(options.mode||'Role-play')+'</b>, persona <b>'+esc(options.persona||"God's Free Will")+'</b>.',
+ 'Select prompt depth <b>'+esc(depth)+'</b>.',
+ 'Enter your <b>'+items.length+'</b> valid custom menu choice(s) using <b>Add another menu choice</b>.'];
+ if(ctx.trim())s.push('Add optional project context: <b>'+esc(ctx.trim())+'</b>.');
+ s.push(aff?'Enable <b>Affirmation Protocol</b>.':'Leave <b>Affirmation Protocol</b> disabled.');
+ s.push('Click <b>Generate and Review Prompt</b>, then <b>Copy Full Operating Prompt</b>. Paste it into a new AI chat.');
+ return s;
+}
+['purpose','persona','mode','menuMode'].forEach(function(id){$(id).addEventListener('input',renderPlan);$(id).addEventListener('change',renderPlan)});
+$('copySheet').addEventListener('click',function(){copy($('sheet').textContent,'Settings plan copied')});
+renderPlan();
+
+/* LinkedIn share drafts are editable and persist separately per path. */
+function suggestedPost(p){var title={easy:'I tried a CUCII Prompt Studio experience',medium:'I customized an AI conversation using CUCII',advanced:'I built an interactive AI menu with CUCII'}[p];return title+'\n\nI used CUCII Prompt Studio to design an authored AI conversation. '+({easy:'I chose a preset, generated the operating prompt, and tested it in a new AI chat.',medium:'I customized the purpose, persona and conversation settings before generating and testing the operating prompt.',advanced:'I drafted custom menu choices, entered them in Prompt Studio, generated the operating prompt, and tested how people can navigate it.'}[p])+'\n\nThis is a creative and philosophical role-play experience, not a claim that an AI has acquired religious belief or consciousness. Results vary by platform.\n\nExplore the Creator Guide: '+GUIDE+'\nTry Prompt Studio: '+STUDIO+'\n\n#CUCII #PromptEngineering #AICreativity';}
+$('sharePost').addEventListener('input',function(){if(!active)return;posts[active]=this.value;save('v2-posts',posts)});
+$('copyPost').addEventListener('click',function(){copy($('sharePost').value,'Edited post copied')});
+$('resetPost').addEventListener('click',function(){if(!active)return;if(!window.confirm('Replace your edited share text with the suggested draft?'))return;posts[active]=suggestedPost(active);$('sharePost').value=posts[active];save('v2-posts',posts)});
+
+/* Responsive height + optional parent scrolling, required for embedded Hugo mode. */
+function report(){if(window.top===window)return;var main=document.querySelector('main');var h=Math.ceil(main.getBoundingClientRect().height)+8;if(window.__lastH===h)return;window.__lastH=h;try{parent.postMessage({type:'artifact-height',height:h},'*')}catch(e){}}
+window.addEventListener('resize',report);
+window.addEventListener('load',report);
+if(window.ResizeObserver)new ResizeObserver(report).observe(document.querySelector('main'));
+document.addEventListener('load',function(){report()},true);
+
+renderItems();
+fromHash();
+updateResume();
+report();
+})();
+
+</script></body></html>

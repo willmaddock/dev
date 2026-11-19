@@ -7,3 +7,5 @@ description: "Interactive explainers and small standalone tools by William Maddo
 Self-contained interactive pieces I build to explain something clearly: charts you can tap, calculators with sliders, and the sources behind them. Each one has its own page and a full-screen view.
 
 **New:** [Career Quest — Interactive Resume](career-quest/) lets visitors explore software projects, skills, education, credentials and complete career history in one accessible experience.
+
+**New:** [CUCII Prompt Studio — Creator Guide](prompt-studio-creator-guide/) offers Easy, Medium, and Advanced paths for learning Prompt Studio, testing a conversation, and building a custom interactive menu.

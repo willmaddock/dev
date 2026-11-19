@@ -4,15 +4,30 @@
 {{- $src := .Get "src" | relURL -}}
 {{- $title := .Get "title" | default "Interactive artifact" -}}
 {{- $h := .Get "height" | default "900" -}}
+{{- /* Cache-bust the embedded page on every build so browsers never reuse a stale copy. */ -}}
+{{- $frameSrc := printf "%s?v=%d" $src now.Unix -}}
 <div class="artifact-embed">
-  <iframe class="artifact-frame" src="{{ $src }}" title="{{ $title }}" loading="lazy" style="height: {{ $h }}px"></iframe>
+  <iframe class="artifact-frame" src="{{ $frameSrc }}" title="{{ $title }}" loading="lazy" style="height: {{ $h }}px"></iframe>
   <p class="artifact-open"><a href="{{ $src }}" target="_blank" rel="noopener">Open full screen</a></p>
 </div>
 <script>
 window.addEventListener("message", function (e) {
-  if (!e.data || e.data.type !== "artifact-height") return;
+  if (!e.data || !e.data.type) return;
   document.querySelectorAll(".artifact-frame").forEach(function (f) {
-    if (f.contentWindow === e.source) f.style.height = e.data.height + "px";
+    if (f.contentWindow !== e.source) return;
+    if (e.data.type === "artifact-height") {
+      var h = Number(e.data.height);
+      if (Number.isFinite(h) && h >= 420 && h <= 100000) f.style.height = Math.ceil(h) + "px";
+    }
+    if (e.data.type === "artifact-scroll") {
+      var y = Number(e.data.y);
+      if (!Number.isFinite(y)) return;
+      var target = f.getBoundingClientRect().top + y;
+      if (target < 75 || target > window.innerHeight * 0.7) {
+        var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        window.scrollBy({top: target - 88, behavior: calm ? "auto" : "smooth"});
+      }
+    }
   });
 });
 </script>
